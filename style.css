@@ -25,10 +25,10 @@ body {
     margin-right: 24px;
     margin-bottom: 24px;
 
-    /* End of body style*/
+    /* End of body style */
 }
 
-/* p text style*/
+/* p text style */
 p {
     /* Set font to Times new roman*/
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -39,7 +39,7 @@ p {
     /* End of p style */
 }
 
-/* h1 text style*/
+/* h1 text style, title */
 h1 {
     /* Set font to Times new roman*/
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -47,13 +47,13 @@ h1 {
     /* Set font size to */
     font-size: 40px;
 
-    /* Set font to bold*/
+    /* Set font to bold */
     font-weight: bold;
 
     /* End of h1 style */
 }
 
-/* h2 text style*/
+/* h2 text style, bold*/
 h2 {
     /* Set font to Times new roman*/
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -61,11 +61,24 @@ h2 {
     /* Set size to */
     font-size: 24px;
 
-    /* Set font to bold*/
+    /* Set font to bold */
     font-weight: bold;
 
     /* End of h2 style */
 }
 
+/* h3 text style, slanted*/
+h3 {
+    /* Set font to Times new roman*/
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+    /* Set size to */
+    font-size: 24px;
+
+    /* Set font to bold */
+    font-style: oblique;
+
+    /* End of h3 style */
+}
 
 

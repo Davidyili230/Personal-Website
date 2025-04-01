@@ -28,8 +28,49 @@
     <!--Body of webpage, what user see-->
     <body>
         <!--I want a navigation bar first-->
+        <div class="navigationBar">
+            <nav>
+                <!--When button clicked, scroll to section-->
+                <button class="nav-btn" onclick="scrollToSection('Biography')">BIOGRAPHY</button>
+                <button class="nav-btn" onclick="scrollToSection('Working Experience')">WORKING EXPERIECE</button>
+                <button class="nav-btn" onclick="scrollToSection('Projects')">PROJETCS</button>
+                <button class="nav-btn" onclick="scrollToSection('Contact')">CONTACT</button>
+            </nav>
+        </div>
         
+        <!--Biography Section-->
+        <div>
+            <section id="Biography">
+                <h2>About Us</h2>
+                <p>This is the About section.</p>
+            </section>
+        </div>
+
+        <!--Working Experience Section-->
+        <div>
+            <section id="Working Experience">
+                <h2>Our Services</h2>
+                <p>This is the Services section.</p>
+            </section>
+        </div>
+
+        <!--Projects Section-->
+        <div>
+            <section id="Projects">
+                <h2>Contact Us</h2>
+                <p>This is the Contact section.</p>
+            </section>
+        </div>
         
+        <!--Contact Information Section-->
+        <div>
+            <section id="Contact">
+                <h2>Contact Us</h2>
+                <p>This is the Contact section.</p>
+            </section>
+        </div>
+
+            <script src="script.js"></script>
     </body>
 
     <footer>

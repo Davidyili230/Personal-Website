@@ -179,3 +179,18 @@ margin-top: 85px; /* margin top 100px */
     Entire Webpage format style, id
 
 */
+
+/**/
+
+/* Make specific text in center*/
+#text-center {
+    text-align: center;
+}
+
+/* Center item to middle of screen */
+#item-space-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    ;
+}

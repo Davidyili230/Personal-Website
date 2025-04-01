@@ -91,3 +91,11 @@ button {
 
     /* End of button style*/
 }
+
+/* button hover sytle */
+button:hover {
+    color: gray; /* change color gray */
+
+    /* End of button hover style*/
+}
+

@@ -55,7 +55,7 @@ h3 {
     /* Set font to Georgia, TNR, serif */
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 24px; /* Set size to */
-    font-style: oblique; /* Set font to bold */
+    font-style: oblique; /* Set font to oblique */
 
     /* End of h3 style */
 }
@@ -94,8 +94,7 @@ button {
     cursor: pointer; /* When cursor hovers, turn to pointer */
     margin-left: 24px; /* margin left 24px */
     margin-right: 24px; /* margin right 24px */
-    padding-left: 24px; /* padding left 24px */
-    padding-right: 24px; /* padding right 24px */
+    padding: 6px 24px; /* padding T&B 6px, L&R 24px
 
     /* End of button style*/
 }
@@ -114,7 +113,7 @@ button:hover {
 */
 
 /* navigation bar format */
-.navigationBar {
+.navigation-bar {
     display: flex; /* allow to align */
     justify-content:space-evenly; /* space evenly between item and margin */
     align-items: center; /* align all item center of screen */
@@ -122,6 +121,23 @@ button:hover {
     background-color: antiquewhite; /* solid background so cant see through */
     padding-top: 16px; /* padding top widder */
     padding-bottom: 16px; /* padding bottom widder */
+    overflow: hidden; /* prevent overflow */
+    width: 100%; /* prevent space overlap*/
+    margin-top: -65px; /* prevent moving away from top, section-container */
 
     /* End of navigation bar format */
+}
+
+/* section container, a whole part of a section */
+.section-container {
+margin-top: 65px; /* margin top 100px */
+    /* end of section-container */
+}
+
+/* section items */
+.section-Item {
+    margin: 50px;
+    padding: 30px;
+    border: 1px;
+    border-style: double;
 }

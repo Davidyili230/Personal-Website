@@ -30,84 +30,86 @@
     <!--Body of webpage, what user see-->
     <body>
         <!--I want a navigation bar first-->
-        <div class="navigationBar">
+        <div class="navigation-bar">
             <nav>
-                <!--When button clicked, scroll to section-->
-                <button class="nav-btn" onclick="scrollToSection('Biography')">BIOGRAPHY</button>
-                <button class="nav-btn" onclick="scrollToSection('Working Experience')">WORKING EXPERIECE</button>
-                <button class="nav-btn" onclick="scrollToSection('Project')">PROJECT</button>
-                <button class="nav-btn" onclick="scrollToSection('Contact')">CONTACT</button>
+                <!--When button clicked, scroll to section-Item-->
+                <button class="nav-btn" onclick="scrollTosection-Item('Biography')">BIOGRAPHY</button>
+                <button class="nav-btn" onclick="scrollTosection-Item('Working Experience')">WORKING EXPERIECE</button>
+                <button class="nav-btn" onclick="scrollTosection-Item('Project')">PROJECT</button>
+                <button class="nav-btn" onclick="scrollTosection-Item('Contact')">CONTACT</button>
             </nav>
         </div>
         
-        <!--Biography Section-->
-        <div class="section">
-            <section id="Biography">
-                <!--Start of Section-->
-                <h1>Yi 'David' Li</h1>
-
-                <!--Attach a photograph of ME-->
-                <img id="" src="" alt="">
-
-                <!--Information about me-->
-                <p>Hi, my name is Yi but because a lot people cannot pronounce it correctly since elementary. I'm known to be called as David. I'm currently a senior studying at CUNY Hunter college for Computer Science Degree. This webpage is my first personal project I would be working on. I will update this webpage everytime I have a new update and I will create some games using language C++ and attach to the Project section.</p>
-            </section>
-            <!--End of Biography Section-->
-        </div>
-
-        <!--Working Experience Section-->
-        <div class="section">
-            <section id="Working Experience">
-                <!--Start of Section-->
-                <!--h1: Title size-->
-                <h1>Working Experience</h1>
-
-                <!--h2: Bolded-->
-                <h2>Zhang & Cheng Medical P.C.</h2>
-
-                <!--h3: slanted-->
-                <h3>January 2022 - Present</h3>
-
-                <!--h4: normal text-->
-                <h4>Medical Receptionist</h4>
-                <h4>Brooklyn, New York</h4>
-
-                <!--List an bullet point-->
-                <ul>
-                    <li>1</li>
-                    <li>2</li>
-                    <li>3</li>
-                    <li>4</li>
-                </ul>
-
-                <!--h4: normal text-->
-                <h4>Medical Assistance</h4>
-                <ul>
-                    <li>1</li>
-                    <li>2</li>
-                    <li>3</li>
-                    <li>4</li>
-                </ul>
-                <!--End of Working Experience-->
-            </section>
-        </div>
-
-        <!--Project Section-->
-        <div class="section">
-            <section id="Project">
-                <!--Start of Section-->
-                <h1>Project</h1>
-                <p>This is the Project section.</p>
-            </section>
-        </div>
-        
-        <!--Contact Information Section-->
-        <div class="section">
-            <section id="Contact">
-                <!--Start of Section-->
-                <h1>Contact</h1>
-                <p>This is the Contact section.</p>
-            </section>
+        <!--Biography section-Item-->
+        <div class="section-container">
+            <div class="section-Item">
+                <section-Item id="Biography">
+                    <!--Start of section-Item-->
+                    <h1>Yi 'David' Li</h1>
+    
+                    <!--Attach a photograph of ME-->
+                    <img id="" src="" alt="">
+    
+                    <!--Information about me-->
+                    <p>Hi, my name is Yi but because a lot people cannot pronounce it correctly since elementary. I'm known to be called as David. I'm currently a senior studying at CUNY Hunter college for Computer Science Degree. This webpage is my first personal project I would be working on. I will update this webpage everytime I have a new update and I will create some games using language C++ and attach to the Project section-Item.</p>
+                </section-Item>
+                <!--End of Biography section-Item-->
+            </div>
+    
+            <!--Working Experience section-Item-->
+            <div class="section-Item">
+                <section-Item id="Working Experience">
+                    <!--Start of section-Item-->
+                    <!--h1: Title size-->
+                    <h1>Working Experience</h1>
+    
+                    <!--h2: Bolded-->
+                    <h2>Zhang & Cheng Medical P.C.</h2>
+    
+                    <!--h3: slanted-->
+                    <h3>January 2022 - Present</h3>
+    
+                    <!--h4: normal text-->
+                    <h4>Medical Receptionist</h4>
+                    <h4>Brooklyn, New York</h4>
+    
+                    <!--List an bullet point-->
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                    </ul>
+    
+                    <!--h4: normal text-->
+                    <h4>Medical Assistance</h4>
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                    </ul>
+                    <!--End of Working Experience-->
+                </section-Item>
+            </div>
+    
+            <!--Project section-Item-->
+            <div class="section-Item">
+                <section-Item id="Project">
+                    <!--Start of section-Item-->
+                    <h1>Project</h1>
+                    <p>This is the Project section-Item.</p>
+                </section-Item>
+            </div>
+            
+            <!--Contact Information section-Item-->
+            <div class="section-Item">
+                <section-Item id="Contact">
+                    <!--Start of section-Item-->
+                    <h1>Contact</h1>
+                    <p>This is the Contact section-Item.</p>
+                </section-Item>
+            </div>
         </div>
 
             <script src="script.js"></script>

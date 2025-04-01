@@ -11,7 +11,7 @@ body {
     background-color: antiquewhite;
 
     /* Set font style to times new roman, or Times or Serif */
-    font-family: 'Times New Roman', Times, serif, Arial;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 
     /* Set font size to 16px */
     font-size: 16px;
@@ -26,4 +26,13 @@ body {
     margin-bottom: 24px;
 
     /* End of body style*/
+}
+
+/* h1 text style*/
+h1 {
+    /* Set font to Times new roman*/
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+    /* Set size to */
+    font-size: 40px;
 }

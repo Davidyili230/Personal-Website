@@ -33,7 +33,7 @@ p {
     /* Set font to Times new roman*/
     font-family: Georgia, 'Times New Roman', Times, serif;
 
-    /* Set size to */
+    /* Set font size to */
     font-size: 24px;
 
     /* End of p style */
@@ -44,8 +44,28 @@ h1 {
     /* Set font to Times new roman*/
     font-family: Georgia, 'Times New Roman', Times, serif;
 
-    /* Set size to */
+    /* Set font size to */
     font-size: 40px;
+
+    /* Set font to bold*/
+    font-weight: bold;
 
     /* End of h1 style */
 }
+
+/* h2 text style*/
+h2 {
+    /* Set font to Times new roman*/
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+    /* Set size to */
+    font-size: 24px;
+
+    /* Set font to bold*/
+    font-weight: bold;
+
+    /* End of h2 style */
+}
+
+
+

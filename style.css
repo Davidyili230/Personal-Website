@@ -14,7 +14,7 @@ body {
     font-family: Georgia, 'Times New Roman', Times, serif;
 
     /* Set font size to 16px */
-    font-size: 16px;
+    font-size: 24px;
 
     /* Set font color to black*/
     color: black;
@@ -28,6 +28,17 @@ body {
     /* End of body style*/
 }
 
+/* p text style*/
+p {
+    /* Set font to Times new roman*/
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+    /* Set size to */
+    font-size: 24px;
+
+    /* End of p style */
+}
+
 /* h1 text style*/
 h1 {
     /* Set font to Times new roman*/
@@ -35,4 +46,6 @@ h1 {
 
     /* Set size to */
     font-size: 40px;
+
+    /* End of h1 style */
 }

@@ -7,89 +7,87 @@
 
 /* Entire Webpage style */
 body {
-    /* Set BG color to antique white */
-    background-color: antiquewhite;
-
     /* Set font style to times new roman, or Times or Serif */
     font-family: Georgia, 'Times New Roman', Times, serif;
-
-    /* Set font size to 16px */
-    font-size: 24px;
-
-    /* Set font color to black*/
-    color: black;
-
-    /* Change default padding and margins */
-    margin-top: 24px;
-    margin-left: 24px;
-    margin-right: 24px;
-    margin-bottom: 24px;
+    background-color: antiquewhite; /* Set BG color to antique white */
+    font-size: 24px; /* Set font size to 24px */
+    color: black; /* Set font color to black */
+    margin: 24px; /* Change default padding and margins */
 
     /* End of body style */
 }
 
 /* p text style */
 p {
-    /* Set font to Times new roman*/
+    /* Set font to Georgia, TNR, serif */
     font-family: Georgia, 'Times New Roman', Times, serif;
-
-    /* Set font size to */
-    font-size: 24px;
+    font-size: 24px; /* Set font size to */
 
     /* End of p style */
 }
 
 /* h1 text style, title */
 h1 {
-    /* Set font to Times new roman*/
+    /* Set font to Georgia, TNR, serif */
     font-family: Georgia, 'Times New Roman', Times, serif;
-
-    /* Set font size to */
-    font-size: 40px;
-
-    /* Set font to bold */
-    font-weight: bold;
+    font-size: 40px; /* Set font size to */
+    font-weight: bold; /* Set font to bold */
 
     /* End of h1 style */
 }
 
-/* h2 text style, bold*/
+/* h2 text style, bold */
 h2 {
-    /* Set font to Times new roman*/
+    /* Set font to Georgia, TNR, serif */
     font-family: Georgia, 'Times New Roman', Times, serif;
-
-    /* Set size to */
-    font-size: 24px;
-
-    /* Set font to bold */
-    font-weight: bold;
+    font-size: 24px; /* Set size to */
+    font-weight: bold; /* Set font to bold */
 
     /* End of h2 style */
 }
 
-/* h3 text style, slanted*/
+/* h3 text style, slanted */
 h3 {
-    /* Set font to Times new roman*/
+    /* Set font to Georgia, TNR, serif */
     font-family: Georgia, 'Times New Roman', Times, serif;
-
-    /* Set size to */
-    font-size: 24px;
-
-    /* Set font to bold */
-    font-style: oblique;
+    font-size: 24px; /* Set size to */
+    font-style: oblique; /* Set font to bold */
 
     /* End of h3 style */
 }
 
-/* h4 text style, normal text*/
+/* h4 text style, normal text */
 h4 {
-    /* Set font to Times new roman*/
-    font-family: Georgia, 'Times New Roman', Times, serif;
-
-    /* Set size to */
-    font-size: 24px;
+    /* Set font to Georgia, TNR, serif */
+    font-family: Georgia, 'Times New Roman', Times, serif; /* Set font to Times new roman*/
+    font-size: 24px; /* Set size to */
 
     /* End of h4 style */
 }
 
+/* ul list text style, disc*/
+ul {
+    /* Set font to Georgia, TNR, serif */
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 24px;
+    padding-left: 48px; /* Set padding left 48px */
+    padding-right: 48px; /* Set padding right 48px */
+    list-style: disc; /* Set list to disc */
 
+    
+    /* End of ul list style */
+}
+
+/* button style */
+button {
+    /* Set font to Georgia, TNR, serif */
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: antiquewhite; /* BG color to antique white */
+    font-size: 20px; /* font size 20px */
+    border: 0; /* no border, get rid of border line */
+    text-align: center; /* text in center */
+    cursor: pointer; /* When cursor hovers, turn to pointer */
+    margin-bottom: 24px; /* margin bottom so doesnt touch h1 */
+
+    /* End of button style*/
+}

@@ -15,7 +15,7 @@
         <title>Davidyili Webpage</title>
 
         <!--Tab icon, on href add "images/**imageName**.jpg"-->
-        <link rel="icon" href="img/user.png">
+        <link rel="icon" href="img/user.png" alt="Yi Li's Profile Picture">
 
         <!--Support special char, makes webpage scale on diff device-->
         <meta charset="utf-8">
@@ -33,10 +33,10 @@
         <div class="navigation-bar">
             <nav>
                 <!--When button clicked, scroll to section-item-->
-                <button class="nav-btn" onclick="scrollTosection-item('Biography')">BIOGRAPHY</button>
-                <button class="nav-btn" onclick="scrollTosection-item('Working Experience')">WORKING EXPERIECE</button>
-                <button class="nav-btn" onclick="scrollTosection-item('Project')">PROJECT</button>
-                <button class="nav-btn" onclick="scrollTosection-item('Contact')">CONTACT</button>
+                <button onclick="scrollToSection('Biography')" aria-label="Scroll to Biography section">BIOGRAPHY</button>
+                <button onclick="scrollToSection('Working Experience')" aria-label="Scroll to Working Experience section">WORKING EXPERIENCE</button>
+                <button onclick="scrollToSection('Project')" aria-label="Scroll to Project section">PROJECT</button>
+                <button onclick="scrollToSection('Contact')" aria-label="Scroll to Contact section">CONTACT</button>
             </nav>
         </div>
         
@@ -48,19 +48,19 @@
                 <div class="section-center">
                     <!--part left-->
                     <div class="section-left">
-                    <section-item id="Biography">
-                        <!--Start of section-item-->
-                        <h1>Yi 'David' Li</h1>
+                        <section id="Biography">
+                            <!--Start of section-item-->
+                            <h1>Yi 'David' Li</h1>
           
-                        <!--Information about me-->
-                        <p>Hi, my name is Yi but because a lot people cannot pronounce it correctly since elementary. Thus, I'm known to be called as David. I'm currently a senior studying at CUNY Hunter college for Computer Science Degree. This webpage is my first personal project I would be working on. I will update this webpage everytime I have a new idea or a new status and I will create some games using language C++ and attach to the Project section.</p>
-                    </section-item>
-                    </div>
+                            <!--Information about me-->
+                            <p>Hi, my name is Yi but because a lot people cannot pronounce it correctly since elementary. Thus, I'm known to be called as David. I'm currently a senior studying at CUNY Hunter college for Computer Science Degree. This webpage is my first personal project I would be working on. I will update this webpage everytime I have a new idea or a new status and I will create some games using language C++ and attach to the Project section.</p>
 
-                    <!--part right-->
-                    <div class="section-right">
-                        <!--Attach a photograph of ME-->
-                        <img src="img/user.png" alt="profile-picture" width="72%">
+                            <!--part right-->
+                            <div class="section-right">
+                                <!--Attach a photograph of ME-->
+                                <img src="img/user.png" alt="Yi Li's Profile Picture" width="75%">
+                            </div>
+                        </section>
                     </div>
                 </div>
 
@@ -69,7 +69,7 @@
     
             <!--Working Experience section-item-->
             <div class="section-item">
-                <section-item id="Working Experience">
+                <section id="Working Experience">
                     <!--Start of section-item-->
 
                     <!--Top section-->
@@ -161,12 +161,12 @@
                     </ul>
 
                     <!--End of Working Experience-->
-                </section-item>
+                </section>
             </div>
     
             <!--Project section-item-->
             <div class="section-item">
-                <section-item id="Project">
+                <section id="Project">
                     <!--Start of section-item-->
                     <h1>Project</h1>
 
@@ -202,12 +202,12 @@
                     </ul>
 
                     <!--End of Working Experience-->
-                </section-item>
+                </section>
             </div>
             
             <!--Contact Information section-item-->
             <div class="section-item">
-                <section-item id="Contact">
+                <section id="Contact">
                     <!--Start of section-item-->
                     <h1 id="text-center">Contact</h1>
                     <h4 id="text-center">Feel free to get in touch. You can email me at:<br/>Davidyili230@gmail.com</h4>
@@ -229,7 +229,7 @@
                             <img src="img/twitter.png" alt="twitter" width="24" length="24" style="margin: 20px;">
                         </a>
                     </div>
-                </section-item>
+                </section>
             </div>
         </div>
 

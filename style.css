@@ -192,17 +192,3 @@ margin-top: 85px auto; /* margin top 100px */
     align-items: center;
     ;
 }
-
-@media (max-width: 768px) {
-    .section-container {
-        margin-top: 20px;
-    }
-    .section-item {
-        margin: 10px;
-        padding: 15px;
-    }
-    .section-left, .section-right {
-        width: 100%;
-        text-align: center;
-    }
-}

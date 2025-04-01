@@ -130,14 +130,13 @@ button:hover {
     padding-bottom: 6px; /* padding bottom widder */
     overflow: hidden; /* prevent overflow */
     width: 100%; /* prevent space overlap*/
-    margin-top: -85px; /* prevent moving away from top, section-container */
 
     /* End of navigation bar format */
 }
 
 /* section container, a whole part of a section */
 .section-container {
-margin-top: 85px; /* margin top 100px */
+
     /* end of section-container */
 }
 

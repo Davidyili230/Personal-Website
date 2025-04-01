@@ -95,7 +95,8 @@ button {
 /* button hover sytle */
 button:hover {
     color: gray; /* change color gray */
-
+    font-weight: bold; /* change to bold */
     /* End of button hover style*/
 }
+
 

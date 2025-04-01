@@ -33,7 +33,7 @@ const socialIcons = document.querySelectorAll(".social-icon");
 // Apply filter to icons when dark mode is enabled
 if (document.body.classList.contains("dark-mode")) {
     socialIcons.forEach(icon => {
-        icon.style.filter = 'invert(1) brightness(2)'; // Dark mode icon color (invert and brighten)
+        icon.style.filter = 'invert(1) brightness(0)'; // Dark mode icon color (invert and brighten)
     });
 } else {
     socialIcons.forEach(icon => {

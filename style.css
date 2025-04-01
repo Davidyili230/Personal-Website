@@ -180,6 +180,20 @@ margin-top: 85px; /* margin top 100px */
 
 */
 
+/* give more padding so scrolling will be in place */
+#Biography {
+    padding-top: 20px;
+}
+#Working-Experience {
+    padding-top: 20px;
+}
+#Project {
+    padding-top: 20px;
+}
+#Contact {
+    padding-top: 20px;
+}
+
 /* Make specific text in center*/
 #text-center {
     text-align: center;

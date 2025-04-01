@@ -26,7 +26,7 @@ p {
     /* Set font to Georgia, TNR, serif */
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 24px; /* Set font size to */
-    line-height: 1.5;
+    line-height: 1.5; /* line height */
 
     /* End of p style */
 }
@@ -37,6 +37,7 @@ h1 {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 40px; /* Set font size to */
     font-weight: bold; /* Set font to bold */
+    line-height: 1.5; /* line height */
 
     /* End of h1 style */
 }
@@ -47,6 +48,7 @@ h2 {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 24px; /* Set size to */
     font-weight: bold; /* Set font to bold */
+    line-height: 1.5; /* line height */
 
     /* End of h2 style */
 }
@@ -57,6 +59,7 @@ h3 {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 24px; /* Set size to */
     font-style: oblique; /* Set font to oblique */
+    line-height: 1.5; /* line height */
 
     /* End of h3 style */
 }
@@ -66,6 +69,7 @@ h4 {
     /* Set font to Georgia, TNR, serif */
     font-family: Georgia, 'Times New Roman', Times, serif; /* Set font to Times new roman*/
     font-size: 24px; /* Set size to */
+    line-height: 1.5; /* line height */
 
     /* End of h4 style */
 }
@@ -78,6 +82,7 @@ ul {
     padding-left: 48px; /* Set padding left 48px */
     padding-right: 48px; /* Set padding right 48px */
     list-style: disc; /* Set list to disc */
+    line-height: 1.5; /* line height */
 
     
     /* End of ul list style */
@@ -137,24 +142,39 @@ margin-top: 65px; /* margin top 100px */
 
 /* section items */
 .section-item {
-    margin: 50px;
-    padding: 30px;
-    border: 1px;
-    border-style: double;
+    margin: 50px; /* margin 50px */
+    padding: 30px; /* padding 30px */
+    border: 1px; /* border 1 px */
+    border-style: double; /* border style: line */
 
     /* end of section-item */
 }
 
 /* section left */
 .section-left {
-    width: 50%;
+    width: 50%; /* width is 50% of the box */
+    text-align: start; /* text will be on left */
 
     /* end of section left */
 }
 
 /* section right */
 .section-right {
-    width: 50%;
+    width: 50%; /* width is 50% of the box */
+    text-align: end; /* text will be on right */
 
     /* end of section right */
 }
+
+/* section center */
+.section-center {
+    display: flex; /* divides into 2 parts, L&R */
+
+    /* end of section center */
+}
+
+/* 
+
+    Entire Webpage format style, id
+
+*/

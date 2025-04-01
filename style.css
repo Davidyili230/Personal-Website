@@ -5,14 +5,18 @@
     Document: CSS file, people say "skin of a person"
 */
 
-/* Entire Webpage style */
+/* 
+
+    Entire Webpage font style 
+
+*/
+
 body {
     /* Set font style to times new roman, or Times or Serif */
     font-family: Georgia, 'Times New Roman', Times, serif;
     background-color: antiquewhite; /* Set BG color to antique white */
     font-size: 24px; /* Set font size to 24px */
     color: black; /* Set font color to black */
-    margin: 24px; /* Change default padding and margins */
 
     /* End of body style */
 }
@@ -83,11 +87,15 @@ button {
     /* Set font to Georgia, TNR, serif */
     font-family: Georgia, 'Times New Roman', Times, serif;
     background-color: antiquewhite; /* BG color to antique white */
-    font-size: 20px; /* font size 20px */
+    font-size: 16px; /* font size 16px */
+    font-weight: bold;
     border: 0; /* no border, get rid of border line */
     text-align: center; /* text in center */
     cursor: pointer; /* When cursor hovers, turn to pointer */
-    margin-bottom: 24px; /* margin bottom so doesnt touch h1 */
+    margin-left: 24px; /* margin left 24px */
+    margin-right: 24px; /* margin right 24px */
+    padding-left: 24px; /* padding left 24px */
+    padding-right: 24px; /* padding right 24px */
 
     /* End of button style*/
 }
@@ -95,8 +103,25 @@ button {
 /* button hover sytle */
 button:hover {
     color: gray; /* change color gray */
-    font-weight: bold; /* change to bold */
+
     /* End of button hover style*/
 }
 
+/* 
 
+    Entire Webpage format style, classes
+
+*/
+
+/* navigation bar format */
+.navigationBar {
+    display: flex; /* allow to align */
+    justify-content:space-evenly; /* space evenly between item and margin */
+    align-items: center; /* align all item center of screen */
+    position: fixed; /* navigation fixed on top */
+    background-color: antiquewhite; /* solid background so cant see through */
+    padding-top: 16px; /* padding top widder */
+    padding-bottom: 16px; /* padding bottom widder */
+
+    /* End of navigation bar format */
+}

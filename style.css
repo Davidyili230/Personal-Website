@@ -81,4 +81,15 @@ h3 {
     /* End of h3 style */
 }
 
+/* h4 text style, normal text*/
+h4 {
+    /* Set font to Times new roman*/
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+    /* Set size to */
+    font-size: 24px;
+
+    /* End of h4 style */
+}
+
 

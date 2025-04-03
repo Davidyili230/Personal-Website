@@ -130,6 +130,7 @@ button:hover {
     padding-bottom: 6px; /* padding bottom widder */
     overflow: hidden; /* prevent overflow */
     width: 100%; /* prevent space overlap*/
+    z-index: 1000; /* prevent navbar being below texts */
 
     /* End of navigation bar format */
 }
@@ -196,6 +197,19 @@ button:hover {
 /* Reset icon color for light mode */
 .social-icon {
     filter: invert(0) brightness(1); /* Reset to original color in light mode */
+}
+
+/* hide the reveal sections */
+.reveal {
+    opacity: 0; /* make section not visable */
+    transform: translateY(50px); /* move 50px down */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* move fast to slow, from invisible to visable */
+}
+
+/* unhides the reveal sections */
+.reveal.visible {
+    opacity: 1; /* reveals sections */
+    transform: translateY(0); /* move section to middle of screen */
 }
 
 /* 

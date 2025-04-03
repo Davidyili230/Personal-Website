@@ -1,4 +1,14 @@
-// This function scrolls the page to the given section ID
+// Author: Yi Li
+// Project: Personal Webpage
+// Start date: April 1, 2025
+// Document: JAVASCRIPT file, people say "make a person alive"
+
+//
+//
+//      This function scrolls the page to the given section ID
+//
+//
+
 function scrollToSection(sectionId) {
     const section = document.getElementById(sectionId); // Use the correct sectionId
     if (section) {
@@ -7,6 +17,12 @@ function scrollToSection(sectionId) {
         console.log("Section not found: " + sectionId); // Debugging line
     }
 }
+
+//
+//
+//      Below is functions for turning display inverted color
+//
+//
 
 let themeButton = document.getElementById("theme-button"); //themeButton = theme-button
 let navbar = document.querySelector(".navigation-bar"); // navbar = navigation-bar
@@ -40,3 +56,26 @@ if (document.body.classList.contains("dark-mode")) {
         icon.style.filter = 'invert(0) brightness(1)'; // Normal mode icon color (reset to original)
     });
 }
+
+//
+//
+//      Reveal section when scrolling
+//
+//
+
+document.addEventListener("DOMContentLoaded", function () { // run when HTML is fully executed
+    const sections = document.querySelectorAll(".reveal"); // select all class that has reveal
+
+    function revealSections() { // check when class reveal is seen in viewport
+        sections.forEach((section) => {
+            const sectionTop = section.getBoundingClientRect().top; // return element position relative to viewport
+            const windowHeight = window.innerHeight; // return height of visable browser
+            if (sectionTop < windowHeight * 0.85) { // when element is 85% close to the window height, start revealing
+                section.classList.add("visible");
+            }
+        });
+    }
+
+    window.addEventListener("scroll", revealSections); // when scrolling, sections reveals
+    revealSections();
+});

@@ -268,14 +268,21 @@ button:hover {
 
 /*
 
-    special keyframes
+    special keyframes for smooth transitions
 
 */
 
-/* blinking effect fro texts */
+/* blinking effect for texts */
 @keyframes fadeBlink {
-    0%, 100% {opacity: 1;}
-    50% {opacity: 0.5;}
+    0%, 100% {opacity: 1;} /* from percentage 0 and 100, opacity is full */
+    50% {opacity: 0.5;} /* when percentage is 50, opacity is half in effect */
     
 }
 
+/* smoothy fading away */
+@keyframes fadeOut {
+    to { /* when animation on final state at 100% */
+        opacity: 0; /* opacity turns false, see through */
+        visibility: hidden; /* completely make element invisible and unclickable */
+    }
+}

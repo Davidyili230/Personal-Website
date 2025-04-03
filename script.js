@@ -88,10 +88,11 @@ document.addEventListener("DOMContentLoaded", function () { // run when HTML is 
 
 document.addEventListener("DOMContentLoaded", function () { // waits till HTML file completes execute
     setTimeout(() => {
-        document.getElementById("pre-loading").style.opacity = "0"; // Fade out
+        document.getElementById("pre-loading").style.opacity = "fadeOut"; // Fade out
         setTimeout(() => {
             document.getElementById("pre-loading").style.display = "none"; // remove preloading screen
             document.getElementById("content").style.display = "block"; // shows the website
         }, 500); // Wait for fade-out to complete
     }, 2000); // Keeps preload screen for 2 seconds before hiding
+
 });

@@ -82,17 +82,13 @@ document.addEventListener("DOMContentLoaded", function () { // run when HTML is 
 
 //
 //
-//      pre-loading screen fading away
+//      loading-screen with text and fading out to webpage
 //
 //
 
-document.addEventListener("DOMContentLoaded", function () { // waits till HTML file completes execute
+document.addEventListener("DOMContentLoaded", function () { // wait for HTML to run
     setTimeout(() => {
-        document.getElementById("pre-loading").style.opacity = "fadeOut"; // Fade out
-        setTimeout(() => {
-            document.getElementById("pre-loading").style.display = "none"; // remove preloading screen
-            document.getElementById("content").style.display = "block"; // shows the website
-        }, 500); // Wait for fade-out to complete
-    }, 2000); // Keeps preload screen for 2 seconds before hiding
-
+        const loadingScreen = document.getElementById("loading-screen"); // gets loading-screen
+        loadingScreen.classList.add("fade-out"); // apply fade-out
+    },2500); // have this fade out effect last for 2.5 seconds
 });

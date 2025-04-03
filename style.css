@@ -17,6 +17,8 @@ body {
     background-color: antiquewhite; /* Set BG color to antique white */
     font-size: 24px; /* Set font size to 24px */
     color: black; /* Set font color to black */
+    opacity: 0; /* make body not visible*/
+    animation: fadeIn 1s ease forwards; /* fade body in 3 second*/
 
     /* End of body style */
 }
@@ -220,6 +222,16 @@ button:hover {
     animation: fadeBlink 1.5s infinite; /* fade blinks text for 1.5 seconds */
 }
 
+/* fade out */
+.fade-out {
+    animation: fadeOut 1s forwards;
+}
+
+/* fade in */   
+.fade-in {
+    animation: fadeIn 1s forwards;
+}
+
 /* 
 
     Entire Webpage format style, id
@@ -252,8 +264,8 @@ button:hover {
     align-items: center;
 }
 
-/* pre-loading screen set up */
-#pre-loading {
+/* loading screen set up */
+#loading-screen {
     position: fixed; /* stay on same spot */
     width: 100%; /* fit whole screen */
     height: 100%;
@@ -262,8 +274,8 @@ button:hover {
     display: flex; /* change layout*/
     justify-content: center; /* center the item*/
     align-items: center;
-    z-index: 9999; /* making sure this loading screen is above everything */
-    transition: opacity 0.5 ease-out; /* opacity quickly comes out */
+    z-index: 1001; /* making sure this loading screen is above everything */   
+    opacity: 1;
 }
 
 /*
@@ -281,8 +293,23 @@ button:hover {
 
 /* smoothy fading away */
 @keyframes fadeOut {
-    to { /* when animation on final state at 100% */
+    from { /* 100% opacity is true */
+        opacity: 1;
+    }
+    to {
         opacity: 0; /* opacity turns false, see through */
-        visibility: hidden; /* completely make element invisible and unclickable */
+        visibility: hidden; /* make element invisible and unclickable*/
+    }
+}
+
+/* smoothly fades in */
+
+@keyframes fadeIn {
+    from { /* 0% opacity is false */
+        opacity: 0;
+    }
+    to {
+        opacity: 1; /* when 100%, opacity is true */
+        visibility: visible; /* make elemnt visible and clickable */
     }
 }

@@ -4,9 +4,7 @@
 // Document: JAVASCRIPT file, people say "make a person alive"
 
 //
-//
 //      This function scrolls the page to the given section ID
-//
 //
 
 function scrollToSection(sectionId) {
@@ -19,9 +17,7 @@ function scrollToSection(sectionId) {
 }
 
 //
-//
 //      Below is functions for turning display inverted color
-//
 //
 
 let themeButton = document.getElementById("theme-button"); //themeButton = theme-button
@@ -42,6 +38,10 @@ if (localStorage.getItem('dark-mode') === 'true') {
     button.classList.toggle("dark-mode"); // Apply dark mode to button if it's enabled
 }
 
+//
+//      invert social icons
+//
+
 themeButton.addEventListener("click", toggleDarkMode);
 
 const socialIcons = document.querySelectorAll(".social-icon"); // socialIcons = social-icon
@@ -58,9 +58,7 @@ if (document.body.classList.contains("dark-mode")) {
 }
 
 //
-//
 //      Reveal section when scrolling
-//
 //
 
 document.addEventListener("DOMContentLoaded", function () { // run when HTML is fully executed
@@ -81,14 +79,13 @@ document.addEventListener("DOMContentLoaded", function () { // run when HTML is 
 });
 
 //
-//
 //      loading-screen with text and fading out to webpage
-//
 //
 
 document.addEventListener("DOMContentLoaded", function () { // wait for HTML to run
     setTimeout(() => {
         const loadingScreen = document.getElementById("loading-screen"); // gets loading-screen
         loadingScreen.classList.add("fade-out"); // apply fade-out
-    },2500); // have this fade out effect last for 2.5 seconds
+    },2500); // have this loadscreen effect last for 2.5 seconds
 });
+

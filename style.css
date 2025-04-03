@@ -25,10 +25,9 @@ body {
 
 /* p text style */
 p {
-    /* Set font to Georgia, TNR, serif */
     font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 24px; /* Set font size to */
-    line-height: 2; /* line height */
+    font-size: 24px;
+    line-height: 2;
 
     /* End of p style */
 }
@@ -42,6 +41,20 @@ h1 {
     line-height: 2; /* line height */
 
     /* End of h1 style */
+}
+
+h1 span {
+    /* Set font to Georgia, TNR, serif */
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 40px; /* Set font size to */
+    font-weight: bold; /* Set font to bold */
+    line-height: 2; /* line height */
+    display: block; /* Display each line as a block element */
+    width: 0;
+    overflow: hidden; /* Hide content beyond the line */
+    white-space: nowrap; /* Ensure text doesn't wrap */
+    animation: typing 2s steps(50) forwards;
+    animation-delay: 3s;
 }
 
 /* h2 text style, bold */
@@ -232,6 +245,58 @@ button:hover {
     animation: fadeIn 1s forwards;
 }
 
+/* typing container style */
+.typing-container {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 24px;
+    line-height: 2;
+    overflow: hidden; /* Hide the overflow text */
+    white-space: nowrap; /* Prevent text from wrapping within a line */
+    display: inline-block;
+}
+
+/* typing effect on span */
+.typing-container span {
+    display: block; /* Display each line as a block element */
+    width: 0;
+    overflow: hidden; /* Hide content beyond the line */
+    white-space: nowrap; /* Ensure text doesn't wrap */
+    animation: typing 1s steps(20) forwards;
+}
+
+/* Add delays for each line */
+.typing-container span:nth-child(1) {
+    animation-delay: 4s; /* Delay for 3 seconds before the second line starts */
+}
+
+.typing-container span:nth-child(2) {
+    animation-delay: 5s; /* Delay for 4 seconds before the second line starts */
+}
+
+.typing-container span:nth-child(3) {
+    animation-delay: 6s; /* Delay for 5 seconds before the third line starts */
+}
+
+.typing-container span:nth-child(4) {
+    animation-delay: 7s; /* Delay for 6 seconds before the second line starts */
+}
+
+.typing-container span:nth-child(5) {
+    animation-delay: 8s; /* Delay for 7 seconds before the second line starts */
+}
+
+.typing-container span:nth-child(6) {
+    animation-delay: 9s; /* Delay for 8 seconds before the third line starts */
+}
+
+.typing-container span:nth-child(7) {
+    animation-delay: 10s; /* Delay for 9 seconds before the second line starts */
+}
+
+.typing-container span:nth-child(8) {
+    animation-delay: 11s; /* Delay for 10 seconds before the third line starts */
+}
+
 /* 
 
     Entire Webpage format style, id
@@ -311,5 +376,14 @@ button:hover {
     to {
         opacity: 1; /* when 100%, opacity is true */
         visibility: visible; /* make elemnt visible and clickable */
+    }
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
     }
 }

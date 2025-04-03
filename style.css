@@ -251,20 +251,20 @@ button:hover {
     font-size: 24px;
     line-height: 2;
     overflow: hidden; /* Hide the overflow text */
-    white-space: nowrap; /* Prevent text from wrapping within a line */
-    display: inline-block;
+    white-space: nowrap; /* Prevent text from wrapping around */
+    display: inline-block; /* element incline and allowing styling */
 }
 
 /* typing effect on span */
 .typing-container span {
     display: block; /* Display each line as a block element */
     width: 0;
-    overflow: hidden; /* Hide content beyond the line */
-    white-space: nowrap; /* Ensure text doesn't wrap */
+    overflow: hidden; /* Hide text beyond the line */
+    white-space: nowrap; /*prevent wrapping around */
     animation: typing 1s steps(20) forwards;
 }
 
-/* Add delays for each line */
+/* Add delays for each line so each line types when previous line ends */
 .typing-container span:nth-child(1) {
     animation-delay: 4s; /* Delay for 3 seconds before the second line starts */
 }
@@ -379,6 +379,7 @@ button:hover {
     }
 }
 
+/* typing out effect */
 @keyframes typing {
     from {
         width: 0;

@@ -212,6 +212,14 @@ button:hover {
     transform: translateY(0); /* move section to middle of screen */
 }
 
+/* loading screen text style */
+.loading-screen-text {
+    font-size: 50px; /* font size to 50px */
+    font-family: Georgia, 'Times New Roman', Times, serif; /* font type */
+    font-weight: bolder; /* font thickness */
+    animation: fadeBlink 1.5s infinite; /* fade blinks text for 1.5 seconds */
+}
+
 /* 
 
     Entire Webpage format style, id
@@ -243,3 +251,31 @@ button:hover {
     justify-content: center;
     align-items: center;
 }
+
+/* pre-loading screen set up */
+#pre-loading {
+    position: fixed; /* stay on same spot */
+    width: 100%; /* fit whole screen */
+    height: 100%;
+    background-color: black; /* bg color black*/
+    color: antiquewhite;
+    display: flex; /* change layout*/
+    justify-content: center; /* center the item*/
+    align-items: center;
+    z-index: 9999; /* making sure this loading screen is above everything */
+    transition: opacity 0.5 ease-out; /* opacity quickly comes out */
+}
+
+/*
+
+    special keyframes
+
+*/
+
+/* blinking effect fro texts */
+@keyframes fadeBlink {
+    0%, 100% {opacity: 1;}
+    50% {opacity: 0.5;}
+    
+}
+

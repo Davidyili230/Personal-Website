@@ -29,8 +29,13 @@
 
     <!--Body of webpage, what user see-->
     <body>
+        <!--I want to add a pre-loading screen to welcome visitors-->
+        <div id="pre-loading">
+            <div class="loading-screen-text"> Loading.......</div>
+        </div>
+
         <!--I want a navigation bar first-->
-        <div class="navigation-bar">
+        <div class="navigation-bar" id="content" style="display: none;">
             <nav>
                 <!--When button clicked, scroll to section-->
                 <button onclick="scrollToSection('Biography')" aria-label="Scroll to Biography section">BIOGRAPHY</button>

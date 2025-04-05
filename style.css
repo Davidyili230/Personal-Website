@@ -165,7 +165,7 @@ button:hover {
 
 /* section left */
 .section-left {
-    width: 50%; /* width is 50% of the box */
+    flex: 1; /* width is 50% of the box */
     text-align: start; /* text will be on left */
 
     /* end of section left */
@@ -173,7 +173,7 @@ button:hover {
 
 /* section right */
 .section-right {
-    width: 50%; /* width is 50% of the box */
+    flex: 1; /* width is 50% of the box */
     text-align: end; /* text will be on right */
 
     /* end of section right */
@@ -182,6 +182,15 @@ button:hover {
 /* section center */
 .section-center {
     display: flex; /* divides into 2 parts, L&R */
+    flex-direction: row;
+
+    /* end of section center */
+}
+
+/* section center */
+.section-center-social {
+    display: flex; /* divides into 2 parts, L&R */
+    flex-direction: row;
 
     /* end of section center */
 }
@@ -412,17 +421,17 @@ button:hover {
     */
 
     body, h2, h3, h4 {
-        font-size: 16px; /* Smaller font size for moblie */
+        font-size: 16px; /* Smaller font size for mobile */
     }
 
     h1 {
-        font-size: 18px; /* Smaller font size for moblie */
+        font-size: 18px; /* Smaller font size for mobile */
     }
 
     ul {
-        font-size: 16px; /* Smaller font size for moblie */
+        font-size: 16px; /* Smaller font size for mobile */
         padding: 5px;
-        padding-left: 20px;
+        padding-left: 10px;
     }
 
     span {
@@ -437,15 +446,20 @@ button:hover {
 
     .section-item {
         margin: 10px; /* smaller margin and padding */
-        padding: 0px;
+        padding: 10px;
     }
 
-    .section-left {
-        width: 100%;
+    #Biography {
+        padding-top: 60px;
     }
 
-    .section-right {
+    .section-left, .section-right{
         width: 100%;
+        text-align: center;
+    }
+
+    .section-center {
+        flex-direction: column;
     }
 
     .button {
@@ -455,21 +469,28 @@ button:hover {
     }
     
     .navigation-bar {
-        flex-direction: column;
-        align-items: flex-start;
+      display: block;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 5px;
+      background-color: antiquewhite;
     }
-
+  
     .hamburger {
-        display: flex;
+      display: block;
+      font-size: 32px;
+      cursor: pointer;
+      margin-bottom: 0px;
     }
-
+  
     .nav-links {
-        display: none;
-        width: 100%;
-        flex-direction: column;
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      gap: 5px;
     }
-
+  
     .nav-links.active {
-        display: flex;
+      display: flex;
     }
 }

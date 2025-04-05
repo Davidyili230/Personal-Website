@@ -34,18 +34,21 @@
             <div class="loading-screen-text"> Welcome to Yi Li's Portfolio</div>
         </div>
 
+        <header>
         <!--I want a navigation bar first-->
         <div class="navigation-bar">
             <div class="hamburger" id="hamburger">&#9776;</div> <!-- hamburger icon -->
-            <div class="nav-links" id="nav-links">
+            <!--added a hamburger menu for mobile version for better format-->
+            <nav class="nav-links" id="nav-links">
                 <!--When button clicked, scroll to section-->
                 <button onclick="scrollToSection('Biography')" aria-label="Scroll to Biography section">BIOGRAPHY</button>
                 <button onclick="scrollToSection('Working-Experience')" aria-label="Scroll to Working Experience section">WORKING EXPERIENCE</button>
                 <button onclick="scrollToSection('Project')" aria-label="Scroll to Project section">PROJECT</button>
                 <button onclick="scrollToSection('Contact')" aria-label="Scroll to Contact section">CONTACT</button>
                 <button id="theme-button">Click Me</button>
-            </div>
+            </nav>
         </div>
+        </header>
         
         <div class="section-container">
             <!--Biography section-->
@@ -61,14 +64,14 @@
           
                             <!--Information about me-->
                             <div class="typing-container">
-                                <span>Hi, my name is Yi but because a lot people cannot pronounce</span>
-                                <span>it correctly since elementary. Thus, I'm known to be called</span>
-                                <span>as David. I'm currently a senior studying at CUNY Hunter</span>
-                                <span>college for Computer Science Degree. This webpage is my</span>
-                                <span>first personal project I would be working on. I will update</span>
-                                <span>this webpage everytime I have a new idea or a new status and I</span>
-                                <span>will create some games using language C++ and attach to the</span>
-                                <span>Project section.</span>   
+                                <span>Hi, my name is Yi but because a lot people cannot pro-</span>
+                                <span>nounce it correctly since elementary. Thus, I'm known</span>
+                                <span>to be called as David. I'm currently a senior studying</span>
+                                <span>at CUNY Hunter college for Computer Science Degree.</span>
+                                <span>This webpage is my first personal project I would be</span>
+                                <span>working on. I will update this webpage everytime I have</span>
+                                <span>a new idea or a new status and Iwill create some games</span>
+                                <span>using language C++ and attach to the Project section.</span>   
                             </div>
                         </div>
                         <!--part right-->
@@ -226,7 +229,7 @@
                     <h1 id="text-center">Contact</h1>
                     <h4 id="text-center">Feel free to get in touch. You can email me at: <br/> Davidyili230@gmail.com</h4>
 
-                    <div class="section-center" id="item-space-center">
+                    <div class="section-center-social" id="item-space-center">
                         <a href="https://www.facebook.com/davidyili230/" target="_blank">
                             <img src="img/facebook.png" alt="facebook" width="24" length="24" style="margin: 20px" class="social-icon">
                         </a>

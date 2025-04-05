@@ -89,3 +89,13 @@ document.addEventListener("DOMContentLoaded", function () { // wait for HTML to 
     },2500); // have this loadscreen effect last for 2.5 seconds
 });
 
+//
+//      hamburger menu
+//
+
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.getElementById("nav-links");
+
+hamburger.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+});

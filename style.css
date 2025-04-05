@@ -297,6 +297,14 @@ button:hover {
     animation-delay: 11s; /* Delay for 10 seconds before the third line starts */
 }
 
+/* Hamburger icon hidden on large screens */
+.hamburger {
+    display: none;
+    font-size: 32px;
+    cursor: pointer;
+    padding: 10px;
+  }
+
 /* 
 
     Entire Webpage format style, id
@@ -391,48 +399,77 @@ button:hover {
 
 /*
 
-    media with differnt device formating
+    mobile version style 15 Pro Max
 
 */
 
-@media (max-width: 768px) {
-    /* Mobile version styles */
+@media (max-width: 1290px) {
+
+    /* 
+    
+        Entire Webpage font style 
+    
+    */
 
     body, h2, h3, h4 {
         font-size: 16px; /* Smaller font size for moblie */
     }
 
     h1 {
-        font-size: 20px; /* Smaller font size for moblie */
+        font-size: 18px; /* Smaller font size for moblie */
     }
 
-    li {
+    ul {
         font-size: 16px; /* Smaller font size for moblie */
+        padding: 5px;
+        padding-left: 20px;
     }
 
     span {
         font-size: 16px; /* Smaller font size for moblie */
     }
 
-    .navigation-bar {
-        flex-direction: column; /* Stack nav items vertically */
-        padding-top: 10px; /* make nav smaller vertically */
-        padding-bottom: 10px;
-    }
-
-    .section-left, .section-right { 
-        width: 100%; /* make the left and right sections seperated and put into center */
-        text-align: center;
-    }
+    /* 
+    
+        Entire Webpage format style, classes 
+        
+    */
 
     .section-item {
-        margin: 20px; /* smaller margin and padding */
-        padding: 15px;
+        margin: 10px; /* smaller margin and padding */
+        padding: 0px;
     }
 
-    button {
-        margin: 8px; /* smaller button */
-        padding: 10px 20px;
-        font-size: 14px;
+    .section-left {
+        width: 100%;
+    }
+
+    .section-right {
+        width: 100%;
+    }
+
+    .button {
+        margin: 0px; /* smaller button */
+        padding: 10px 10px;
+        font-size: 16px;
+    }
+    
+    .navigation-bar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .nav-links.active {
+        display: flex;
     }
 }

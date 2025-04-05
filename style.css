@@ -421,21 +421,21 @@ button:hover {
     */
 
     body, h2, h3, h4 {
-        font-size: 18px; /* Smaller font size for mobile */
+        font-size: 16px; /* Smaller font size for mobile */
     }
 
     h1 {
-        font-size: 30px; /* Smaller font size for mobile */
+        font-size: 20px; /* Smaller font size for mobile */
     }
 
     ul {
-        font-size: 18px; /* Smaller font size for mobile */
+        font-size: 16px; /* Smaller font size for mobile */
         padding: 5px;
         padding-left: 10px;
     }
 
     span {
-        font-size: 18px; /* Smaller font size for moblie */
+        font-size: 16px; /* Smaller font size for moblie */
     }
 
     /* 
@@ -450,15 +450,15 @@ button:hover {
     }
 
     #Biography {
-        padding-top: 60px;
+        padding-top: 60px; /* avoiding section to be under nav bar*/
     }
 
-    .section-left, .section-right{
+    .section-left, .section-right{ /* make width fit screen and center texts*/
         width: 100%;
         text-align: center;
     }
 
-    .section-center {
+    .section-center { /* make row sections to column */
         flex-direction: column;
     }
 
@@ -468,29 +468,33 @@ button:hover {
         font-size: 16px;
     }
     
-    .navigation-bar {
+    .navigation-bar { /* nav bar style */
       display: block;
       flex-direction: column;
       align-items: flex-start;
       padding: 5px;
-      background-color: antiquewhite;
     }
   
-    .hamburger {
+    .hamburger { /* hamburger icon style */
       display: block;
       font-size: 32px;
       cursor: pointer;
       margin-bottom: 0px;
     }
   
-    .nav-links {
+    .nav-category { /* nav category style, hide*/
       display: none;
       flex-direction: column;
       width: 100%;
       gap: 5px;
     }
   
-    .nav-links.active {
+    .nav-category.active { /* makes nav bar category visible */
       display: flex;
+    }
+
+    .loading-screen-text { /* loading screen text style */
+        font-size: 30px;
+        text-align: center;
     }
 }

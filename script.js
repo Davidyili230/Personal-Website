@@ -94,8 +94,8 @@ document.addEventListener("DOMContentLoaded", function () { // wait for HTML to 
 //
 
 const hamburger = document.getElementById("hamburger");
-const navLinks = document.getElementById("nav-links");
+const navCategory = document.getElementById("nav-category");
 
-hamburger.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
+hamburger.addEventListener("click", () => { // if clicked on hamburger, toggle Nav Category active
+    navCategory.classList.toggle("active");
 });

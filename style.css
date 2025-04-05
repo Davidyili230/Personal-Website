@@ -398,18 +398,26 @@ button:hover {
 @media (max-width: 768px) {
     /* Mobile version styles */
 
-    body {
-        font-size: 12px; /* Smaller font size for moblie */
+    body, h2, h3, h4 {
+        font-size: 16px; /* Smaller font size for moblie */
+    }
+
+    h1 {
+        font-size: 20px; /* Smaller font size for moblie */
+    }
+
+    li {
+        font-size: 16px; /* Smaller font size for moblie */
+    }
+
+    span {
+        font-size: 16px; /* Smaller font size for moblie */
     }
 
     .navigation-bar {
         flex-direction: column; /* Stack nav items vertically */
         padding-top: 10px; /* make nav smaller vertically */
         padding-bottom: 10px;
-    }
-
-    .section-center {
-        flex-direction: column; /* Stack left/right sections vertically */
     }
 
     .section-left, .section-right { 

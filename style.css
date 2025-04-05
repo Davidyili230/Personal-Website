@@ -421,21 +421,21 @@ button:hover {
     */
 
     body, h2, h3, h4 {
-        font-size: 16px; /* Smaller font size for mobile */
-    }
-
-    h1 {
         font-size: 18px; /* Smaller font size for mobile */
     }
 
+    h1 {
+        font-size: 30px; /* Smaller font size for mobile */
+    }
+
     ul {
-        font-size: 16px; /* Smaller font size for mobile */
+        font-size: 18px; /* Smaller font size for mobile */
         padding: 5px;
         padding-left: 10px;
     }
 
     span {
-        font-size: 16px; /* Smaller font size for moblie */
+        font-size: 18px; /* Smaller font size for moblie */
     }
 
     /* 

@@ -1,7 +1,7 @@
 // Author: Yi Li
 // Project: Personal Webpage
 // Start date: April 1, 2025
-// Document: JAVASCRIPT file, people say "make a person alive"
+// Document: JAVASCRIPT file, electricity and water system
 
 //
 //      This function scrolls the page to the given section ID

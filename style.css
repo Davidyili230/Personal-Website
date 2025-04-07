@@ -2,7 +2,7 @@
     Author: Yi Li
     Project: Personal Webpage
     Start date: April 1, 2025
-    Document: CSS file, people say "skin of a person"
+    Document: CSS file, interior and exterior design
 */
 
 /* 
@@ -412,7 +412,7 @@ button:hover {
 
 */
 
-@media (max-width: 1290px) {
+@media (max-width: 768px) {
 
     /* 
     

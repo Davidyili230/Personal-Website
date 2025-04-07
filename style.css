@@ -43,7 +43,7 @@ h1 {
     /* End of h1 style */
 }
 
-h1 span {
+p span {
     /* Set font to Georgia, TNR, serif */
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 40px; /* Set font size to */
@@ -449,10 +449,6 @@ button:hover {
         padding: 10px;
     }
 
-    #Biography {
-        padding-top: 60px; /* avoiding section to be under nav bar*/
-    }
-
     .section-left, .section-right{ /* make width fit screen and center texts*/
         width: 100%;
         text-align: center;
@@ -494,7 +490,17 @@ button:hover {
     }
 
     .loading-screen-text { /* loading screen text style */
+        margin: 20px;
         font-size: 30px;
         text-align: center;
+    }
+
+    /*
+    
+        format style for id 
+    
+    */
+    #Biography {
+        padding-top: 60px; /* avoiding section to be under nav bar*/
     }
 }

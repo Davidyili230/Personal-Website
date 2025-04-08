@@ -314,6 +314,11 @@ button:hover {
     padding: 10px;
   }
 
+  /* Make specific text in center*/
+.text-center {
+    text-align: center;
+}
+
 /* 
 
     Entire Webpage format style, id
@@ -324,7 +329,7 @@ button:hover {
 #Biography {
     padding-top: 20px;
 }
-#Working-Experience {
+#Experience {
     padding-top: 20px;
 }
 #Project {
@@ -332,11 +337,6 @@ button:hover {
 }
 #Contact {
     padding-top: 20px;
-}
-
-/* Make specific text in center*/
-#text-center {
-    text-align: center;
 }
 
 /* Center item to middle of screen */
@@ -421,11 +421,11 @@ button:hover {
     */
 
     body, h2, h3, h4 {
-        font-size: 16px; /* Smaller font size for mobile */
+        font-size: 14px; /* Smaller font size for mobile */
     }
 
     h1 {
-        font-size: 20px; /* Smaller font size for mobile */
+        font-size: 18px; /* Smaller font size for mobile */
     }
 
     ul {
@@ -451,7 +451,7 @@ button:hover {
 
     .section-left, .section-right{ /* make width fit screen and center texts*/
         width: 100%;
-        text-align: center;
+        text-align: left;
     }
 
     .section-center { /* make row sections to column */
@@ -493,6 +493,10 @@ button:hover {
         margin: 20px;
         font-size: 30px;
         text-align: center;
+    }
+
+    .mobile-hide { /* hide text in mobile*/
+        display: none;
     }
 
     /*

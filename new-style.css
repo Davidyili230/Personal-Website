@@ -112,8 +112,82 @@ body {
 /* ===============================================================================================================================================================================
             MAIN
 ================================================================================================================================================================================ */
-.main-content {
-    width: 70%;
-    padding: 20px;
+.main {
+    width: 80%;
+    padding: 20px 60px;
     overflow-y: auto;
+    background-color: antiquewhite;
 }
+
+/* ===============================================================================================================================================================================
+                        FONTS / TEXTS
+================================================================================================================================================================================ */
+.main h1 {
+    font-family: Arial, sans-serif;
+    font-size: 35px;
+    font-weight: bold;
+    line-height: 2em;
+    text-align: center;
+}
+
+.main h2 {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 2em;
+    text-align: left;
+}
+
+.main p {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5em;
+    text-align: center;
+}
+
+.main a {
+    color: black;
+}
+
+.styled-line {
+    border: none;          /* Removes the default border */
+    height: 1.5px;           /* Sets the thickness of the line */
+    background-color: black; /* Sets the color of the line */
+}
+
+
+/* ===============================================================================================================================================================================
+                        CONTACTS
+================================================================================================================================================================================ */
+.main-contact {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-right: 20px;
+    padding-left: 50px;
+}
+
+.main-contact-items {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    gap: 15px; /* Adds space between each item in .main-contact-items */
+}
+
+/* ===============================================================================================================================================================================
+                        GRID CONTAINER
+================================================================================================================================================================================ */
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Creates two equal-width columns */
+    width: 100%;
+  }
+  
+  .left-text {
+    justify-self: start; /* Aligns text to the left */
+  }
+  
+  .right-text {
+    justify-self: end; /* Aligns text to the right */
+  }
+  

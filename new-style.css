@@ -1,0 +1,88 @@
+/* ==========================================================================================================================================================
+                                                                        RESET / BASE STYLES
+============================================================================================================================================================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    padding-top: 60px;
+}
+
+/* ======================
+   PAGE LAYOUT
+====================== */
+.container {
+    display: flex;
+    height: 100vh; /* Full viewport height */
+}
+
+/* ======================
+   ASIDE - SIDEBAR
+====================== */
+.sidebar {
+    width: 30%;
+    background-color: #1e90ff;
+    color: white;
+    padding: 20px;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+}
+
+.sidebar h2 {
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    margin-bottom: 15px;
+}
+
+.sidebar a {
+    color: white;
+    text-decoration: none;
+}
+
+.sidebar a:hover {
+    text-decoration: underline;
+}
+
+/* ======================
+   BODY - MAIN CONTENT
+====================== */
+.main-content {
+    width: 70%;
+    padding: 30px;
+    overflow-y: auto;
+}
+
+.main-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #1f2937;
+    padding: 20px 20px 20px 0px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1000; /* ensures it stays above other content */
+  }
+  
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #60a5fa; /* light blue on hover */
+}

@@ -155,12 +155,16 @@ body {
     font-family: Arial, sans-serif;
     font-size: 18px;
     line-height: 1.5em;
-    text-align: center;
 }
 
 .main a {
     color: black;
 }
+
+.main strong {
+    font-weight: bold;
+}
+
 
 .main ul {
     list-style-type: disc;  /* Use bullet points (default) */
@@ -189,6 +193,10 @@ body {
 .code-language {
     font-weight: normal;
     font-style: italic;
+}
+
+.text-align-left {
+    text-align: center;
 }
   
 

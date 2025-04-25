@@ -55,11 +55,12 @@ body {
 .sidebar {
     width: 20%;
     background-color: #1e90ff;
-    color: white;
+    color: black;
     padding: 30px;
     height: 100vh;
     position: sticky;
     text-align: center;
+    opacity: 100%;
     top: 0;
 }
 
@@ -83,6 +84,13 @@ body {
     font-size: 16px;
     font-weight: bold;
     line-height: 2em;
+}
+
+.sidebar h4 {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    opacity: 90%;
+    line-height: 2em;   
 }
 
 .sidebar p {
@@ -114,7 +122,7 @@ body {
 ================================================================================================================================================================================ */
 .main {
     width: 80%;
-    padding: 20px 50px;
+    padding: 50px 50px;
     overflow-y: auto;
     background-color: antiquewhite;
 }

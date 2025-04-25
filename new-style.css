@@ -114,7 +114,7 @@ body {
 ================================================================================================================================================================================ */
 .main {
     width: 80%;
-    padding: 20px 40px;
+    padding: 20px 50px;
     overflow-y: auto;
     background-color: antiquewhite;
 }
@@ -132,20 +132,20 @@ body {
 
 .main h2 {
     font-family: Arial, sans-serif;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
     line-height: 2em;
 }
 
 .main h3 {
     font-family: Arial, sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     font-style: italic;
 }
 
 .main p {
     font-family: Arial, sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     line-height: 1.5em;
     text-align: center;
 }
@@ -155,19 +155,26 @@ body {
 }
 
 .main ul {
-    display: flex;
-    flex-wrap: wrap; /* Allow items to wrap into the next row */
+    list-style-type: disc;  /* Use bullet points (default) */
+    padding-left: 20px;     /* Optional: Adds some padding on the left side to space the bullets */
 }
 
 .main li {
-    flex: 1 0 25%; /* Each item will take up 1/3 of the width (adjustable) */
-    padding: 10px;
+    padding-top: 10px;      /* Space above each list item */
+    padding-left: 10px;
 }
+
 
 .styled-line {
     border: none;          /* Removes the default border */
     height: 1.5px;           /* Sets the thickness of the line */
     background-color: black; /* Sets the color of the line */
+}
+
+.extra-line {
+    border: none;          /* Removes the default border */
+    border-top: 3px none #000;  /* Adds a solid line */
+    margin: 10px 0;  /* Adds space above and below the line */
 }
 
 /* ===============================================================================================================================================================================
@@ -210,4 +217,20 @@ body {
 ================================================================================================================================================================================ */
 .main-resume-category {
     padding-top: 20px;
+}
+
+/* ===============================================================================================================================================================================
+                        RELEVENT COURSE LISTING
+================================================================================================================================================================================ */
+
+.course-listing-ul {
+    display: flex;
+    text-align: center;
+    flex-wrap: wrap; /* Allow items to wrap into the next row */
+}
+
+.course-listing-li {
+    list-style-type: none;
+    flex: 1 0 25%; /* Each item will take up 1/3 of the width (adjustable) */
+    padding-top: 10px;
 }

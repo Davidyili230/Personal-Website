@@ -8,13 +8,18 @@
 //
 
 function scrollToSection(sectionId) {
-    const section = document.getElementById(sectionId); // Use the correct sectionId
-    if (section) {
-        section.scrollIntoView({ behavior: "smooth" }); // Smooth scroll to section
+    const main = document.querySelector('.main'); // Get the scrollable main area
+    const section = document.getElementById(sectionId); // Target section inside main
+
+    if (main && section) {
+        const yOffset = -80; // Adjust for internal nav (if needed)
+        const y = section.offsetTop + yOffset;
+        main.scrollTo({ top: y, behavior: "smooth" });
     } else {
-        console.log("Section not found: " + sectionId); // Debugging line
+        console.log("Section or main not found");
     }
 }
+
 
 //
 //      Below is functions for turning display inverted color

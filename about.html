@@ -81,13 +81,14 @@
 
             <!-- Middle Bar -->
             <div class="middle-bar"> <!-- 5% middle bar with icons --> 
-                <a href="#"><img src="home-icon.png" alt="Home"></a>
-                <a href="#"><img src="about-icon.png" alt="About"></a>
-                <a href="#"><img src="contact-icon.png" alt="Contact"></a>
+                <button onclick="scrollToSection('Intro')"><img src="img/intro.png" alt="Introduction"></button>
+                <button onclick="scrollToSection('Question')"><img src="img/question.png" alt="Question"></button>
+                <button onclick="scrollToSection('Journey')"><img src="img/Journey.png" alt="Journey"></button>
+                <button onclick="scrollToSection('Hobbies')"><img src="img/hobbies.png" alt="Hobbies"></button>
             </div>
 
             <main class="main">
-                <h1>About Me</h1>
+                <h1 id="Intro">About Me</h1>
                 <!-- Introduction -->
                 <h2>Intro</h2>
                 <p>Hi, my name is Yi Li, and I’m currently a junior at CUNY Hunter College pursuing a degree in Computer Science. I recently completed a CodePath course that introduced me to web development, and I immediately found a passion for designing and bringing ideas to life online.</p>
@@ -96,7 +97,7 @@
 
                 <!-- Why named David -->
                 <hr class="extra-line">
-                <h2>Why I'm I known as David?</h2>
+                <h2 id="Question">Why I'm I known as David?</h2>
                 <p>The name "David" came from an unexpected place—my mom’s American friend. Curious how? Back in elementary school, both students and teachers constantly mispronounced my real name, "Yi." Instead of saying "Ee," everyone said "Yee." Frustrated, I told my mom about it. A few days later, she was chatting with her American friend when she mentioned how simple his name, David, was to pronounce. And just like that, David became my nickname.</p>
                 <hr class="extra-line">
                 <p>What’s funny is how far the name stuck. In high school, whenever a new class or teacher came along, I’d introduce myself as David right away. It became second nature—soon, everyone knew me as David. Then came graduation. As people flipped through the yearbook looking for my profile, they suddenly realized something shocking. My legal name is Yi Li. People were genuinely freaking out. Some had known me for years and never knew David wasn’t my real name.</p>
@@ -105,7 +106,7 @@
 
                 <!-- What I enjoy doing -->
                 <hr class="extra-line">
-                <h2>What I enjoy doing</h2>
+                <h2 id="Journey">What I enjoy doing</h2>
                 <ul>
                     <li>
                         <p><strong>April 17, 2025</strong> — I hiked the full loop of Bull Hill, a 1,400 ft mountain (though I still don’t understand why it’s called a hill). My friend and I started early, and it took us about 2 hours and 30 minutes to reach Cold Spring. The uphill portion alone took nearly 2 hours and covered about a third of the entire trail.
@@ -125,7 +126,7 @@
 
                 <!-- I like to -->
                 <hr class="extra-line">
-                <h2>I like to...</h2>
+                <h2 id="Hobbies">I like to...</h2>
                 <ul>
                     <li><p>Explore NYC and hunting for new food spots to try.</p></li>
                     <li><p>Travel to new places, soaking in different atmospheres, and spending time in nature.</p></li>

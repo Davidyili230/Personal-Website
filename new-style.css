@@ -61,7 +61,7 @@ body {
     width: 20%;
     background-color: #1e90ff;
     color: black;
-    padding: 30px;
+    padding: 20px;
     height: 100vh;
     position: sticky;
     text-align: center;
@@ -88,14 +88,14 @@ body {
     font-family: Arial, sans-serif;
     font-size: 16px;
     font-weight: bold;
-    line-height: 2em;
+    line-height: 1.5em;
 }
 
 .sidebar h4 {
     font-family: Arial, sans-serif;
     font-size: 16px;
     opacity: 90%;
-    line-height: 2em;   
+    line-height: 1.5em;   
 }
 
 .sidebar p {

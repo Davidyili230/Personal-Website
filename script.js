@@ -12,7 +12,7 @@ function scrollToSection(sectionId) {
     const section = document.getElementById(sectionId); // Target section inside main
 
     if (main && section) {
-        const yOffset = -80; // Adjust for internal nav (if needed)
+        const yOffset = -55; // Adjust for internal nav (if needed)
         const y = section.offsetTop + yOffset;
         main.scrollTo({ top: y, behavior: "smooth" });
     } else {

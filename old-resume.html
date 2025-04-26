@@ -1,0 +1,303 @@
+<!--
+    Author: Yi Li
+    Project: Personal Webpage
+    Start date: March 31, 2025
+    Document: HTML file, foundation of a house"
+-->
+<!DOCTYPE html> <!--what HTML version im using-->
+
+<!--HTML language set to english-->
+<html lang="en">
+
+    <!--Header-->
+    <head>
+         <!--Tab name-->
+        <title>Davidyili Webpage</title>
+
+        <!--Tab icon, on href add "images/**imageName**.jpg"-->
+        <link rel="icon" href="img/user.png" alt="Yi Li's Profile Picture">
+
+        <!--Support special char, makes webpage scale on diff device-->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--Linking CSS files-->
+        <link rel="stylesheet" href="reset.css" type="text/css">
+        <link rel="stylesheet" href="style.css" type="text/css">
+
+    </head>
+
+    <!--Body of webpage, what user see-->
+    <body>
+        <!--I want to add a pre-loading screen to welcome visitors-->
+        <div id="loading-screen">
+            <div class="loading-screen-text"> Welcome to Yi Li's Portfolio</div>
+        </div>
+
+        <header>
+        <!--I want a navigation bar first-->
+        <div class="navigation-bar">
+            <!-- hamburger icon -->
+            <div class="hamburger" id="hamburger">&#9776;</div>
+            <!--added a hamburger menu for mobile version for better format-->
+            <nav class="nav-category" id="nav-category">
+                <!--When button clicked, scroll to section-->
+                <button onclick="scrollToSection('Biography')" aria-label="Scroll to Biography section">BIOGRAPHY</button>
+                <button onclick="scrollToSection('Experience')" aria-label="Scroll to Experience section"> EXPERIENCE</button>
+                <button onclick="scrollToSection('Project')" aria-label="Scroll to Project section">PROJECT</button>
+                <button onclick="scrollToSection('Contact')" aria-label="Scroll to Contact section">CONTACT</button>
+                <button id="theme-button">Click Me</button>
+            </nav>
+        </div>
+        </header>
+        
+        <main>
+            <div class="section-container">
+                <!--Biography section-->
+                <section id="Biography">
+                    <div class="section-item reveal">
+                        <div class="section-center">
+                            <!--part left-->
+                            <div class="section-left">
+                                <!--Start of section-->
+                                <h1>
+                                    <span class="text-center">YI 'DAVID' LI</span>
+                                </h1>
+            
+                                <!--Information about me-->
+                                <div class="typing-container">
+                                    <span>Hi, my name is Yi but because a lot people cannot pro-</span>
+                                    <span>nounce it correctly since elementary. Thus, I'm known</span>
+                                    <span>to be called as David. I'm currently a senior studying</span>
+                                    <span>at CUNY Hunter college for Computer Science Degree.</span>
+                                    <span>This webpage is my first personal project I would be</span>
+                                    <span> on. I will update this webpage everytime I have</span>
+                                    <span>a new idea or a new status and Iwill create some games</span>
+                                    <span>using language C++ and attach to the Project section.</span>   
+                                </div>
+                            </div>
+                            <!--part right-->
+                            <div class="section-right">
+                                <!--Attach a photograph of ME-->
+                                <img src="img/user.png" alt="Yi Li's Profile Picture" width="75%">
+                            </div>
+                        </div>
+                    </div>
+                    <!--End of Biography section-->
+                </section>
+        
+                <!-- Experience section-->
+                <section id="Experience">
+                    <div class="section-item reveal">
+                        <!--Start of section-->
+
+                        <!--Top section-->
+                        <div class="section-center">
+                            <!--h1: Title size-->
+                            <h1 class="text-center"> EXPERIENCE</h1>
+                        </div>
+
+                        <!--Middle section-->
+                        <div class="section-center">
+                            <!--Left-->
+                            <div class="section-left">
+                                <!--h2: Bolded-->
+                                <h2>ZHANG & CHENG MEDICAL P.C.</h2>
+                            </div>
+                        
+                            <!--Right-->
+                            <div class="section-right">
+                                <!--h2: Bolded-->
+                                <h2>JANUARY 2022 - PRESENT</h2>
+                            </div>
+                        </div>
+
+                        <!--Bottom section-->
+                        <div class="section-center">
+                            <!--upper left-->
+                            <div class="section-left">
+                                <!--h3: slanted-->
+                                <h3 class="mobile-hide">MEDICAL RECEPTIONIST</h3>
+                            </div>
+                        
+                            <!--upper right-->
+                            <div class="section-right">
+                                <!--h3: slanted-->
+                                <h3 class="mobile-hide">BROOKLYN, NY</h3>
+                            </div>
+                        </div>
+        
+                        <!--List an bullet point-->
+                        <ul>
+                            <li>Improved patient check-in efficiency by reducing wait times by 10% through streamlined data collection and digital integration of personal, medical, and insurance details.</li>
+                            <li>Enhanced patient appointment scheduling system, reducing scheduling errors by 15% and improving patient flow by coordinating arrivals and delays more effectively.</li>
+                            <li>Managed over 110 patient records daily using EMR software, reducing manual paperwork errors and improving the accuracy of patient information storage.</li>
+                        </ul>
+        
+                        <!--h3: slanted-->
+                        <h3>Medical Assistance</h3>
+                        <ul>
+                            <li>Accelerated prescription preparation by 25-30% by streamlining data entry, reducing errors, and utilizing EMR tools for faster and more accurate medication processing.</li>
+                            <li>Performed precise diagnostic tests (vital signs, vision, hearing, hemoglobin), enhancing assessment accuracy and accelerating patient care decisions.</li>
+                            <li>Reduced medical equipment downtime by 20% by performing routine checks, troubleshooting issues, and coordinating timely maintenance, ensuring optimal performance and patient safety.</li>
+                        </ul>
+
+                        <!--Middle section-->
+                        <div class="section-center">
+                            <!--Left-->
+                            <div class="section-left">
+                                <!--h2: Bolded-->
+                                <h2>KINGS BAY, INC. JCC</h2>
+                            </div>
+                        
+                            <!--Right-->
+                            <div class="section-right">
+                                <!--h2: Bolded-->
+                                <h2>JULY 2021 - SEPTEMBER 2021</h2>
+                            </div>
+                        </div>
+
+                        <!--Bottom section-->
+                        <div class="section-center">
+                            <!--upper left-->
+                            <div class="section-left">
+                                <!--h3: slanted-->
+                                <h3 class="mobile-hide">SUMMER CAMP COUNSELOR</h3>
+                            </div>
+                        
+                            <!--upper right-->
+                            <div class="section-right">
+                                <!--h3: slanted-->
+                                <h3 class="mobile-hide">BROOKLYN, NY</h3>
+                            </div>
+                        </div>
+        
+                        <!--List an bullet point-->
+                        <ul>
+                            <li>Ensured 100% camper safety by strictly enforcing protocols, actively monitoring activities, and swiftly addressing potential hazards.</li>
+                            <li>Boosted camper engagement by 50% by participating with campers on interactive games, team challenges, and creative learning activities.</li>
+                            <li>Streamlined daily schedules for 12+ campers, reducing downtime and maximizing participation in planned activities.</li>
+                        </ul>
+
+                    </div>
+                    <!--End of  Experience-->
+                </section>
+        
+                <!--Project section-->
+                <section id="Project">
+                    <div class="section-item reveal">
+                        <!--Start of section-->
+                        <h1 class="text-center">PROJECT</h1>
+
+                        <!--Middle section-->
+                        <div class="section-center">
+                            <!--Left-->
+                            <div class="section-left">
+                                <!--h2: Bolded-->
+                                <h2>PERSONAL WEBPAGE</h2>
+                            </div>
+                        
+                            <!--Right-->
+                            <div class="section-right">
+                                <!--h2: Bolded-->
+                                <h2>MARCH 2025 - PRESENT</h2>
+                            </div>
+                        </div>
+
+                        <!--Bottom section-->
+                        <div class="section-center">
+                            <!--upper left-->
+                            <div class="section-left">
+                                <!--h3: slanted-->
+                                <h3 class="mobile-hide">HTML, CSS, JAVASCRIPT</h3>
+                            </div>
+                        </div>
+        
+                        <!--List an bullet point-->
+                        <ul>
+                            <li>Designed and developed a fully functional personal webpage using HTML to showcase my resume, projects, and professional information.</li>
+                            <li>Enhanced website aesthetics and usability with CSS, improving layout, readability, and user experience for seamless navigation.</li>
+                            <li>Brought interactivity to the website using JavaScript, implementing dynamic features such as form validation (soon), interactive elements (dark mode), and responsive design (transitions/animations).</li>
+                        </ul>
+
+                        <!--Middle section-->
+                        <div class="section-center">
+                            <!--Left-->
+                            <div class="section-left">
+                                <!--h2: Bolded-->
+                                <h2>LEMON YE WEBSITE</h2>
+                            </div>
+                        
+                            <!--Right-->
+                            <div class="section-right">
+                                <!--h2: Bolded-->
+                                <h2>APRIL 2025 - PRESENT</h2>
+                            </div>
+                        </div>
+
+                        <!--Bottom section-->
+                        <div class="section-center">
+                            <!--upper left-->
+                            <div class="section-left">
+                                <!--h3: slanted-->
+                                <h3 class="mobile-hide">HTML, CSS, JAVASCRIPT</h3>
+                            </div>
+                        </div>
+        
+                        <!--List an bullet point-->
+                        <ul>
+                            <li>Developed a multi-page website for Lemon Ye, a bubble tea shop, using HTML to showcase the business story, menu, and contact information with intuitive page navigation.</li>
+                            <li>Designed a clean and interactive user interface with CSS for consistent branding, responsive layout, and easy user interaction across devices.</li>
+                            <li>Implemented JavaScript features including animated elements and a dynamic navigation bar to enhance user engagement and site usability.</li>
+                        </ul>
+
+                    </div>
+                    <!--End of  Experience-->
+                </section>
+            </main>
+            
+            <!--Contact Information section-->
+            <section id="Contact">
+                <div class="section-item reveal">
+                    <!--Start of section-->
+                    <h1 class="text-center">Contact</h1>
+                    <h4 class="text-center">Feel free to get in touch. You can email me at: <br/> Davidyili230@gmail.com</h4>
+
+                    <div class="section-center-social" id="item-space-center">
+                        <a href="https://www.facebook.com/davidyili230/" target="_blank">
+                            <img src="img/facebook.png" alt="facebook" width="24" length="24" style="margin: 20px" class="social-icon">
+                        </a>
+                        <a href="https://github.com/Davidyili230" target="_blank">
+                            <img src="img/github.png" alt="github" width="24" length="24" style="margin: 20px;" class="social-icon">
+                        </a>
+                        <a href="https://www.instagram.com/come.onnnnn/" target="_blank">
+                            <img src="img/instagram.png" alt="instagram" width="24" length="24" style="margin: 20px;" class="social-icon">
+                        </a>
+                        <a href="https://www.linkedin.com/in/davidyili/" target="_blank">
+                            <img src="img/linkedin.png" alt="linkedin" width="24" length="24" style="margin: 20px;" class="social-icon">
+                        </a>
+                        <a href="https://x.com/come_onnnnn_" target="_blank">
+                            <img src="img/twitter.png" alt="twitter" width="24" length="24" style="margin: 20px;" class="social-icon">
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+
+    <footer>
+        <p><center>&copy;2025 DAVIDYILI</center></p>
+    </footer>
+</html>
+
+<!--
+    1) need to organize section-item to just section.
+    2) need to set h1 to only be used once and should be most important text
+    3) fix other h# subheadings.
+    4) wrap text with <em></em> for slanted
+    5) redo the section division
+    6) make a about page
+    7) contact info page for feedback
+-->

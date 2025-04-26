@@ -1,0 +1,510 @@
+/* 
+    Author: Yi Li
+    Project: Personal Webpage
+    Start date: April 1, 2025
+    Document: CSS file, interior and exterior design
+*/
+
+/* 
+
+    Entire Webpage font style 
+
+*/
+
+body {
+    /* Set font style to times new roman, or Times or Serif */
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: antiquewhite; /* Set BG color to antique white */
+    font-size: 24px; /* Set font size to 24px */
+    color: black; /* Set font color to black */
+    opacity: 0; /* make body not visible*/
+    animation: fadeIn 1s ease forwards; /* fade body in 3 second*/
+
+    /* End of body style */
+}
+
+/* p text style */
+p {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 24px;
+    line-height: 2;
+
+    /* End of p style */
+}
+
+/* h1 text style, title */
+h1 {
+    /* Set font to Georgia, TNR, serif */
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 40px; /* Set font size to */
+    font-weight: bold; /* Set font to bold */
+    line-height: 2; /* line height */
+
+    /* End of h1 style */
+}
+
+p span {
+    /* Set font to Georgia, TNR, serif */
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 40px; /* Set font size to */
+    font-weight: bold; /* Set font to bold */
+    line-height: 2; /* line height */
+    display: block; /* Display each line as a block element */
+    width: 0;
+    overflow: hidden; /* Hide content beyond the line */
+    white-space: nowrap; /* Ensure text doesn't wrap */
+    animation: typing 2s steps(50) forwards;
+    animation-delay: 3s;
+}
+
+/* h2 text style, bold */
+h2 {
+    /* Set font to Georgia, TNR, serif */
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 24px; /* Set size to */
+    font-weight: bold; /* Set font to bold */
+    line-height: 2; /* line height */
+
+    /* End of h2 style */
+}
+
+/* h3 text style, slanted */
+h3 {
+    /* Set font to Georgia, TNR, serif */
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 24px; /* Set size to */
+    font-style: oblique; /* Set font to oblique */
+    line-height: 2; /* line height */
+
+    /* End of h3 style */
+}
+
+/* h4 text style, normal text */
+h4 {
+    /* Set font to Georgia, TNR, serif */
+    font-family: Georgia, 'Times New Roman', Times, serif; /* Set font to Times new roman*/
+    font-size: 24px; /* Set size to */
+    line-height: 2; /* line height */
+
+    /* End of h4 style */
+}
+
+/* ul list text style, disc*/
+ul {
+    /* Set font to Georgia, TNR, serif */
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 24px;
+    padding-left: 48px; /* Set padding left 48px */
+    padding-right: 48px; /* Set padding right 48px */
+    list-style: disc; /* Set list to disc */
+    line-height: 2; /* line height */
+
+    
+    /* End of ul list style */
+}
+
+/* button style */
+button {
+    /* Set font to Georgia, TNR, serif */
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: antiquewhite; /* BG color to antique white */
+    color: black; /* text color black */
+    font-size: 16px; /* font size 16px */
+    font-weight: bold;
+    border: 0; /* no border, get rid of border line */
+    text-align: center; /* text in center */
+    cursor: pointer; /* When cursor hovers, turn to pointer */
+    margin-left: 24px; /* margin left 24px */
+    margin-right: 24px; /* margin right 24px */
+    padding: 12px 24px; /* padding T&B 6px, L&R 24px
+
+    /* End of button style*/
+}
+
+/* button hover sytle */
+button:hover {
+    color: gray; /* change color gray */
+
+    /* End of button hover style*/
+}
+
+/* 
+
+    Entire Webpage format style, classes
+
+*/
+
+/* navigation bar format */
+.navigation-bar {
+    display: flex; /* allow to align */
+    justify-content:space-evenly; /* space evenly between item and margin */
+    align-items: center; /* align all item center of screen */
+    position: fixed; /* navigation fixed on top */
+    background-color: antiquewhite; /* solid background so cant see through */
+    padding-top: 20px; /* padding top widder */
+    padding-bottom: 6px; /* padding bottom widder */
+    overflow: hidden; /* prevent overflow */
+    width: 100%; /* prevent space overlap*/
+    z-index: 1000; /* prevent navbar being below texts */
+
+    /* End of navigation bar format */
+}
+
+/* section container, a whole part of a section */
+
+
+/* section items */
+.section-item {
+    margin: 50px; /* margin 50px */
+    padding: 30px; /* padding 30px */
+    border: 1px; /* border 1 px */
+    border-style: double; /* border style: line */
+
+    /* end of section-item */
+}
+
+/* section left */
+.section-left {
+    flex: 1; /* width is 50% of the box */
+    text-align: start; /* text will be on left */
+
+    /* end of section left */
+}
+
+/* section right */
+.section-right {
+    flex: 1; /* width is 50% of the box */
+    text-align: end; /* text will be on right */
+
+    /* end of section right */
+}
+
+/* section center */
+.section-center {
+    display: flex; /* divides into 2 parts, L&R */
+    flex-direction: row;
+
+    /* end of section center */
+}
+
+/* section center */
+.section-center-social {
+    display: flex; /* divides into 2 parts, L&R */
+    flex-direction: row;
+
+    /* end of section center */
+}
+
+/* Dark mode styles */
+.dark-mode {
+    background-color: black; /* Dark background for dark mode */
+    color: antiquewhite; /* antique white text for dark mode */
+}
+
+/* Dark mode styles for the navbar */
+.dark-mode .navigation-bar {
+    background-color: black; /* Dark background for navbar */
+    color: antiquewhite; /* Antique white text for navbar */
+}
+
+/* Dark mode style for button */
+.dark-mode button {
+    background-color: black; /* Dark background for dark mode */
+    color: antiquewhite; /* antique white text for dark mode */
+}
+
+/* Dark mode icon color */
+.dark-mode .social-icon {
+    filter: invert(1) brightness(2); /* Change icon color using filter */
+}
+
+/* Reset icon color for light mode */
+.social-icon {
+    filter: invert(0) brightness(1); /* Reset to original color in light mode */
+}
+
+/* hide the reveal sections */
+.reveal {
+    opacity: 0; /* make section not visable */
+    transform: translateY(50px); /* move 50px down */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* move fast to slow, from invisible to visable */
+}
+
+/* unhides the reveal sections */
+.reveal.visible {
+    opacity: 1; /* reveals sections */
+    transform: translateY(0); /* move section to middle of screen */
+}
+
+/* loading screen text style */
+.loading-screen-text {
+    font-size: 50px; /* font size to 50px */
+    font-family: Georgia, 'Times New Roman', Times, serif; /* font type */
+    font-weight: bolder; /* font thickness */
+    animation: fadeBlink 1.5s infinite; /* fade blinks text for 1.5 seconds */
+}
+
+/* fade out */
+.fade-out {
+    animation: fadeOut 1s forwards;
+}
+
+/* fade in */   
+.fade-in {
+    animation: fadeIn 1s forwards;
+}
+
+/* typing container style */
+.typing-container {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 24px;
+    line-height: 2;
+    overflow: hidden; /* Hide the overflow text */
+    white-space: nowrap; /* Prevent text from wrapping around */
+    display: inline-block; /* element incline and allowing styling */
+}
+
+/* typing effect on span */
+.typing-container span {
+    display: block; /* Display each line as a block element */
+    width: 0;
+    overflow: hidden; /* Hide text beyond the line */
+    white-space: nowrap; /*prevent wrapping around */
+    animation: typing 1s steps(20) forwards;
+}
+
+/* Add delays for each line so each line types when previous line ends */
+.typing-container span:nth-child(1) {
+    animation-delay: 4s; /* Delay for 3 seconds before the second line starts */
+}
+
+.typing-container span:nth-child(2) {
+    animation-delay: 5s; /* Delay for 4 seconds before the second line starts */
+}
+
+.typing-container span:nth-child(3) {
+    animation-delay: 6s; /* Delay for 5 seconds before the third line starts */
+}
+
+.typing-container span:nth-child(4) {
+    animation-delay: 7s; /* Delay for 6 seconds before the second line starts */
+}
+
+.typing-container span:nth-child(5) {
+    animation-delay: 8s; /* Delay for 7 seconds before the second line starts */
+}
+
+.typing-container span:nth-child(6) {
+    animation-delay: 9s; /* Delay for 8 seconds before the third line starts */
+}
+
+.typing-container span:nth-child(7) {
+    animation-delay: 10s; /* Delay for 9 seconds before the second line starts */
+}
+
+.typing-container span:nth-child(8) {
+    animation-delay: 11s; /* Delay for 10 seconds before the third line starts */
+}
+
+/* Hamburger icon hidden on large screens */
+.hamburger {
+    display: none;
+    font-size: 32px;
+    cursor: pointer;
+    padding: 10px;
+  }
+
+  /* Make specific text in center*/
+.text-center {
+    text-align: center;
+}
+
+/* 
+
+    Entire Webpage format style, id
+
+*/
+
+/* give more padding so scrolling will be in place */
+#Biography {
+    padding-top: 20px;
+}
+#Experience {
+    padding-top: 20px;
+}
+#Project {
+    padding-top: 20px;
+}
+#Contact {
+    padding-top: 20px;
+}
+
+/* Center item to middle of screen */
+#item-space-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* loading screen set up */
+#loading-screen {
+    position: fixed; /* stay on same spot */
+    width: 100%; /* fit whole screen */
+    height: 100%;
+    background-color: black; /* bg color black*/
+    color: antiquewhite;
+    display: flex; /* change layout*/
+    justify-content: center; /* center the item*/
+    align-items: center;
+    z-index: 1001; /* making sure this loading screen is above everything */   
+    opacity: 1;
+}
+
+/*
+
+    special keyframes for smooth transitions
+
+*/
+
+/* blinking effect for texts */
+@keyframes fadeBlink {
+    0%, 100% {opacity: 1;} /* from percentage 0 and 100, opacity is full */
+    50% {opacity: 0.5;} /* when percentage is 50, opacity is half in effect */
+    
+}
+
+/* smoothy fading away */
+@keyframes fadeOut {
+    from { /* 100% opacity is true */
+        opacity: 1;
+    }
+    to {
+        opacity: 0; /* opacity turns false, see through */
+        visibility: hidden; /* make element invisible and unclickable*/
+    }
+}
+
+/* smoothly fades in */
+
+@keyframes fadeIn {
+    from { /* 0% opacity is false */
+        opacity: 0;
+    }
+    to {
+        opacity: 1; /* when 100%, opacity is true */
+        visibility: visible; /* make elemnt visible and clickable */
+    }
+}
+
+/* typing out effect */
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+/*
+
+    mobile version style 15 Pro Max
+
+*/
+
+@media (max-width: 768px) {
+
+    /* 
+    
+        Entire Webpage font style 
+    
+    */
+
+    body, h2, h3, h4 {
+        font-size: 14px; /* Smaller font size for mobile */
+    }
+
+    h1 {
+        font-size: 18px; /* Smaller font size for mobile */
+    }
+
+    ul {
+        font-size: 16px; /* Smaller font size for mobile */
+        padding: 5px;
+        padding-left: 10px;
+    }
+
+    span {
+        font-size: 16px; /* Smaller font size for moblie */
+    }
+
+    /* 
+    
+        Entire Webpage format style, classes 
+        
+    */
+
+    .section-item {
+        margin: 10px; /* smaller margin and padding */
+        padding: 10px;
+    }
+
+    .section-left, .section-right{ /* make width fit screen and center texts*/
+        width: 100%;
+        text-align: left;
+    }
+
+    .section-center { /* make row sections to column */
+        flex-direction: column;
+    }
+
+    .button {
+        margin: 0px; /* smaller button */
+        padding: 10px 10px;
+        font-size: 16px;
+    }
+    
+    .navigation-bar { /* nav bar style */
+      display: block;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 5px;
+    }
+  
+    .hamburger { /* hamburger icon style */
+      display: block;
+      font-size: 32px;
+      cursor: pointer;
+      margin-bottom: 0px;
+    }
+  
+    .nav-category { /* nav category style, hide*/
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      gap: 5px;
+    }
+  
+    .nav-category.active { /* makes nav bar category visible */
+      display: flex;
+    }
+
+    .loading-screen-text { /* loading screen text style */
+        margin: 20px;
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .mobile-hide { /* hide text in mobile*/
+        display: none;
+    }
+
+    /*
+    
+        format style for id 
+    
+    */
+    #Biography {
+        padding-top: 60px; /* avoiding section to be under nav bar*/
+    }
+}

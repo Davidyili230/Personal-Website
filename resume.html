@@ -1,237 +1,278 @@
-<!--
-    Author: Yi Li
-    Project: Personal Webpage
-    Start date: March 31, 2025
-    Document: HTML file, foundation of a house"
--->
-<!DOCTYPE html> <!--what HTML version im using-->
-
-<!--HTML language set to english-->
+<!DOCTYPE html>
 <html lang="en">
 
-    <!--Header-->
-    <head>
-         <!--Tab name-->
-        <title>Davidyili Webpage</title>
+<head>
+    <title>Yi 'David' Li | Web Developer & Computer Science Student</title>
+    <link rel="icon" href="img/user.png" alt="Yi Li's Profile Picture">
 
-        <!--Tab icon, on href add "images/**imageName**.jpg"-->
-        <link rel="icon" href="img/user.png" alt="Yi Li's Profile Picture">
+    <!-- Support special char, makes webpage scale on diff device -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Yi 'David' Li's personal webpage showcasing resume, projects, and contact information.">
+    <meta name="keywords" content="Yi Li, Web Developer, Computer Science, Portfolio, Resume">
 
-        <!--Support special char, makes webpage scale on diff device-->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Linking CSS files -->
+    <link rel="stylesheet" href="reset.css" type="text/css">
+    <link rel="stylesheet" href="style.css" type="text/css">
 
-        <!--Linking CSS files-->
-        <link rel="stylesheet" href="reset.css" type="text/css">
-        <link rel="stylesheet" href="style.css" type="text/css">
+</head>
 
-    </head>
+<body>
+    <!-- Nav bar for linking pages -->
+    <header class="main-header">
+        <nav class="nav-links" role="navigation" aria-label="Main Navigation">
+            <a href="index.html">Yi 'David' Li</a>
+            <a href="about.html">About</a>
+            <a href="resume.html">Resume</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
 
-    <!--Body of webpage, what user see-->
-    <body>
-        <!--Nav bar for linking pages-->
-        <header class="main-header">
-            <nav class="nav-links">
-                <a href="index.html">Yi 'David' Li</a>
-                <a href="about.html">About</a>
-                <a href="resume.html">Resume</a>
-                <a href="contact.html">Contact</a>
-            </nav>
-        </header>
+    <!-- Main page content -->
+    <div class="page-container">
+        <!-- Left Sidebar -->
+        <aside class="sidebar">
+            <div>
+                <!-- Profile -->
+                <img src="img/user.png" alt="profile picture" width="100%" >
+                <h1>YI 'DAVID' LI</h1>
+                <h2>Davidyili230@gmail.com</h2>
 
-        <!-- Main page content -->
-        <div class="page-container">
-            <!-- Left Sidebar -->
-            <aside class="sidebar">
-                <div>
-                    <!-- Profile -->
-                    <img src="img/user.png" alt="profile picture" width="75%" >
-                    <h1>YI 'DAVID' LI</h1>
-                    <h2>Davidyili230@gmail.com</h2>
-
-                    <div class="sidebar-about">
-                        <h3>ABOUT</h3>
-                        <p>Hi, my name is Yi Li, and I’m currently a junior at CUNY Hunter College pursuing a degree in Computer Science. I recently completed a CodePath course that introduced me to web development, and I immediately found a passion for designing and bringing ideas to life online.</p>                    </div>
-
-                    <!-- Contacts -->
-                    <div class="sidebar-social-icons">
-                        <a href="https://www.facebook.com/davidyili230/" target="_blank">
-                            <img src="img/facebook.png" alt="facebook" width="40%">
-                        </a>
-                        <a href="https://github.com/Davidyili230" target="_blank">
-                            <img src="img/github.png" alt="github" width="40%">
-                        </a>    
-                        <a href="https://www.instagram.com/come.onnnnn/" target="_blank">
-                            <img src="img/instagram.png" alt="instagram" width="40%">
-                        </a>
-                        <a href="https://www.linkedin.com/in/davidyili/" target="_blank">
-                            <img src="img/linkedin.png" alt="linkedin" width="40%">
-                        </a>
-                        <a href="https://x.com/come_onnnnn_" target="_blank">
-                            <img src="img/twitter.png" alt="twitter" width="40%">
-                        </a>
-                    </div>
-
-                    <!-- Copy Rights -->
-                    <hr class="extra-line">
-                    <h4>&copy;2025 DAVIDYILI</h4>
+                <div class="sidebar-about">
+                    <h3>ABOUT</h3>
+                    <p>Hi, my name is Yi Li, and I’m currently a junior at CUNY Hunter College pursuing a degree in Computer Science. I recently completed a CodePath course that introduced me to web development, and I immediately found a passion for designing and bringing ideas to life online.</p>
                 </div>
-            </aside>
 
-            <!-- Middle Bar -->
-            <div class="middle-bar"> <!-- 5% middle bar with icons --> 
-                <button onclick="scrollToSection('Education')"><img src="img/education.png" alt="Education"></button>
-                <button onclick="scrollToSection('Certifications')"><img src="img/certifications.png" alt="Certifications"></button>
-                <button onclick="scrollToSection('Relevant-Course')"><img src="img/course.png" alt="Revelent Course"></button>
-                <button onclick="scrollToSection('Experience')"><img src="img/experience.png" alt="Experience"></button>
-                <button onclick="scrollToSection('Projects')"><img src="img/project.png" alt="Projects"></button>
-                <button onclick="scrollToSection('Technical-Skills')"><img src="img/technical-skills.png" alt="Technical-Skills"></button>
+                <!-- Contacts -->
+                <div class="sidebar-social-icons">
+                    <a href="https://www.facebook.com/davidyili230/" target="_blank" rel="noopener noreferrer">
+                        <img src="img/facebook.png" alt="facebook" width="40%">
+                    </a>
+                    <a href="https://github.com/Davidyili230" target="_blank" rel="noopener noreferrer">
+                        <img src="img/github.png" alt="github" width="40%">
+                    </a>    
+                    <a href="https://www.instagram.com/come.onnnnn/" target="_blank" rel="noopener noreferrer">
+                        <img src="img/instagram.png" alt="instagram" width="40%">
+                    </a>
+                    <a href="https://www.linkedin.com/in/davidyili/" target="_blank" rel="noopener noreferrer">
+                        <img src="img/linkedin.png" alt="linkedin" width="40%">
+                    </a>
+                    <a href="https://x.com/come_onnnnn_" target="_blank" rel="noopener noreferrer">
+                        <img src="img/twitter.png" alt="twitter" width="40%">
+                    </a>
+                </div>
+
+                <!-- Copy Rights -->
+                <hr class="extra-line">
+                <h4>&copy;2025 DAVIDYILI</h4>
+            </div>
+        </aside>
+
+        <!-- Middle Bar -->
+        <div class="middle-bar">
+            <div class="icon-container">
+                <button onclick="scrollToSection('Education')">
+                    <img src="img/education.png" alt="Education">
+                    <span class="icon-label">Education</span>
+                </button>
             </div>
 
-            <!-- Right Main Contents -->
-            <main class="main">
-                <!-- Name and location -->
-                <h1>YI LI (DAVID)</h1>
-                <p class="text-align-center">Brooklyn, NY 11219</p>
+            <div class="icon-container">
+                <button onclick="scrollToSection('Certifications')">
+                    <img src="img/certifications.png" alt="Certifications">
+                    <span class="icon-label">Certifications</span>
+                </button>
+            </div>
 
-                <!-- Contact information -->
-                <div class="main-contact">
-                    <div class="main-contact-items">
-                        <img src="img/phone.png" alt="phone" width="10%">
-                        <a href="tel:+19173657182" target="_blank">917-365-7182</a>
-                    </div>  
-                    <div class="main-contact-items">
-                        <img src="img/email.png" alt="email" width="10%">
-                        <a href="mailto:Davidyili230@gmail.com" target="_blank">Davidyili230@gmail.com</a>
-                    </div>  
-                    <div class="main-contact-items">
-                        <img src="img/linkedin.png" alt="linkedin" width="10%">
-                        <a href="https://www.linkedin.com/in/davidyili/" target="_blank">linked.com/in/davidyili</a>
-                    </div>  
-                    <div class="main-contact-items">
-                        <img src="img/github.png" alt="github" width="10%">
-                        <a href="https://github.com/Davidyili230" target="_blank">github.com/Davidyili230</a>
-                    </div>  
+            <div class="icon-container">
+                <button onclick="scrollToSection('Relevant-Course')">
+                    <img src="img/course.png" alt="Relevant Course">
+                    <span class="icon-label">Relevant Course</span>
+                </button>
+            </div>
+
+            <div class="icon-container">
+                <button onclick="scrollToSection('Experience')">
+                    <img src="img/experience.png" alt="Experience">
+                    <span class="icon-label">Experience</span>
+                </button>
+            </div>
+
+            <div class="icon-container">
+                <button onclick="scrollToSection('Projects')">
+                    <img src="img/project.png" alt="Projects">
+                    <span class="icon-label">Projects</span>
+                </button>
+            </div>
+
+            <div class="icon-container">
+                <button onclick="scrollToSection('Technical-Skills')">
+                    <img src="img/technical-skills.png" alt="Technical Skills">
+                    <span class="icon-label">Technical Skills / Extracurricular</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Right Main Contents -->
+        <main class="main">
+            <!-- Name and location -->
+            <h1>YI LI (DAVID)</h1>
+            <p class="text-align-center">Brooklyn, NY 11219</p>
+
+            <!-- Contact information -->
+            <div class="main-contact">
+                <div class="main-contact-items">
+                    <img src="img/phone.png" alt="phone" width="10%">
+                    <a href="tel:+19173657182" target="_blank">917-365-7182</a>
+                </div>  
+                <div class="main-contact-items">
+                    <img src="img/email.png" alt="email" width="10%">
+                    <a href="mailto:Davidyili230@gmail.com" target="_blank">Davidyili230@gmail.com</a>
+                </div>  
+                <div class="main-contact-items">
+                    <img src="img/linkedin.png" alt="linkedin" width="10%">
+                    <a href="https://www.linkedin.com/in/davidyili/" target="_blank" rel="noopener noreferrer">linked.com/in/davidyili</a>
+                </div>  
+                <div class="main-contact-items">
+                    <img src="img/github.png" alt="github" width="10%">
+                    <a href="https://github.com/Davidyili230" target="_blank" rel="noopener noreferrer">github.com/Davidyili230</a>
+                </div>  
+            </div>
+
+            <!-- Education -->
+            <div class="main-resume-category" id="Education">
+                <h2>Education</h2>
+                <hr class="styled-line">
+                <div class="grid-container">
+                    <div class="left-text"><h2>Hunter College</h2></div>
+                    <div class="right-text"><h2>Expected Graduation: June 2026</h2></div>
+                </div>       
+                <div class="grid-container">
+                    <div class="left-text"><h3>Bachelor of Computer Science</h3></div>
+                    <div class="right-text"><h3>Manhattan, NY</h3></div>
                 </div>
+            </div>
 
-                <!-- Education -->
-                <div class="main-resume-category" id="Education">
-                    <h2>Education</h2>
-                    <hr class="styled-line">
-                    <div class="grid-container">
-                        <div class="left-text"><h2>Hunter College</h2></div>
-                        <div class="right-text"><h2>Expected Graduation: June 2026</h2></div>
-                    </div>       
-                    <div class="grid-container">
-                        <div class="left-text"><h3>Bachelor of Computer Science</h3></div>
-                        <div class="right-text"><h3>Manhattan, NY</h3></div>
-                    </div>
+            <!-- Certifications -->
+            <div class="main-resume-category" id="Certifications">
+                <h2>Certifications</h2>
+                <hr class="styled-line">
+                <div class="grid-container">
+                    <div class="left-text"><h2>Intro to Web Development - CodePath Certificate</h2></div>
+                    <div class="right-text"><h2>November 2024</h2></div>
                 </div>
+                <h3>Completed hands-on training in HTML, CSS, JavaScript, and responsive design.</h3>
+            </div>
 
-                <!-- Certifications -->
-                <div class="main-resume-category" id="Certifications">
-                    <h2>Certifications</h2>
-                    <hr class="styled-line">
-                    <div class="grid-container">
-                        <div class="left-text"><h2>Intro to Web Development - CodePath Certificate</h2></div>
-                        <div class="right-text"><h2>November 2024</h2></div>
-                    </div>
-                    <h3>Completed hands-on training in HTML, CSS, JavaScript, and responsive design.</h3>
+            <!-- Relevant Coursework -->
+            <div class="main-resume-category" id="Relevant-Course">
+                <h2>Relevant Coursework</h2>
+                <hr class="styled-line">
+                <ul class="course-listing-ul">
+                    <li class="course-listing-li">Data Structures</li>
+                    <li class="course-listing-li">Algorithms Analysis</li>
+                    <li class="course-listing-li">Systems Programming</li>
+                    <li class="course-listing-li">Computer Architecture</li>
+                </ul>
+            </div>
+
+            <!-- Experience -->
+            <div class="main-resume-category" id="Experience">
+                <h2>Experience</h2>
+                <hr class="styled-line">
+                <div class="grid-container">
+                    <div class="left-text"><h2>Zhang and Cheng Medical P.C.</h2></div>
+                    <div class="right-text"><h2>January 2022 - Present</h2></div>
+                </div>       
+                <div class="grid-container">
+                    <div class="left-text"><h3>Medical Receptionist</h3></div>
+                    <div class="right-text"><h3>Brooklyn, NY</h3></div>
                 </div>
+                <ul>
+                    <li>Improved patient intake efficiency by streamlining check-in processes and collecting personal, medical, and insurance info, resulting in faster service times.</li>
+                    <li>Reduced wait times by 15% by scheduling and verifying appointments and communicating delays effectively with patients and staff.</li>
+                    <li>Enhanced communication between patients and medical staff by promptly answering calls and addressing inquiries.</li>
+                </ul>
+                <hr class="extra-line">
+                <h3>Medical Assistance</h3>
+                <ul>
+                    <li>Assisted doctors with electronic prescriptions, preparing and sending them to pharmacies using EMR software, speeding up the prescription process by 20%.</li>
+                    <li>Took vital signs and conducted exams, including vision, hearing, and hemoglobin tests using a testing oximeter, aiding in accurate patient assessments.</li>
+                    <li>Operated medical machines, ensuring optimal performance and patient safety, reducing downtime and enhancing the quality of care provided.</li>
+                </ul>
 
-                <!-- Relevant Coursework -->
-                <div class="main-resume-category" id="Relevant-Course">
-                    <h2>Relevant Coursework</h2>
-                    <hr class="styled-line">
-                    <ul class="course-listing-ul">
-                        <li class="course-listing-li">Data Structures</li>
-                        <li class="course-listing-li">Algorithms Analysis</li>
-                        <li class="course-listing-li">Systems Programming</li>
-                        <li class="course-listing-li">Computer Architecture</li>
-                    </ul>
+                <!-- Second working experience-->
+                <hr class="extra-line">
+                <div class="grid-container">
+                    <div class="left-text"><h2>Kings Bay, Inc. JCC Brooklyn </h2></div>
+                    <div class="right-text"><h2>July 2021 - September 2021</h2></div>
+                </div>       
+                <div class="grid-container">
+                    <div class="left-text"><h3>Summer Camp Counselor</h3></div>
+                    <div class="right-text"><h3>Brooklyn, NY</h3></div>
                 </div>
+                <ul>
+                    <li> Supervised up to 25 campers daily, ensuring safety, emotional well-being, and developmental progress through active engagement and support.</li>
+                    <li>Led and participated in diverse activities—including soccer, arts and crafts, and swimming—to foster teamwork, creativity, and camper enjoyment.</li>
+                    <li> Maintained and enforced a structured daily schedule, improving time management and ensuring smooth program flow throughout the day.</li>
+                </ul>
 
-                <!-- Experience -->
-                <div class="main-resume-category" id="Experience">
-                    <h2>Experience</h2>
-                    <hr class="styled-line">
-                    <div class="grid-container">
-                        <!-- First working experience-->
-                        <div class="left-text"><h2>Zhang and Cheng Medical P.C.</h2></div>
-                        <div class="right-text"><h2>January 2022 - Present</h2></div>
-                    </div>       
-                    <div class="grid-container">
-                        <div class="left-text"><h3>Medical Receptionist</h3></div>
-                        <div class="right-text"><h3>Brooklyn, NY</h3></div>
-                    </div>
-                    <ul>
-                        <li>Improved patient intake efficiency by streamlining check-in processes and collecting personal, medical, and insurance info, resulting in faster service times.</li>
-                        <li>Reduced wait times by 15% by scheduling and verifying appointments and communicating delays effectively with patients and staff.</li>
-                        <li>Enhanced communication between patients and medical staff by promptly answering calls and addressing inquiries.</li>
-                    </ul>
-                    <hr class="extra-line">
-                    <h3>Medical Assistance</h3>
-                    <ul>
-                        <li>Assisted doctors with electronic prescriptions, preparing and sending them to pharmacies using EMR software, speeding up the prescription process by 20%.</li>
-                        <li>Took vital signs and conducted exams, including vision, hearing, and hemoglobin tests using a testing oximeter, aiding in accurate patient assessments.</li>
-                        <li>Operated medical machines, ensuring optimal performance and patient safety, reducing downtime and enhancing the quality of care provided.</li>
-                    </ul>
-
-                    <!-- Second working experience-->
-                    <hr class="extra-line">
-                    <div class="grid-container">
-                        <div class="left-text"><h2>Kings Bay, Inc. JCC Brooklyn </h2></div>
-                        <div class="right-text"><h2>July 2021 - September 2021</h2></div>
-                    </div>       
-                    <div class="grid-container">
-                        <div class="left-text"><h3>Summer Camp Counselor</h3></div>
-                        <div class="right-text"><h3>Brooklyn, NY</h3></div>
-                    </div>
-                    <ul>
-                        <li> Supervised up to 25 campers daily, ensuring safety, emotional well-being, and developmental progress through active engagement and support.</li>
-                        <li>Led and participated in diverse activities—including soccer, arts and crafts, and swimming—to foster teamwork, creativity, and camper enjoyment.</li>
-                        <li> Maintained and enforced a structured daily schedule, improving time management and ensuring smooth program flow throughout the day.</li>
-                    </ul>
-
-                    <!-- Projects -->
-                    <div class="main-resume-category" id="Projects">
+                 <!-- Projects -->
+                <div class="main-resume-category" id="Projects">
                     <h2>Projects</h2>
                     <hr class="styled-line">
+
+                    <!-- Project 1 -->
                     <div class="grid-container">
-                        <!-- First project-->
                         <div class="left-text"><h2><strong>Personal Webpage</strong> <span class="code-language"> | HTML, CSS, JavaScript</span></h2></div>
                         <div class="right-text"><h2>March 2025 - Present</h2></div>
                     </div>
                     <ul>
-                        <li>Designed and developed a personal portfolio website to showcase my resume, projects, and professional information, which resulted in a 40% increase in recruiter outreach by presenting a polished, well-organized digital resume.</li>
-                        <li>Optimized the site's layout for mobile responsiveness and cross-platform compatibility by utilizing custom CSS, which boosted the site's performance to a 98+ Google Lighthouse score for accessibility, performance, and SEO.</li>
-                        <li>Implemented JavaScript to create interactive features such as dark mode toggle, smooth page transitions, and a responsive navigation menu, leading to a 60% increase in average time spent on the site by visitors.</li>
+                        <li>Designed and developed a personal portfolio website to showcase my resume, projects, and professional information, featuring sections like biography, work experience, and projects.</li>
+                        <li>Implemented interactive elements such as smooth scrolling, theme switching, and section reveals on scroll for an engaging user experience.</li>
+                        <li>Optimized the site for mobile-first design, ensuring responsiveness across various devices.</li>
                     </ul>
+
+                    <!-- Project 2 -->
                     <div class="grid-container">
-                        <!-- Second project-->
-                        <div class="left-text"><h2><strong>Lemon Ye Tea Shop</strong> <span class="code-language"> | HTML, CSS, JavaScript</span></h2></div>
-                        <div class="right-text"><h2>April 2025 - Present</h2></div>
+                        <div class="left-text"><h2><strong>Chessboard Simulator</strong> <span class="code-language"> | C++</span></h2></div>
+                        <div class="right-text"><h2>December 2024 - Present</h2></div>
                     </div>
                     <ul>
-                        <li>Built a multi-page website for a local bubble tea shop, focusing on delivering an engaging customer experience by displaying the business story, menu, and contact details, which led to a 30% increase in foot traffic after launch.</li>
-                        <li>Developed a mobile-optimized design using CSS Flexbox and Grid to ensure a responsive, user-friendly experience on smartphones and tablets, while maintaining consistent branding and design across devices.</li>
-                        <li>Incorporated interactive JavaScript components such as animated buttons, hover effects, and a dynamic navigation bar, resulting in a 50% increase in site engagement and an improvement in user retention time.</li>
+                        <li>Developed a chessboard simulator in C++ that implements the chessboard layout and simulates the movement of chess pieces for a two-player game.</li>
+                        <li>Applied object-oriented programming principles, including classes, inheritance, and polymorphism, to manage different types of chess pieces and their movement patterns.</li>
+                        <li>Designed the game logic to handle user input, piece movement, and simple AI for an enhanced playing experience.</li>
                     </ul>
 
-                    <!-- Technical Skill / Extracurricular -->
+                    <!-- Technical Skills -->
                     <div class="main-resume-category" id="Technical-Skills">
-                        <h2>Technical Skill / Extracurricular</h2>
+                        <h2>Technical Skills</h2>
                         <hr class="styled-line">
-                        <ul>
-                            <li> Vice President of CSSA (Chinese Student & Scholar Association) at Hunter College since March 2023, leading over 10 members to organize events and foster community engagement.</li>
-                            <li>Designed posters using Adobe Photoshop and typesettings with Xiu Mi for CSSA events, improving event visibility and attendance by 20%.</li>
-                            <li>Proficient in Python, C++, HTML/CSS, JavaScript, and VS Code; utilized GitHub for version control to manage and collaborate on coding projects, ensuring code efficiency and accuracy.</li>
+                        <ul class="skills-listing-ul">
+                            <li class="skills-listing-li"><strong>Languages:</strong> C++, Python, HTML, CSS</li>
+                            <li class="skills-listing-li"><strong>Tools & Frameworks:</strong> Git, GitHub, Visual Studio</li>
+                            <li class="skills-listing-li"><strong>Technologies:</strong> Object-Oriented Programming, Template Classes, Dynamic Memory Management, Algorithms, Data Structures</li>
+                            <li class="skills-listing-li"><strong>Operating Systems:</strong> Windows, macOS</li>
                         </ul>
-                </div>
+                    </div>
 
-                
-            </main>
-        </div>
-        <script src="script.js"></script>
-    </body>
+                    <!-- Extracurricular -->
+                    <div class="main-resume-category" id="Extracurricular">
+                        <h2>Extracurricular Activities</h2>
+                        <hr class="styled-line">
+                        <ul class="activities-listing-ul">
+                            <li class="activities-listing-li">Volunteer Tutor for High School Students (Mathematics & Computer Science)</li>
+                            <li class="activities-listing-li">Member of Hunter College Computer Science Club</li>
+                            <li class="activities-listing-li">Participant in Hackathons (e.g., HackNY, Major League Hacking)</li>
+                            <li class="activities-listing-li">Contributing to Open Source Projects on GitHub</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
 </html>

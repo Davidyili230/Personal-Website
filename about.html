@@ -2,163 +2,160 @@
     Author: Yi Li
     Project: Personal Webpage
     Start date: March 31, 2025
-    Document: HTML file, foundation of a house"
+    Document: HTML file, foundation of a house
 -->
-<!DOCTYPE html> <!--what HTML version im using-->
-
-<!--HTML language set to english-->
+<!DOCTYPE html>
 <html lang="en">
 
-    <!--Header-->
-    <head>
-         <!--Tab name-->
-        <title>Davidyili Webpage</title>
+<head>
+    <!-- Tab name -->
+    <title>Davidyili Webpage</title>
 
-        <!--Tab icon, on href add "images/**imageName**.jpg"-->
-        <link rel="icon" href="img/user.png" alt="Yi Li's Profile Picture">
+    <!-- Tab icon, on href add "images/**imageName**.jpg" -->
+    <link rel="icon" href="img/user.png" alt="Yi Li's Profile Picture">
 
-        <!--Support special char, makes webpage scale on diff device-->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Support special chars, makes webpage scale on different devices -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <!--Linking CSS files-->
-        <link rel="stylesheet" href="reset.css" type="text/css">
-        <link rel="stylesheet" href="style.css" type="text/css">
+    <!-- Meta description for SEO -->
+    <meta name="description" content="Yi 'David' Li's personal website. Learn about his journey in web development, hobbies, and interests.">
 
-    </head>
+    <!-- Linking CSS files -->
+    <link rel="stylesheet" href="reset.css" type="text/css">
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
 
-    <!--Body of webpage, what user see-->
-    <body>
-        <!--Nav bar for linking pages-->
-        <header class="main-header">
-            <nav class="nav-links">
-                <a href="index.html">Yi 'David' Li</a>
-                <a href="about.html">About</a>
-                <a href="resume.html">Resume</a>
-                <a href="contact.html">Contact</a>
-            </nav>
-        </header>
+<body>
+    <!-- Header with navigation bar -->
+    <header class="main-header">
+        <nav class="nav-links">
+            <a href="index.html">Yi 'David' Li</a>
+            <a href="about.html">About</a>
+            <a href="resume.html">Resume</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
 
-        <!-- Main page content -->
-        <div class="page-container">
-            <!-- Left Sidebar -->
-            <aside class="sidebar">
-                <div>
-                    <!-- Profile -->
-                    <img src="img/user.png" alt="profile picture" width="75%" >
-                    <h1>YI 'DAVID' LI</h1>
-                    <h2>Davidyili230@gmail.com</h2>
+    <div class="page-container">
+        <!-- Left Sidebar with profile information -->
+        <aside class="sidebar">
+            <div>
+                <!-- Profile -->
+                <img src="img/user.png" alt="profile picture of Yi Li" width="75%">
+                <h1>Yi 'DAVID' LI</h1>
+                <h2>Davidyili230@gmail.com</h2>
 
-                    <div class="sidebar-about">
-                        <h3>ABOUT</h3>
-                        <p>Hi, my name is Yi Li, and I’m currently a junior at CUNY Hunter College pursuing a degree in Computer Science. I recently completed a CodePath course that introduced me to web development, and I immediately found a passion for designing and bringing ideas to life online.</p>
-                    </div>
-
-                    <!-- Contacts -->
-                    <div class="sidebar-social-icons">
-                        <a href="https://www.facebook.com/davidyili230/" target="_blank">
-                            <img src="img/facebook.png" alt="facebook" width="40%">
-                        </a>
-                        <a href="https://github.com/Davidyili230" target="_blank">
-                            <img src="img/github.png" alt="github" width="40%">
-                        </a>    
-                        <a href="https://www.instagram.com/come.onnnnn/" target="_blank">
-                            <img src="img/instagram.png" alt="instagram" width="40%">
-                        </a>
-                        <a href="https://www.linkedin.com/in/davidyili/" target="_blank">
-                            <img src="img/linkedin.png" alt="linkedin" width="40%">
-                        </a>
-                        <a href="https://x.com/come_onnnnn_" target="_blank">
-                            <img src="img/twitter.png" alt="twitter" width="40%">
-                        </a>
-                    </div>
-
-                    <!-- Copy Rights -->
+                <!-- About section -->
+                <div class="sidebar-about">
                     <hr class="extra-line">
-                    <h4>&copy;2025 DAVIDYILI</h4>
+                    <h3>ABOUT</h3>
+                    <hr class="extra-line">
+                    <p>Hi, my name is Yi Li, and I’m currently a junior at CUNY Hunter College pursuing a degree in Computer Science. I recently completed a CodePath course that introduced me to web development, and I immediately found a passion for designing and bringing ideas to life online.</p>
                 </div>
-            </aside>
 
-            <!-- Middle Bar -->
-            <section class="middle-bar">
-                <div class="icon-container">
-                  <button onclick="scrollToSection('Intro')">
+                <!-- Social media icons -->
+                <div class="sidebar-social-icons">
+                    <a href="https://www.facebook.com/davidyili230/" target="_blank">
+                        <img src="img/facebook.png" alt="Facebook" width="40%">
+                    </a>
+                    <a href="https://github.com/Davidyili230" target="_blank">
+                        <img src="img/github.png" alt="GitHub" width="40%">
+                    </a>    
+                    <a href="https://www.instagram.com/come.onnnnn/" target="_blank">
+                        <img src="img/instagram.png" alt="Instagram" width="40%">
+                    </a>
+                    <a href="https://www.linkedin.com/in/davidyili/" target="_blank">
+                        <img src="img/linkedin.png" alt="LinkedIn" width="40%">
+                    </a>
+                    <a href="https://x.com/come_onnnnn_" target="_blank">
+                        <img src="img/twitter.png" alt="Twitter" width="40%">
+                    </a>
+                </div>
+
+                <!-- Copyright -->
+                <hr class="extra-line">
+                <h4>&copy; 2025 DAVIDYILI</h4>
+            </div>
+        </aside>
+
+        <!-- Main content area -->
+        <section class="middle-bar">
+            <div class="icon-container">
+                <button onclick="scrollToSection('Intro')">
                     <img src="img/intro.png" alt="Introduction">
                     <span class="icon-label">Introduction</span>
-                  </button>
-                </div>
-              
-                <div class="icon-container">
-                  <button onclick="scrollToSection('Question')">
+                </button>
+            </div>
+          
+            <div class="icon-container">
+                <button onclick="scrollToSection('Question')">
                     <img src="img/question.png" alt="Question">
-                    <span class="icon-label">Question</span>
-                  </button>
-                </div>
-              
-                <div class="icon-container">
-                  <button onclick="scrollToSection('Journey')">
+                    <span class="icon-label">Fun Fact</span>
+                </button>
+            </div>
+          
+            <div class="icon-container">
+                <button onclick="scrollToSection('Journey')">
                     <img src="img/Journey.png" alt="Journey">
                     <span class="icon-label">Journey</span>
-                  </button>
-                </div>
-              
-                <div class="icon-container">
-                  <button onclick="scrollToSection('Hobbies')">
+                </button>
+            </div>
+          
+            <div class="icon-container">
+                <button onclick="scrollToSection('Hobbies')">
                     <img src="img/hobbies.png" alt="Hobbies">
                     <span class="icon-label">Hobbies</span>
-                  </button>
-                </div>
-            </section>
-              
+                </button>
+            </div>
+        </section>
 
-            <main class="main">
-                <h1 id="Intro">About Me</h1>
-                <!-- Introduction -->
-                <h2>Intro</h2>
-                <p>Hi, my name is Yi Li, and I’m currently a junior at CUNY Hunter College pursuing a degree in Computer Science. I recently completed a CodePath course that introduced me to web development, and I immediately found a passion for designing and bringing ideas to life online.</p>
-                <hr class="extra-line">
-                <p>This website marks the beginning of my journey to becoming an expert in web development. I'm also currently building another site to showcase menu items and share the story behind a local bubble tea shop. I'm eager to keep learning—every day I'm improving my HTML/CSS, JavaScript skills and exploring SQL to create more dynamic, interactive websites.</p>
+        <main class="main">
+            <h1 id="Intro">About Me</h1>
 
-                <!-- Why named David -->
-                <hr class="extra-line">
-                <h2 id="Question">Why I'm I known as David?</h2>
-                <p>The name "David" came from an unexpected place—my mom’s American friend. Curious how? Back in elementary school, both students and teachers constantly mispronounced my real name, "Yi." Instead of saying "Ee," everyone said "Yee." Frustrated, I told my mom about it. A few days later, she was chatting with her American friend when she mentioned how simple his name, David, was to pronounce. And just like that, David became my nickname.</p>
-                <hr class="extra-line">
-                <p>What’s funny is how far the name stuck. In high school, whenever a new class or teacher came along, I’d introduce myself as David right away. It became second nature—soon, everyone knew me as David. Then came graduation. As people flipped through the yearbook looking for my profile, they suddenly realized something shocking. My legal name is Yi Li. People were genuinely freaking out. Some had known me for years and never knew David wasn’t my real name.</p>
-                <hr class="extra-line">
-                <p>The best part? One of my closest friends—someone I’d known since I was 10—didn’t find out my real name until we were 17.</p>
+            <!-- Introduction -->
+            <h2>Introduction</h2>
+            <p>Hi, my name is Yi Li, and I’m currently a junior at CUNY Hunter College pursuing a degree in Computer Science. I recently completed a CodePath course that introduced me to web development, and I immediately found a passion for designing and bringing ideas to life online.</p>
+            <hr class="extra-line">
+            <p>This website marks the beginning of my journey to becoming an expert in web development. I'm also currently building another site to showcase menu items and share the story behind a local bubble tea shop. I'm eager to keep learning—every day I'm improving my HTML/CSS, JavaScript skills, and exploring SQL to create more dynamic, interactive websites.</p>
 
-                <!-- What I enjoy doing -->
-                <hr class="extra-line">
-                <h2 id="Journey">What I enjoy doing</h2>
-                <ul>
-                    <li>
-                        <p><strong>April 17, 2025</strong> — I hiked the full loop of Bull Hill, a 1,400 ft mountain (though I still don’t understand why it’s called a hill). My friend and I started early, and it took us about 2 hours and 30 minutes to reach Cold Spring. The uphill portion alone took nearly 2 hours and covered about a third of the entire trail.
-                            It was only my second time hiking a mountain, but this one was way more exhausting than my first. Reaching the peak was unforgettable — I had never seen a mountain skyline before, and the view was absolutely breathtaking.
-                            The descent took another 2 hours. My legs were aching so badly by the end that I could barely walk. We finally took an 8-minute break just before finishing the trail, completely worn out but proud.
-                        </p>
-                    </li>
-                    <li>
-                        <p><strong>Every now and then on Saturdays,</strong> my friends and I take a drive into the city to vibe, snap some pics for the memories — and yeah, for the 'gram too. We just enjoy the ride, the views, and the little convos that make it all feel easy.</p>
-                    </li>
-                    <li>
-                        <p><strong>August 1, 2024</strong> four of us — three friends and me — took a 2-day, 1-night trip to Kalahari Resort. We drove 3 hours, and it was our first trip together. We made the most of every moment. We stopped at Walmart for late-night snacks (and, of course, barely ate half of what we bought). 
-                            Everyone was hyped for the rides, and we kicked things off with the 7ft drop ride. One of our friends almost drowned, which was scary at first but turned into a joke we still laugh about. We hit the Jacuzzi, lazy river, wave pool, and a bunch of other rides.
-                            At night, we got into some trouble with a little ding-dong ditching, got caught, and were banned from leaving our room. Safe to say, we won’t be doing that again! Later, my friends wanted to watch The Nun (horror movie based on a true story), but I knocked out halfway through. It wasn’t super scary, though. Overall, it was an awesome experience, and we’re thinking about doing something similar next summer.
-                    </li>
-                </ul>
+            <!-- Why I'm known as David -->
+            <hr class="extra-line">
+            <h2 id="Question">Why am I known as David?</h2>
+            <p>The name "David" came from an unexpected place—my mom’s American friend. Curious how? Back in elementary school, both students and teachers constantly mispronounced my real name, "Yi." Instead of saying "Ee," everyone said "Yee." Frustrated, I told my mom about it. A few days later, she was chatting with her American friend when she mentioned how simple his name, David, was to pronounce. And just like that, David became my nickname.</p>
+            <hr class="extra-line">
+            <p>What’s funny is how far the name stuck. In high school, whenever a new class or teacher came along, I’d introduce myself as David right away. It became second nature—soon, everyone knew me as David. Then came graduation. As people flipped through the yearbook looking for my profile, they suddenly realized something shocking. My legal name is Yi Li. People were genuinely freaking out. Some had known me for years and never knew David wasn’t my real name.</p>
+            <hr class="extra-line">
+            <p>The best part? One of my closest friends—someone I’d known since I was 10—didn’t find out my real name until we were 17.</p>
 
-                <!-- I like to -->
-                <hr class="extra-line">
-                <h2 id="Hobbies">I like to...</h2>
-                <ul>
-                    <li><p>Explore NYC and hunting for new food spots to try.</p></li>
-                    <li><p>Travel to new places, soaking in different atmospheres, and spending time in nature.</p></li>
-                    <li><p>Play games with my gaming friends at night — it’s our way to relax, laugh, and have fun together.</p></li>
-                    <li><p>Play pool at night with close friends—it’s one of my favorite ways to unwind.</p></li>
-                </ul>
-            </main>
-        </div>
-        <script src="script.js"></script>
-    </body>
+            <!-- What I enjoy doing -->
+            <hr class="extra-line">
+            <h2 id="Journey">What I enjoy doing</h2>
+            <ul>
+                <li>
+                    <p><strong>April 17, 2025</strong> — I hiked the full loop of Bull Hill, a 1,400 ft mountain. The view from the peak was breathtaking.</p>
+                </li>
+                <li>
+                    <p><strong>Occasionally on Saturdays,</strong> my friends and I drive into the city to vibe, take photos, and just enjoy the ride.</p>
+                </li>
+                <li>
+                    <p><strong>August 1, 2024</strong> — A fun 2-day trip to Kalahari Resort with friends filled with rides, relaxation, and mischief!</p>
+                </li>
+            </ul>
+
+            <!-- Hobbies -->
+            <hr class="extra-line">
+            <h2 id="Hobbies">I like to...</h2>
+            <ul>
+                <li><p>Explore NYC and discover new food spots.</p></li>
+                <li><p>Travel and spend time in nature.</p></li>
+                <li><p>Game with friends online at night.</p></li>
+                <li><p>Play pool with close friends.</p></li>
+            </ul>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
 </html>

@@ -50,7 +50,7 @@ body {
 }
 
 /* ===============================================================================================================================================================================
-            ASIDE
+            ASIDE (Sidebar)
 ================================================================================================================================================================================ */
 .sidebar {
     width: 20%;
@@ -60,51 +60,33 @@ body {
     height: 93vh;
     position: sticky;
     text-align: center;
+    top: 0;
     opacity: 100%;
     padding-top: 50px;
-    top: 0;
 }
 
-/* ===============================================================================================================================================================================
-                        FONTS / TEXTS
-================================================================================================================================================================================ */
-.sidebar h1 {
+.sidebar h1, .sidebar h2, .sidebar h3, .sidebar h4, .sidebar p {
     font-family: Arial, sans-serif;
+}
+
+/* Typography for Sidebar */
+.sidebar h1 {
     font-size: 30px;
     font-weight: bold;
     line-height: 2em;
-}   
+}
 
-.sidebar h2 {
-    font-family: Arial, sans-serif;
+.sidebar h2, .sidebar h3, .sidebar h4 {
     font-size: 14px;
 }
 
 .sidebar h3 {
-    font-family: Arial, sans-serif;
-    font-size: 14px;
     font-weight: bold;
-    line-height: 1.5em;
-}
-
-.sidebar h4 {
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    opacity: 90%;
-    line-height: 1.5em;   
 }
 
 .sidebar p {
-    font-family: Arial, sans-serif;
     font-size: 14px;
     line-height: 1.5em;
-}
-
-/* ===============================================================================================================================================================================
-                        ABOUT
-================================================================================================================================================================================ */
-.sidebar-about {
-    padding-top: 30px;
 }
 
 /* ===============================================================================================================================================================================
@@ -112,7 +94,6 @@ body {
 ================================================================================================================================================================================ */
 .sidebar-social-icons {
     display: flex;
-    flex-direction: row;
     justify-content: space-evenly;
     opacity: 75%;
     padding-top: 30px;
@@ -120,14 +101,14 @@ body {
 }
 
 /* ===============================================================================================================================================================================
-            MIDDLE NAV BAR
+            MIDDLE NAV BAR (Icons)
 ================================================================================================================================================================================ */
 .middle-bar {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 5%;
-  background-color: #4B5563; /* Example */
+  background-color: #4B5563;
   padding-top: 20px;
 }
 
@@ -148,10 +129,10 @@ body {
   height: 40px;
 }
 
-/* Hide label by default */
+/* Hover effect: Show label */
 .icon-label {
   position: absolute;
-  left: 60px; /* Push it to the right of the icon */
+  left: 60px;
   top: 50%;
   transform: translateY(-50%);
   background-color: #111827;
@@ -161,52 +142,27 @@ body {
   font-size: 14px;
   opacity: 0;
   pointer-events: none;
-  white-space: nowrap;
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-/* Show label when hovering the button */
 .icon-container button:hover .icon-label {
   opacity: 1;
   transform: translateY(-50%) translateX(10px);
 }
 
-  
 /* ===============================================================================================================================================================================
-                        IMAGE
-================================================================================================================================================================================ */
-.middle-bar img {
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-}
-
-/* ===============================================================================================================================================================================
-                        BUTTON
-================================================================================================================================================================================ */
-.middle-bar button {
-    background-color: transparent;
-    background-image: none;
-    border: none;
-    cursor: pointer;
-}
-
-/* ===============================================================================================================================================================================
-            MAIN
+                        MAIN CONTENT
 ================================================================================================================================================================================ */
 .main {
     width: 80%;
-    padding: 50px 50px;
-    overflow-y: auto;
+    padding: 50px;
     background-color: #F9FAFB;
     color: #111827;
+    overflow-y: auto;
 }
 
-/* ===============================================================================================================================================================================
-                        FONTS / TEXTS
-================================================================================================================================================================================ */
+/* Typography for Main */
 .main h1 {
-    font-family: Arial, sans-serif;
     font-size: 35px;
     font-weight: bold;
     line-height: 2em;
@@ -214,20 +170,17 @@ body {
 }
 
 .main h2 {
-    font-family: Arial, sans-serif;
     font-size: 20px;
     font-weight: bold;
     line-height: 2em;
 }
 
 .main h3 {
-    font-family: Arial, sans-serif;
     font-size: 18px;
     font-style: italic;
 }
 
 .main p {
-    font-family: Arial, sans-serif;
     font-size: 18px;
     line-height: 1.5em;
 }
@@ -240,29 +193,28 @@ body {
     font-weight: bold;
 }
 
-
 .main ul {
-    list-style-type: disc;  /* Use bullet points (default) */
-    padding-left: 20px;     /* Optional: Adds some padding on the left side to space the bullets */
+    list-style-type: disc;
+    padding-left: 20px;
 }
 
 .main li {
-    padding-top: 10px;      /* Space above each list item */
+    padding-top: 10px;
     padding-left: 10px;
     line-height: 1.5em;
 }
 
-
+/* Horizontal line style */
 .styled-line {
-    border: none;          /* Removes the default border */
-    height: 1.5px;           /* Sets the thickness of the line */
-    background-color: black; /* Sets the color of the line */
+    border: none;
+    height: 1.5px;
+    background-color: black;
 }
 
 .extra-line {
-    border: none;          /* Removes the default border */
-    border-top: 3px none #000;  /* Adds a solid line */
-    margin: 10px 0;  /* Adds space above and below the line */
+    border: none;
+    border-top: 3px none #000;
+    margin: 10px 0;
 }
 
 .code-language {
@@ -273,24 +225,21 @@ body {
 .text-align-center {
     text-align: center;
 }
-  
 
 /* ===============================================================================================================================================================================
                         RESUME CONTACTS
 ================================================================================================================================================================================ */
 .main-contact {
     display: flex;
-    flex-direction: row;
     align-items: center;
-    padding-right: 20px;
-    padding-left: 50px;
+    padding: 0 50px;
 }
 
 .main-contact-items {
     display: flex;
     align-items: center;
     padding: 10px;
-    gap: 15px; /* Adds space between each item in .main-contact-items */
+    gap: 15px;
 }
 
 /* ===============================================================================================================================================================================
@@ -298,67 +247,60 @@ body {
 ================================================================================================================================================================================ */
 .grid-container {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Creates two equal-width columns */
+    grid-template-columns: 1fr 1fr; /* Two columns */
     width: 100%;
-  }
-  
-  .left-text {
-    justify-self: start; /* Aligns text to the left */
-  }
-  
-  .right-text {
-    justify-self: end; /* Aligns text to the right */
-  }
+}
+
+.left-text {
+    justify-self: start;
+}
+
+.right-text {
+    justify-self: end;
+}
 
 /* ===============================================================================================================================================================================
-                        RESUME NEW CATEGORY
+                        NEW CATEGORY / SECTION
 ================================================================================================================================================================================ */
 .main-resume-category {
     padding-top: 20px;
 }
 
 /* ===============================================================================================================================================================================
-                        RELEVENT COURSE LISTING
+                        RELEVANT COURSE LISTING
 ================================================================================================================================================================================ */
-
 .course-listing-ul {
     display: flex;
     text-align: center;
-    flex-wrap: wrap; /* Allow items to wrap into the next row */
+    flex-wrap: wrap;
 }
 
 .course-listing-li {
     list-style-type: none;
-    flex: 1 0 25%; /* Each item will take up 1/4 of the width (adjustable) */
+    flex: 1 0 25%;
     padding-top: 10px;
 }
 
 /* ===============================================================================================================================================================================
-                        FORM
+                        CONTACT FORM
 ================================================================================================================================================================================ */
 .contact-form {
     max-width: 600px;
-    margin: 30px auto; /* small top margin */
+    margin: 30px auto;
     padding: 20px;
     background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-
-    /* Animation */
     opacity: 0;
     transform: translateY(30px);
     animation: slideIn 0.8s ease-out forwards;
-    animation-delay: 0.3s; /* <--- this adds the small delay */
+    animation-delay: 0.3s;
 }
 
 .form-row {
     display: flex;
-    gap: 10px; /* Space between first name and last name */
+    gap: 10px;
     margin-bottom: 15px;
-}
-
-.form-row input {
-    flex: 1; /* Makes both inputs the same width */
 }
 
 .contact-form input,
@@ -367,10 +309,6 @@ body {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
-}
-
-.contact-form textarea {
-    resize: vertical; /* Allow vertical resizing of message box */
 }
 
 .contact-form button {
@@ -385,7 +323,6 @@ body {
 .contact-form button:hover {
     background-color: #003d80;
 }
-
 
 /* Keyframes for sliding in */
 @keyframes slideIn {

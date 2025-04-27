@@ -123,15 +123,54 @@ body {
             MIDDLE NAV BAR
 ================================================================================================================================================================================ */
 .middle-bar {
-    width: 5%;
-    background-color: #6B7280;
-    color: #F3F4F6;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    overflow: visible;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 5%;
+  background-color: #4B5563; /* Example */
+  padding-top: 20px;
 }
+
+.icon-container {
+  position: relative;
+  margin: 20px 0;
+}
+
+.icon-container button {
+  background: none;
+  border: none;
+  position: relative;
+  cursor: pointer;
+}
+
+.icon-container img {
+  width: 40px;
+  height: 40px;
+}
+
+/* Hide label by default */
+.icon-label {
+  position: absolute;
+  left: 60px; /* Push it to the right of the icon */
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #111827;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 14px;
+  opacity: 0;
+  pointer-events: none;
+  white-space: nowrap;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Show label when hovering the button */
+.icon-container button:hover .icon-label {
+  opacity: 1;
+  transform: translateY(-50%) translateX(10px);
+}
+
   
 /* ===============================================================================================================================================================================
                         IMAGE
@@ -292,4 +331,66 @@ body {
     list-style-type: none;
     flex: 1 0 25%; /* Each item will take up 1/4 of the width (adjustable) */
     padding-top: 10px;
+}
+
+/* ===============================================================================================================================================================================
+                        FORM
+================================================================================================================================================================================ */
+.contact-form {
+    max-width: 600px;
+    margin: 30px auto; /* small top margin */
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    /* Animation */
+    opacity: 0;
+    transform: translateY(30px);
+    animation: slideIn 0.8s ease-out forwards;
+    animation-delay: 0.3s; /* <--- this adds the small delay */
+}
+
+.form-row {
+    display: flex;
+    gap: 10px; /* Space between first name and last name */
+    margin-bottom: 15px;
+}
+
+.form-row input {
+    flex: 1; /* Makes both inputs the same width */
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.contact-form textarea {
+    resize: vertical; /* Allow vertical resizing of message box */
+}
+
+.contact-form button {
+    padding: 10px 20px;
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: #003d80;
+}
+
+
+/* Keyframes for sliding in */
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

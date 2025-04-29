@@ -340,21 +340,14 @@ body {
     opacity: 0;
     transform: translateX(-50px); /* start from left */
     transition: opacity 0.8s ease, transform 0.8s ease;
-  }
+}
   
-  .reveal.active {
+.reveal.active {
     opacity: 1;
     transform: translateX(0);
-  }
+}
   
-  /* Optional: You can also customize delay per element */
-  .reveal.delay-1 {
-    transition-delay: 0.2s;
-  }
-  .reveal.delay-2 {
-    transition-delay: 0.4s;
-  }
-  .reveal.delay-3 {
-    transition-delay: 0.6s;
-  }
-  
+/* delay per element */
+.reveal.delay{
+    transition-delay: 0.5s;
+}

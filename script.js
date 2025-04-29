@@ -24,21 +24,27 @@ function scrollToSection(sectionId) {
                         REVAL SECTION
 ================================================================================================================================================================================ */
 
-function revealOnScroll() {
-    const reveals = document.querySelectorAll('.reveal');
-  
-    for (let i = 0; i < reveals.length; i++) {
-      const windowHeight = window.innerHeight;
-      const elementTop = reveals[i].getBoundingClientRect().top;
-      const elementVisible = 150; // adjust trigger height if needed
-  
-      if (elementTop < windowHeight - elementVisible) {
-        reveals[i].classList.add('active');
-      } else {
-        reveals[i].classList.remove('active');
-      }
+const mainSection = document.querySelector('.main');
+const mainChildren = mainSection.querySelectorAll('.reveal');
+
+window.addEventListener('scroll', revealMainContent);
+
+function revealMainContent() {
+    const windowHeight = window.innerHeight;
+    const mainTop = mainSection.getBoundingClientRect().top;
+    const mainVisible = 150;
+
+    if (mainTop < windowHeight - mainVisible) {
+        mainChildren.forEach((child, index) => {
+            setTimeout(() => {
+                child.classList.add('active');
+            }, index * 150); // Delay each child by 150ms
+        });
+    } else {
+        mainChildren.forEach(child => {
+            child.classList.remove('active');
+        });
     }
-  }
-  
-  window.addEventListener('scroll', revealOnScroll);
-  
+}
+
+revealMainContent(); // Run once on load

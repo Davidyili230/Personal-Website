@@ -69,3 +69,21 @@ backToTopBtn.addEventListener('click', () => {
         behavior: 'smooth'
     });
 });
+
+/* ===============================================================================================================================================================================
+                        TYPE WRITING
+================================================================================================================================================================================ */
+const typewriterEl = document.getElementById("typewriter");
+const typeText = "Davidyili230@gmail.com";
+let index = 0;
+
+function type() {
+    if (index < typeText.length) {
+        typewriterEl.textContent += typeText.charAt(index);
+        index++;
+        setTimeout(type, 80); // adjust typing speed
+    }
+}
+
+// Trigger after slight delay for smoother reveal
+setTimeout(type, 1000);

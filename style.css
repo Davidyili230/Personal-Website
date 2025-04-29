@@ -351,3 +351,28 @@ body {
 .reveal.delay{
     transition-delay: 0.5s;
 }
+
+/* ===============================================================================================================================================================================
+                        BACK TO TOP BUTTON
+================================================================================================================================================================================ */
+/* Back to Top Button inside .main */
+.main #backToTopBtn {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    padding: 10px 15px;
+    font-size: 20px;
+    background-color: #1F2937;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none;
+    z-index: 10;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.main #backToTopBtn:hover {
+    opacity: 1;
+}

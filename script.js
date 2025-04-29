@@ -48,3 +48,24 @@ function revealMainContent() {
 }
 
 revealMainContent(); // Run once on load
+
+/* ===============================================================================================================================================================================
+                        BACK TO TOP
+================================================================================================================================================================================ */
+// Reuse the already declared mainSection
+const backToTopBtn = document.getElementById('backToTopBtn');
+
+mainSection.addEventListener('scroll', () => {
+    if (mainSection.scrollTop > 300) {
+        backToTopBtn.style.display = "block";
+    } else {
+        backToTopBtn.style.display = "none";
+    }
+});
+
+backToTopBtn.addEventListener('click', () => {
+    mainSection.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});

@@ -8,17 +8,22 @@
 ================================================================================================================================================================================ */
 
 function scrollToSection(sectionId) {
-    const main = document.querySelector('.main'); // Get the scrollable main area
-    const section = document.getElementById(sectionId); // Target section inside main
+    const main = document.querySelector('.main');
+    const section = document.getElementById(sectionId);
 
     if (main && section) {
-        const yOffset = -55; // Adjust for internal nav (if needed)
-        const y = section.offsetTop + yOffset;
-        main.scrollTo({ top: y, behavior: "smooth" });
+        const yOffset = 0; // optional adjustment
+        const sectionY = section.getBoundingClientRect().top - main.getBoundingClientRect().top + main.scrollTop + yOffset;
+
+        main.scrollTo({
+            top: sectionY,
+            behavior: 'smooth'
+        });
     } else {
-        console.log("Section or main not found");
+        console.log("Section or main not found for:", sectionId);
     }
 }
+
 
 /* ===============================================================================================================================================================================
                         REVAL SECTION

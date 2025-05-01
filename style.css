@@ -109,8 +109,8 @@ body {
   align-items: center;
   width: 5%;
   background-color: #4B5563;
-  padding-top: 20px;
-  z-index: 1000;
+  padding-top: 15px;
+  z-index: 999;
 }
 
 .icon-container {
@@ -500,7 +500,10 @@ body.dark-mode .main img {
 body.dark-mode .main hr {
     filter: invert(1);
 }
-
+body.dark-mode .main #backToTopBtn {
+    background-color: #F9FAFB;
+    color: #1F2937;
+}
 /* ===============================================================================================================================================================================
                                     PREVENT FLASHING WHEN CHANGING PAGES
 ================================================================================================================================================================================ */
@@ -564,3 +567,28 @@ body.dark-mode a:hover {
     transform: translateY(0);
 }
 
+/* ===============================================================================================================================================================================
+                    TOOLTIP FOR SCROLL TOP
+================================================================================================================================================================================ */
+/* Tooltip inside the back-to-top button */
+#backToTopBtn .tooltip {
+    position: absolute;
+    bottom: 120%; /* place above the button */
+    left: 50%;
+    transform: translateX(-50%) translateY(5px);
+    background-color: black;
+    color: #fff;
+    padding: 4px 8px;
+    font-size: 12px;
+    border-radius: 4px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 100;
+}
+
+#backToTopBtn:hover .tooltip {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}

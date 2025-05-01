@@ -54,7 +54,7 @@ body {
 ================================================================================================================================================================================ */
 .sidebar {
     width: 20%;
-    background-color: #374151;
+    background-color: #1F2937;
     color: #E5E7EB;
     padding: 20px;
     height: 93vh;
@@ -108,7 +108,7 @@ body {
   flex-direction: column;
   align-items: center;
   width: 5%;
-  background-color: #4B5563;
+  background-color: #DCDCDC;
   padding-top: 15px;
   z-index: 999;
 }
@@ -157,7 +157,7 @@ body {
 .main {
     width: 80%;
     padding: 50px;
-    background-color: #F9FAFB;
+    background-color: #DCDCDC;
     color: #111827;
     overflow-y: auto;
 }

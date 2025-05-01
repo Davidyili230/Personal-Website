@@ -389,3 +389,46 @@ body {
     0%, 50% { opacity: 1; }
     51%, 100% { opacity: 0; }
 }
+
+/* ===============================================================================================================================================================================
+                        DARK MODE
+================================================================================================================================================================================ */
+.dark-mode-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+    z-index: 1100;
+}
+
+body.dark-mode {
+    background-color: #111827;
+    color: #F9FAFB;
+}
+
+body.dark-mode .main {
+    background-color: #1F2937;
+    color: #F9FAFB;
+}
+
+body.dark-mode .sidebar {
+    background-color: #1F2937;
+    color: #F9FAFB;
+}
+
+body.dark-mode .middle-bar {
+    background-color: #374151;
+}
+
+body.dark-mode .main a {
+    color: #93c5fd;
+}
+
+body.dark-mode .contact-form {
+    background-color: #1f2937;
+    color: #e5e7eb;
+}

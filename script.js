@@ -91,8 +91,26 @@ setTimeout(type, 1000);
 /* ===============================================================================================================================================================================
                         DARK MODE
 ================================================================================================================================================================================ */
-const toggleSwitch = document.querySelector('.toggle-switch input');
-
-toggleSwitch.addEventListener('change', () => {
-    document.body.classList.toggle('dark-mode');
-});
+document.addEventListener('DOMContentLoaded', () => {
+    const toggleInput = document.querySelector('#darkModeToggle');
+    const body = document.body;
+  
+    // Load saved theme from localStorage
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      body.classList.add('dark-mode');
+      toggleInput.checked = true;
+    }
+  
+    // Listen to toggle changes
+    toggleInput.addEventListener('change', () => {
+      if (toggleInput.checked) {
+        body.classList.add('dark-mode');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        body.classList.remove('dark-mode');
+        localStorage.setItem('theme', 'light');
+      }
+    });
+  });
+  

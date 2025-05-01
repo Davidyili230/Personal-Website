@@ -91,19 +91,8 @@ setTimeout(type, 1000);
 /* ===============================================================================================================================================================================
                         DARK MODE
 ================================================================================================================================================================================ */
-const darkModeToggle = document.getElementById("darkModeToggle");
+const toggleSwitch = document.querySelector('.toggle-switch input');
 
-// Load saved mode on page load
-if (localStorage.getItem("darkMode") === "enabled") {
-    document.body.classList.add("dark-mode");
-}
-
-darkModeToggle.addEventListener("click", () => {
-    document.body.classList.toggle("dark-mode");
-
-    if (document.body.classList.contains("dark-mode")) {
-        localStorage.setItem("darkMode", "enabled");
-    } else {
-        localStorage.setItem("darkMode", "disabled");
-    }
+toggleSwitch.addEventListener('change', () => {
+    document.body.classList.toggle('dark-mode');
 });

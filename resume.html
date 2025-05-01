@@ -2,6 +2,16 @@
 <html lang="en">
 
 <head>
+    <script>
+        // Prevent flash of light theme
+        try {
+          if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.classList.add('dark-mode');
+            document.body.classList.add('dark-mode');
+          }
+        } catch (e) {}
+    </script>
+    
     <title>Yi 'David' Li | Web Developer & Computer Science Student</title>
     <link rel="icon" href="img/user.png" alt="Yi Li's Profile Picture">
 
@@ -14,7 +24,7 @@
     <!-- Linking CSS files -->
     <link rel="stylesheet" href="reset.css" type="text/css">
     <link rel="stylesheet" href="style.css" type="text/css">
-
+    
 </head>
 
 <body>

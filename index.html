@@ -8,9 +8,19 @@
 
 <!--HTML language set to english-->
 <html lang="en">
-
+  
     <!--Header-->
     <head>
+        <script>
+            // Prevent flash of light theme
+            try {
+              if (localStorage.getItem('theme') === 'dark') {
+                document.documentElement.classList.add('dark-mode');
+                document.body.classList.add('dark-mode');
+              }
+            } catch (e) {}
+        </script>
+        
          <!--Tab name-->
         <title>Davidyili Webpage</title>
 
@@ -24,7 +34,7 @@
         <!--Linking CSS files-->
         <link rel="stylesheet" href="reset.css" type="text/css">
         <link rel="stylesheet" href="style.css" type="text/css">
-
+        
     </head>
 
     <!--Body of webpage, what user see-->

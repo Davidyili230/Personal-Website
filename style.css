@@ -101,7 +101,7 @@ body {
 }
 
 /* ===============================================================================================================================================================================
-            MIDDLE NAV BAR (Icons)
+            MIDDLE BAR (Icons)
 ================================================================================================================================================================================ */
 .middle-bar {
   display: flex;
@@ -391,7 +391,7 @@ body {
 }
 
 /* ===============================================================================================================================================================================
-                        DARK MODE
+                        DARK MODE SETUP
 ================================================================================================================================================================================ */
 /* TOGGLE SWITCH */
 .toggle-switch {
@@ -443,7 +443,7 @@ body {
     left: 40px;
     opacity: 0;
 }
-  
+
 .toggle-switch input:checked + .slider {
     background-color: black;
 }
@@ -457,7 +457,11 @@ body {
     opacity: 1;
     left: 10px;
 }
-  
+
+
+/* ===============================================================================================================================================================================
+                                    DARK MODE ACTIVATED
+================================================================================================================================================================================ */
 /* DARK MODE STYLES */
 body.dark-mode {
     background-color: #111827;
@@ -473,6 +477,10 @@ body.dark-mode .sidebar {
     background-color: #1F2937;
     color: #F9FAFB;
 }
+body.dark-mode .middle-bar {
+    background-color: #1F2937;
+    color: #F9FAFB;
+}
 body.dark-mode a {
     color: white;
 }
@@ -480,4 +488,49 @@ body.dark-mode a:hover {
     color: #d1d5db; /* light gray for hover */
     text-decoration: underline;
 }
-  
+
+body.dark-mode .middle-bar img {
+    filter: invert(1);
+}
+
+body.dark-mode .main img {
+    filter: invert(1);
+}
+
+/* ===============================================================================================================================================================================
+                                    PREVENT FLASHING WHEN CHANGING PAGES
+================================================================================================================================================================================ */
+html.dark-mode,
+body.dark-mode {
+  background-color: #111827;
+  color: #F9FAFB;
+}
+
+html.dark-mode .main,
+body.dark-mode .main {
+  background-color: #1F2937;
+  color: #F9FAFB;
+}
+
+html.dark-mode .sidebar,
+body.dark-mode .sidebar {
+  background-color: #1F2937;
+  color: #F9FAFB;
+}
+
+html.dark-mode .middle-bar,
+body.dark-mode .middle-bar {
+  background-color: #1F2937;
+  color: #F9FAFB;
+}
+
+html.dark-mode a,
+body.dark-mode a {
+  color: white;
+}
+
+html.dark-mode a:hover,
+body.dark-mode a:hover {
+  color: #d1d5db;
+  text-decoration: underline;
+}

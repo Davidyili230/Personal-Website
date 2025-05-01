@@ -11,6 +11,16 @@
 
     <!--Header-->
     <head>
+        <script>
+            // Prevent flash of light theme
+            try {
+              if (localStorage.getItem('theme') === 'dark') {
+                document.documentElement.classList.add('dark-mode');
+                document.body.classList.add('dark-mode');
+              }
+            } catch (e) {}
+        </script>
+        
          <!--Tab name-->
         <title>Davidyili Webpage</title>
 
@@ -20,6 +30,7 @@
         <!--Support special char, makes webpage scale on diff device-->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 
         <!--Linking CSS files-->
         <link rel="stylesheet" href="reset.css" type="text/css">

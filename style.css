@@ -12,8 +12,12 @@
 ================================================================================================================================================================================ */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    padding-top: 55px;
+    background-color: black;
+    padding-top: 48px;
+}
+
+img{
+    border-radius: 50%;
 }
 
 .page-container {
@@ -28,9 +32,8 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: #1F2937;
-    padding: 20px 20px 20px 0px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background-color: white;
+    padding: 15px 20px 15px 0px;
     z-index: 1000; /* ensures it stays above other content */
 }
 
@@ -38,7 +41,7 @@ body {
                         NAVIGATION BAR ITEMS
 ================================================================================================================================================================================ */
 .nav-links a {
-    color: #F9FAFB;
+    color: black;
     text-decoration: none;
     margin-left: 20px;
     font-size: 1rem;
@@ -54,15 +57,15 @@ body {
 ================================================================================================================================================================================ */
 .sidebar {
     width: 20%;
-    background-color: #1F2937;
-    color: #E5E7EB;
-    padding: 20px;
+    background-color: white;
+    color: black;
+    padding: 25px;
     height: 93vh;
     position: sticky;
     text-align: center;
-    top: 0;
     opacity: 100%;
-    padding-top: 50px;
+    padding-top: 60px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .sidebar h1, .sidebar h2, .sidebar h3, .sidebar h4, .sidebar p {
@@ -108,14 +111,14 @@ body {
   flex-direction: column;
   align-items: center;
   width: 5%;
-  background-color: #DCDCDC;
-  padding-top: 15px;
+  background-color: #f3f3f3;
+  padding-top: 100px;
   z-index: 999;
 }
 
 .icon-container {
   position: relative;
-  margin: 20px 0;
+  margin: 15px 0;
 }
 
 .icon-container button {
@@ -126,17 +129,17 @@ body {
 }
 
 .icon-container img {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
 }
 
 /* Hover effect: Show label */
 .icon-label {
   position: absolute;
-  left: 60px;
+  left: 40px;
   top: 50%;
   transform: translateY(-50%);
-  background-color: #111827;
+  background-color: black;
   color: white;
   padding: 4px 8px;
   border-radius: 4px;
@@ -156,8 +159,8 @@ body {
 ================================================================================================================================================================================ */
 .main {
     width: 80%;
-    padding: 50px;
-    background-color: #DCDCDC;
+    padding: 40px 40px 40px 10px;
+    background-color: #f3f3f3;
     color: #111827;
     overflow-y: auto;
 }
@@ -289,7 +292,7 @@ body {
     max-width: 600px;
     margin: 30px auto;
     padding: 20px;
-    background-color: #ffffff;
+    background-color: #f3f3f3;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     opacity: 0;
@@ -363,7 +366,7 @@ body {
     right: 30px;
     padding: 10px 15px;
     font-size: 20px;
-    background-color: #1F2937;
+    background-color: #f3f3f3;
     color: white;
     border: none;
     border-radius: 5px;
@@ -397,11 +400,10 @@ body {
 /* TOGGLE SWITCH */
 .toggle-switch {
     position: absolute;
-    top: 20px;
     right: 20px;
     display: inline-block;
-    width: 60px;
-    height: 30px;
+    width: 50px;
+    height: 20px;
     cursor: pointer;
 }  
   
@@ -419,7 +421,7 @@ body {
   
 .slider {
     position: relative;
-    background-color: #ccc;
+    background-color: #f3f3f3;
     border-radius: 30px;
     transition: background-color 0.4s;
     height: 100%;
@@ -430,18 +432,17 @@ body {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    transition: left 0.4s, opacity 0.4s;
-    font-size: 18px;
+    font-size: 13px;
     pointer-events: none;
 }
   
 .slider .sun {
-    left: 10px;
+    left: 5px;
     opacity: 1;
 }
   
 .slider .moon {
-    left: 40px;
+    right: 40px;
     opacity: 0;
 }
 
@@ -451,12 +452,14 @@ body {
   
 .toggle-switch input:checked + .slider .sun {
     opacity: 0;
-    left: 20px;
+    left: 5px;
+    transition: left 0.4s, opacity 0.4s;
 }
   
 .toggle-switch input:checked + .slider .moon {
     opacity: 1;
-    left: 10px;
+    right: 10px;
+    transition: right 0.4s, opacity 0.4s;
 }
 
 /* ===============================================================================================================================================================================
@@ -464,21 +467,26 @@ body {
 ================================================================================================================================================================================ */
 /* DARK MODE STYLES */
 body.dark-mode {
-    background-color: #111827;
+    background-color: black;
     color: #F9FAFB;
 }
   
 body.dark-mode .main {
-    background-color: #1F2937;
+    background-color: black;
+    color: #F9FAFB;
+}
+
+body.dark-mode .main-header{
+    background-color: black;
     color: #F9FAFB;
 }
   
 body.dark-mode .sidebar {
-    background-color: #1F2937;
+    background-color: black;
     color: #F9FAFB;
 }
 body.dark-mode .middle-bar {
-    background-color: #1F2937;
+    background-color: black;
     color: #F9FAFB;
 }
 body.dark-mode a {
@@ -501,37 +509,37 @@ body.dark-mode .main hr {
     filter: invert(1);
 }
 body.dark-mode .main #backToTopBtn {
-    background-color: #F9FAFB;
-    color: #1F2937;
+    background-color: #f3f3f3;
+    color: black;
 }
 /* ===============================================================================================================================================================================
                                     PREVENT FLASHING WHEN CHANGING PAGES
 ================================================================================================================================================================================ */
 html.dark-mode,
 body.dark-mode {
-  background-color: #111827;
+  background-color: black;
   color: #F9FAFB;
 }
 
 html.dark-mode .main,
 body.dark-mode .main {
-  background-color: #1F2937;
+  background-color: black;
   color: #F9FAFB;
 }
 
 html.dark-mode .sidebar,
 body.dark-mode .sidebar {
-  background-color: #1F2937;
+  background-color: black;
   color: #F9FAFB;
 }
 
 html.dark-mode .middle-bar,
 body.dark-mode .middle-bar {
-  background-color: #1F2937;
+  background-color: black;
   color: #F9FAFB;
 }
 
-html.dark-mode a,
+html.dark-mode a,   
 body.dark-mode a {
   color: white;
 }

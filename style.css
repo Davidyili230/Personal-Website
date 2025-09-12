@@ -16,13 +16,14 @@ body {
     padding-top: 48px;
 }
 
-img{
+img {
     border-radius: 50%;
 }
 
 .page-container {
     display: flex;
-    height: 93vh; /* Full viewport height */
+    height: 93vh;
+    /* Full viewport height */
 }
 
 /* ===============================================================================================================================================================================
@@ -34,7 +35,8 @@ img{
     width: 100%;
     background-color: white;
     padding: 15px 20px 15px 0px;
-    z-index: 1000; /* ensures it stays above other content */
+    z-index: 1000;
+    /* ensures it stays above other content */
 }
 
 /* ===============================================================================================================================================================================
@@ -49,7 +51,8 @@ img{
 }
 
 .nav-links a:hover {
-    color: #60a5fa; /* light blue on hover */
+    color: #60a5fa;
+    /* light blue on hover */
 }
 
 /* ===============================================================================================================================================================================
@@ -65,10 +68,14 @@ img{
     text-align: center;
     opacity: 100%;
     padding-top: 60px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.sidebar h1, .sidebar h2, .sidebar h3, .sidebar h4, .sidebar p {
+.sidebar h1,
+.sidebar h2,
+.sidebar h3,
+.sidebar h4,
+.sidebar p {
     font-family: Arial, sans-serif;
 }
 
@@ -79,7 +86,9 @@ img{
     line-height: 2em;
 }
 
-.sidebar h2, .sidebar h3, .sidebar h4 {
+.sidebar h2,
+.sidebar h3,
+.sidebar h4 {
     font-size: 14px;
 }
 
@@ -107,51 +116,51 @@ img{
             MIDDLE BAR (Icons)
 ================================================================================================================================================================================ */
 .middle-bar {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 5%;
-  background-color: #f3f3f3;
-  padding-top: 100px;
-  z-index: 999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 5%;
+    background-color: #f3f3f3;
+    padding-top: 100px;
+    z-index: 999;
 }
 
 .icon-container {
-  position: relative;
-  margin: 15px 0;
+    position: relative;
+    margin: 15px 0;
 }
 
 .icon-container button {
-  background: none;
-  border: none;
-  position: relative;
-  cursor: pointer;
+    background: none;
+    border: none;
+    position: relative;
+    cursor: pointer;
 }
 
 .icon-container img {
-  width: 30px;
-  height: 30px;
+    width: 30px;
+    height: 30px;
 }
 
 /* Hover effect: Show label */
 .icon-label {
-  position: absolute;
-  left: 40px;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: black;
-  color: white;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 14px;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: black;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .icon-container button:hover .icon-label {
-  opacity: 1;
-  transform: translateY(-50%) translateX(10px);
+    opacity: 1;
+    transform: translateY(-50%) translateX(10px);
 }
 
 /* ===============================================================================================================================================================================
@@ -169,19 +178,20 @@ img{
 .main h1 {
     font-size: 35px;
     font-weight: bold;
-    line-height: 2em;
+    line-height: 1.5em;
     text-align: center;
 }
 
 .main h2 {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
-    line-height: 2em;
+    line-height: 1.5em;
 }
 
 .main h3 {
-    font-size: 18px;
+    font-size: 16px;
     font-style: italic;
+    font-weight: normal;
 }
 
 .main p {
@@ -203,8 +213,8 @@ img{
 }
 
 .main li {
-    padding-top: 10px;
-    padding-left: 10px;
+    padding-top: 5px;
+    padding-left: 5px;
     line-height: 1.5em;
 }
 
@@ -251,7 +261,8 @@ img{
 ================================================================================================================================================================================ */
 .grid-container {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Two columns */
+    grid-template-columns: 60% 40%;
+    /* Two columns */
     width: 100%;
 }
 
@@ -342,17 +353,18 @@ img{
 ================================================================================================================================================================================ */
 .reveal {
     opacity: 0;
-    transform: translateX(-50px); /* start from left */
+    transform: translateX(-50px);
+    /* start from left */
     transition: opacity 0.8s ease, transform 0.8s ease;
 }
-  
+
 .reveal.active {
     opacity: 1;
     transform: translateX(0);
 }
-  
+
 /* delay per element */
-.reveal.delay{
+.reveal.delay {
     transition-delay: 0.5s;
 }
 
@@ -390,8 +402,16 @@ img{
 }
 
 @keyframes blink {
-    0%, 50% { opacity: 1; }
-    51%, 100% { opacity: 0; }
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0;
+    }
 }
 
 /* ===============================================================================================================================================================================
@@ -405,8 +425,8 @@ img{
     width: 50px;
     height: 20px;
     cursor: pointer;
-}  
-  
+}
+
 .toggle-switch input {
     opacity: 0;
     width: 100%;
@@ -418,7 +438,7 @@ img{
     z-index: 2;
     cursor: pointer;
 }
-  
+
 .slider {
     position: relative;
     background-color: #f3f3f3;
@@ -427,7 +447,7 @@ img{
     height: 100%;
     width: 100%;
 }
-  
+
 .slider .icon {
     position: absolute;
     top: 50%;
@@ -435,28 +455,28 @@ img{
     font-size: 13px;
     pointer-events: none;
 }
-  
+
 .slider .sun {
     left: 5px;
     opacity: 1;
 }
-  
+
 .slider .moon {
     right: 40px;
     opacity: 0;
 }
 
-.toggle-switch input:checked + .slider {
+.toggle-switch input:checked+.slider {
     background-color: black;
 }
-  
-.toggle-switch input:checked + .slider .sun {
+
+.toggle-switch input:checked+.slider .sun {
     opacity: 0;
     left: 5px;
     transition: left 0.4s, opacity 0.4s;
 }
-  
-.toggle-switch input:checked + .slider .moon {
+
+.toggle-switch input:checked+.slider .moon {
     opacity: 1;
     right: 10px;
     transition: right 0.4s, opacity 0.4s;
@@ -470,30 +490,34 @@ body.dark-mode {
     background-color: black;
     color: #F9FAFB;
 }
-  
+
 body.dark-mode .main {
     background-color: black;
     color: #F9FAFB;
 }
 
-body.dark-mode .main-header{
+body.dark-mode .main-header {
     background-color: black;
     color: #F9FAFB;
 }
-  
+
 body.dark-mode .sidebar {
     background-color: black;
     color: #F9FAFB;
 }
+
 body.dark-mode .middle-bar {
     background-color: black;
     color: #F9FAFB;
 }
+
 body.dark-mode a {
     color: white;
 }
+
 body.dark-mode a:hover {
-    color: #d1d5db; /* light gray for hover */
+    color: #d1d5db;
+    /* light gray for hover */
     text-decoration: underline;
 }
 
@@ -508,46 +532,48 @@ body.dark-mode .main img {
 body.dark-mode .main hr {
     filter: invert(1);
 }
+
 body.dark-mode .main #backToTopBtn {
     background-color: #f3f3f3;
     color: black;
 }
+
 /* ===============================================================================================================================================================================
                                     PREVENT FLASHING WHEN CHANGING PAGES
 ================================================================================================================================================================================ */
 html.dark-mode,
 body.dark-mode {
-  background-color: black;
-  color: #F9FAFB;
+    background-color: black;
+    color: #F9FAFB;
 }
 
 html.dark-mode .main,
 body.dark-mode .main {
-  background-color: black;
-  color: #F9FAFB;
+    background-color: black;
+    color: #F9FAFB;
 }
 
 html.dark-mode .sidebar,
 body.dark-mode .sidebar {
-  background-color: black;
-  color: #F9FAFB;
+    background-color: black;
+    color: #F9FAFB;
 }
 
 html.dark-mode .middle-bar,
 body.dark-mode .middle-bar {
-  background-color: black;
-  color: #F9FAFB;
+    background-color: black;
+    color: #F9FAFB;
 }
 
-html.dark-mode a,   
+html.dark-mode a,
 body.dark-mode a {
-  color: white;
+    color: white;
 }
 
 html.dark-mode a:hover,
 body.dark-mode a:hover {
-  color: #d1d5db;
-  text-decoration: underline;
+    color: #d1d5db;
+    text-decoration: underline;
 }
 
 /* ===============================================================================================================================================================================
@@ -569,7 +595,7 @@ body.dark-mode a:hover {
     transition: opacity 0.3s, transform 0.3s;
     transform: translateY(5px);
 }
-  
+
 .toggle-switch:hover .tooltip {
     opacity: 1;
     transform: translateY(0);
@@ -581,7 +607,8 @@ body.dark-mode a:hover {
 /* Tooltip inside the back-to-top button */
 #backToTopBtn .tooltip {
     position: absolute;
-    bottom: 120%; /* place above the button */
+    bottom: 120%;
+    /* place above the button */
     left: 50%;
     transform: translateX(-50%) translateY(5px);
     background-color: black;

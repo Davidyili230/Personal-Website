@@ -759,102 +759,137 @@ body.dark-mode a:hover {
 }
 
 /* =========================================================================================================
-   MOBILE LAYOUT: hide middle bar, move sidebar to bottom, make content full-width
+   MOBILE LAYOUT: single column, centered navbar, hide middle bar, sidebar as footer
 ========================================================================================================= */
 @media (max-width: 900px) {
 
-  /* Stack everything vertically */
-  .page-container {
-    flex-direction: column;
-    height: auto;                /* override 93vh */
-    min-height: calc(100vh - 48px);
+    /* -----------------------------
+       PAGE STRUCTURE
+    ----------------------------- */
+    .page-container {
+      flex-direction: column;
+      height: auto;
+      min-height: calc(100vh - 48px);
+    }
+  
+    /* -----------------------------
+       NAVBAR CENTERED
+    ----------------------------- */
+    .navbar {
+      display: flex;
+      justify-content: center;      /* center nav horizontally */
+      align-items: center;
+      padding: 10px 0;
+    }
+  
+    .nav-links {
+      display: flex;
+      justify-content: center;      /* center links */
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding-right: 0;             /* remove desktop offset */
+    }
+  
+    .nav-links a {
+      margin-left: 0;
+      text-align: center;
+    }
+  
+    /* Keep toggle reachable */
+    .toggle-switch {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  
+    /* -----------------------------
+       MAIN CONTENT (FULL WIDTH)
+    ----------------------------- */
+    .main {
+      width: 100%;
+      padding: 20px;
+      overflow-y: visible;
+      order: 1;
+    }
+  
+    /* -----------------------------
+       REMOVE MIDDLE BAR
+    ----------------------------- */
+    .middle-bar {
+      display: none !important;
+    }
+  
+    /* -----------------------------
+       SIDEBAR AS FOOTNOTE / FOOTER
+    ----------------------------- */
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: static;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid #ddd;
+      box-shadow: none;
+      order: 2;
+      text-align: center;
+    }
+  
+    .sidebar img {
+      width: 50%;
+      max-width: 180px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+  
+    /* -----------------------------
+       CONTACT / RESUME STACKING
+    ----------------------------- */
+    .main-contact {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 0;
+    }
+  
+    .main-contact-items {
+      padding: 6px 0;
+    }
+  
+    /* -----------------------------
+       GRID → SINGLE COLUMN
+    ----------------------------- */
+    .grid-container {
+      grid-template-columns: 1fr;
+      gap: 6px;
+    }
+  
+    .right-text {
+      justify-self: start;
+    }
+  
+    /* -----------------------------
+       FORMS STACK
+    ----------------------------- */
+    .form-row {
+      flex-direction: column;
+    }
+  
+    /* -----------------------------
+       COURSE LIST
+    ----------------------------- */
+    .course-listing-li {
+      flex: 1 0 50%;
+    }
+  
+    /* -----------------------------
+       BACK TO TOP (FIXED)
+    ----------------------------- */
+    .main #backToTopBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+    }
   }
-
-  /* Main content first (full width) */
-  .main {
-    width: 100%;
-    padding: 20px;
-    overflow-y: visible;         /* avoid weird scroll-in-scroll on mobile */
-    order: 1;
-  }
-
-  /* Hide the middle icon bar completely */
-  .middle-bar {
-    display: none !important;
-  }
-
-  /* Sidebar becomes a bottom "footnote" section */
-  .sidebar {
-    width: 100%;
-    height: auto;
-    position: static;            /* stop sticky behavior */
-    padding-top: 20px;
-    margin-top: 20px;
-    box-shadow: none;
-    border-top: 1px solid #ddd;
-    order: 2;
-  }
-
-  /* Sidebar image sizing on mobile */
-  .sidebar img {
-    width: 50%;
-    max-width: 180px;
-    height: auto;
-  }
-
-  /* Nav: let links wrap instead of overflowing */
-  .nav-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    padding-right: 70px;         /* leave room for the toggle on the right */
-  }
-
-  .nav-links a {
-    margin-left: 0;              /* avoid huge spacing on small screens */
-  }
-
-  /* Keep toggle usable on small screens */
-  .toggle-switch {
-    right: 10px;
-  }
-
-  /* Resume/contact: stack nicely */
-  .main-contact {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0;
-    gap: 8px;
-  }
-
-  .main-contact-items {
-    padding: 6px 0;
-  }
-
-  /* Grid rows become single-column */
-  .grid-container {
-    grid-template-columns: 1fr;
-    gap: 6px;
-  }
-
-  .right-text {
-    justify-self: start;
-  }
-
-  /* Forms: first/last name stack */
-  .form-row {
-    flex-direction: column;
-  }
-
-  /* Course list: fewer columns per row */
-  .course-listing-li {
-    flex: 1 0 50%;
-  }
-
-  /* Back-to-top button should be fixed on mobile (your current absolute can float weirdly) */
-  .main #backToTopBtn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-  }
-}
+  

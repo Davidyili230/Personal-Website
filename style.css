@@ -27,6 +27,129 @@ img {
 }
 
 /* ===============================================================================================================================================================================
+            RESPONSIVE (MOBILE / TABLET)
+   Goal: make the layout readable on small screens by stacking columns, wrapping the top nav, and avoiding fixed heights.
+================================================================================================================================================================================ */
+
+@media (max-width: 900px) {
+    /* Stack layout instead of 3 columns */
+    .page-container {
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    /* Sidebar becomes a normal top section */
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding-top: 20px;
+    }
+
+    /* Middle bar becomes a horizontal icon row */
+    .middle-bar {
+        width: 100%;
+        flex-direction: row;
+        justify-content: center;
+        gap: 12px;
+        padding: 10px 0;
+        position: sticky;
+        top: 48px;
+    }
+
+    .icon-container {
+        margin: 0;
+    }
+
+    .icon-label {
+        display: none; /* hover labels don't work well on touch */
+    }
+
+    /* Main content takes full width and doesn't rely on fixed viewport height */
+    .main {
+        width: 100%;
+        padding: 20px;
+        overflow: visible;
+    }
+
+    /* Header/nav wraps cleanly */
+    .main-header {
+        padding: 10px 12px;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+        padding-right: 0;
+    }
+
+    .nav-links a {
+        margin-left: 0;
+        padding: 6px 0;
+    }
+
+    /* Toggle switch should not be absolutely positioned on small screens */
+    .toggle-switch {
+        position: static;
+        margin-left: auto;
+    }
+
+    /* Resume/contact sections stack better */
+    .main-contact {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0;
+        gap: 8px;
+    }
+
+    .grid-container {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+
+    .right-text {
+        justify-self: start;
+    }
+
+    .course-listing-li {
+        flex: 1 0 50%;
+    }
+
+    /* Contact form: put first/last name inputs on separate lines */
+    .form-row {
+        flex-direction: column;
+    }
+
+    /* Back to top: fixed so it's reachable when scrolling */
+    .main #backToTopBtn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding-top: 56px;
+    }
+
+    .main h1 {
+        font-size: 28px;
+    }
+
+    .main p {
+        font-size: 16px;
+    }
+
+    .sidebar h1 {
+        font-size: 24px;
+    }
+}
+
+/* ===============================================================================================================================================================================
             HEADER
 ================================================================================================================================================================================ */
 .main-header {
@@ -51,8 +174,8 @@ img {
 }
 
 .nav-links a:hover {
-    color: #60a5fa;
-    /* light blue on hover */
+    color: #848484;
+    /* light gray on hover */
 }
 
 /* ===============================================================================================================================================================================
@@ -62,7 +185,7 @@ img {
     width: 20%;
     background-color: white;
     color: black;
-    padding: 25px;
+    padding: 20px;
     height: 93vh;
     position: sticky;
     text-align: center;
@@ -109,7 +232,6 @@ img {
     justify-content: space-evenly;
     opacity: 75%;
     padding-top: 30px;
-    filter: invert(1);
 }
 
 /* ===============================================================================================================================================================================
@@ -168,7 +290,7 @@ img {
 ================================================================================================================================================================================ */
 .main {
     width: 80%;
-    padding: 40px 40px 40px 10px;
+    padding: 40px;
     background-color: #f3f3f3;
     color: #111827;
     overflow-y: auto;
@@ -185,7 +307,7 @@ img {
 .main h2 {
     font-size: 18px;
     font-weight: bold;
-    line-height: 1.5em;
+    line-height: 2em;
 }
 
 .main h3 {
@@ -201,6 +323,10 @@ img {
 
 .main a {
     color: black;
+}
+
+.main a:hover {
+    color: #848484;
 }
 
 .main strong {
@@ -538,6 +664,10 @@ body.dark-mode .main #backToTopBtn {
     color: black;
 }
 
+body.dark-mode .sidebar-social-icons {
+    filter: invert(1);
+}
+
 /* ===============================================================================================================================================================================
                                     PREVENT FLASHING WHEN CHANGING PAGES
 ================================================================================================================================================================================ */
@@ -627,3 +757,105 @@ body.dark-mode a:hover {
     opacity: 1;
     transform: translateX(-50%) translateY(0);
 }
+
+/* =========================================================================================================
+   MOBILE LAYOUT: hide middle bar, move sidebar to bottom, make content full-width
+========================================================================================================= */
+@media (max-width: 900px) {
+
+    /* Stack everything vertically */
+    .page-container {
+      flex-direction: column;
+      height: auto;                /* override 93vh */
+      min-height: calc(100vh - 48px);
+    }
+  
+    /* Main content first (full width) */
+    .main {
+      width: 100%;
+      padding: 20px;
+      overflow-y: visible;         /* avoid weird scroll-in-scroll on mobile */
+      order: 1;
+    }
+  
+    /* Hide the middle icon bar completely */
+    .middle-bar {
+      display: none !important;
+    }
+  
+    /* Sidebar becomes a bottom "footnote" section */
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: static;            /* stop sticky behavior */
+      padding-top: 20px;
+      margin-top: 20px;
+      box-shadow: none;
+      border-top: 1px solid #ddd;
+      order: 2;
+    }
+  
+    /* Sidebar image sizing on mobile */
+    .sidebar img {
+      width: 50%;
+      max-width: 180px;
+      height: auto;
+    }
+  
+    /* Nav: let links wrap instead of overflowing */
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding-right: 70px;         /* leave room for the toggle on the right */
+    }
+  
+    .nav-links a {
+      margin-left: 0;              /* avoid huge spacing on small screens */
+    }
+  
+    /* Keep toggle usable on small screens */
+    .toggle-switch {
+      right: 10px;
+    }
+  
+    /* Resume/contact: stack nicely */
+    .main-contact {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0;
+      gap: 8px;
+    }
+  
+    .main-contact-items {
+      padding: 6px 0;
+    }
+  
+    /* Grid rows become single-column */
+    .grid-container {
+      grid-template-columns: 1fr;
+      gap: 6px;
+    }
+  
+    .right-text {
+      justify-self: start;
+    }
+  
+    /* Forms: first/last name stack */
+    .form-row {
+      flex-direction: column;
+    }
+  
+    /* Course list: fewer columns per row */
+    .course-listing-li {
+      flex: 1 0 50%;
+    }
+  
+    /* Back-to-top button should be fixed on mobile (your current absolute can float weirdly) */
+    .main #backToTopBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+    }
+  }
+  

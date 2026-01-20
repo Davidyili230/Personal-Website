@@ -1,0 +1,140 @@
+{
+  "sidebar": {
+    "profileImage": "img/potrait.jpg",
+    "name": "YI 'DAVID' LI",
+    "email": "Davidyili230@gmail.com",
+    "about": "Hi, my name is Yi Li, and I’m currently a senior at CUNY Hunter College pursuing a degree in Computer Science. I took a web development course outside of school and enjoyed this new language I learned, and I immediately found a passion for designing and bringing ideas to life online. One fact about me is I enjoy creating new tools for myself and bring it life to make my day to day life easier.",
+    "social": [
+      { "href": "https://www.facebook.com/davidyili230/", "icon": "img/facebook.png", "alt": "facebook" },
+      { "href": "https://github.com/Davidyili230", "icon": "img/github.png", "alt": "github" },
+      { "href": "https://www.instagram.com/come.onnnnn/", "icon": "img/instagram.png", "alt": "instagram" },
+      { "href": "https://www.linkedin.com/in/davidyili/", "icon": "img/linkedin.png", "alt": "linkedin" },
+      { "href": "https://x.com/come_onnnnn_", "icon": "img/twitter.png", "alt": "twitter" }
+    ],
+    "copyright": "©2026 DAVIDYILI"
+  },
+
+  "header": {
+    "nameLine": "YI LI (DAVID)",
+    "location": "Brooklyn, NY 11219",
+    "contacts": [
+      { "icon": "img/phone.png", "alt": "phone", "href": "tel:+19173657182", "text": "917-365-7182" },
+      { "icon": "img/email.png", "alt": "email", "href": "mailto:Davidyili230@gmail.com", "text": "Davidyili230@gmail.com" },
+      { "icon": "img/linkedin.png", "alt": "linkedin", "href": "https://www.linkedin.com/in/davidyili/", "text": "linked.com/in/davidyili" },
+      { "icon": "img/github.png", "alt": "github", "href": "https://github.com/Davidyili230", "text": "github.com/Davidyili230" },
+      { "icon": "img/resume.png", "alt": "resume", "href": "downloads/Yi_Li__David__Resume.pdf", "text": "Resume PDF", "download": true }
+    ],
+    "download": {
+      "href": "downloads/Yi_Li__David__Resume.pdf",
+      "text": "Download Resume (PDF)"
+    }
+  },
+  
+  "education": {
+    "school": "Hunter College",
+    "grad": "Expected Graduation: June 2026",
+    "degree": "Bachelor of Art in Computer Science",
+    "city": "Manhattan, NY"
+  },
+
+  "certifications": [
+    {
+      "title": "Intro to Web Development - CodePath Certificate",
+      "date": "November 2024",
+      "detail": "Completed hands-on training in HTML, CSS, JavaScript, and responsive design."
+    }
+  ],
+
+  "coursework": [
+    "Operating Systems",
+    "Data Structures",
+    "Algorithms Analysis",
+    "Systems Programming",
+    "Web Development",
+    "iOS Developmentt",
+    "Computer Architecture"
+  ],
+
+  "technicalSkills": [
+    { "label": "Programming", "value": "Swift (iOS), Python, C++, HTML, CSS, JavaScript" },
+    { "label": "Frameworks", "value": "React.js, Node.js, SwiftUI" },
+    { "label": "Tools", "value": "Git/GitHub, Firebase, MongoDB, Cloudinary" }
+  ],
+
+
+  "projects": [
+    {
+      "name": "Personal Webpage",
+      "tech": "HTML, CSS, JavaScript",
+      "dates": "March 2025 - Present",
+      "bullets": [
+        "Designed and developed a personal website to showcase projects, skills, and resume.",
+        "Implemented responsive layouts and interactive UI elements for desktop and mobile devices.",
+        "Improved accessibility and site usability through clean structure and styling."
+      ]
+    },
+
+    {
+      "name": "MealFinder iOS App",
+      "tech": "iOS (SwitftUI), Spoonacular API",
+      "dates": "September 2025 - December 2025",
+      "bullets": [
+        "Built an iOS app using SwiftUI and the Spoonacular API to search meals by ingredient and display recipe details.",
+        "Implemented JSON parsing and MVVM architecture to manage data flow and UI updates cleanly.",
+        "Added a favorites feature and responsive SwiftUI List-based UI for improved usability."
+      ]
+    },
+
+    {
+      "name": "ProjectClean Web Application",
+      "tech": "React.js, Node.js, MongoDB, HTML, CSS, JavaScript",
+      "dates": "May 2025 - July 2025",
+      "bullets": [
+        "Developed a platform for reporting campus issues in real-time, including cleaning, maintenance, and safety.",
+        "Implemented user login, media uploads, issue tracking dashboard, and secure authentication.",
+        "Helped centralize and simplify how campus issues are reported and tracked."
+      ]
+    }
+  ],
+
+  "experience": [
+    {
+      "company": "Zhang and Cheng Medical P.C.",
+      "dates": "January 2022 - Present",
+      "role": "Medical Receptionist / Medical Assistant",
+      "location": "Brooklyn, NY",
+      "bullets": [
+        "Managed daily patient intake, scheduling, and front-desk operations in a busy medical office.",
+        "Communicated with patients by phone and in person to address inquiries and coordinate appointments.",
+        "Assisted physicians with electronic prescriptions and patient record updates using iClinic.",
+        "Collected vital signs and assisted during examinations to support clinical assessments.",
+        "Operated medical equipment while following safety and procedural guidelines."
+      ]
+    },
+    {
+      "company": "Kings Bay, Inc. JCC Brooklyn (SYEP)",
+      "dates": "July 2021 - September 2021",
+      "role": "Summer Camp Counselor",
+      "location": "Brooklyn, NY",
+      "bullets": [
+        "Supervised up to 25 campers daily, ensuring their safety, emotional well-being, and active engagement.",
+        "Led activities such as soccer, arts and crafts, and swimming to promote teamwork and creativity.",
+        "Maintained a structured daily schedule, improving time management and overall program efficiency."
+      ]
+    }
+  ],
+
+  "leadershipExtracurricular": [
+    {
+      "company": "Hunter Chinese Student & Scholar Association (CSSA) ",
+      "dates": "February 2024 – Present",
+      "role": "Vice President",
+      "location": "New York, NY",
+      "bullets": [
+        "Led a team of 20+ executive board members to plan, coordinate, and execute campus-wide events.",
+        "Organized cultural and social events attended by 50+ students, increasing student engagement and participation.",
+        "Designed promotional materials using Canva and managed outreach to effectively market events."
+      ]
+    }
+  ]
+}

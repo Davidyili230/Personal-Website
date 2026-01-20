@@ -10,124 +10,140 @@
 function scrollToSection(sectionId) {
     const main = document.querySelector('.main');
     const section = document.getElementById(sectionId);
-
+  
     if (main && section) {
-        const yOffset = 0; // optional adjustment
-        const sectionY = section.getBoundingClientRect().top - main.getBoundingClientRect().top + main.scrollTop + yOffset;
-
-        main.scrollTo({
-            top: sectionY,
-            behavior: 'smooth'
-        });
-    } else {
-        console.log("Section or main not found for:", sectionId);
-    }
-}
-
-
-/* ===============================================================================================================================================================================
-                        REVAL SECTION
-================================================================================================================================================================================ */
-
-const mainSection = document.querySelector('.main');
-const mainChildren = mainSection.querySelectorAll('.reveal');
-
-window.addEventListener('scroll', revealMainContent);
-
-function revealMainContent() {
-    const windowHeight = window.innerHeight;
-    const mainTop = mainSection.getBoundingClientRect().top;
-    const mainVisible = 150;
-
-    if (mainTop < windowHeight - mainVisible) {
-        mainChildren.forEach((child, index) => {
-            setTimeout(() => {
-                child.classList.add('active');
-            }, index * 150); // Delay each child by 150ms
-        });
-    } else {
-        mainChildren.forEach(child => {
-            child.classList.remove('active');
-        });
-    }
-}
-
-revealMainContent(); // Run once on load
-
-/* ===============================================================================================================================================================================
-                        BACK TO TOP
-================================================================================================================================================================================ */
-// Reuse the already declared mainSection
-const backToTopBtn = document.getElementById('backToTopBtn');
-
-mainSection.addEventListener('scroll', () => {
-    if (mainSection.scrollTop > 300) {
-        backToTopBtn.style.display = "block";
-    } else {
-        backToTopBtn.style.display = "none";
-    }
-});
-
-backToTopBtn.addEventListener('click', () => {
-    mainSection.scrollTo({
-        top: 0,
+      const yOffset = 0;
+      const sectionY = section.getBoundingClientRect().top - main.getBoundingClientRect().top + main.scrollTop + yOffset;
+  
+      main.scrollTo({
+        top: sectionY,
         behavior: 'smooth'
-    });
-});
-
-/* ===============================================================================================================================================================================
-                        TYPE WRITING
-================================================================================================================================================================================ */
-const typewriterEl = document.getElementById("typewriter");
-const typeText = "Davidyili230@gmail.com";
-let index = 0;
-
-function type() {
-    if (index < typeText.length) {
+      });
+    } else {
+      console.log("Section or main not found for:", sectionId);
+    }
+  }
+  
+  
+  /* ===============================================================================================================================================================================
+                          REVEAL SECTION
+  ================================================================================================================================================================================ */
+  
+  const mainSection = document.querySelector('.main');
+  
+  if (mainSection) {
+    const mainChildren = mainSection.querySelectorAll('.reveal');
+  
+    window.addEventListener('scroll', revealMainContent);
+  
+    function revealMainContent() {
+      const windowHeight = window.innerHeight;
+      const mainTop = mainSection.getBoundingClientRect().top;
+      const mainVisible = 150;
+  
+      if (mainTop < windowHeight - mainVisible) {
+        mainChildren.forEach((child, index) => {
+          setTimeout(() => {
+            child.classList.add('active');
+          }, index * 150);
+        });
+      } else {
+        mainChildren.forEach(child => {
+          child.classList.remove('active');
+        });
+      }
+    }
+  
+    revealMainContent(); // Run once on load
+  
+  
+    /* ===============================================================================================================================================================================
+                            BACK TO TOP
+    ================================================================================================================================================================================ */
+  
+    const backToTopBtn = document.getElementById('backToTopBtn');
+  
+    if (backToTopBtn) {
+      mainSection.addEventListener('scroll', () => {
+        if (mainSection.scrollTop > 300) {
+          backToTopBtn.style.display = "block";
+        } else {
+          backToTopBtn.style.display = "none";
+        }
+      });
+  
+      backToTopBtn.addEventListener('click', () => {
+        mainSection.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    }
+  }
+  
+  
+  /* ===============================================================================================================================================================================
+                          TYPE WRITING
+  ================================================================================================================================================================================ */
+  
+  const typewriterEl = document.getElementById("typewriter");
+  if (typewriterEl) {
+    const typeText = "Davidyili230@gmail.com";
+    let index = 0;
+  
+    function type() {
+      if (index < typeText.length) {
         typewriterEl.textContent += typeText.charAt(index);
         index++;
-        setTimeout(type, 80); // adjust typing speed
+        setTimeout(type, 80);
+      }
     }
-}
-
-// Trigger after slight delay for smoother reveal
-setTimeout(type, 1000);
-
-/* ===============================================================================================================================================================================
-                        DARK MODE
-================================================================================================================================================================================ */
-document.addEventListener('DOMContentLoaded', () => {
-const toggleInput = document.querySelector('#darkModeToggle');
-const body = document.body;
   
-// Load saved theme from localStorage
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme === 'dark') {
-    body.classList.add('dark-mode');
-    toggleInput.checked = true;
-}
+    setTimeout(type, 1000);
+  }
   
-// Listen to toggle changes
-toggleInput.addEventListener('change', () => {
-    if (toggleInput.checked) {
+  
+  /* ===============================================================================================================================================================================
+                          DARK MODE
+  ================================================================================================================================================================================ */
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggleInput = document.querySelector('#darkModeToggle');
+    const body = document.body;
+  
+    if (!toggleInput) return;
+  
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      body.classList.add('dark-mode');
+      toggleInput.checked = true;
+    }
+  
+    toggleInput.addEventListener('change', () => {
+      if (toggleInput.checked) {
         body.classList.add('dark-mode');
         localStorage.setItem('theme', 'dark');
-    } else {
+      } else {
         body.classList.remove('dark-mode');
         localStorage.setItem('theme', 'light');
-    }
-});
-});
+      }
+    });
+  });
   
-/* ===============================================================================================================================================================================
-                        implement json for easier maintainance
-================================================================================================================================================================================ */
-/* ===============================================================================================================================================================================
-                        about.html
-================================================================================================================================================================================ */
-async function loadAboutData() {
-    // Only run on about.html
-    const isAboutPage = window.location.pathname.endsWith("about.html") || document.title.toLowerCase().includes("about");
+  
+  /* ===============================================================================================================================================================================
+                          implement json for easier maintainance
+  ================================================================================================================================================================================ */
+  
+  /* ===============================================================================================================================================================================
+                          about.html
+  ================================================================================================================================================================================ */
+  
+  async function loadAboutData() {
+    const isAboutPage =
+      window.location.pathname.endsWith("about.html") ||
+      document.title.toLowerCase().includes("about");
+  
     if (!isAboutPage) return;
   
     try {
@@ -185,7 +201,6 @@ async function loadAboutData() {
           strong.textContent = it.date ? `${it.date} — ` : "";
           p.appendChild(strong);
   
-          // Preserve line breaks from JSON using text nodes + <br>
           const textParts = (it.text || "").split("\n");
           textParts.forEach((part, i) => {
             p.appendChild(document.createTextNode(part));
@@ -216,6 +231,285 @@ async function loadAboutData() {
     }
   }
   
-  // Run after your existing script loads
   document.addEventListener("DOMContentLoaded", loadAboutData);
+  
+  
+  /* ===============================================================================================================================================================================
+                        resume.html
+  ================================================================================================================================================================================ */
+  
+  async function loadResumeData() {
+    const isResumePage =
+      window.location.pathname.endsWith("resume.html") ||
+      document.title.toLowerCase().includes("resume");
+  
+    if (!isResumePage) return;
+  
+    try {
+      const res = await fetch("data/resume.json", { cache: "no-store" });
+      if (!res.ok) throw new Error("Failed to load data/resume.json");
+      const data = await res.json();
+  
+      // -------------------------
+      // Sidebar
+      // -------------------------
+      const sImg = document.getElementById("sidebarProfileImage");
+      const sName = document.getElementById("sidebarName");
+      const sEmail = document.getElementById("sidebarEmail");
+      const sAbout = document.getElementById("sidebarAbout");
+      const sSocial = document.getElementById("sidebarSocialIcons");
+      const sCopy = document.getElementById("sidebarCopyright");
+  
+      if (sImg && data.sidebar?.profileImage) sImg.src = data.sidebar.profileImage;
+      if (sName) sName.textContent = data.sidebar?.name ?? "";
+      if (sEmail) sEmail.textContent = data.sidebar?.email ?? "";
+      if (sAbout) sAbout.textContent = data.sidebar?.about ?? "";
+      if (sCopy) sCopy.textContent = data.sidebar?.copyright ?? "";
+  
+      if (sSocial) {
+        sSocial.innerHTML = "";
+        (data.sidebar?.social ?? []).forEach((item) => {
+          const a = document.createElement("a");
+          a.href = item.href;
+          a.target = "_blank";
+          a.rel = "noopener noreferrer";
+  
+          const img = document.createElement("img");
+          img.src = item.icon;
+          img.alt = item.alt || "social";
+          img.width = "40%";
+  
+          a.appendChild(img);
+          sSocial.appendChild(a);
+        });
+      }
+  
+      // -------------------------
+      // Header name/location/contacts
+      // -------------------------
+      const nameLine = document.getElementById("resumeNameLine");
+      const location = document.getElementById("resumeLocation");
+      const contacts = document.getElementById("resumeContacts");
+  
+      if (nameLine) nameLine.textContent = data.header?.nameLine ?? "";
+      if (location) location.textContent = data.header?.location ?? "";
+  
+      if (contacts) {
+        contacts.innerHTML = "";
+        (data.header?.contacts ?? []).forEach((c) => {
+          const wrap = document.createElement("div");
+          wrap.className = "main-contact-items";
+  
+          const img = document.createElement("img");
+          img.src = c.icon;
+          img.alt = c.alt || "contact";
+          img.width = "10%";
+  
+          const a = document.createElement("a");
+          a.href = c.href;
+          a.textContent = c.text;
+  
+          if (c.download) {
+            a.setAttribute("download", "");
+          } else {
+            a.target = "_blank";
+            a.rel = "noopener noreferrer";
+          }
+  
+          wrap.appendChild(img);
+          wrap.appendChild(a);
+          contacts.appendChild(wrap);
+        });
+      }
+  
+      // -------------------------
+      // Education
+      // -------------------------
+      const edu = data.education ?? {};
+      const eduSchool = document.getElementById("eduSchool");
+      const eduGrad = document.getElementById("eduGrad");
+      const eduDegree = document.getElementById("eduDegree");
+      const eduCity = document.getElementById("eduCity");
+  
+      if (eduSchool) eduSchool.textContent = edu.school ?? "";
+      if (eduGrad) eduGrad.textContent = edu.grad ?? "";
+      if (eduDegree) eduDegree.textContent = edu.degree ?? "";
+      if (eduCity) eduCity.textContent = edu.city ?? "";
+  
+      // -------------------------
+      // Certifications
+      // -------------------------
+      const certContainer = document.getElementById("certificationsContainer");
+      if (certContainer) {
+        certContainer.innerHTML = "";
+        (data.certifications ?? []).forEach((cert) => {
+          const grid = document.createElement("div");
+          grid.className = "grid-container";
+  
+          const left = document.createElement("div");
+          left.className = "left-text";
+          left.innerHTML = `<h2>${cert.title ?? ""}</h2>`;
+  
+          const right = document.createElement("div");
+          right.className = "right-text";
+          right.innerHTML = `<h2>${cert.date ?? ""}</h2>`;
+  
+          grid.appendChild(left);
+          grid.appendChild(right);
+  
+          const detail = document.createElement("h3");
+          detail.textContent = cert.detail ?? "";
+  
+          certContainer.appendChild(grid);
+          certContainer.appendChild(detail);
+        });
+      }
+  
+      // -------------------------
+      // Coursework
+      // -------------------------
+      const courseList = document.getElementById("courseworkList");
+      if (courseList) {
+        courseList.innerHTML = "";
+        (data.coursework ?? []).forEach((course) => {
+          const li = document.createElement("li");
+          li.className = "course-listing-li";
+          li.textContent = course;
+          courseList.appendChild(li);
+        });
+      }
+  
+      // -------------------------
+      // Experience
+      // -------------------------
+      const expContainer = document.getElementById("experienceContainer");
+      if (expContainer) {
+        expContainer.innerHTML = "";
+        const jobs = data.experience ?? [];
+  
+        jobs.forEach((job, idx) => {
+          const grid1 = document.createElement("div");
+          grid1.className = "grid-container";
+          grid1.innerHTML = `
+            <div class="left-text"><h2>${job.company ?? ""}</h2></div>
+            <div class="right-text"><h2>${job.dates ?? ""}</h2></div>
+          `;
+  
+          const grid2 = document.createElement("div");
+          grid2.className = "grid-container";
+          grid2.innerHTML = `
+            <div class="left-text"><h3>${job.role ?? ""}</h3></div>
+            <div class="right-text"><h3>${job.location ?? ""}</h3></div>
+          `;
+  
+          const ul = document.createElement("ul");
+          (job.bullets ?? []).forEach((b) => {
+            const li = document.createElement("li");
+            li.textContent = b;
+            ul.appendChild(li);
+          });
+  
+          expContainer.appendChild(grid1);
+          expContainer.appendChild(grid2);
+          expContainer.appendChild(ul);
+  
+          if (idx !== jobs.length - 1) {
+            const hr = document.createElement("hr");
+            hr.className = "extra-line";
+            expContainer.appendChild(hr);
+          }
+        });
+      }
+  
+      // -------------------------
+      // Projects
+      // -------------------------
+      const projContainer = document.getElementById("projectsContainer");
+      if (projContainer) {
+        projContainer.innerHTML = "";
+        (data.projects ?? []).forEach((p) => {
+          const grid = document.createElement("div");
+          grid.className = "grid-container";
+          grid.innerHTML = `
+            <div class="left-text">
+              <h2><strong>${p.name ?? ""}</strong> <span class="code-language"> | ${p.tech ?? ""}</span></h2>
+            </div>
+            <div class="right-text"><h2>${p.dates ?? ""}</h2></div>
+          `;
+  
+          const ul = document.createElement("ul");
+          (p.bullets ?? []).forEach((b) => {
+            const li = document.createElement("li");
+            li.textContent = b;
+            ul.appendChild(li);
+          });
+  
+          projContainer.appendChild(grid);
+          projContainer.appendChild(ul);
+        });
+      }
+  
+      // -------------------------
+      // Technical skills
+      // -------------------------
+      const skillsList = document.getElementById("skillsList");
+      if (skillsList) {
+        skillsList.innerHTML = "";
+        (data.technicalSkills ?? []).forEach((s) => {
+          const li = document.createElement("li");
+          li.className = "skills-listing-li";
+          li.innerHTML = `<strong>${s.label}:</strong> ${s.value}`;
+          skillsList.appendChild(li);
+        });
+      }
+  
+      // -------------------------
+      // Leadership / Extracurricular (company/dates/role/location + bullets)
+      // -------------------------
+      const leadershipContainer = document.getElementById("leadershipContainer");
+      if (leadershipContainer) {
+        leadershipContainer.innerHTML = "";
+  
+        const leadershipItems = data.leadershipExtracurricular ?? [];
+  
+        leadershipItems.forEach((item, idx) => {
+          const grid1 = document.createElement("div");
+          grid1.className = "grid-container";
+          grid1.innerHTML = `
+            <div class="left-text"><h2>${item.company ?? ""}</h2></div>
+            <div class="right-text"><h2>${item.dates ?? ""}</h2></div>
+          `;
+  
+          const grid2 = document.createElement("div");
+          grid2.className = "grid-container";
+          grid2.innerHTML = `
+            <div class="left-text"><h3>${item.role ?? ""}</h3></div>
+            <div class="right-text"><h3>${item.location ?? ""}</h3></div>
+          `;
+  
+          const ul = document.createElement("ul");
+          (item.bullets ?? []).forEach((b) => {
+            const li = document.createElement("li");
+            li.textContent = b;
+            ul.appendChild(li);
+          });
+  
+          leadershipContainer.appendChild(grid1);
+          leadershipContainer.appendChild(grid2);
+          leadershipContainer.appendChild(ul);
+  
+          if (idx !== leadershipItems.length - 1) {
+            const hr = document.createElement("hr");
+            hr.className = "extra-line";
+            leadershipContainer.appendChild(hr);
+          }
+        });
+      }
+  
+    } catch (err) {
+      console.error(err);
+    }
+  }
+  
+  document.addEventListener("DOMContentLoaded", loadResumeData);
   

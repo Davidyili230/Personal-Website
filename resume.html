@@ -25,7 +25,6 @@
     <!-- Linking CSS files -->
     <link rel="stylesheet" href="reset.css" type="text/css">
     <link rel="stylesheet" href="style.css" type="text/css">
-
 </head>
 
 <body>
@@ -53,43 +52,23 @@
         <aside class="sidebar">
             <div>
                 <!-- Profile -->
-                <img src="img/potrait.jpg" alt="profile picture" width="75%">
-                <h1>YI 'DAVID' LI</h1>
-                <h2>Davidyili230@gmail.com</h2>
+                <img id="sidebarProfileImage" src="img/potrait.jpg" alt="profile picture" width="75%">
+                <h1 id="sidebarName">YI 'DAVID' LI</h1>
+                <h2 id="sidebarEmail">Davidyili230@gmail.com</h2>
 
                 <div class="sidebar-about">
                     <hr class="extra-line">
                     <h3>ABOUT</h3>
                     <hr class="extra-line">
-                    <p>Hi, my name is Yi Li, and I’m currently a senior at CUNY Hunter College pursuing a degree in
-                        Computer Science. I took a web development course outside of school and enjoyed this new
-                        language I learned, and I immediately found a passion for designing and bringing ideas to life
-                        online. One fact about me is I enjoy creating new tools for myself and bring it life to make my
-                        day to day life easier.</p>
+                    <p id="sidebarAbout">...</p>
                 </div>
 
-                <!-- Contacts -->
-                <div class="sidebar-social-icons">
-                    <a href="https://www.facebook.com/davidyili230/" target="_blank">
-                        <img src="img/facebook.png" alt="facebook" width="40%">
-                    </a>
-                    <a href="https://github.com/Davidyili230" target="_blank">
-                        <img src="img/github.png" alt="github" width="40%">
-                    </a>
-                    <a href="https://www.instagram.com/come.onnnnn/" target="_blank">
-                        <img src="img/instagram.png" alt="instagram" width="40%">
-                    </a>
-                    <a href="https://www.linkedin.com/in/davidyili/" target="_blank">
-                        <img src="img/linkedin.png" alt="linkedin" width="40%">
-                    </a>
-                    <a href="https://x.com/come_onnnnn_" target="_blank">
-                        <img src="img/twitter.png" alt="twitter" width="40%">
-                    </a>
+                <div class="sidebar-social-icons" id="sidebarSocialIcons">
+                    <!-- JS will render icons here -->
                 </div>
 
-                <!-- Copy Rights -->
                 <hr class="extra-line">
-                <h4>&copy;2025 DAVIDYILI</h4>
+                <h4 id="sidebarCopyright">&copy;2026 DAVIDYILI</h4>
             </div>
         </aside>
 
@@ -141,29 +120,12 @@
         <!-- Right Main Contents -->
         <main class="main">
             <!-- Name and location -->
-            <h1 class="reveal delay">YI LI (DAVID)</h1>
-            <p class="text-align-center reveal delay">Brooklyn, NY 11219</p>
+            <h1 class="reveal delay" id="resumeNameLine">YI LI (DAVID)</h1>
+            <p class="text-align-center reveal delay" id="resumeLocation">Brooklyn, NY 11219</p>
 
-            <!-- Contact information -->
-            <div class="main-contact reveal delay">
-                <div class="main-contact-items">
-                    <img src="img/phone.png" alt="phone" width="10%">
-                    <a href="tel:+19173657182" target="_blank">917-365-7182</a>
-                </div>
-                <div class="main-contact-items">
-                    <img src="img/email.png" alt="email" width="10%">
-                    <a href="mailto:Davidyili230@gmail.com" target="_blank">Davidyili230@gmail.com</a>
-                </div>
-                <div class="main-contact-items">
-                    <img src="img/linkedin.png" alt="linkedin" width="10%">
-                    <a href="https://www.linkedin.com/in/davidyili/" target="_blank"
-                        rel="noopener noreferrer">linked.com/in/davidyili</a>
-                </div>
-                <div class="main-contact-items">
-                    <img src="img/github.png" alt="github" width="10%">
-                    <a href="https://github.com/Davidyili230" target="_blank"
-                        rel="noopener noreferrer">github.com/Davidyili230</a>
-                </div>
+            <!-- Contact information (download link goes here too) -->
+            <div class="main-contact reveal delay" id="resumeContacts">
+                <!-- JS will render contact items here -->
             </div>
 
             <!-- Education -->
@@ -172,18 +134,18 @@
                 <hr class="styled-line">
                 <div class="grid-container">
                     <div class="left-text">
-                        <h2>Hunter College</h2>
+                        <h2 id="eduSchool">Hunter College</h2>
                     </div>
                     <div class="right-text">
-                        <h2>Expected Graduation: June 2026</h2>
+                        <h2 id="eduGrad">Expected Graduation: June 2026</h2>
                     </div>
                 </div>
                 <div class="grid-container">
                     <div class="left-text">
-                        <h3>Bachelor of Computer Science</h3>
+                        <h3 id="eduDegree">Bachelor of Computer Science</h3>
                     </div>
                     <div class="right-text">
-                        <h3>Manhattan, NY</h3>
+                        <h3 id="eduCity">Manhattan, NY</h3>
                     </div>
                 </div>
             </div>
@@ -192,178 +154,44 @@
             <div class="main-resume-category reveal delay" id="Certifications">
                 <h2>Certifications</h2>
                 <hr class="styled-line">
-                <div class="grid-container">
-                    <div class="left-text">
-                        <h2>Intro to Web Development - CodePath Certificate</h2>
-                    </div>
-                    <div class="right-text">
-                        <h2>November 2024</h2>
-                    </div>
-                </div>
-                <h3>Completed hands-on training in HTML, CSS, JavaScript, and responsive design.</h3>
+                <div id="certificationsContainer"></div>
             </div>
 
             <!-- Relevant Coursework -->
             <div class="main-resume-category reveal delay" id="Relevant-Course">
                 <h2>Relevant Coursework</h2>
                 <hr class="styled-line">
-                <ul class="course-listing-ul">
-                    <li class="course-listing-li">Operating Systems</li>
-                    <li class="course-listing-li">Data Structures</li>
-                    <li class="course-listing-li">Algorithms Analysis</li>
-                    <li class="course-listing-li">Systems Programming</li>
-                    <li class="course-listing-li">Web Development</li>
-                    <li class="course-listing-li">iOS Developmentt</li>
-                    <li class="course-listing-li">Computer Architecture</li>
-                </ul>
+                <ul class="course-listing-ul" id="courseworkList"></ul>
+            </div>
+
+            <!-- Technical Skills -->
+            <div class="main-resume-category reveal delay" id="Technical-Skills">
+                <h2>Technical Skills</h2>
+                <hr class="styled-line">
+                <ul class="skills-listing-ul" id="skillsList"></ul>
+            </div>
+
+            <!-- Projects -->
+            <div class="main-resume-category reveal delay" id="Projects">
+                <h2>Projects</h2>
+                <hr class="styled-line">
+                <div id="projectsContainer"></div>
             </div>
 
             <!-- Experience -->
             <div class="main-resume-category reveal delay" id="Experience">
                 <h2>Experience</h2>
                 <hr class="styled-line">
-                <div class="grid-container">
-                    <div class="left-text">
-                        <h2>Zhang and Cheng Medical P.C.</h2>
-                    </div>
-                    <div class="right-text">
-                        <h2>January 2022 - Present</h2>
-                    </div>
-                </div>
-                <div class="grid-container">
-                    <div class="left-text">
-                        <h3>Medical Receptionist / Medical Assistant</h3>
-                    </div>
-                    <div class="right-text">
-                        <h3>Brooklyn, NY</h3>
-                    </div>
-                </div>
-                <ul>
-                    <li>Streamlined 20+ patient intake and data collection, improving service efficiency.</li>
-                    <li>Reduced wait times by 18% through effective scheduling and communication.</li>
-                    <li>Enhanced communication between patients and medical staff by promptly answering calls and
-                        addressing inquiries.</li>
-                    <li>Assisted doctors with electronic prescriptions via iClinic, speeding processing by 20%.</li>
-                    <li>Conducted vital signs and exams to support accurate assessments.</li>
-                    <li>Operated medical equipment, ensuring safety and efficiency.</li>
-                </ul>
-
-                <!-- Second working experience-->
-                <hr class="extra-line">
-                <div class="grid-container">
-                    <div class="left-text">
-                        <h2>Kings Bay, Inc. JCC Brooklyn </h2>
-                    </div>
-                    <div class="right-text">
-                        <h2>July 2021 - September 2021</h2>
-                    </div>
-                </div>
-                <div class="grid-container">
-                    <div class="left-text">
-                        <h3>Summer Camp Counselor</h3>
-                    </div>
-                    <div class="right-text">
-                        <h3>Brooklyn, NY</h3>
-                    </div>
-                </div>
-                <ul>
-                    <li>Supervised up to 25 campers daily, ensuring their safety, emotional well-being, and active
-                        engagement.</li>
-                    <li>Led activities such as soccer, arts and crafts, and swimming to promote teamwork and creativity.
-                    </li>
-                    <li>Maintained a structured daily schedule, improving time management and overall program
-                        efficiency.</li>
-                </ul>
-
-                <!-- Projects -->
-                <div class="main-resume-category reveal delay" id="Projects">
-                    <h2>Projects</h2>
-                    <hr class="styled-line">
-
-                    <!-- Project 1 -->
-                    <div class="grid-container">
-                        <div class="left-text">
-                            <h2><strong>Personal Webpage</strong> <span class="code-language"> | HTML/CSS,
-                                    JavaScript</span></h2>
-                        </div>
-                        <div class="right-text">
-                            <h2>March 2025 - Present</h2>
-                        </div>
-                    </div>
-                    <ul>
-                        <li>Built a portfolio website showcasing resume and projects for recruiters and visitors,
-                            increasing recruiter outreach by 40%</li>
-                        <li>Implemented responsive design, interactive features, and improved accessibility.</li>
-                    </ul>
-
-                    <!-- Project 2 -->
-                    <div class="grid-container">
-                        <div class="left-text">
-                            <h2><strong>ProjectClean</strong> <span class="code-language"> | React.js, Node.js, MongoDB,
-                                    HTML/CSS, JavaScript</span></h2>
-                        </div>
-                        <div class="right-text">
-                            <h2>December 2024 - Present</h2>
-                        </div>
-                    </div>
-                    <ul>
-                        <li>Developed a platform for reporting campus issues in real-time, including cleaning,
-                            maintenance, and safety.</li>
-                        <li>Implemented user login, media uploads, issue tracking dashboard, and secure authentication.
-                        </li>
-                        <li>Improved campus operations by streamlining issue reporting and resolution.</li>
-                    </ul>
-
-                    <!-- Project 3 -->
-                    <div class="grid-container">
-                        <div class="left-text">
-                            <h2><strong>Timesheet Shortcut script</strong> <span class="code-language"> | iOS Shortcuts
-                                </span></h2>
-                        </div>
-                        <div class="right-text">
-                            <h2>December 2024 - Present</h2>
-                        </div>
-                    </div>
-                    <ul>
-                        <li>Demonstrated curiosity and technical skill by creating an iOS automation tool for real-world
-                            workflow improvement.</li>
-                        <li>Built a script to manage work timesheets, clock in/out, and calculate monthly totals
-                            automatically.</li>
-                        <li>Simplified task tracking and improved efficiency for users.</li>
-                        <li>Reduced manual tracking errors and saved 3 hours per month for users.</li>
-                    </ul>
-
-                    <!-- Technical Skills -->
-                    <div class="main-resume-category reveal dela" id="Technical-Skills">
-                        <h2>Technical Skills</h2>
-                        <hr class="styled-line">
-                        <ul class="skills-listing-ul">
-                            <li class="skills-listing-li"><strong>Programming: </strong>Swift (iOS), Python, C++,
-                                HTML/CSS, JavaScript, React.js, Node.js</li>
-                            <li class="skills-listing-li"><strong>Tools & Frameworks: </strong>Git/GitHub, VS Code,
-                                Firebase, Cloudinary, Bootstrap/Tailwind</li>
-                            <li class="skills-listing-li"><strong>Productivity Software: </strong>Microsoft Word, Excel,
-                                PowerPoint, Outlook, Canva, Adobe</li>
-                            <li class="skills-listing-li"><strong>Others: </strong>Customer service, teamwork,
-                                leadership, problem-solving, communication, technical curiosity, experience with
-                                mobile apps and cross-platform solutions</li>
-                        </ul>
-                    </div>
-
-                    <!-- Leadership / Extracurricular -->
-                    <div class="main-resume-category reveal delay" id="Extracurricular">
-                        <h2>Leadership / Extracurricular</h2>
-                        <hr class="styled-line">
-                        <ul class="activities-listing-ul">
-                            <li class="activities-listing-li">Customer service, teamwork, leadership, problem-solving,
-                                communication, technical curiosity, experience with
-                                mobile apps and cross-platform solutions</li>
-                            <li class="activities-listing-li">Designed posters and promotional materials with Adobe
-                                Photoshop, improving event attendance by 20%</li>
-                        </ul>
-                    </div>
-                </div>
+                <div id="experienceContainer"></div>
             </div>
+
+            <!-- Leadership / Extracurricular -->
+            <div class="main-resume-category reveal delay" id="Extracurricular">
+                <h2>Leadership / Extracurricular</h2>
+                <hr class="styled-line">
+                <div id="leadershipContainer"></div>
+              </div>              
+
             <button id="backToTopBtn">⬆<span class="tooltip">Scroll to Top</span></button>
         </main>
     </div>

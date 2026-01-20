@@ -1,0 +1,54 @@
+{
+    "profile": {
+      "name": "YI 'DAVID' LI",
+      "email": "Davidyili230@gmail.com",
+      "image": "img/potrait.jpg"
+    },
+    "sidebarAbout": "Hi, my name is Yi Li, and I’m currently a senior at CUNY Hunter College pursuing a degree in Computer Science. I took a web development course outside of school and enjoyed this new language I learned, and I immediately found a passion for designing and bringing ideas to life online. One fact about me is I enjoy creating new tools for myself and bring it life to make my day to day life easier.",
+    "sections": {
+      "intro": {
+        "title": "Intro",
+        "p1": "Hi, my name is Yi Li, and I’m currently a senior at CUNY Hunter College pursuing a degree in Computer Science. I took a web development course outside of school and enjoyed this new language I learned, and I immediately found a passion for designing and bringing ideas to life online. One fact about me is I enjoy creating new tools for myself and bring it life to make my day to day life easier.",
+        "p2": "This website marks the beginning of my journey to becoming an expert in web development. I'm also currently building another site to showcase menu items and share the story behind a local bubble tea shop. I'm eager to keep learning—every day I'm improving my HTML/CSS, JavaScript skills and exploring SQL to create more dynamic, interactive websites."
+      },
+      "whyDavid": {
+        "title": "Why I'm I known as David?",
+        "p": [
+          "The name \"David\" came from an unexpected place—my mom’s American friend. Curious how? Back in elementary school, both students and teachers constantly mispronounced my real name, \"Yi.\" Instead of saying \"Ee,\" everyone said \"Yee.\" Frustrated, I told my mom about it. A few days later, she was chatting with her American friend when she mentioned how simple his name, David, was to pronounce. And just like that, David became my nickname.",
+          "What’s funny is how far the name stuck. In high school, whenever a new class or teacher came along, I’d introduce myself as David right away. It became second nature—soon, everyone knew me as David. Then came graduation. As people flipped through the yearbook looking for my profile, they suddenly realized something shocking. My legal name is Yi Li. People were genuinely freaking out. Some had known me for years and never knew David wasn’t my real name.",
+          "The best part? One of my closest friends—someone I’d known since I was 10—didn’t find out my real name until we were 17."
+        ]
+      },
+      "journey": {
+        "title": "What I enjoy doing",
+        "items": [
+          {
+            "date": "August 10, 2025",
+            "text": "I met up with two of my best friends from high school. It had been four years since we last saw each other. Both of them looked different from how I remembered them. We went to Raising Cane’s together, catching up on everything from education to work to relationships. We talked like we were back in high school. After going to the library and Petco, we got desserts and then went our separate ways. We hope to see each other soon."
+          },
+          {
+            "date": "July 24, 2025",
+            "text": "This time, I joined two friends on a challenging hike of the entire 1,473-foot Bear Mountain. We opted for the same route as the Cold Spring train but got off a few stops early. The mountain was a two-hour drive from the station, and we were confident that we could complete a 2.5-hour walk to the mountain, a 5-hour trail, and then another 2.5-hour walk back. However, our plans took an unexpected turn. About 30 minutes into our hike, we noticed that the only route to the summit was closed due to construction. Undeterred, we decided to take a Lyft to the starting point. From there, we had lunch and set off on our adventure. Everything went smoothly until we reached the 30-minute mark. It became increasingly difficult for me to keep up with my two friends. The trail was much steeper than Bull Hill, and after two hours, we had reached the peak, having completed one-third of the loop. Exhausted, we knew we had to continue. My leg began to ache, just like it had on my first hike, and my two friends were also experiencing discomfort. We stumbled upon two straight sticks lying on a tree, as if someone had placed them there knowing we were in trouble. At this point, we were at the two-thirds mark of our journey.As we descended, we lost our way, navigating a trail where the tracks became increasingly difficult to see. Suddenly, we spotted deer, and at that moment, we realized that it had all been worth it. We had 15 minutes left to reach our destination. We kept walking until we noticed a bright light coming in the distance. We had made it! We left the sticks on a sign, hoping that someone in need would find them. It was a truly memorable hike, and we were all proud of completing the most challenging route."
+          },
+          {
+            "date": "April 17, 2025",
+            "text": "I hiked the full loop of Bull Hill, a 1,400 ft mountain (though I still don’t understand why it’s called a hill). My friend and I started early, and it took us about 2 hours and 30 minutes to reach Cold Spring. The uphill portion alone took nearly 2 hours and covered about a third of the entire trail. It was only my second time hiking a mountain, but this one was way more exhausting than my first. Reaching the peak was unforgettable — I had never seen a mountain skyline before, and the view was absolutely breathtaking. The descent took another 2 hours. My legs were aching so badly by the end that I could barely walk. We finally took an 8-minute break just before finishing the trail, completely worn out but proud."
+          },
+          {
+            "date": "August 1, 2024",
+            "text": "four of us — three friends and me — took a 2-day, 1-night trip to Kalahari Resort. We drove 3 hours, and it was our first trip together. We made the most of every moment. We stopped at Walmart for late-night snacks (and, of course, barely ate half of what we bought). Everyone was hyped for the rides, and we kicked things off with the 7ft drop ride. One of our friends almost drowned, which was scary at first but turned into a joke we still laugh about. We hit the Jacuzzi, lazy river, wave pool, and a bunch of other rides. At night, we got into some trouble with a little ding-dong ditching, got caught, and were banned from leaving our room. Safe to say, we won’t be doing that again! Later, my friends wanted to watch The Nun (horror movie based on a true story), but I knocked out halfway through. It wasn’t super scary, though. Overall, it was an awesome experience, and we’re thinking about doing something similar next summer."
+          }
+        ]
+      },
+      "hobbies": {
+        "title": "I like to...",
+        "items": [
+          "Explore NYC and hunting for new food spots to try.",
+          "Travel to new places, soaking in different atmospheres, and spending time in nature.",
+          "Play games with my gaming friends at night — it’s our way to relax, laugh, and have fun together.",
+          "Play pool at night with close friends—it’s one of my favorite ways to unwind."
+        ]
+      }
+    }
+  }
+  

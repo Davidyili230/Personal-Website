@@ -289,7 +289,7 @@ img {
             MAIN CONTENT
 ================================================================================================================================================================================ */
 .main {
-    width: 80%;
+    width: 75%;
     padding: 40px;
     background-color: #f3f3f3;
     color: #111827;
@@ -504,7 +504,7 @@ img {
     right: 30px;
     padding: 10px 15px;
     font-size: 20px;
-    background-color: #f3f3f3;
+    background-color:black;
     color: white;
     border: none;
     border-radius: 5px;

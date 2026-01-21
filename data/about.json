@@ -4,15 +4,16 @@
       "email": "Davidyili230@gmail.com",
       "image": "img/potrait.jpg"
     },
-    "sidebarAbout": "Hi, my name is Yi Li, and I’m currently a senior at CUNY Hunter College pursuing a degree in Computer Science. I took a web development course outside of school and enjoyed this new language I learned, and I immediately found a passion for designing and bringing ideas to life online. One fact about me is I enjoy creating new tools for myself and bring it life to make my day to day life easier.",
+    "sidebarAbout": "Hi, I’m David, a computer science student focused on building practical software. I primarily work with C++ and HTML/CSS/JavaScript and am developing a strong foundation in data structures, algorithms, and object-oriented programming through coursework and projects. I’m continuously improving my skills by writing, testing, and refining real code.",
     "sections": {
       "intro": {
-        "title": "Intro",
-        "p1": "Hi, my name is Yi Li, and I’m currently a senior at CUNY Hunter College pursuing a degree in Computer Science. I took a web development course outside of school and enjoyed this new language I learned, and I immediately found a passion for designing and bringing ideas to life online. One fact about me is I enjoy creating new tools for myself and bring it life to make my day to day life easier.",
-        "p2": "This website marks the beginning of my journey to becoming an expert in web development. I'm also currently building another site to showcase menu items and share the story behind a local bubble tea shop. I'm eager to keep learning—every day I'm improving my HTML/CSS, JavaScript skills and exploring SQL to create more dynamic, interactive websites."
+        "title": "Introduction",
+        "p1": "Hi, I’m David, a computer science student with a strong interest in building practical, real-world software solutions. I enjoy working across different areas of computer science, including software development, problem-solving, and system design.",
+        "p2": "Through my academic projects and personal work, I focus on writing clean, efficient code and understanding how systems work under the hood. I’m especially motivated by projects that combine technical challenges with real user impact.",
+        "p3": "Outside of coding, I value teamwork and leadership, which I’ve developed through student organizations and collaborative projects. I’m always eager to learn new technologies, refine my skills, and take on opportunities that push me to grow as a developer."
       },
       "whyDavid": {
-        "title": "Why I'm I known as David?",
+        "title": "Why am I known as David?",
         "p": [
           "The name \"David\" came from an unexpected place—my mom’s American friend. Curious how? Back in elementary school, both students and teachers constantly mispronounced my real name, \"Yi.\" Instead of saying \"Ee,\" everyone said \"Yee.\" Frustrated, I told my mom about it. A few days later, she was chatting with her American friend when she mentioned how simple his name, David, was to pronounce. And just like that, David became my nickname.",
           "What’s funny is how far the name stuck. In high school, whenever a new class or teacher came along, I’d introduce myself as David right away. It became second nature—soon, everyone knew me as David. Then came graduation. As people flipped through the yearbook looking for my profile, they suddenly realized something shocking. My legal name is Yi Li. People were genuinely freaking out. Some had known me for years and never knew David wasn’t my real name.",
@@ -22,6 +23,14 @@
       "journey": {
         "title": "What I enjoy doing",
         "items": [
+          {
+            "date": "December 23, 2025",
+            "text": "At first, my club and I planned to rent a badminton court to play together. It took months to finalize the decision because finals were approaching, and everyone was busy. By the time we revisited the idea, it was already around Christmas. We held another meeting and decided to turn it into a small celebration by renting a badminton court and doing a Secret Santa exchange. We met at a badminton court in Flushing, where we played against each other and also teamed up for matches. Finals had ended just the day before, and that day turned out to be one of the best I had experienced in the past six months. For Secret Santa, I got our president, Haasil, while our graphic designer, Luna, got me. We exchanged gifts before leaving the court and heading out for hotpot together. The hotpot restaurant offered both a buffet and à la carte options. The manager suggested that the boys get the buffet while the others ordered individual dishes, so we followed that recommendation. Three other members and I practically turned our table into a battlefield, finishing 21 plates of meat, while the others enjoyed their food and conversations. After paying the bill, we played a few rounds of Mafia before heading home. The entire night was so fun that I ended up editing the video for this club hangout."
+          },
+          {
+            "date": "November 30, 2025",
+            "text": "This was my first-ever Friendsgiving. I was invited just two days before the event by a friend while we were studying together at a café. I only knew a few people there, so I was hesitant about going at first—until I found out the house we were going to had cats. Originally, I planned to bring a Chinese dessert called bing fen (ice rice), but the place that sells it opens late. Instead, I decided to buy steak and cook it at my friend’s house. Once I arrived, I immediately tried to find the cats, but they were all hiding from me. Around 3 p.m., I started cooking the steak and managed to make a perfect medium steak. Just when I thought my dish would be the last one served, another dish was still on the way. I ended up waiting an extra hour, and by then my steak had gone cold and dry. After eating, we spent the rest of the time talking and playing Mafia and other board games. Overall, I had a lot of fun at my first Friendsgiving party."
+          },
           {
             "date": "August 10, 2025",
             "text": "I met up with two of my best friends from high school. It had been four years since we last saw each other. Both of them looked different from how I remembered them. We went to Raising Cane’s together, catching up on everything from education to work to relationships. We talked like we were back in high school. After going to the library and Petco, we got desserts and then went our separate ways. We hope to see each other soon."

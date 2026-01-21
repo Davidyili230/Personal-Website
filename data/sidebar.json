@@ -1,0 +1,17 @@
+{
+    "profile": {
+      "image": "img/potrait.jpg",
+      "name": "YI \"DAVID\" LI",
+      "email": "Davidyili230@gmail.com",
+      "about": "Hi, I’m David, a computer science student at Hunter College. I'm passionate about building practical, user-focused software and continuously improving my technical skills."
+    },
+    "socials": [
+      { "name": "facebook", "url": "https://www.facebook.com/davidyili230/", "icon": "img/facebook.png" },
+      { "name": "github", "url": "https://github.com/Davidyili230", "icon": "img/github.png" },
+      { "name": "instagram", "url": "https://www.instagram.com/come.onnnnn/", "icon": "img/instagram.png" },
+      { "name": "linkedin", "url": "https://www.linkedin.com/in/davidyili/", "icon": "img/linkedin.png" },
+      { "name": "twitter", "url": "https://x.com/come_onnnnn_", "icon": "img/twitter.png" }
+    ],
+    "copyright": "2026 DAVIDYILI"
+  }
+  

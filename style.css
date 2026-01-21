@@ -2,28 +2,28 @@
             RESET
 ================================================================================================================================================================================ */
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 /* ===============================================================================================================================================================================
             PAGE LAYOUT
 ================================================================================================================================================================================ */
 body {
-    font-family: Arial, sans-serif;
-    background-color: black;
-    padding-top: 48px;
+  font-family: Arial, sans-serif;
+  background-color: black;
+  padding-top: 48px;
 }
 
 img {
-    border-radius: 50%;
+  border-radius: 50%;
 }
 
 .page-container {
-    display: flex;
-    height: 93vh;
-    /* Full viewport height */
+  display: flex;
+  height: 93vh;
+  /* Full viewport height */
 }
 
 /* ===============================================================================================================================================================================
@@ -32,166 +32,166 @@ img {
 ================================================================================================================================================================================ */
 
 @media (max-width: 900px) {
-    /* Stack layout instead of 3 columns */
-    .page-container {
-        flex-direction: column;
-        height: auto;
-        min-height: 100vh;
-    }
+  /* Stack layout instead of 3 columns */
+  .page-container {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+  }
 
-    /* Sidebar becomes a normal top section */
-    .sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
-        padding-top: 20px;
-    }
+  /* Sidebar becomes a normal top section */
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding-top: 20px;
+  }
 
-    /* Middle bar becomes a horizontal icon row */
-    .middle-bar {
-        width: 100%;
-        flex-direction: row;
-        justify-content: center;
-        gap: 12px;
-        padding: 10px 0;
-        position: sticky;
-        top: 48px;
-    }
+  /* Middle bar becomes a horizontal icon row */
+  .middle-bar {
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    gap: 12px;
+    padding: 10px 0;
+    position: sticky;
+    top: 48px;
+  }
 
-    .icon-container {
-        margin: 0;
-    }
+  .icon-container {
+    margin: 0;
+  }
 
-    .icon-label {
-        display: none; /* hover labels don't work well on touch */
-    }
+  .icon-label {
+    display: none; /* hover labels don't work well on touch */
+  }
 
-    /* Main content takes full width and doesn't rely on fixed viewport height */
-    .main {
-        width: 100%;
-        padding: 20px;
-        overflow: visible;
-    }
+  /* Main content takes full width and doesn't rely on fixed viewport height */
+  .main {
+    width: 100%;
+    padding: 20px;
+    overflow: visible;
+  }
 
-    /* Header/nav wraps cleanly */
-    .main-header {
-        padding: 10px 12px;
-    }
+  /* Header/nav wraps cleanly */
+  .main-header {
+    padding: 10px 12px;
+  }
 
-    .nav-links {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        align-items: center;
-        padding-right: 0;
-    }
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    padding-right: 0;
+  }
 
-    .nav-links a {
-        margin-left: 0;
-        padding: 6px 0;
-    }
+  .nav-links a {
+    margin-left: 0;
+    padding: 6px 0;
+  }
 
-    /* Toggle switch should not be absolutely positioned on small screens */
-    .toggle-switch {
-        position: static;
-        margin-left: auto;
-    }
+  /* Toggle switch should not be absolutely positioned on small screens */
+  .toggle-switch {
+    position: static;
+    margin-left: auto;
+  }
 
-    /* Resume/contact sections stack better */
-    .main-contact {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 0;
-        gap: 8px;
-    }
+  /* Resume/contact sections stack better */
+  .main-contact {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    gap: 8px;
+  }
 
-    .grid-container {
-        grid-template-columns: 1fr;
-        gap: 6px;
-    }
+  .grid-container {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
 
-    .right-text {
-        justify-self: start;
-    }
+  .right-text {
+    justify-self: start;
+  }
 
-    .course-listing-li {
-        flex: 1 0 50%;
-    }
+  .course-listing-li {
+    flex: 1 0 50%;
+  }
 
-    /* Contact form: put first/last name inputs on separate lines */
-    .form-row {
-        flex-direction: column;
-    }
+  /* Contact form: put first/last name inputs on separate lines */
+  .form-row {
+    flex-direction: column;
+  }
 
-    /* Back to top: fixed so it's reachable when scrolling */
-    .main #backToTopBtn {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-    }
+  /* Back to top: fixed so it's reachable when scrolling */
+  .main #backToTopBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+  }
 }
 
 @media (max-width: 480px) {
-    body {
-        padding-top: 56px;
-    }
+  body {
+    padding-top: 56px;
+  }
 
-    .main h1 {
-        font-size: 28px;
-    }
+  .main h1 {
+    font-size: 28px;
+  }
 
-    .main p {
-        font-size: 16px;
-    }
+  .main p {
+    font-size: 16px;
+  }
 
-    .sidebar h1 {
-        font-size: 24px;
-    }
+  .sidebar h1 {
+    font-size: 24px;
+  }
 }
 
 /* ===============================================================================================================================================================================
             HEADER
 ================================================================================================================================================================================ */
 .main-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: white;
-    padding: 15px 20px 15px 0px;
-    z-index: 1000;
-    /* ensures it stays above other content */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: white;
+  padding: 15px 20px 15px 0px;
+  z-index: 1000;
+  /* ensures it stays above other content */
 }
 
 /* ===============================================================================================================================================================================
                         NAVIGATION BAR ITEMS
 ================================================================================================================================================================================ */
 .nav-links a {
-    color: black;
-    text-decoration: none;
-    margin-left: 20px;
-    font-size: 1rem;
-    transition: color 0.3s ease;
+  color: black;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 1rem;
+  transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: #848484;
-    /* light gray on hover */
+  color: #848484;
+  /* light gray on hover */
 }
 
 /* ===============================================================================================================================================================================
             ASIDE (Sidebar)
 ================================================================================================================================================================================ */
 .sidebar {
-    width: 20%;
-    background-color: white;
-    color: black;
-    padding: 20px;
-    height: 93vh;
-    position: sticky;
-    text-align: center;
-    opacity: 100%;
-    padding-top: 60px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 20%;
+  background-color: white;
+  color: black;
+  padding: 20px;
+  height: 93vh;
+  position: sticky;
+  text-align: center;
+  opacity: 100%;
+  padding-top: 60px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar h1,
@@ -199,299 +199,300 @@ img {
 .sidebar h3,
 .sidebar h4,
 .sidebar p {
-    font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif;
 }
 
 /* Typography for Sidebar */
 .sidebar h1 {
-    font-size: 30px;
-    font-weight: bold;
-    line-height: 2em;
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 2em;
 }
 
 .sidebar h2,
 .sidebar h3,
 .sidebar h4 {
-    font-size: 14px;
+  font-size: 14px;
 }
 
 .sidebar h3 {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .sidebar p {
-    font-size: 14px;
-    line-height: 1.5em;
+  font-size: 14px;
+  line-height: 1.5em;
 }
 
 /* ===============================================================================================================================================================================
                         SOCIAL ICONS
 ================================================================================================================================================================================ */
 .sidebar-social-icons {
-    display: flex;
-    justify-content: space-evenly;
-    opacity: 75%;
-    padding-top: 30px;
+  display: flex;
+  justify-content: space-evenly;
+  opacity: 75%;
+  padding-top: 30px;
 }
 
 /* ===============================================================================================================================================================================
             MIDDLE BAR (Icons)
 ================================================================================================================================================================================ */
 .middle-bar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 5%;
-    background-color: #f3f3f3;
-    padding-top: 100px;
-    z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 5%;
+  background-color: #f3f3f3;
+  padding-top: 100px;
+  z-index: 999;
 }
 
 .icon-container {
-    position: relative;
-    margin: 15px 0;
+  position: relative;
+  margin: 15px 0;
 }
 
 .icon-container button {
-    background: none;
-    border: none;
-    position: relative;
-    cursor: pointer;
+  background: none;
+  border: none;
+  position: relative;
+  cursor: pointer;
 }
 
 .icon-container img {
-    width: 30px;
-    height: 30px;
+  width: 30px;
+  height: 30px;
 }
 
 /* Hover effect: Show label */
 .icon-label {
-    position: absolute;
-    left: 40px;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: black;
-    color: white;
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 14px;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease, transform 0.3s ease;
+  position: absolute;
+  left: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: black;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 14px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .icon-container button:hover .icon-label {
-    opacity: 1;
-    transform: translateY(-50%) translateX(10px);
+  opacity: 1;
+  transform: translateY(-50%) translateX(10px);
 }
 
 /* ===============================================================================================================================================================================
             MAIN CONTENT
 ================================================================================================================================================================================ */
 .main {
-    width: 75%;
-    padding: 40px;
-    background-color: #f3f3f3;
-    color: #111827;
-    overflow-y: auto;
+  width: 80%;
+  padding: 40px;
+  background-color: #f3f3f3;
+  color: #111827;
+  overflow-y: auto;
 }
 
 /* Typography for Main */
 .main h1 {
-    font-size: 35px;
-    font-weight: bold;
-    line-height: 1.5em;
-    text-align: center;
+  font-size: 35px;
+  font-weight: bold;
+  line-height: 1.5em;
+  text-align: center;
 }
 
 .main h2 {
-    font-size: 18px;
-    font-weight: bold;
-    line-height: 2em;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 2em;
 }
 
 .main h3 {
-    font-size: 16px;
-    font-style: italic;
-    font-weight: normal;
+  font-size: 16px;
+  font-style: italic;
+  font-weight: normal;
 }
 
 .main p {
-    font-size: 18px;
-    line-height: 1.5em;
+  font-size: 18px;
+  line-height: 1.5em;
 }
 
 .main a {
-    color: black;
+  color: black;
 }
 
 .main a:hover {
-    color: #848484;
+  color: #848484;
 }
 
 .main strong {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .main ul {
-    list-style-type: disc;
-    padding-left: 20px;
+  list-style-type: disc;
+  padding-left: 20px;
 }
 
 .main li {
-    padding-top: 5px;
-    padding-left: 5px;
-    line-height: 1.5em;
+  padding-top: 5px;
+  padding-left: 5px;
+  line-height: 1.5em;
 }
 
 /* Horizontal line style */
 .styled-line {
-    border: none;
-    height: 1.5px;
-    background-color: black;
+  border: none;
+  height: 1.5px;
+  background-color: black;
 }
 
 .extra-line {
-    border: none;
-    border-top: 3px none #000;
-    margin: 10px 0;
+  border: none;
+  border-top: 3px none #000;
+  margin: 10px 0;
 }
 
 .code-language {
-    font-weight: normal;
-    font-style: italic;
+  font-weight: normal;
+  font-style: italic;
 }
 
 .text-align-center {
-    text-align: center;
+  text-align: center;
 }
 
 /* ===============================================================================================================================================================================
                         RESUME CONTACTS
 ================================================================================================================================================================================ */
 .main-contact {
-    display: flex;
-    align-items: center;
-    padding: 0 50px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  padding: 0;
 }
 
 .main-contact-items {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    gap: 15px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
 }
 
 /* ===============================================================================================================================================================================
                         GRID CONTAINER
 ================================================================================================================================================================================ */
 .grid-container {
-    display: grid;
-    grid-template-columns: 60% 40%;
-    /* Two columns */
-    width: 100%;
+  display: grid;
+  grid-template-columns: 60% 40%;
+  /* Two columns */
+  width: 100%;
 }
 
 .left-text {
-    justify-self: start;
+  justify-self: start;
 }
 
 .right-text {
-    justify-self: end;
+  justify-self: end;
 }
 
 /* ===============================================================================================================================================================================
                         NEW CATEGORY / SECTION
 ================================================================================================================================================================================ */
 .main-resume-category {
-    padding-top: 20px;
+  padding-top: 20px;
 }
 
 /* ===============================================================================================================================================================================
                         RELEVANT COURSE LISTING
 ================================================================================================================================================================================ */
 .course-listing-ul {
-    display: flex;
-    text-align: center;
-    flex-wrap: wrap;
+  display: flex;
+  text-align: center;
+  flex-wrap: wrap;
 }
 
 .course-listing-li {
-    list-style-type: none;
-    flex: 1 0 25%;
-    padding-top: 10px;
+  list-style-type: none;
+  flex: 1 0 25%;
+  padding-top: 10px;
 }
 
 /* ===============================================================================================================================================================================
                         CONTACT FORM
 ================================================================================================================================================================================ */
 .contact-form {
-    max-width: 600px;
-    margin: 30px auto;
-    padding: 20px;
-    background-color: #f3f3f3;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    opacity: 0;
-    transform: translateY(30px);
-    animation: slideIn 0.8s ease-out forwards;
-    animation-delay: 1.5s;
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #f3f3f3;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideIn 0.8s ease-out forwards;
+  animation-delay: 1.5s;
 }
 
 .form-row {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 15px;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
 }
 
 .contact-form input,
 .contact-form textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 .contact-form button {
-    padding: 10px 20px;
-    background-color: #0056b3;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+  padding: 10px 20px;
+  background-color: #0056b3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .contact-form button:hover {
-    background-color: #003d80;
+  background-color: #003d80;
 }
-
 
 /* Keyframes for sliding in */
 @keyframes slideIn {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ===============================================================================================================================================================================
                         SCROLL TO REVEAL
 ================================================================================================================================================================================ */
 .reveal {
-    opacity: 0;
-    transform: translateX(-50px);
-    /* start from left */
-    transition: opacity 0.8s ease, transform 0.8s ease;
+  opacity: 0;
+  transform: translateX(-50px);
+  /* start from left */
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .reveal.active {
-    opacity: 1;
-    transform: translateX(0);
+  opacity: 1;
+  transform: translateX(0);
 }
 
 /* delay per element */
 .reveal.delay {
-    transition-delay: 0.5s;
+  transition-delay: 0.5s;
 }
 
 /* ===============================================================================================================================================================================
@@ -499,45 +500,44 @@ img {
 ================================================================================================================================================================================ */
 /* Back to Top Button inside .main */
 .main #backToTopBtn {
-    position: absolute;
-    bottom: 30px;
-    right: 30px;
-    padding: 10px 15px;
-    font-size: 20px;
-    background-color:black;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    display: none;
-    z-index: 10;
-    opacity: 0.8;
-    transition: opacity 0.3s ease;
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  padding: 10px 15px;
+  font-size: 20px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: none;
+  z-index: 10;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
 }
 
 .main #backToTopBtn:hover {
-    opacity: 1;
+  opacity: 1;
 }
 
 /* ===============================================================================================================================================================================
                         TYPE WRITER
 ================================================================================================================================================================================ */
 #typewriter::after {
-    content: '|';
-    animation: blink 0.7s infinite;
+  content: "|";
+  animation: blink 0.7s infinite;
 }
 
 @keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
 
-    0%,
-    50% {
-        opacity: 1;
-    }
-
-    51%,
-    100% {
-        opacity: 0;
-    }
+  51%,
+  100% {
+    opacity: 0;
+  }
 }
 
 /* ===============================================================================================================================================================================
@@ -545,67 +545,67 @@ img {
 ================================================================================================================================================================================ */
 /* TOGGLE SWITCH */
 .toggle-switch {
-    position: absolute;
-    right: 20px;
-    display: inline-block;
-    width: 50px;
-    height: 20px;
-    cursor: pointer;
+  position: absolute;
+  right: 20px;
+  display: inline-block;
+  width: 50px;
+  height: 20px;
+  cursor: pointer;
 }
 
 .toggle-switch input {
-    opacity: 0;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin: 0;
-    z-index: 2;
-    cursor: pointer;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  z-index: 2;
+  cursor: pointer;
 }
 
 .slider {
-    position: relative;
-    background-color: #f3f3f3;
-    border-radius: 30px;
-    transition: background-color 0.4s;
-    height: 100%;
-    width: 100%;
+  position: relative;
+  background-color: #f3f3f3;
+  border-radius: 30px;
+  transition: background-color 0.4s;
+  height: 100%;
+  width: 100%;
 }
 
 .slider .icon {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 13px;
-    pointer-events: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 13px;
+  pointer-events: none;
 }
 
 .slider .sun {
-    left: 5px;
-    opacity: 1;
+  left: 5px;
+  opacity: 1;
 }
 
 .slider .moon {
-    right: 40px;
-    opacity: 0;
+  right: 40px;
+  opacity: 0;
 }
 
-.toggle-switch input:checked+.slider {
-    background-color: black;
+.toggle-switch input:checked + .slider {
+  background-color: black;
 }
 
-.toggle-switch input:checked+.slider .sun {
-    opacity: 0;
-    left: 5px;
-    transition: left 0.4s, opacity 0.4s;
+.toggle-switch input:checked + .slider .sun {
+  opacity: 0;
+  left: 5px;
+  transition: left 0.4s, opacity 0.4s;
 }
 
-.toggle-switch input:checked+.slider .moon {
-    opacity: 1;
-    right: 10px;
-    transition: right 0.4s, opacity 0.4s;
+.toggle-switch input:checked + .slider .moon {
+  opacity: 1;
+  right: 10px;
+  transition: right 0.4s, opacity 0.4s;
 }
 
 /* ===============================================================================================================================================================================
@@ -613,59 +613,59 @@ img {
 ================================================================================================================================================================================ */
 /* DARK MODE STYLES */
 body.dark-mode {
-    background-color: black;
-    color: #F9FAFB;
+  background-color: black;
+  color: #f9fafb;
 }
 
 body.dark-mode .main {
-    background-color: black;
-    color: #F9FAFB;
+  background-color: black;
+  color: #f9fafb;
 }
 
 body.dark-mode .main-header {
-    background-color: black;
-    color: #F9FAFB;
+  background-color: black;
+  color: #f9fafb;
 }
 
 body.dark-mode .sidebar {
-    background-color: black;
-    color: #F9FAFB;
+  background-color: black;
+  color: #f9fafb;
 }
 
 body.dark-mode .middle-bar {
-    background-color: black;
-    color: #F9FAFB;
+  background-color: black;
+  color: #f9fafb;
 }
 
 body.dark-mode a {
-    color: white;
+  color: white;
 }
 
 body.dark-mode a:hover {
-    color: #d1d5db;
-    /* light gray for hover */
-    text-decoration: underline;
+  color: #d1d5db;
+  /* light gray for hover */
+  text-decoration: underline;
 }
 
 body.dark-mode .middle-bar img {
-    filter: invert(1);
+  filter: invert(1);
 }
 
 body.dark-mode .main img {
-    filter: invert(1);
+  filter: invert(1);
 }
 
 body.dark-mode .main hr {
-    filter: invert(1);
+  filter: invert(1);
 }
 
 body.dark-mode .main #backToTopBtn {
-    background-color: #f3f3f3;
-    color: black;
+  background-color: #f3f3f3;
+  color: black;
 }
 
 body.dark-mode .sidebar-social-icons {
-    filter: invert(1);
+  filter: invert(1);
 }
 
 /* ===============================================================================================================================================================================
@@ -673,37 +673,37 @@ body.dark-mode .sidebar-social-icons {
 ================================================================================================================================================================================ */
 html.dark-mode,
 body.dark-mode {
-    background-color: black;
-    color: #F9FAFB;
+  background-color: black;
+  color: #f9fafb;
 }
 
 html.dark-mode .main,
 body.dark-mode .main {
-    background-color: black;
-    color: #F9FAFB;
+  background-color: black;
+  color: #f9fafb;
 }
 
 html.dark-mode .sidebar,
 body.dark-mode .sidebar {
-    background-color: black;
-    color: #F9FAFB;
+  background-color: black;
+  color: #f9fafb;
 }
 
 html.dark-mode .middle-bar,
 body.dark-mode .middle-bar {
-    background-color: black;
-    color: #F9FAFB;
+  background-color: black;
+  color: #f9fafb;
 }
 
 html.dark-mode a,
 body.dark-mode a {
-    color: white;
+  color: white;
 }
 
 html.dark-mode a:hover,
 body.dark-mode a:hover {
-    color: #d1d5db;
-    text-decoration: underline;
+  color: #d1d5db;
+  text-decoration: underline;
 }
 
 /* ===============================================================================================================================================================================
@@ -711,24 +711,24 @@ body.dark-mode a:hover {
 ================================================================================================================================================================================ */
 /* Tooltip */
 .toggle-switch .tooltip {
-    position: absolute;
-    top: 35px;
-    right: 0;
-    background-color: black;
-    color: #fff;
-    padding: 4px 8px;
-    font-size: 12px;
-    border-radius: 4px;
-    opacity: 0;
-    pointer-events: none;
-    white-space: nowrap;
-    transition: opacity 0.3s, transform 0.3s;
-    transform: translateY(5px);
+  position: absolute;
+  top: 35px;
+  right: 0;
+  background-color: black;
+  color: #fff;
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 4px;
+  opacity: 0;
+  pointer-events: none;
+  white-space: nowrap;
+  transition: opacity 0.3s, transform 0.3s;
+  transform: translateY(5px);
 }
 
 .toggle-switch:hover .tooltip {
-    opacity: 1;
-    transform: translateY(0);
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ===============================================================================================================================================================================
@@ -736,298 +736,296 @@ body.dark-mode a:hover {
 ================================================================================================================================================================================ */
 /* Tooltip inside the back-to-top button */
 #backToTopBtn .tooltip {
-    position: absolute;
-    bottom: 120%;
-    /* place above the button */
-    left: 50%;
-    transform: translateX(-50%) translateY(5px);
-    background-color: black;
-    color: #fff;
-    padding: 4px 8px;
-    font-size: 12px;
-    border-radius: 4px;
-    white-space: nowrap;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s, transform 0.3s;
-    z-index: 100;
+  position: absolute;
+  bottom: 120%;
+  /* place above the button */
+  left: 50%;
+  transform: translateX(-50%) translateY(5px);
+  background-color: black;
+  color: #fff;
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 100;
 }
 
 #backToTopBtn:hover .tooltip {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
 
 /* =========================================================================================================
    MOBILE LAYOUT: single column, centered navbar, hide middle bar, sidebar as footer
 ========================================================================================================= */
 @media (max-width: 900px) {
-
-    /* -----------------------------
+  /* -----------------------------
        PAGE STRUCTURE
     ----------------------------- */
-    .page-container {
-      flex-direction: column;
-      height: auto;
-      min-height: calc(100vh - 48px);
-    }
-  
-    /* -----------------------------
+  .page-container {
+    flex-direction: column;
+    height: auto;
+    min-height: calc(100vh - 48px);
+  }
+
+  /* -----------------------------
        NAVBAR CENTERED
     ----------------------------- */
-    .navbar {
-      display: flex;
-      justify-content: center;      /* center nav horizontally */
-      align-items: center;
-      padding: 10px 0;
-    }
-  
-    .nav-links {
-      display: flex;
-      justify-content: center;      /* center links */
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-      padding-right: 0;             /* remove desktop offset */
-    }
-  
-    .nav-links a {
-      margin-left: 0;
-      text-align: center;
-    }
-  
-    /* Keep toggle reachable */
-    .toggle-switch {
-      position: absolute;
-      right: 12px;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-  
-    /* -----------------------------
+  .navbar {
+    display: flex;
+    justify-content: center; /* center nav horizontally */
+    align-items: center;
+    padding: 10px 0;
+  }
+
+  .nav-links {
+    display: flex;
+    justify-content: center; /* center links */
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-right: 0; /* remove desktop offset */
+  }
+
+  .nav-links a {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  /* Keep toggle reachable */
+  .toggle-switch {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  /* -----------------------------
        MAIN CONTENT (FULL WIDTH)
     ----------------------------- */
-    .main {
-      width: 100%;
-      padding: 20px;
-      overflow-y: visible;
-      order: 1;
-    }
-  
-    /* -----------------------------
+  .main {
+    width: 100%;
+    padding: 20px;
+    overflow-y: visible;
+    order: 1;
+  }
+
+  /* -----------------------------
        REMOVE MIDDLE BAR
     ----------------------------- */
-    .middle-bar {
-      display: none !important;
-    }
-  
-    /* -----------------------------
+  .middle-bar {
+    display: none !important;
+  }
+
+  /* -----------------------------
        SIDEBAR AS FOOTNOTE / FOOTER
     ----------------------------- */
-    .sidebar {
-      width: 100%;
-      height: auto;
-      position: static;
-      margin-top: 24px;
-      padding-top: 20px;
-      border-top: 1px solid #ddd;
-      box-shadow: none;
-      order: 2;
-      text-align: center;
-    }
-  
-    .sidebar img {
-      width: 50%;
-      max-width: 180px;
-      height: auto;
-      margin-bottom: 10px;
-    }
-  
-    /* -----------------------------
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: static;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+    box-shadow: none;
+    order: 2;
+    text-align: center;
+  }
+
+  .sidebar img {
+    width: 50%;
+    max-width: 180px;
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  /* -----------------------------
        CONTACT / RESUME STACKING
     ----------------------------- */
-    .main-contact {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 8px;
-      padding: 0;
-    }
-  
-    .main-contact-items {
-      padding: 6px 0;
-    }
-  
-    /* -----------------------------
+  .main-contact {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 0;
+  }
+
+  .main-contact-items {
+    padding: 6px 0;
+  }
+
+  /* -----------------------------
        GRID → SINGLE COLUMN
     ----------------------------- */
-    .grid-container {
-      grid-template-columns: 1fr;
-      gap: 6px;
-    }
-  
-    .right-text {
-      justify-self: start;
-    }
-  
-    /* -----------------------------
+  .grid-container {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .right-text {
+    justify-self: start;
+  }
+
+  /* -----------------------------
        FORMS STACK
     ----------------------------- */
-    .form-row {
-      flex-direction: column;
-    }
-  
-    /* -----------------------------
+  .form-row {
+    flex-direction: column;
+  }
+
+  /* -----------------------------
        COURSE LIST
     ----------------------------- */
-    .course-listing-li {
-      flex: 1 0 50%;
-    }
-  
-    /* -----------------------------
+  .course-listing-li {
+    flex: 1 0 50%;
+  }
+
+  /* -----------------------------
        BACK TO TOP (FIXED)
     ----------------------------- */
-    .main #backToTopBtn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-    }
+  .main #backToTopBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
   }
-  
+}
 
 /* =============================================================================================
                               A11Y + NAV + PROJECT CARDS
 ============================================================================================= */
 
 .skip-link {
-    position: absolute;
-    left: -999px;
-    top: 10px;
-    background: #ffffff;
-    color: #000000;
-    padding: 10px 12px;
-    border-radius: 8px;
-    z-index: 10000;
-    border: 1px solid #111827;
+  position: absolute;
+  left: -999px;
+  top: 10px;
+  background: #ffffff;
+  color: #000000;
+  padding: 10px 12px;
+  border-radius: 8px;
+  z-index: 10000;
+  border: 1px solid #111827;
 }
 
 .skip-link:focus {
-    left: 12px;
+  left: 12px;
 }
 
 .nav-links a.active,
 .nav-links a[aria-current="page"] {
-    text-decoration: underline;
-    text-underline-offset: 6px;
-    font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  font-weight: 700;
 }
 
 :focus-visible {
-    outline: 3px solid currentColor;
-    outline-offset: 3px;
+  outline: 3px solid currentColor;
+  outline-offset: 3px;
 }
 
 /* Page headings used by the Projects page */
 .page-title {
-    margin: 0 0 6px 0;
-    line-height: 1.15;
+  margin: 0 0 6px 0;
+  line-height: 1.15;
 }
 
 .page-subtitle {
-    margin: 0 0 10px 0;
-    padding-left: 10px;
-    line-height: 1.5;
+  margin: 0 0 10px 0;
+  padding-left: 10px;
+  line-height: 1.5;
 }
 
 .last-updated {
-    margin: 0 0 18px 0;
-    padding-left: 10px;
-    font-size: 0.95rem;
-    opacity: 0.85;
+  margin: 0 0 18px 0;
+  padding-left: 10px;
+  font-size: 0.95rem;
+  opacity: 0.85;
 }
 
 .helper-text {
-    margin-top: 14px;
-    opacity: 0.85;
+  margin-top: 14px;
+  opacity: 0.85;
 }
 
 /* Projects grid/cards */
 .projects-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 14px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
 }
 
 .project-card {
-    display: block;
-    text-decoration: none;
-    border: 1px solid rgba(17, 24, 39, 0.18);
-    border-radius: 14px;
-    padding: 16px;
-    transition: transform 120ms ease, box-shadow 120ms ease;
+  display: block;
+  text-decoration: none;
+  border: 1px solid rgba(17, 24, 39, 0.18);
+  border-radius: 14px;
+  padding: 16px;
+  transition: transform 120ms ease, box-shadow 120ms ease;
 }
 
 .project-card:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
 }
 
 .project-title {
-    margin: 0 0 6px 0;
-    font-size: 1.15rem;
-    line-height: 1.25;
+  margin: 0 0 6px 0;
+  font-size: 1.15rem;
+  line-height: 1.25;
 }
 
 .project-desc {
-    margin: 0 0 10px 0;
-    line-height: 1.55;
+  margin: 0 0 10px 0;
+  line-height: 1.55;
 }
 
 .tech-chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin: 10px 0 12px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0 12px 0;
 }
 
 .tech-chip {
-    display: inline-flex;
-    padding: 6px 10px;
-    border-radius: 999px;
-    border: 1px solid rgba(17, 24, 39, 0.20);
-    font-size: 0.90rem;
+  display: inline-flex;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(17, 24, 39, 0.2);
+  font-size: 0.9rem;
 }
 
 .project-meta-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    margin-top: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 6px;
 }
 
 .project-updated {
-    margin: 0;
-    font-size: 0.90rem;
-    opacity: 0.85;
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.85;
 }
 
 .project-link-label {
-    font-size: 0.95rem;
-    font-weight: 650;
+  font-size: 0.95rem;
+  font-weight: 650;
 }
 
 /* Dark mode tweaks for cards */
 body.dark-mode .project-card {
-    border-color: rgba(249, 250, 251, 0.22);
+  border-color: rgba(249, 250, 251, 0.22);
 }
 
 body.dark-mode .tech-chip {
-    border-color: rgba(249, 250, 251, 0.22);
+  border-color: rgba(249, 250, 251, 0.22);
 }
 
 @media (min-width: 900px) {
-    .projects-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 16px;
-    }
+  .projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
 }

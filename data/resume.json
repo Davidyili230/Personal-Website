@@ -3,7 +3,7 @@
     "profileImage": "img/potrait.jpg",
     "name": "YI 'DAVID' LI",
     "email": "Davidyili230@gmail.com",
-    "about": "Hi, my name is Yi Li, and I’m currently a senior at CUNY Hunter College pursuing a degree in Computer Science. I took a web development course outside of school and enjoyed this new language I learned, and I immediately found a passion for designing and bringing ideas to life online. One fact about me is I enjoy creating new tools for myself and bring it life to make my day to day life easier.",
+    "about": "Hi, I’m David, a computer science student focused on building practical software. I primarily work with C++ and JavaScript and am developing a strong foundation in data structures, algorithms, and object-oriented programming through coursework and projects. I’m continuously improving my skills by writing, testing, and refining real code.",
     "social": [
       { "href": "https://www.facebook.com/davidyili230/", "icon": "img/facebook.png", "alt": "facebook" },
       { "href": "https://github.com/Davidyili230", "icon": "img/github.png", "alt": "github" },

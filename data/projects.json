@@ -10,6 +10,14 @@
         "updated": "2026-01-20"
       },
       {
+        "title": "MealFinder (iOS)",
+        "description": "SwiftUI app that searches meals by ingredient and shows recipe details. Feature: API request. Note: I can only publish this app through APP store. It's difficult to go through. So demo and code will be shown in a youtube video.",
+        "tech": ["Swift", "SwiftUI", "Spoonacular API"],
+        "link": "https://youtu.be/KUFArZn_Dgs?si=HH_NaYfCxPad_Hbm",
+        "linkLabel": "Video Demo",
+        "updated": "2025-12-15"
+      },      
+      {
         "title": "Project Clean",
         "description": "A website to report school maintenance issues, there's 2 type of authorizations. User can login as a student/professor to report or login as a staff to fix the issue. Features: Multi-user authourization and live time updates.",
         "tech": ["React", "Tailwind", "Firebase", "Json", "JavaScript"],

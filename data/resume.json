@@ -25,7 +25,7 @@
       { "icon": "img/resume.png", "alt": "resume", "href": "downloads/Yi_Li__David__Resume.pdf", "text": "Download Resume", "download": true }
     ],
     "download": {
-      "href": "downloads/Yi_Li__David__Resume.pdf",
+      "href": "/downloads/h",
       "text": "Download Resume (PDF)"
     }
   },

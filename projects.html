@@ -1,0 +1,115 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>Projects | Yi 'David' Li</title>
+  <meta name="description"
+    content="Projects by Yi 'David' Li — selected work, tech used, and links to demos or repositories." />
+  <meta name="last-updated" content="2026-01-20" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Projects | Yi 'David' Li" />
+  <meta property="og:description" content="Selected projects, tech used, and links to demos or repositories." />
+  <meta property="og:type" content="website" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="img/favicon.png" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!--Nav bar for linking pages-->
+  <header class="main-header">
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html">Yi 'David' Li</a>
+      <a href="about.html">About</a>
+      <a href="resume.html">Resume</a>
+      <a href="projects.html" aria-current="page">Projects</a>
+      <a href="contact.html">Contact</a>
+
+      <div class="toggle-switch">
+        <input type="checkbox" id="darkModeToggle" aria-label="Toggle dark mode" />
+        <div class="slider">
+          <span class="icon sun">☀️</span>
+          <span class="icon moon">🌙</span>
+        </div>
+        <span class="tooltip">Toggle Dark Mode</span>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main page content -->
+  <div class="page-container">
+    <!-- Left Sidebar -->
+    <aside class="sidebar">
+      <div>
+        <!-- Profile -->
+        <img src="img/potrait.jpg" alt="profile picture" width="75%" />
+        <h1>YI 'DAVID' LI</h1>
+        <h2>Davidyili230@gmail.com</h2>
+
+        <div class="sidebar-about">
+          <hr class="extra-line" />
+          <h3>ABOUT</h3>
+          <hr class="extra-line" />
+          <p>
+            Hi, my name is Yi Li, and I’m currently a senior at CUNY Hunter
+            College pursuing a degree in Computer Science. I took a web
+            development course outside of school and enjoyed this new language
+            I learned, and I immediately found a passion for designing and
+            bringing ideas to life online. One fact about me is I enjoy
+            creating new tools for myself and bring it life to make my day to
+            day life easier.
+          </p>
+        </div>
+
+        <!-- Contacts -->
+        <div class="sidebar-social-icons">
+          <a href="https://www.facebook.com/davidyili230/" target="_blank">
+            <img src="img/facebook.png" alt="facebook" width="40%" />
+          </a>
+          <a href="https://github.com/Davidyili230" target="_blank">
+            <img src="img/github.png" alt="github" width="40%" />
+          </a>
+          <a href="https://www.instagram.com/come.onnnnn/" target="_blank">
+            <img src="img/instagram.png" alt="instagram" width="40%" />
+          </a>
+          <a href="https://www.linkedin.com/in/davidyili/" target="_blank">
+            <img src="img/linkedin.png" alt="linkedin" width="40%" />
+          </a>
+          <a href="https://x.com/come_onnnnn_" target="_blank">
+            <img src="img/twitter.png" alt="twitter" width="40%" />
+          </a>
+        </div>
+
+        <!-- Copy Rights -->
+        <hr class="extra-line" />
+        <h4>&copy;2026 DAVIDYILI</h4>
+      </div>
+    </aside>
+
+    <!-- Middle Content -->
+    <main id="mainContent" class="main">
+      <section class="reveal">
+        <h1 class="page-title">Projects</h1>
+        <p class="page-subtitle">
+          A few things I’ve built. Click a card to open the link.
+        </p>
+        <p class="last-updated" id="lastUpdated"></p>
+      </section>
+
+      <section class="reveal delay" aria-label="Projects list">
+        <div id="projectsGrid" class="projects-grid" role="list"></div>
+        <p id="projectsError" class="helper-text" aria-live="polite"></p>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

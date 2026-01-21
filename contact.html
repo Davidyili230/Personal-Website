@@ -48,6 +48,7 @@
             <a href="index.html">Yi 'David' Li</a>
             <a href="about.html">About</a>
             <a href="resume.html">Resume</a>
+            <a href="projects.html" aria-current="page">Projects</a>
             <a href="contact.html">Contact</a>
             <div class="toggle-switch">
                 <input type="checkbox" id="darkModeToggle">
@@ -115,14 +116,12 @@
                 <p class="text-align-center" id="typewriter"></p>
             </div>
             <div class="reveal delay">
-                <p class="text-align-center">OR <br> Shoot me a message here: <br> *Currently working on the backend, I
-                    wouldn't be able to receive this form's message*</p>
-            </div>
-            <div class="reveal delay">
-                <p class="text-align-center">*But you can still submit for fun*</p>
+                <p class="text-align-center">OR you can also reach to me by filling this form:</p>
             </div>
 
-            <form class="contact-form">
+            <!-- Used formspree for receiving submissions -->
+            <form class="contact-form" action="https://formspree.io/f/xaqqpdpd" method="POST">
+
                 <div class="form-row">
                     <input type="text" id="first-name" name="first-name" placeholder="First Name" required>
                     <input type="text" id="last-name" name="last-name" placeholder="Last Name" required>

@@ -1,0 +1,29 @@
+{
+    "lastUpdated": "2026-01-20",
+    "projects": [
+      {
+        "title": "Personal Website",
+        "description": "A website to record my journey as a first gen college student. At the same time, showcasing my projects and my capability of doing web development. Features: About me, Resume, Projects, Contact Form.",
+        "tech": ["HTML", "CSS", "JavaScript"],
+        "link": "https://davidyili230.github.io/Personal-Website/",
+        "linkLabel": "Github",
+        "updated": "2026-01-20"
+      },
+      {
+        "title": "Project Clean",
+        "description": "A website to report school maintenance issues, there's 2 type of authorizations. User can login as a student/professor to report or login as a staff to fix the issue. Features: Multi-user authourization and live time updates.",
+        "tech": ["React", "Tailwind", "Firebase", "Json", "JavaScript"],
+        "link": "https://project-cleanv2.netlify.app",
+        "linkLabel": "Netlify",
+        "updated": "2025-07-13"
+      },
+      {
+        "title": "Cravers Pizza",
+        "description": "A fun project I made for web development class I took at Hunter College. This is a website for a pizza restaruant that showcast pizzas they have with the price. \n Features: slideshow, add to cart, checkout calculation.",
+        "tech": ["React", "Node.js"],
+        "link": "https://cravers-pizza-react.netlify.app/",
+        "linkLabel": "Netlify",
+        "updated": "2025-07-09"
+      }
+    ]
+  }

@@ -22,7 +22,7 @@
       { "icon": "img/email.png", "alt": "email", "href": "mailto:Davidyili230@gmail.com", "text": "Davidyili230@gmail.com" },
       { "icon": "img/linkedin.png", "alt": "linkedin", "href": "https://www.linkedin.com/in/davidyili/", "text": "linked.com/in/davidyili" },
       { "icon": "img/github.png", "alt": "github", "href": "https://github.com/Davidyili230", "text": "github.com/Davidyili230" },
-      { "icon": "img/resume.png", "alt": "resume", "href": "downloads/Yi_Li__David__Resume.pdf", "text": "Resume PDF", "download": true }
+      { "icon": "img/resume.png", "alt": "resume", "href": "downloads/Yi_Li__David__Resume.pdf", "text": "Download Resume", "download": true }
     ],
     "download": {
       "href": "downloads/Yi_Li__David__Resume.pdf",

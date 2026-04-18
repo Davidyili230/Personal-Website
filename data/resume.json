@@ -25,7 +25,7 @@
       { "icon": "img/resume.png", "alt": "resume", "href": "downloads/Yi_Li__David__Resume.pdf", "text": "Download Resume", "download": true }
     ],
     "download": {
-      "href": "/downloads/h",
+      "href": "downloads/Yi_Li__David__Resume.pdf",
       "text": "Download Resume (PDF)"
     }
   },
@@ -39,9 +39,9 @@
 
   "certifications": [
     {
-      "title": "Intro to Web Development - CodePath Certificate",
-      "date": "November 2024",
-      "detail": "Completed hands-on training in HTML, CSS, JavaScript, and responsive design."
+      "title": "CodePath Technical Certification Program",
+      "date": "November 2024 - Present",
+      "detail": "Intro to Web Development (Completed) — AI Engineering (In Progress)"
     }
   ],
 
@@ -52,13 +52,14 @@
     "Systems Programming",
     "Web Development",
     "iOS Developmentt",
-    "Computer Architecture"
+    "Computer Architecture",
+    "Database Management"
   ],
 
   "technicalSkills": [
-    { "label": "Programming", "value": "Swift (iOS), Python, C++, HTML, CSS, JavaScript" },
-    { "label": "Frameworks", "value": "React.js, Node.js, SwiftUI" },
-    { "label": "Tools", "value": "Git/GitHub, Firebase, MongoDB, Cloudinary" }
+    { "label": "Programming", "value": "Python, C++, JavaScript, Swift" },
+    { "label": "Frameworks", "value": "HTML/CSS, React.js, Node.js, SwiftUI" },
+    { "label": "Tools", "value": " Git/GitHub, Firebase, Cloudinary" }
   ],
 
 
@@ -79,9 +80,9 @@
       "tech": "iOS (SwitftUI), Spoonacular API",
       "dates": "September 2025 - December 2025",
       "bullets": [
-        "Built an iOS app using SwiftUI and the Spoonacular API to search meals by ingredient and display recipe details.",
-        "Implemented JSON parsing and MVVM architecture to manage data flow and UI updates cleanly.",
-        "Added a favorites feature and responsive SwiftUI List-based UI for improved usability."
+        "Developed an iOS application using SwiftUI and MVVM architecture to manage scalable UI state and data flow.",
+        "Integrated Spoonacular REST API with JSON parsing to fetch and display real-time recipe data.",
+        "Optimized UI responsiveness using SwiftUI List and asynchronous data handling."
       ]
     },
 
@@ -90,9 +91,9 @@
       "tech": "React.js, Node.js, MongoDB, HTML, CSS, JavaScript",
       "dates": "May 2025 - July 2025",
       "bullets": [
-        "Developed a platform for reporting campus issues in real-time, including cleaning, maintenance, and safety.",
-        "Implemented user login, media uploads, issue tracking dashboard, and secure authentication.",
-        "Helped centralize and simplify how campus issues are reported and tracked."
+        "Developed a full-stack issue reporting platform using React frontend, Node.js and MongoDB for persistent data storage.",
+        "Implemented RESTful API architecture to handle user submissions, data retrieval, and dashboard state management.",
+        "Designed dashboard system for tracking and managing reports, enabling structured workflow visibility and status updates."
       ]
     }
   ],
@@ -101,14 +102,14 @@
     {
       "company": "Zhang and Cheng Medical P.C.",
       "dates": "January 2022 - Present",
-      "role": "Medical Receptionist / Medical Assistant",
+      "role": "Medical Receptionist / IT Support",
       "location": "Brooklyn, NY",
       "bullets": [
-        "Managed daily patient intake, scheduling, and front-desk operations in a busy medical office.",
-        "Communicated with patients by phone and in person to address inquiries and coordinate appointments.",
-        "Assisted physicians with electronic prescriptions and patient record updates using iClinic.",
-        "Collected vital signs and assisted during examinations to support clinical assessments.",
-        "Operated medical equipment while following safety and procedural guidelines."
+        "Supported clinic operations including patient intake, scheduling, and workflow management in a high-volume environment.",
+        "Resolved IT issues (computers, printers, software access) to minimize downtime and maintain operational continuity.",
+        "Managed electronic health records (EHR) in iClinic ensuring structured, accurate patient data.",
+        "Configured and maintained office hardware and medical devices used in daily clinical workflows.",
+        "Facilitated digital communication between patients and providers via scheduling systems and internal tools."
       ]
     },
     {

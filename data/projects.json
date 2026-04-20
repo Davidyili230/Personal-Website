@@ -3,34 +3,38 @@
     "projects": [
       {
         "title": "Personal Website",
-        "description": "A website to record my journey as a first gen college student. At the same time, showcasing my projects and my capability of doing web development. Features: About me, Resume, Projects, Contact Form.",
+        "description": "A portfolio site documenting my journey as a first-gen college student — featuring an About page, Resume, Projects, Contact Form, and an AI chatbot.",
         "tech": ["HTML", "CSS", "JavaScript"],
         "link": "https://davidyili230.github.io/Personal-Website/",
         "linkLabel": "Github",
+        "status": "Open Source",
         "updated": "2026-01-20"
       },
       {
         "title": "MealFinder (iOS)",
-        "description": "SwiftUI app that searches meals by ingredient and shows recipe details. Feature: API request. Note: I can only publish this app through APP store. It's difficult to go through. So demo and code will be shown in a youtube video.",
+        "description": "SwiftUI app that searches recipes by ingredient using the Spoonacular API. Includes detailed recipe views and dynamic filtering. Published via YouTube demo due to App Store review complexity.",
         "tech": ["Swift", "SwiftUI", "Spoonacular API"],
         "link": "https://youtu.be/KUFArZn_Dgs?si=HH_NaYfCxPad_Hbm",
         "linkLabel": "Video Demo",
+        "status": "Video Demo",
         "updated": "2025-12-15"
-      },      
+      },
       {
         "title": "Project Clean",
-        "description": "A website to report school maintenance issues, there's 2 type of authorizations. User can login as a student/professor to report or login as a staff to fix the issue. Features: Multi-user authourization and live time updates.",
-        "tech": ["React", "Tailwind", "Firebase", "Json", "JavaScript"],
+        "description": "A maintenance reporting platform for schools with two authorization tiers — students/professors can file issues, staff can resolve them — backed by real-time Firebase sync.",
+        "tech": ["React", "Tailwind", "Firebase", "JavaScript"],
         "link": "https://project-cleanv2.netlify.app",
         "linkLabel": "Netlify",
+        "status": "Live",
         "updated": "2025-07-13"
       },
       {
         "title": "Cravers Pizza",
-        "description": "A fun project I made for web development class I took at Hunter College. This is a website for a pizza restaruant that showcast pizzas they have with the price. \n Features: slideshow, add to cart, checkout calculation.",
+        "description": "A pizza restaurant site built for a Hunter College web dev course. Features an image slideshow, dynamic menu, add-to-cart flow, and checkout price calculation.",
         "tech": ["React", "Node.js"],
         "link": "https://cravers-pizza-react.netlify.app/",
         "linkLabel": "Netlify",
+        "status": "Live",
         "updated": "2025-07-09"
       }
     ]

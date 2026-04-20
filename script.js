@@ -29,57 +29,47 @@ function scrollToSection(sectionId) {
                         REVEAL SECTION
 ================================================================================================================================================================================ */
 
-const mainSection = document.querySelector('.main');
+/* ===============================================================================================================================================================================
+                      INTERSECTION OBSERVER REVEAL
+================================================================================================================================================================================ */
 
-if (mainSection) {
-  const mainChildren = mainSection.querySelectorAll('.reveal');
+(function initReveal() {
+  const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-scale');
+  if (!revealEls.length) return;
 
-  window.addEventListener('scroll', revealMainContent);
-
-  function revealMainContent() {
-    const windowHeight = window.innerHeight;
-    const mainTop = mainSection.getBoundingClientRect().top;
-    const mainVisible = 150;
-
-    if (mainTop < windowHeight - mainVisible) {
-      mainChildren.forEach((child, index) => {
-        setTimeout(() => {
-          child.classList.add('active');
-        }, index * 150);
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          observer.unobserve(entry.target);
+        }
       });
-    } else {
-      mainChildren.forEach(child => {
-        child.classList.remove('active');
-      });
-    }
-  }
+    },
+    { threshold: 0.06, rootMargin: '0px 0px -30px 0px' }
+  );
 
-  revealMainContent(); // Run once on load
+  revealEls.forEach((el) => observer.observe(el));
+})();
 
 
-  /* ===============================================================================================================================================================================
-                          BACK TO TOP
-  ================================================================================================================================================================================ */
+/* ===============================================================================================================================================================================
+                      BACK TO TOP
+================================================================================================================================================================================ */
 
+(function initBackToTop() {
+  const mainSection = document.querySelector('.main');
   const backToTopBtn = document.getElementById('backToTopBtn');
+  if (!mainSection || !backToTopBtn) return;
 
-  if (backToTopBtn) {
-    mainSection.addEventListener('scroll', () => {
-      if (mainSection.scrollTop > 300) {
-        backToTopBtn.style.display = "block";
-      } else {
-        backToTopBtn.style.display = "none";
-      }
-    });
+  mainSection.addEventListener('scroll', () => {
+    backToTopBtn.style.display = mainSection.scrollTop > 300 ? 'block' : 'none';
+  });
 
-    backToTopBtn.addEventListener('click', () => {
-      mainSection.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
-  }
-}
+  backToTopBtn.addEventListener('click', () => {
+    mainSection.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
 
 
 /* ===============================================================================================================================================================================
@@ -581,11 +571,12 @@ fetch("data/projects.json")
       return;
     }
 
-    projects.forEach((p) => {
+    projects.forEach((p, idx) => {
       const link = p?.link || "#";
 
       const a = document.createElement("a");
-      a.className = "project-card";
+      a.className = idx === 0 ? "project-card project-card--featured" : "project-card";
+      a.style.animationDelay = `${idx * 0.1}s`;
       a.href = link;
 
       // Open external links in a new tab for safety + UX
@@ -599,6 +590,15 @@ fetch("data/projects.json")
       } catch (_) { /* ignore */ }
 
       a.setAttribute("role", "listitem");
+
+      // Status badge
+      if (p?.status) {
+        const badge = document.createElement("span");
+        const slug = p.status.toLowerCase().replace(/[\s/]+/g, "-");
+        badge.className = `project-status project-status--${slug}`;
+        badge.textContent = p.status;
+        a.appendChild(badge);
+      }
 
       const title = document.createElement("h2");
       title.className = "project-title";
@@ -627,6 +627,13 @@ fetch("data/projects.json")
       if (Array.isArray(p?.tech) && p.tech.length) a.appendChild(createTechChips(p.tech));
       a.appendChild(metaRow);
 
+      // Faded ordinal number (decorative, absolutely positioned)
+      const numEl = document.createElement("span");
+      numEl.className = "project-num";
+      numEl.setAttribute("aria-hidden", "true");
+      numEl.textContent = String(idx + 1).padStart(2, "0");
+      a.appendChild(numEl);
+
       grid.appendChild(a);
     });
 
@@ -635,6 +642,8 @@ fetch("data/projects.json")
     if (lastUpdatedEl && data?.lastUpdated) {
       lastUpdatedEl.textContent = `Last updated: ${data.lastUpdated}`;
     }
+
+    initCardTilt();
   })
   .catch((err) => {
     console.error(err);
@@ -667,7 +676,9 @@ async function loadSidebar() {
 
   mount.innerHTML = `
     <div>
-      <img src="${data.profile.image}" alt="profile" width="75%">
+      <div class="profile-img-ring">
+        <img class="profile-img" src="${data.profile.image}" alt="profile" width="100%">
+      </div>
       <h1>${data.profile.name}</h1>
       <h2>${data.profile.email}</h2>
 
@@ -687,3 +698,52 @@ async function loadSidebar() {
 }
 
 document.addEventListener("DOMContentLoaded", loadSidebar);
+
+
+/* ===============================================================================================================================================================================
+                      3D CARD TILT
+================================================================================================================================================================================ */
+
+function initCardTilt() {
+  document.querySelectorAll('.project-card').forEach((card) => {
+    card.addEventListener('mouseenter', () => {
+      card.style.transition =
+        'transform 0.08s ease, box-shadow var(--transition-md), border-color var(--transition-md)';
+    });
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width  - 0.5) * 2;
+      const y = ((e.clientY - rect.top)  / rect.height - 0.5) * 2;
+      card.style.transform =
+        `perspective(900px) rotateX(${-y * 5}deg) rotateY(${x * 5}deg) translateY(-5px)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transition =
+        'transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow var(--transition-md), border-color var(--transition-md)';
+      card.style.transform = '';
+    });
+  });
+}
+
+
+/* ===============================================================================================================================================================================
+                      RIPPLE EFFECT
+================================================================================================================================================================================ */
+
+function initRipple() {
+  document.querySelectorAll('.cta-btn--primary, .submit-btn').forEach((btn) => {
+    btn.addEventListener('click', function (e) {
+      const rect = this.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height);
+      const ripple = document.createElement('span');
+      ripple.className = 'ripple';
+      ripple.style.width  = ripple.style.height = size + 'px';
+      ripple.style.left   = (e.clientX - rect.left - size / 2) + 'px';
+      ripple.style.top    = (e.clientY - rect.top  - size / 2) + 'px';
+      this.appendChild(ripple);
+      ripple.addEventListener('animationend', () => ripple.remove());
+    });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', initRipple);

@@ -588,13 +588,61 @@ img {
   margin-top: 4px;
 }
 
+.form-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.form-header-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius);
+  background: var(--accent-gradient);
+  color: #fff;
+  flex-shrink: 0;
+}
+
 .form-section-heading {
   font-family: var(--font-display);
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 700;
   letter-spacing: -0.02em;
   color: var(--text);
-  margin-bottom: 20px;
+  margin-bottom: 2px;
+}
+
+.form-section-sub {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+.required-star {
+  color: var(--accent);
+  font-size: 0.8rem;
+}
+
+.textarea-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.textarea-label-row label {
+  margin-bottom: 0 !important;
+}
+
+.char-counter {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
 }
 
 /* ===============================================
@@ -602,11 +650,23 @@ img {
 =============================================== */
 .contact-form {
   width: 100%;
-  padding: 32px;
+  padding: 28px;
   background-color: var(--surface);
   border-radius: var(--radius-lg);
   border: 1px solid var(--border);
   box-shadow: var(--shadow-card);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-form::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--accent-gradient);
 }
 
 .form-row {
@@ -617,43 +677,76 @@ img {
 
 .contact-form label {
   display: block;
-  font-size: 0.85rem;
-  font-weight: 500;
+  font-size: 0.82rem;
+  font-weight: 600;
   margin-bottom: 6px;
   color: var(--text-secondary);
+  letter-spacing: 0.01em;
+}
+
+.input-wrapper {
+  position: relative;
+  margin-bottom: 14px;
+}
+
+.form-row .input-wrapper {
+  margin-bottom: 0;
+}
+
+.input-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-secondary);
+  pointer-events: none;
+  transition: color var(--transition);
+}
+
+.textarea-wrapper .textarea-icon {
+  top: 14px;
+  transform: none;
 }
 
 .contact-form input,
 .contact-form textarea {
   width: 100%;
-  padding: 10px 14px;
+  padding: 10px 14px 10px 38px;
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   background-color: var(--bg);
   color: var(--text);
   font-family: var(--font-sans);
-  font-size: 0.95rem;
-  transition: border-color var(--transition), box-shadow var(--transition);
+  font-size: 0.93rem;
+  transition: border-color var(--transition), box-shadow var(--transition), background-color var(--transition);
   outline: none;
-  margin-bottom: 14px;
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
   border-color: var(--accent);
   box-shadow: var(--accent-glow);
+  background-color: var(--surface);
+}
+
+.input-wrapper:focus-within .input-icon {
+  color: var(--accent);
 }
 
 .contact-form textarea {
   resize: vertical;
-  min-height: 120px;
+  min-height: 130px;
+  padding-top: 12px;
+  line-height: 1.6;
 }
 
-.contact-form button[type="submit"] {
-  display: inline-flex;
+.submit-btn {
+  display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 11px 28px;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 13px 24px;
   background: var(--accent-gradient);
   color: #fff;
   border: none;
@@ -664,16 +757,19 @@ img {
   cursor: pointer;
   transition: opacity var(--transition), transform var(--transition), box-shadow var(--transition);
   letter-spacing: -0.01em;
+  margin-top: 4px;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
 }
 
-.contact-form button[type="submit"]:hover {
-  opacity: 0.9;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.4);
+.submit-btn:hover {
+  opacity: 0.92;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.45);
 }
 
-.contact-form button[type="submit"]:active {
+.submit-btn:active {
   transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
 }
 
 @keyframes slideIn {
@@ -1082,6 +1178,11 @@ body.dark-mode .contact-form textarea {
   background-color: var(--surface-2);
   border-color: var(--border);
   color: var(--text);
+}
+
+body.dark-mode .contact-form input:focus,
+body.dark-mode .contact-form textarea:focus {
+  background-color: var(--surface);
 }
 
 body.dark-mode .project-card {

@@ -1,19 +1,75 @@
-/* ===============================================================================================================================================================================
-            RESET
-================================================================================================================================================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@600;700;800&display=swap');
+
+/* ===============================================
+   DESIGN TOKENS
+=============================================== */
+:root {
+  --accent: #6366f1;
+  --accent-dark: #4f46e5;
+  --accent-light: #a5b4fc;
+  --accent-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  --accent-glow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+
+  --bg: #f4f4f8;
+  --surface: #ffffff;
+  --surface-2: #eeeef4;
+  --text: #111827;
+  --text-secondary: #6b7280;
+  --border: rgba(17, 24, 39, 0.09);
+  --header-bg: rgba(255, 255, 255, 0.85);
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 8px 28px rgba(99, 102, 241, 0.18), 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-card: 0 1px 4px rgba(0, 0, 0, 0.06), 0 4px 16px rgba(0, 0, 0, 0.06);
+
+  --radius-sm: 6px;
+  --radius: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+
+  --transition: 180ms ease;
+  --transition-md: 280ms ease;
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Sora', 'Inter', system-ui, sans-serif;
+}
+
+html.dark-mode,
+body.dark-mode {
+  --bg: #0d0d10;
+  --surface: #17171d;
+  --surface-2: #202028;
+  --text: #eeeef5;
+  --text-secondary: #8b8ba8;
+  --border: rgba(255, 255, 255, 0.08);
+  --header-bg: rgba(13, 13, 16, 0.88);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+  --shadow-hover: 0 8px 28px rgba(99, 102, 241, 0.25), 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-card: 0 1px 4px rgba(0, 0, 0, 0.3), 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* ===============================================
+   RESET
+=============================================== */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* ===============================================================================================================================================================================
-            PAGE LAYOUT
-================================================================================================================================================================================ */
+/* ===============================================
+   PAGE LAYOUT
+=============================================== */
 body {
-  font-family: Arial, sans-serif;
-  background-color: black;
-  padding-top: 48px;
+  font-family: var(--font-sans);
+  background-color: var(--bg);
+  color: var(--text);
+  padding-top: 56px;
+  transition: background-color var(--transition-md), color var(--transition-md);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 img {
@@ -22,315 +78,265 @@ img {
 
 .page-container {
   display: flex;
-  height: 93vh;
-  /* Full viewport height */
+  height: calc(100vh - 56px);
 }
 
-/* ===============================================================================================================================================================================
-            RESPONSIVE (MOBILE / TABLET)
-   Goal: make the layout readable on small screens by stacking columns, wrapping the top nav, and avoiding fixed heights.
-================================================================================================================================================================================ */
-
-@media (max-width: 900px) {
-  /* Stack layout instead of 3 columns */
-  .page-container {
-    flex-direction: column;
-    height: auto;
-    min-height: 100vh;
-  }
-
-  /* Sidebar becomes a normal top section */
-  .sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
-    padding-top: 20px;
-  }
-
-  /* Middle bar becomes a horizontal icon row */
-  .middle-bar {
-    width: 100%;
-    flex-direction: row;
-    justify-content: center;
-    gap: 12px;
-    padding: 10px 0;
-    position: sticky;
-    top: 48px;
-  }
-
-  .icon-container {
-    margin: 0;
-  }
-
-  .icon-label {
-    display: none; /* hover labels don't work well on touch */
-  }
-
-  /* Main content takes full width and doesn't rely on fixed viewport height */
-  .main {
-    width: 100%;
-    padding: 20px;
-    overflow: visible;
-  }
-
-  /* Header/nav wraps cleanly */
-  .main-header {
-    padding: 10px 12px;
-  }
-
-  .nav-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    align-items: center;
-    padding-right: 0;
-  }
-
-  .nav-links a {
-    margin-left: 0;
-    padding: 6px 0;
-  }
-
-  /* Toggle switch should not be absolutely positioned on small screens */
-  .toggle-switch {
-    position: static;
-    margin-left: auto;
-  }
-
-  /* Resume/contact sections stack better */
-  .main-contact {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0;
-    gap: 8px;
-  }
-
-  .grid-container {
-    grid-template-columns: 1fr;
-    gap: 6px;
-  }
-
-  .right-text {
-    justify-self: start;
-  }
-
-  .course-listing-li {
-    flex: 1 0 50%;
-  }
-
-  /* Contact form: put first/last name inputs on separate lines */
-  .form-row {
-    flex-direction: column;
-  }
-
-  /* Back to top: fixed so it's reachable when scrolling */
-  .main #backToTopBtn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-  }
-}
-
-@media (max-width: 480px) {
-  body {
-    padding-top: 56px;
-  }
-
-  .main h1 {
-    font-size: 28px;
-  }
-
-  .main p {
-    font-size: 16px;
-  }
-
-  .sidebar h1 {
-    font-size: 24px;
-  }
-}
-
-/* ===============================================================================================================================================================================
-            HEADER
-================================================================================================================================================================================ */
+/* ===============================================
+   HEADER / NAV
+=============================================== */
 .main-header {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: white;
-  padding: 15px 20px 15px 0px;
+  background-color: var(--header-bg);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border-bottom: 1px solid var(--border);
+  padding: 0 24px;
+  height: 56px;
+  display: flex;
+  align-items: center;
   z-index: 1000;
-  /* ensures it stays above other content */
+  transition: background-color var(--transition-md), border-color var(--transition-md);
 }
 
-/* ===============================================================================================================================================================================
-                        NAVIGATION BAR ITEMS
-================================================================================================================================================================================ */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+}
+
 .nav-links a {
-  color: black;
+  color: var(--text-secondary);
   text-decoration: none;
-  margin-left: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  transition: color var(--transition), background-color var(--transition);
+  letter-spacing: -0.01em;
+}
+
+.nav-links a:first-child {
+  font-family: var(--font-display);
+  font-weight: 700;
   font-size: 1rem;
-  transition: color 0.3s ease;
+  color: var(--text);
+  padding-left: 0;
+  margin-right: 8px;
+  letter-spacing: -0.03em;
 }
 
 .nav-links a:hover {
-  color: #848484;
-  /* light gray on hover */
+  color: var(--accent);
+  background-color: rgba(99, 102, 241, 0.07);
+  text-decoration: none;
 }
 
-/* ===============================================================================================================================================================================
-            ASIDE (Sidebar)
-================================================================================================================================================================================ */
+.nav-links a.active,
+.nav-links a[aria-current="page"] {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  background-color: rgba(99, 102, 241, 0.08);
+}
+
+/* ===============================================
+   SIDEBAR
+=============================================== */
 .sidebar {
-  width: 20%;
-  background-color: white;
-  color: black;
-  padding: 20px;
-  height: 93vh;
+  width: 22%;
+  background-color: var(--surface);
+  color: var(--text);
+  padding: 32px 20px 20px;
+  height: calc(100vh - 56px);
   position: sticky;
+  top: 56px;
   text-align: center;
-  opacity: 100%;
-  padding-top: 60px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-right: 1px solid var(--border);
+  overflow-y: auto;
+  transition: background-color var(--transition-md), border-color var(--transition-md);
 }
 
-.sidebar h1,
-.sidebar h2,
-.sidebar h3,
-.sidebar h4,
-.sidebar p {
-  font-family: Arial, sans-serif;
-}
-
-/* Typography for Sidebar */
 .sidebar h1 {
-  font-size: 30px;
-  font-weight: bold;
-  line-height: 2em;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.3;
+  color: var(--text);
+  margin-bottom: 4px;
 }
 
 .sidebar h2,
 .sidebar h3,
 .sidebar h4 {
-  font-size: 14px;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
 }
 
 .sidebar h3 {
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .sidebar p {
-  font-size: 14px;
-  line-height: 1.5em;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
 }
 
-/* ===============================================================================================================================================================================
-                        SOCIAL ICONS
-================================================================================================================================================================================ */
+/* ===============================================
+   SOCIAL ICONS
+=============================================== */
 .sidebar-social-icons {
   display: flex;
-  justify-content: space-evenly;
-  opacity: 75%;
-  padding-top: 30px;
+  justify-content: center;
+  gap: 16px;
+  padding-top: 24px;
+  opacity: 0.65;
+  transition: opacity var(--transition);
 }
 
-/* ===============================================================================================================================================================================
-            MIDDLE BAR (Icons)
-================================================================================================================================================================================ */
+.sidebar-social-icons:hover {
+  opacity: 1;
+}
+
+/* ===============================================
+   MIDDLE BAR
+=============================================== */
 .middle-bar {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 5%;
-  background-color: #f3f3f3;
-  padding-top: 100px;
+  width: 52px;
+  min-width: 52px;
+  background-color: var(--surface);
+  border-right: 1px solid var(--border);
+  padding-top: 80px;
+  gap: 8px;
   z-index: 999;
+  transition: background-color var(--transition-md), border-color var(--transition-md);
 }
 
 .icon-container {
   position: relative;
-  margin: 15px 0;
 }
 
 .icon-container button {
   background: none;
   border: none;
-  position: relative;
   cursor: pointer;
+  padding: 8px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color var(--transition);
+  color: var(--text-secondary);
+}
+
+.icon-container button:hover {
+  background-color: rgba(99, 102, 241, 0.1);
 }
 
 .icon-container img {
-  width: 30px;
-  height: 30px;
+  width: 22px;
+  height: 22px;
+  border-radius: 0;
+  opacity: 0.6;
+  transition: opacity var(--transition);
 }
 
-/* Hover effect: Show label */
+.icon-container button:hover img {
+  opacity: 1;
+}
+
 .icon-label {
   position: absolute;
-  left: 40px;
+  left: calc(100% + 8px);
   top: 50%;
-  transform: translateY(-50%);
-  background-color: black;
-  color: white;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 14px;
+  transform: translateY(-50%) translateX(-6px);
+  background-color: var(--text);
+  color: var(--surface);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  font-weight: 500;
+  white-space: nowrap;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: opacity var(--transition), transform var(--transition);
+  z-index: 100;
 }
 
 .icon-container button:hover .icon-label {
   opacity: 1;
-  transform: translateY(-50%) translateX(10px);
+  transform: translateY(-50%) translateX(0);
 }
 
-/* ===============================================================================================================================================================================
-            MAIN CONTENT
-================================================================================================================================================================================ */
+/* ===============================================
+   MAIN CONTENT
+=============================================== */
 .main {
-  width: 80%;
-  padding: 40px;
-  background-color: #f3f3f3;
-  color: #111827;
+  flex: 1;
+  padding: 48px 52px;
+  background-color: var(--bg);
+  color: var(--text);
   overflow-y: auto;
+  transition: background-color var(--transition-md), color var(--transition-md);
 }
 
-/* Typography for Main */
 .main h1 {
-  font-size: 35px;
-  font-weight: bold;
-  line-height: 1.5em;
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.2;
   text-align: center;
+  color: var(--text);
+  margin-bottom: 8px;
 }
 
 .main h2 {
-  font-size: 18px;
-  font-weight: bold;
-  line-height: 2em;
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 2;
+  color: var(--text);
 }
 
 .main h3 {
-  font-size: 16px;
-  font-style: italic;
-  font-weight: normal;
+  font-size: 0.95rem;
+  font-style: normal;
+  font-weight: 500;
+  color: var(--text-secondary);
+  line-height: 1.6;
 }
 
 .main p {
-  font-size: 18px;
-  line-height: 1.5em;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text);
 }
 
 .main a {
-  color: black;
+  color: var(--accent);
+  text-decoration: none;
+  transition: color var(--transition), opacity var(--transition);
 }
 
 .main a:hover {
-  color: #848484;
+  color: var(--accent-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .main strong {
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .main ul {
@@ -339,58 +345,79 @@ img {
 }
 
 .main li {
-  padding-top: 5px;
-  padding-left: 5px;
-  line-height: 1.5em;
+  padding-top: 4px;
+  padding-left: 4px;
+  line-height: 1.65;
+  font-size: 0.95rem;
 }
 
-/* Horizontal line style */
+/* ===============================================
+   DIVIDERS
+=============================================== */
 .styled-line {
   border: none;
-  height: 1.5px;
-  background-color: black;
+  height: 1px;
+  background-color: var(--border);
+  margin: 2px 0 8px;
 }
 
 .extra-line {
   border: none;
-  border-top: 3px none #000;
-  margin: 10px 0;
+  margin: 14px 0;
 }
 
+/* ===============================================
+   MISC
+=============================================== */
 .code-language {
-  font-weight: normal;
+  font-weight: 400;
   font-style: italic;
+  color: var(--text-secondary);
 }
 
 .text-align-center {
   text-align: center;
 }
 
-/* ===============================================================================================================================================================================
-                        RESUME CONTACTS
-================================================================================================================================================================================ */
+/* ===============================================
+   HOME PAGE HERO
+=============================================== */
+.hero-title {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===============================================
+   RESUME CONTACTS
+=============================================== */
 .main-contact {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 18px;
-  padding: 0;
+  gap: 12px;
+  padding: 8px 0;
 }
 
 .main-contact-items {
   display: flex;
   align-items: center;
   gap: 6px;
-  padding: 0;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
 }
 
-/* ===============================================================================================================================================================================
-                        GRID CONTAINER
-================================================================================================================================================================================ */
+.main-contact-items a {
+  color: var(--accent);
+}
+
+/* ===============================================
+   GRID CONTAINER
+=============================================== */
 .grid-container {
   display: grid;
   grid-template-columns: 60% 40%;
-  /* Two columns */
   width: 100%;
 }
 
@@ -402,16 +429,16 @@ img {
   justify-self: end;
 }
 
-/* ===============================================================================================================================================================================
-                        NEW CATEGORY / SECTION
-================================================================================================================================================================================ */
+/* ===============================================
+   RESUME SECTIONS
+=============================================== */
 .main-resume-category {
-  padding-top: 20px;
+  padding-top: 28px;
 }
 
-/* ===============================================================================================================================================================================
-                        RELEVANT COURSE LISTING
-================================================================================================================================================================================ */
+/* ===============================================
+   RELEVANT COURSE LISTING
+=============================================== */
 .course-listing-ul {
   display: flex;
   text-align: center;
@@ -422,52 +449,233 @@ img {
   list-style-type: none;
   flex: 1 0 25%;
   padding-top: 10px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
 }
 
-/* ===============================================================================================================================================================================
-                        CONTACT FORM
-================================================================================================================================================================================ */
+/* ===============================================
+   SKILLS LISTING
+=============================================== */
+.skills-listing-ul {
+  list-style: none;
+  padding: 0;
+}
+
+.skills-listing-ul li {
+  font-size: 0.95rem;
+  padding: 4px 0;
+  color: var(--text);
+}
+
+/* ===============================================
+   CONTACT PAGE LAYOUT
+=============================================== */
+.contact-page-layout {
+  display: flex;
+  gap: 48px;
+  align-items: flex-start;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 12px 0 48px;
+}
+
+.contact-left {
+  flex: 1;
+  min-width: 0;
+}
+
+.contact-right {
+  flex: 1;
+  min-width: 0;
+}
+
+.contact-heading {
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.2;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+.contact-subheading {
+  font-size: 0.97rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+
+.contact-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.contact-method-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  text-decoration: none !important;
+  transition: transform var(--transition-md), box-shadow var(--transition-md), border-color var(--transition-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.contact-method-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(99, 102, 241, 0.25);
+  text-decoration: none !important;
+}
+
+.contact-method-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  background-color: rgba(99, 102, 241, 0.1);
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.contact-method-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.contact-method-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+}
+
+.contact-method-value {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.contact-method-arrow {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  transition: transform var(--transition), color var(--transition);
+  flex-shrink: 0;
+}
+
+.contact-method-card:hover .contact-method-arrow {
+  transform: translateX(4px);
+  color: var(--accent);
+}
+
+.contact-response-note {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+.form-section-heading {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 20px;
+}
+
+/* ===============================================
+   CONTACT FORM
+=============================================== */
 .contact-form {
-  max-width: 600px;
-  margin: 30px auto;
-  padding: 20px;
-  background-color: #f3f3f3;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  opacity: 0;
-  transform: translateY(30px);
-  animation: slideIn 0.8s ease-out forwards;
-  animation-delay: 1.5s;
+  width: 100%;
+  padding: 32px;
+  background-color: var(--surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-card);
 }
 
 .form-row {
   display: flex;
-  gap: 10px;
-  margin-bottom: 15px;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.contact-form label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: var(--text-secondary);
 }
 
 .contact-form input,
 .contact-form textarea {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  transition: border-color var(--transition), box-shadow var(--transition);
+  outline: none;
+  margin-bottom: 14px;
 }
 
-.contact-form button {
-  padding: 10px 20px;
-  background-color: #0056b3;
-  color: white;
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--accent);
+  box-shadow: var(--accent-glow);
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.contact-form button[type="submit"] {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 11px 28px;
+  background: var(--accent-gradient);
+  color: #fff;
   border: none;
-  border-radius: 4px;
+  border-radius: var(--radius);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
   cursor: pointer;
+  transition: opacity var(--transition), transform var(--transition), box-shadow var(--transition);
+  letter-spacing: -0.01em;
 }
 
-.contact-form button:hover {
-  background-color: #003d80;
+.contact-form button[type="submit"]:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.4);
 }
 
-/* Keyframes for sliding in */
+.contact-form button[type="submit"]:active {
+  transform: translateY(0);
+}
+
 @keyframes slideIn {
   to {
     opacity: 1;
@@ -475,81 +683,79 @@ img {
   }
 }
 
-/* ===============================================================================================================================================================================
-                        SCROLL TO REVEAL
-================================================================================================================================================================================ */
+/* ===============================================
+   SCROLL TO REVEAL
+=============================================== */
 .reveal {
   opacity: 0;
-  transform: translateX(-50px);
-  /* start from left */
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transform: translateY(20px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
 }
 
 .reveal.active {
   opacity: 1;
-  transform: translateX(0);
+  transform: translateY(0);
 }
 
-/* delay per element */
 .reveal.delay {
-  transition-delay: 0.5s;
+  transition-delay: 0.15s;
 }
 
-/* ===============================================================================================================================================================================
-                        BACK TO TOP BUTTON
-================================================================================================================================================================================ */
-/* Back to Top Button inside .main */
+/* ===============================================
+   BACK TO TOP BUTTON
+=============================================== */
 .main #backToTopBtn {
   position: absolute;
   bottom: 30px;
   right: 30px;
-  padding: 10px 15px;
-  font-size: 20px;
-  background-color: black;
+  padding: 10px 16px;
+  font-size: 16px;
+  background: var(--accent-gradient);
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: var(--radius);
   cursor: pointer;
   display: none;
   z-index: 10;
-  opacity: 0.8;
-  transition: opacity 0.3s ease;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4);
+  transition: opacity var(--transition), transform var(--transition);
 }
 
 .main #backToTopBtn:hover {
-  opacity: 1;
+  opacity: 0.9;
+  transform: translateY(-2px);
 }
 
-/* ===============================================================================================================================================================================
-                        TYPE WRITER
-================================================================================================================================================================================ */
+/* ===============================================
+   TYPEWRITER
+=============================================== */
+#typewriter {
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
 #typewriter::after {
   content: "|";
   animation: blink 0.7s infinite;
+  color: var(--accent);
 }
 
 @keyframes blink {
-  0%,
-  50% {
-    opacity: 1;
-  }
-
-  51%,
-  100% {
-    opacity: 0;
-  }
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
 }
 
-/* ===============================================================================================================================================================================
-                        DARK MODE SETUP
-================================================================================================================================================================================ */
-/* TOGGLE SWITCH */
+/* ===============================================
+   DARK MODE TOGGLE
+=============================================== */
 .toggle-switch {
   position: absolute;
   right: 20px;
   display: inline-block;
-  width: 50px;
-  height: 20px;
+  width: 52px;
+  height: 24px;
   cursor: pointer;
 }
 
@@ -567,9 +773,10 @@ img {
 
 .slider {
   position: relative;
-  background-color: #f3f3f3;
+  background-color: var(--surface-2);
+  border: 1px solid var(--border);
   border-radius: 30px;
-  transition: background-color 0.4s;
+  transition: background-color 0.3s, border-color 0.3s;
   height: 100%;
   width: 100%;
 }
@@ -578,8 +785,9 @@ img {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 13px;
+  font-size: 12px;
   pointer-events: none;
+  transition: opacity 0.3s;
 }
 
 .slider .sun {
@@ -588,142 +796,46 @@ img {
 }
 
 .slider .moon {
-  right: 40px;
+  right: 38px;
   opacity: 0;
 }
 
 .toggle-switch input:checked + .slider {
-  background-color: black;
+  background-color: #1e1e2e;
+  border-color: rgba(255,255,255,0.1);
 }
 
 .toggle-switch input:checked + .slider .sun {
   opacity: 0;
-  left: 5px;
-  transition: left 0.4s, opacity 0.4s;
 }
 
 .toggle-switch input:checked + .slider .moon {
   opacity: 1;
-  right: 10px;
-  transition: right 0.4s, opacity 0.4s;
+  right: 8px;
 }
 
-/* ===============================================================================================================================================================================
-                                    DARK MODE ACTIVATED
-================================================================================================================================================================================ */
-/* DARK MODE STYLES */
-body.dark-mode {
-  background-color: black;
-  color: #f9fafb;
-}
-
-body.dark-mode .main {
-  background-color: black;
-  color: #f9fafb;
-}
-
-body.dark-mode .main-header {
-  background-color: black;
-  color: #f9fafb;
-}
-
-body.dark-mode .sidebar {
-  background-color: black;
-  color: #f9fafb;
-}
-
-body.dark-mode .middle-bar {
-  background-color: black;
-  color: #f9fafb;
-}
-
-body.dark-mode a {
-  color: white;
-}
-
-body.dark-mode a:hover {
-  color: #d1d5db;
-  /* light gray for hover */
-  text-decoration: underline;
-}
-
-body.dark-mode .middle-bar img {
-  filter: invert(1);
-}
-
-body.dark-mode .main img {
-  filter: invert(1);
-}
-
-body.dark-mode .main hr {
-  filter: invert(1);
-}
-
-body.dark-mode .main #backToTopBtn {
-  background-color: #f3f3f3;
-  color: black;
-}
-
-body.dark-mode .sidebar-social-icons {
-  filter: invert(1);
-}
-
-/* ===============================================================================================================================================================================
-                                    PREVENT FLASHING WHEN CHANGING PAGES
-================================================================================================================================================================================ */
-html.dark-mode,
-body.dark-mode {
-  background-color: black;
-  color: #f9fafb;
-}
-
-html.dark-mode .main,
-body.dark-mode .main {
-  background-color: black;
-  color: #f9fafb;
-}
-
-html.dark-mode .sidebar,
-body.dark-mode .sidebar {
-  background-color: black;
-  color: #f9fafb;
-}
-
-html.dark-mode .middle-bar,
-body.dark-mode .middle-bar {
-  background-color: black;
-  color: #f9fafb;
-}
-
-html.dark-mode a,
-body.dark-mode a {
-  color: white;
-}
-
-html.dark-mode a:hover,
-body.dark-mode a:hover {
-  color: #d1d5db;
-  text-decoration: underline;
-}
-
-/* ===============================================================================================================================================================================
-                    TOOLTIP FOR DARK MODE
-================================================================================================================================================================================ */
-/* Tooltip */
-.toggle-switch .tooltip {
+/* ===============================================
+   TOOLTIPS
+=============================================== */
+.toggle-switch .tooltip,
+#backToTopBtn .tooltip {
   position: absolute;
-  top: 35px;
-  right: 0;
-  background-color: black;
-  color: #fff;
-  padding: 4px 8px;
-  font-size: 12px;
-  border-radius: 4px;
+  background-color: var(--text);
+  color: var(--surface);
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: var(--radius-sm);
   opacity: 0;
   pointer-events: none;
   white-space: nowrap;
-  transition: opacity 0.3s, transform 0.3s;
-  transform: translateY(5px);
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.toggle-switch .tooltip {
+  top: 36px;
+  right: 0;
+  transform: translateY(4px);
 }
 
 .toggle-switch:hover .tooltip {
@@ -731,25 +843,10 @@ body.dark-mode a:hover {
   transform: translateY(0);
 }
 
-/* ===============================================================================================================================================================================
-                    TOOLTIP FOR SCROLL TOP
-================================================================================================================================================================================ */
-/* Tooltip inside the back-to-top button */
 #backToTopBtn .tooltip {
-  position: absolute;
   bottom: 120%;
-  /* place above the button */
   left: 50%;
-  transform: translateX(-50%) translateY(5px);
-  background-color: black;
-  color: #fff;
-  padding: 4px 8px;
-  font-size: 12px;
-  border-radius: 4px;
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s, transform 0.3s;
+  transform: translateX(-50%) translateY(4px);
   z-index: 100;
 }
 
@@ -758,241 +855,141 @@ body.dark-mode a:hover {
   transform: translateX(-50%) translateY(0);
 }
 
-/* =========================================================================================================
-   MOBILE LAYOUT: single column, centered navbar, hide middle bar, sidebar as footer
-========================================================================================================= */
-@media (max-width: 900px) {
-  /* -----------------------------
-       PAGE STRUCTURE
-    ----------------------------- */
-  .page-container {
-    flex-direction: column;
-    height: auto;
-    min-height: calc(100vh - 48px);
-  }
-
-  /* -----------------------------
-       NAVBAR CENTERED
-    ----------------------------- */
-  .navbar {
-    display: flex;
-    justify-content: center; /* center nav horizontally */
-    align-items: center;
-    padding: 10px 0;
-  }
-
-  .nav-links {
-    display: flex;
-    justify-content: center; /* center links */
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 12px;
-    padding-right: 0; /* remove desktop offset */
-  }
-
-  .nav-links a {
-    margin-left: 0;
-    text-align: center;
-  }
-
-  /* Keep toggle reachable */
-  .toggle-switch {
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  /* -----------------------------
-       MAIN CONTENT (FULL WIDTH)
-    ----------------------------- */
-  .main {
-    width: 100%;
-    padding: 20px;
-    overflow-y: visible;
-    order: 1;
-  }
-
-  /* -----------------------------
-       REMOVE MIDDLE BAR
-    ----------------------------- */
-  .middle-bar {
-    display: none !important;
-  }
-
-  /* -----------------------------
-       SIDEBAR AS FOOTNOTE / FOOTER
-    ----------------------------- */
-  .sidebar {
-    width: 100%;
-    height: auto;
-    position: static;
-    margin-top: 24px;
-    padding-top: 20px;
-    border-top: 1px solid #ddd;
-    box-shadow: none;
-    order: 2;
-    text-align: center;
-  }
-
-  .sidebar img {
-    width: 50%;
-    max-width: 180px;
-    height: auto;
-    margin-bottom: 10px;
-  }
-
-  /* -----------------------------
-       CONTACT / RESUME STACKING
-    ----------------------------- */
-  .main-contact {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-    padding: 0;
-  }
-
-  .main-contact-items {
-    padding: 6px 0;
-  }
-
-  /* -----------------------------
-       GRID → SINGLE COLUMN
-    ----------------------------- */
-  .grid-container {
-    grid-template-columns: 1fr;
-    gap: 6px;
-  }
-
-  .right-text {
-    justify-self: start;
-  }
-
-  /* -----------------------------
-       FORMS STACK
-    ----------------------------- */
-  .form-row {
-    flex-direction: column;
-  }
-
-  /* -----------------------------
-       COURSE LIST
-    ----------------------------- */
-  .course-listing-li {
-    flex: 1 0 50%;
-  }
-
-  /* -----------------------------
-       BACK TO TOP (FIXED)
-    ----------------------------- */
-  .main #backToTopBtn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-  }
-}
-
-/* =============================================================================================
-                              A11Y + NAV + PROJECT CARDS
-============================================================================================= */
-
+/* ===============================================
+   ACCESSIBILITY
+=============================================== */
 .skip-link {
   position: absolute;
   left: -999px;
   top: 10px;
-  background: #ffffff;
-  color: #000000;
+  background: var(--surface);
+  color: var(--text);
   padding: 10px 12px;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
   z-index: 10000;
-  border: 1px solid #111827;
+  font-weight: 600;
 }
 
 .skip-link:focus {
   left: 12px;
 }
 
-.nav-links a.active,
-.nav-links a[aria-current="page"] {
-  text-decoration: underline;
-  text-underline-offset: 6px;
-  font-weight: 700;
-}
-
 :focus-visible {
-  outline: 3px solid currentColor;
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
 
-/* Page headings used by the Projects page */
+/* ===============================================
+   PAGE HEADING (Projects page)
+=============================================== */
 .page-title {
-  margin: 0 0 6px 0;
-  line-height: 1.15;
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.2;
+  margin: 0 0 8px 0;
 }
 
 .page-subtitle {
-  margin: 0 0 10px 0;
-  padding-left: 10px;
-  line-height: 1.5;
+  margin: 0 0 6px 0;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
 }
 
 .last-updated {
-  margin: 0 0 18px 0;
-  padding-left: 10px;
-  font-size: 0.95rem;
-  opacity: 0.85;
+  margin: 0 0 24px 0;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  opacity: 0.75;
 }
 
 .helper-text {
-  margin-top: 14px;
-  opacity: 0.85;
+  margin-top: 16px;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
 }
 
-/* Projects grid/cards */
+/* ===============================================
+   PROJECT CARDS
+=============================================== */
 .projects-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 14px;
+  gap: 16px;
 }
 
 .project-card {
   display: block;
   text-decoration: none;
-  border: 1px solid rgba(17, 24, 39, 0.18);
-  border-radius: 14px;
-  padding: 16px;
-  transition: transform 120ms ease, box-shadow 120ms ease;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 22px 24px;
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition-md), box-shadow var(--transition-md), border-color var(--transition-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--accent-gradient);
+  opacity: 0;
+  transition: opacity var(--transition-md);
 }
 
 .project-card:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(99, 102, 241, 0.25);
+}
+
+.project-card:hover::before {
+  opacity: 1;
 }
 
 .project-title {
-  margin: 0 0 6px 0;
-  font-size: 1.15rem;
-  line-height: 1.25;
+  margin: 0 0 8px 0;
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  color: var(--text);
 }
 
 .project-desc {
-  margin: 0 0 10px 0;
-  line-height: 1.55;
+  margin: 0 0 12px 0;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
 }
 
 .tech-chips {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin: 10px 0 12px 0;
+  gap: 6px;
+  margin: 12px 0;
 }
 
 .tech-chip {
   display: inline-flex;
-  padding: 6px 10px;
+  padding: 4px 10px;
   border-radius: 999px;
-  border: 1px solid rgba(17, 24, 39, 0.2);
-  font-size: 0.9rem;
+  background-color: rgba(99, 102, 241, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.18);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: -0.01em;
 }
 
 .project-meta-row {
@@ -1000,32 +997,330 @@ body.dark-mode a:hover {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  margin-top: 6px;
+  margin-top: 12px;
 }
 
 .project-updated {
   margin: 0;
-  font-size: 0.9rem;
-  opacity: 0.85;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  opacity: 0.8;
 }
 
 .project-link-label {
-  font-size: 0.95rem;
-  font-weight: 650;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
-/* Dark mode tweaks for cards */
+.project-link-label::after {
+  content: '→';
+  transition: transform var(--transition);
+}
+
+.project-card:hover .project-link-label::after {
+  transform: translateX(4px);
+}
+
+/* ===============================================
+   DARK MODE — EXPLICIT OVERRIDES
+   (token cascade handles most, these catch edge cases)
+=============================================== */
+body.dark-mode .main {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+body.dark-mode .main-header {
+  background-color: var(--header-bg);
+  border-bottom-color: var(--border);
+}
+
+body.dark-mode .sidebar {
+  background-color: var(--surface);
+  color: var(--text);
+  border-right-color: var(--border);
+}
+
+body.dark-mode .middle-bar {
+  background-color: var(--surface);
+  border-right-color: var(--border);
+}
+
+body.dark-mode .middle-bar img {
+  filter: invert(0.8);
+}
+
+body.dark-mode .main img:not(.profile-img) {
+  filter: invert(0.8);
+}
+
+body.dark-mode .main hr {
+  filter: none;
+  background-color: var(--border);
+}
+
+body.dark-mode .sidebar-social-icons {
+  filter: invert(0.75);
+}
+
+body.dark-mode .contact-method-card {
+  background-color: var(--surface);
+  border-color: var(--border);
+}
+
+body.dark-mode .contact-form {
+  background-color: var(--surface);
+  border-color: var(--border);
+}
+
+body.dark-mode .contact-form input,
+body.dark-mode .contact-form textarea {
+  background-color: var(--surface-2);
+  border-color: var(--border);
+  color: var(--text);
+}
+
 body.dark-mode .project-card {
-  border-color: rgba(249, 250, 251, 0.22);
+  background-color: var(--surface);
+  border-color: var(--border);
 }
 
 body.dark-mode .tech-chip {
-  border-color: rgba(249, 250, 251, 0.22);
+  background-color: rgba(99, 102, 241, 0.12);
+  border-color: rgba(99, 102, 241, 0.22);
+}
+
+/* ===============================================
+   PREVENT FLASH ON PAGE LOAD
+=============================================== */
+html.dark-mode body {
+  background-color: #0d0d10;
+  color: #eeeef5;
+}
+
+/* ===============================================
+   RESPONSIVE — TABLET & MOBILE
+=============================================== */
+@media (max-width: 900px) {
+  body {
+    padding-top: 56px;
+  }
+
+  .page-container {
+    flex-direction: column;
+    height: auto;
+    min-height: calc(100vh - 56px);
+  }
+
+  .main-header {
+    padding: 0 16px;
+  }
+
+  .nav-links {
+    gap: 2px;
+  }
+
+  .nav-links a {
+    padding: 5px 9px;
+    font-size: 0.85rem;
+  }
+
+  .nav-links a:first-child {
+    font-size: 0.95rem;
+    margin-right: 4px;
+  }
+
+  .toggle-switch {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .main {
+    width: 100%;
+    padding: 24px 20px;
+    overflow-y: visible;
+    order: 1;
+  }
+
+  .main h1 {
+    font-size: 1.75rem;
+  }
+
+  .middle-bar {
+    display: none !important;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: static;
+    margin-top: 24px;
+    padding: 24px 20px;
+    border-top: 1px solid var(--border);
+    border-right: none;
+    box-shadow: none;
+    order: 2;
+    text-align: center;
+  }
+
+  .sidebar img {
+    width: 50%;
+    max-width: 160px;
+    height: auto;
+    margin-bottom: 12px;
+  }
+
+  .main-contact {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 0;
+  }
+
+  .grid-container {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .right-text {
+    justify-self: start;
+  }
+
+  .contact-page-layout {
+    flex-direction: column;
+    gap: 28px;
+    padding: 12px 0 32px;
+  }
+
+  .contact-heading {
+    font-size: 1.75rem;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+
+  .course-listing-li {
+    flex: 1 0 50%;
+  }
+
+  .main #backToTopBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding-top: 56px;
+  }
+
+  .main h1 {
+    font-size: 1.5rem;
+  }
+
+  .main p {
+    font-size: 0.95rem;
+  }
+
+  .sidebar h1 {
+    font-size: 1.25rem;
+  }
+
+  .contact-form {
+    padding: 20px 16px;
+  }
 }
 
 @media (min-width: 900px) {
   .projects-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px;
+    gap: 18px;
   }
+}
+
+/* ===============================================
+   HOME PAGE HERO
+=============================================== */
+.hero-section {
+  text-align: center;
+  padding: 32px 0 8px;
+}
+
+.hero-title {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 10px;
+}
+
+.hero-subtitle {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.hero-cta-row {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 24px;
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none !important;
+  letter-spacing: -0.01em;
+  transition: transform var(--transition), box-shadow var(--transition), opacity var(--transition);
+}
+
+/* Use higher specificity to beat .main a { color: var(--accent) } */
+.main a.cta-btn--primary,
+a.cta-btn--primary {
+  background: var(--accent-gradient);
+  color: #fff !important;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
+}
+
+.main a.cta-btn--primary:hover,
+a.cta-btn--primary:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.45);
+  color: #fff !important;
+  text-decoration: none !important;
+}
+
+.main a.cta-btn--secondary,
+a.cta-btn--secondary {
+  background-color: var(--surface);
+  color: var(--text) !important;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+.main a.cta-btn--secondary:hover,
+a.cta-btn--secondary:hover {
+  border-color: var(--accent);
+  color: var(--accent) !important;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+  text-decoration: none !important;
 }

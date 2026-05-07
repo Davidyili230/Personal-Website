@@ -1,6 +1,15 @@
 {
-    "lastUpdated": "2026-01-20",
+    "lastUpdated": "2026-05-07",
     "projects": [
+      {
+        "title": "Companion Care",
+        "description": "A web app for connecting users with companion care services.",
+        "tech": ["React", "JavaScript"],
+        "link": "https://companioncare1.netlify.app/",
+        "linkLabel": "Netlify",
+        "status": "Live",
+        "updated": "2026-05-07"
+      },
       {
         "title": "Personal Website",
         "description": "A portfolio site documenting my journey as a first-gen college student — featuring an About page, Resume, Projects, Contact Form, and an AI chatbot.",

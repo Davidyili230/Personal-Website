@@ -202,6 +202,12 @@
   background: #333;
 }
 
+.chat-input:disabled,
+.chat-send-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 .typing-indicator {
   display: flex;
   align-items: center;
@@ -287,7 +293,8 @@
     width: calc(100vw - 32px);
     right: 16px;
     bottom: 80px;
-    height: 420px;
+    /* dvh tracks the visible viewport so the iOS keyboard doesn't cover the input */
+    height: min(420px, 70dvh);
   }
 
   .chat-bubble-btn {

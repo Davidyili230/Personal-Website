@@ -9,28 +9,26 @@
 <html lang="en">
 
 <head>
+    <meta charset="utf-8">
     <script>
-        // Prevent flash of light theme
+        // Prevent flash of light theme — body doesn't exist yet here, so only set on <html>.
         try {
             if (localStorage.getItem('theme') === 'dark') {
                 document.documentElement.classList.add('dark-mode');
-                document.body.classList.add('dark-mode');
             }
         } catch (e) { }
     </script>
 
     <title>Contact - Yi Li (David) | Message Form + Email</title>
 
-    <link rel="icon" href="img/potrait.PNG" alt="Yi Li's Profile Picture">
+    <link rel="icon" href="img/potrait.PNG">
 
-    <meta charset="utf-8">
     <meta name="description" content="Send Yi Li (David Li) a message using the contact form or email. Best for internship questions, project feedback, collaboration ideas, or networking opportunities." />
     <link rel="canonical" href="https://davidyili230.github.io/Personal-Website/contact.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="reset.css" type="text/css">
     <link rel="stylesheet" href="style.css" type="text/css">
     <link rel="stylesheet" href="chatbot.css" type="text/css">
 </head>

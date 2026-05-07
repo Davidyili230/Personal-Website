@@ -103,20 +103,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!toggleInput) return;
 
-  const savedTheme = localStorage.getItem('theme');
+  let savedTheme = null;
+  try { savedTheme = localStorage.getItem('theme'); } catch (e) { /* storage disabled */ }
   if (savedTheme === 'dark') {
     body.classList.add('dark-mode');
+    document.documentElement.classList.add('dark-mode');
     toggleInput.checked = true;
   }
 
   toggleInput.addEventListener('change', () => {
-    if (toggleInput.checked) {
-      body.classList.add('dark-mode');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      body.classList.remove('dark-mode');
-      localStorage.setItem('theme', 'light');
-    }
+    const dark = toggleInput.checked;
+    body.classList.toggle('dark-mode', dark);
+    document.documentElement.classList.toggle('dark-mode', dark);
+    try { localStorage.setItem('theme', dark ? 'dark' : 'light'); } catch (e) { /* storage disabled */ }
   });
 });
 
@@ -665,36 +664,42 @@ async function loadSidebar() {
   const mount = document.getElementById("sidebar");
   if (!mount) return;
 
-  const res = await fetch("data/sidebar.json", { cache: "no-store" });
-  const data = await res.json();
+  try {
+    const res = await fetch("data/sidebar.json", { cache: "no-store" });
+    if (!res.ok) throw new Error(`Failed to load sidebar.json (${res.status})`);
+    const data = await res.json();
 
-  const socials = data.socials.map(s => `
-    <a href="${s.url}" target="_blank" rel="noopener noreferrer">
-      <img src="${s.icon}" alt="${s.name}" width="40%">
-    </a>
-  `).join("");
+    const socials = (data.socials ?? []).map(s => `
+      <a href="${s.url}" target="_blank" rel="noopener noreferrer">
+        <img src="${s.icon}" alt="${s.name}" width="40%">
+      </a>
+    `).join("");
 
-  mount.innerHTML = `
-    <div>
-      <div class="profile-img-ring">
-        <img class="profile-img" src="${data.profile.image}" alt="profile" width="100%">
-      </div>
-      <h1>${data.profile.name}</h1>
-      <h2>${data.profile.email}</h2>
+    const profile = data.profile ?? {};
+    mount.innerHTML = `
+      <div>
+        <div class="profile-img-ring">
+          <img class="profile-img" src="${profile.image ?? ""}" alt="profile" width="100%">
+        </div>
+        <h1>${profile.name ?? ""}</h1>
+        <h2>${profile.email ?? ""}</h2>
 
-      <div class="sidebar-about">
+        <div class="sidebar-about">
+          <hr class="extra-line">
+          <h3>ABOUT</h3>
+          <hr class="extra-line">
+          <p>${profile.about ?? ""}</p>
+        </div>
+
+        <div class="sidebar-social-icons">${socials}</div>
+
         <hr class="extra-line">
-        <h3>ABOUT</h3>
-        <hr class="extra-line">
-        <p>${data.profile.about}</p>
+        <h4>&copy;${data.copyright ?? ""}</h4>
       </div>
-
-      <div class="sidebar-social-icons">${socials}</div>
-
-      <hr class="extra-line">
-      <h4>&copy;${data.copyright}</h4>
-    </div>
-  `;
+    `;
+  } catch (err) {
+    console.error(err);
+  }
 }
 
 document.addEventListener("DOMContentLoaded", loadSidebar);

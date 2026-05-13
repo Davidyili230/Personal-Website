@@ -8,7 +8,7 @@
     email: "Davidyili230@gmail.com",
     phone: null,
     github: "https://github.com/Davidyili230",
-    linkedin: "https://www.linkedin.com/in/davidyili/",
+      linkedin: "https://www.linkedin.com/in/davidyili/",
     resume: "downloads/Yi_Li__David__Resume.pdf",
     whyDavid:
       "David's real name is Yi Li. Back in elementary school, teachers and students constantly mispronounced it as 'Yee' instead of 'Ee'. His mom's American friend suggested 'David' as an easy alternative. The name stuck through high school — so much so that many close friends didn't find out his real name was Yi until graduation!",
@@ -154,212 +154,441 @@
     return s.length > n ? s.slice(0, n - 1).trimEnd() + "…" : s;
   }
 
-  // Intents — ordered specific → general; greeting is the last-resort match.
-  // Responses are lambdas so they always read the latest KB after fetch resolves.
-  const intents = [
-    {
-      patterns: ["mealfinder", "meal finder", "spoonacular", "recipe app"],
-      response: () => {
-        const m = KB.projects.find((x) => /mealfinder/i.test(x.name));
-        if (!m) return "MealFinder is David's iOS recipe app — details coming soon.";
-        return `**${m.name}** (${m.tech})\n\n${m.desc}${m.link ? `\n\n<a href="${m.link}" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">Watch the demo</a>` : ""}`;
-      },
-    },
-    {
-      patterns: ["project clean", "maintenance app", "school maintenance"],
-      response: () => {
-        const m = KB.projects.find((x) => /project clean/i.test(x.name));
-        if (!m) return "Project Clean is a school-maintenance reporting platform.";
-        return `**${m.name}** (${m.tech})\n\n${m.desc}${m.link ? `\n\n<a href="${m.link}" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">Live site</a>` : ""}`;
-      },
-    },
-    {
-      patterns: ["cravers", "pizza", "add to cart"],
-      response: () => {
-        const m = KB.projects.find((x) => /cravers|pizza/i.test(x.name));
-        if (!m) return "Cravers Pizza is a class project with cart + checkout.";
-        return `**${m.name}** (${m.tech})\n\n${m.desc}${m.link ? `\n\n<a href="${m.link}" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">Live site</a>` : ""}`;
-      },
-    },
-    {
-      patterns: ["hike", "hiking", "bear mountain", "bull hill", "mountain", "trail"],
-      response: () => {
-        const hikes = KB.journey.filter((j) => /hike|hill|bear mountain|trail/i.test(j.text));
-        if (hikes.length) {
-          return (
-            `David loves hiking! Here's a snapshot:\n\n` +
-            hikes
-              .slice(0, 2)
-              .map((h) => `**${h.date}**\n${truncate(h.text, 320)}`)
-              .join("\n\n")
-          );
-        }
-        return `David has hiked **Bull Hill** (1,400 ft) and **Bear Mountain** (1,473 ft).`;
-      },
-    },
-    {
-      patterns: ["recent", "recently", "what did you do", "lately", "this year", "this month", "story", "stories"],
-      response: () => {
-        if (!KB.journey.length) return "I don't have any recent stories on file yet.";
-        const top = KB.journey.slice(0, 2);
-        return (
-          `Some of David's recent moments:\n\n` +
-          top.map((j) => `**${j.date}**\n${truncate(j.text, 280)}`).join("\n\n")
-        );
-      },
-    },
-    {
-      patterns: ["resume", "cv", "download"],
-      response: () =>
-        `You can <a href="${KB.resume}" download style="color:inherit;text-decoration:underline;font-weight:bold">download David's resume here</a>, or visit the **Resume** page for a full interactive view.`,
-    },
-    {
-      patterns: ["phone", "number", "call", "phone number"],
-      response: () => {
-        if (!KB.phone) return `Best way to reach David is by **email**: ${KB.email}.`;
-        return `📞 **Phone**: ${KB.phone}\n📧 **Email**: ${KB.email}`;
-      },
-    },
-    {
-      patterns: ["contact", "reach", "email", "hire", "recruiter", "get in touch", "message him"],
-      response: () => {
-        const lines = [`• 📧 **Email**: ${KB.email}`];
-        if (KB.phone) lines.push(`• 📞 **Phone**: ${KB.phone}`);
-        lines.push(`• 💼 **LinkedIn**: linkedin.com/in/davidyili`);
-        lines.push(`• 🐙 **GitHub**: github.com/Davidyili230`);
-        return `You can reach David at:\n\n${lines.join("\n")}\n\nOr use the **Contact** page on this site!`;
-      },
-    },
-    {
-      patterns: ["linkedin", "github", "instagram", "twitter", "facebook", "social", "socials", "links"],
-      response: () => {
-        if (!KB.socials.length) {
-          return `Find David online:\n\n• 💼 **LinkedIn**: linkedin.com/in/davidyili\n• 🐙 **GitHub**: github.com/Davidyili230`;
-        }
-        return (
-          `Find David online:\n\n` +
-          KB.socials
-            .map((s) => `• **${s.name[0].toUpperCase() + s.name.slice(1)}**: ${s.url}`)
-            .join("\n")
-        );
-      },
-    },
-    {
-      patterns: ["why david", "nickname", "real name", "yi li", "name come from", "name origin"],
-      response: () => KB.whyDavid,
-    },
-    {
-      patterns: ["project", "projects", "portfolio", "built", "what has he made", "ios", "apps"],
-      response: () =>
-        `David has built **${KB.projects.length} projects**:\n\n` +
-        KB.projects
-          .map((x) => {
-            const link = x.link
-              ? ` — <a href="${x.link}" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">link</a>`
-              : "";
-            return `• **${x.name}** (${x.tech})${link}\n  ${x.desc}`;
-          })
-          .join("\n\n"),
-    },
-    {
-      patterns: ["skill", "skills", "language", "languages", "tech", "stack", "framework", "frameworks", "tool", "tools", "programming"],
-      response: () =>
-        `David's technical skills:\n\n` +
-        KB.technicalSkills.map((t) => `• **${t.label}**: ${t.value.trim()}`).join("\n"),
-    },
-    {
-      patterns: ["coursework", "classes", "class taken", "courses taken", "courses"],
-      response: () =>
-        `Relevant coursework at Hunter College:\n\n` +
-        KB.coursework.map((c) => `• ${c}`).join("\n"),
-    },
-    {
-      patterns: ["certification", "certifications", "certificate", "codepath"],
-      response: () => {
-        if (!KB.certifications.length) return `No certifications recorded yet.`;
-        return (
-          `Certifications:\n\n` +
-          KB.certifications.map((c) => `• **${c.title}** (${c.date})\n  ${c.detail || ""}`.trim()).join("\n\n")
-        );
-      },
-    },
-    {
-      patterns: ["school", "college", "education", "study", "studies", "degree", "hunter", "graduate", "graduation", "major"],
-      response: () => {
-        const e = KB.education;
-        return `David attends **${e.school}** in ${e.city || "Manhattan, NY"}, pursuing a **${e.degree}** (${e.grad}).`;
-      },
-    },
-    {
-      patterns: ["experience", "job", "jobs", "work", "intern", "internship", "employment", "receptionist", "camp counselor"],
-      response: () => {
-        const expLines = KB.experience.map((e) => `• **${e.role}** at ${e.company} (${e.dates})`).join("\n");
-        const lead = KB.leadership.length
-          ? `\n\nLeadership:\n` +
-            KB.leadership.map((e) => `• **${e.role}** at ${e.company} (${e.dates})`).join("\n")
-          : "";
-        return `David's work experience:\n\n${expLines}${lead}`;
-      },
-    },
-    {
-      patterns: ["leadership", "club", "vp", "president", "cssa", "extracurricular", "organization"],
-      response: () => {
-        if (!KB.leadership.length) return `No leadership roles on record.`;
-        return (
-          `Leadership & extracurriculars:\n\n` +
-          KB.leadership
-            .map((e) => {
-              const bullets = e.bullets?.length ? "\n  - " + e.bullets.slice(0, 2).join("\n  - ") : "";
-              return `• **${e.role}** at ${e.company} (${e.dates})${bullets}`;
-            })
-            .join("\n\n")
-        );
-      },
-    },
-    {
-      patterns: [
-        "hobby",
-        "hobbies",
-        "fun",
-        "enjoy",
-        "free time",
-        "interest",
-        "interests",
-        "like to do",
-        "what does he like",
-        "what do you like",
-        "what does david like",
-        "outside of work",
-        "outside of coding",
-        "for fun",
-      ],
-      response: () => {
-        const list = KB.hobbies.map((h) => `• ${h}`).join("\n");
-        const recent = KB.journey[0];
-        const recentLine = recent
-          ? `\n\nRecently (**${recent.date}**): ${truncate(recent.text, 220)}`
-          : "";
-        return `Outside of coding, David likes to:\n\n${list}${recentLine}`;
-      },
-    },
-    {
-      patterns: ["where does he live", "where is he", "where based", "location", "city", "where do you live"],
-      response: () => `David is based in **${KB.location}**.`,
-    },
-    {
-      patterns: ["who is david", "about david", "introduce", "tell me about david", "tell me about him", "yourself"],
-      response: () => {
-        const base = KB.intro || KB.about;
-        return `${base}\n\nHe's based in ${KB.location}${KB.education?.grad ? `, ${KB.education.grad.toLowerCase()}` : ""}.`;
-      },
-    },
-    {
-      patterns: ["hello", "hi", "hey", "yo", "hiya", "howdy", "help", "what can you do", "menu", "options"],
-      response: () =>
-        `Hi! 👋 I'm David's assistant. I can tell you about his **projects**, **skills**, **education**, **experience**, **hobbies**, or how to **contact** him. What would you like to know?`,
-    },
-  ];
+  // Page paths
+  const P = {
+    home: "index.html",
+    about: "about.html",
+    resume: "resume.html",
+    projects: "projects.html",
+    contact: "contact.html",
+  };
 
+  function linkTo(label, href) {
+    return `<a href="${href}" style="color:inherit;text-decoration:underline;font-weight:600">${label} →</a>`;
+  }
+
+  function ext(label, href) {
+    return `<a href="${href}" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;font-weight:600">${label}</a>`;
+  }
+
+  function more(label, href) {
+    return `\n\n${linkTo(`More on ${label}`, href)}`;
+  }
+
+  // ======================== Knowledge base — facts (intents) ========================
+  // Each fact: keywords (trigger words/phrases), response (short answer + page link).
+  // Ordered specific → general; greeting last.
+  function buildIntents() {
+    return [
+      // ---- Identity ----
+      {
+        keywords: ["who is david", "who is yi", "who are you", "introduce yourself", "tell me about david", "tell me about yourself", "tell me about him", "yourself", "introduce david", "describe david", "describe yourself"],
+        response: () =>
+          `David (Yi Li) is a CS student at ${KB.education.school}, ${KB.education.grad.replace("Expected Graduation: ", "graduating ")}. Based in ${KB.location}.${more("his story", P.about)}`,
+      },
+      {
+        keywords: ["why david", "nickname", "real name", "yi li", "name origin", "name come from", "called david", "why david name", "name story"],
+        response: () =>
+          `His real name is Yi — pronounced "Ee." Mispronunciation in elementary school led his mom's friend to suggest "David."${more("the full story", `${P.about}#Question`)}`,
+      },
+      {
+        keywords: ["name", "first name", "last name", "full name", "real name", "actual name"],
+        response: () =>
+          `**${KB.name}** — most people call him David, but his legal name is Yi Li.${more("About", `${P.about}#Question`)}`,
+      },
+      {
+        keywords: ["location", "live", "lives", "based", "city", "where is he", "where do you live", "where are you", "from", "brooklyn", "nyc", "new york"],
+        response: () => `David is based in **${KB.location}**.${more("Contact", P.contact)}`,
+      },
+      {
+        keywords: ["age", "old", "year in school", "what year"],
+        response: () =>
+          `David is a senior at Hunter — ${KB.education.grad.replace("Expected Graduation: ", "graduating ")}.${more("Resume", P.resume)}`,
+      },
+
+      // ---- Education ----
+      {
+        keywords: ["school", "schools", "college", "university", "education", "study", "studies", "studied", "degree", "hunter", "major", "graduate", "graduation", "when graduating", "when do you graduate", "attended", "attend"],
+        response: () => {
+          const e = KB.education;
+          return `${e.degree} at **${e.school}** (${e.city || "Manhattan, NY"}). ${e.grad}.${more("Resume", P.resume)}`;
+        },
+      },
+      {
+        keywords: ["coursework", "classes", "courses", "class taken", "courses taken", "course", "subjects", "what classes"],
+        response: () =>
+          `Relevant coursework: ${KB.coursework.slice(0, 4).join(", ")} and more.${more("the full list on Resume", P.resume)}`,
+      },
+      {
+        keywords: ["certification", "certifications", "certificate", "codepath", "cert"],
+        response: () => {
+          if (!KB.certifications.length) return `No certifications on file yet.${more("Resume", P.resume)}`;
+          const c = KB.certifications[0];
+          return `**${c.title}** (${c.date}) — ${c.detail || ""}${more("Resume", P.resume)}`;
+        },
+      },
+
+      // ---- Skills ----
+      {
+        keywords: ["skill", "skills", "language", "languages", "tech", "stack", "tech stack", "framework", "frameworks", "tool", "tools", "programming", "what can you code", "what do you code", "what languages"],
+        response: () => {
+          const lang = KB.technicalSkills.find((t) => /programming/i.test(t.label))?.value?.trim();
+          const fw = KB.technicalSkills.find((t) => /framework/i.test(t.label))?.value?.trim();
+          return `**Languages**: ${lang}\n**Frameworks**: ${fw}${more("Resume", P.resume)}`;
+        },
+      },
+      {
+        keywords: ["python", "c++", "cpp", "javascript", "swift", "do you know"],
+        response: () =>
+          `Yes — David codes in **Python, C++, JavaScript, and Swift**.${more("Resume", P.resume)}`,
+      },
+      {
+        keywords: ["react", "node", "node.js", "swiftui", "firebase", "tailwind", "cloudinary", "html", "css"],
+        response: () =>
+          `He works with **React, Node.js, SwiftUI, Firebase, Tailwind**, and Cloudinary.${more("Resume", P.resume)}`,
+      },
+
+      // ---- Individual projects ----
+      {
+        keywords: ["mealfinder", "meal finder", "spoonacular", "recipe app", "recipes"],
+        response: () => {
+          const m = KB.projects.find((x) => /mealfinder/i.test(x.name));
+          if (!m) return `MealFinder is David's iOS recipe app.${more("Projects", P.projects)}`;
+          return `**${m.name}** (${m.tech}). ${truncate(m.desc, 140)}${m.link ? `\n\n${ext("Watch demo", m.link)}` : ""}${more("all projects", P.projects)}`;
+        },
+      },
+      {
+        keywords: ["project clean", "maintenance app", "school maintenance"],
+        response: () => {
+          const m = KB.projects.find((x) => /project clean/i.test(x.name));
+          if (!m) return `Project Clean is a school-maintenance reporting app.${more("Projects", P.projects)}`;
+          return `**${m.name}** (${m.tech}). ${truncate(m.desc, 140)}${m.link ? `\n\n${ext("Live site", m.link)}` : ""}${more("all projects", P.projects)}`;
+        },
+      },
+      {
+        keywords: ["cravers", "pizza"],
+        response: () => {
+          const m = KB.projects.find((x) => /cravers|pizza/i.test(x.name));
+          if (!m) return `Cravers Pizza is a class project with cart + checkout.${more("Projects", P.projects)}`;
+          return `**${m.name}** (${m.tech}). ${truncate(m.desc, 140)}${m.link ? `\n\n${ext("Live site", m.link)}` : ""}${more("all projects", P.projects)}`;
+        },
+      },
+      {
+        keywords: ["companion care", "companion"],
+        response: () => {
+          const m = KB.projects.find((x) => /companion/i.test(x.name));
+          if (!m) return `Companion Care is a web app connecting users with care services.${more("Projects", P.projects)}`;
+          return `**${m.name}** (${m.tech}). ${truncate(m.desc, 140)}${m.link ? `\n\n${ext("Live site", m.link)}` : ""}${more("all projects", P.projects)}`;
+        },
+      },
+      {
+        keywords: ["personal website", "this site", "this website", "portfolio site", "this portfolio"],
+        response: () => {
+          const m = KB.projects.find((x) => /personal website/i.test(x.name));
+          if (!m) return `This site is David's portfolio.${more("Projects", P.projects)}`;
+          return `**${m.name}** (${m.tech}). ${truncate(m.desc, 140)}${more("all projects", P.projects)}`;
+        },
+      },
+      {
+        keywords: ["project", "projects", "portfolio", "built", "what has he made", "what have you built", "what did you build", "ios", "apps", "side projects"],
+        response: () => {
+          const list = KB.projects
+            .slice(0, 5)
+            .map((p) => `• **${p.name}**${p.link ? ` — ${ext("link", p.link)}` : ""}`)
+            .join("\n");
+          return `David has built **${KB.projects.length} projects**:\n${list}${more("the projects page", P.projects)}`;
+        },
+      },
+
+      // ---- Experience / Work ----
+      {
+        keywords: ["experience", "job", "jobs", "work", "intern", "internship", "employment", "career"],
+        response: () => {
+          const lines = KB.experience.map((e) => `• **${e.role}** at ${e.company} (${e.dates})`).join("\n");
+          return `Work experience:\n${lines}${more("Resume", P.resume)}`;
+        },
+      },
+      {
+        keywords: ["receptionist", "zhang", "cheng", "medical", "clinic", "it support", "current job"],
+        response: () => {
+          const e = KB.experience.find((x) => /medical|receptionist/i.test(`${x.role} ${x.company}`));
+          if (!e) return `David is a medical receptionist & IT support.${more("Resume", P.resume)}`;
+          return `**${e.role}** at ${e.company} (${e.dates}). Handles patient intake, EHR, and IT support.${more("Resume", P.resume)}`;
+        },
+      },
+      {
+        keywords: ["camp", "counselor", "summer", "kings bay", "jcc", "syep"],
+        response: () => {
+          const e = KB.experience.find((x) => /camp/i.test(x.role));
+          if (!e) return `Worked as a summer camp counselor in 2021.${more("Resume", P.resume)}`;
+          return `**${e.role}** at ${e.company} (${e.dates}). Supervised 25+ campers daily.${more("Resume", P.resume)}`;
+        },
+      },
+
+      // ---- Leadership ----
+      {
+        keywords: ["leadership", "club", "clubs", "vp", "vice president", "president", "cssa", "chinese student", "extracurricular", "organization", "board"],
+        response: () => {
+          if (!KB.leadership.length) return `No leadership roles on record.${more("Resume", P.resume)}`;
+          const l = KB.leadership[0];
+          return `**${l.role}** at ${l.company} (${l.dates}). Leads a 20+ member exec board planning campus events.${more("Resume", P.resume)}`;
+        },
+      },
+
+      // ---- Hobbies / Interests ----
+      {
+        keywords: ["hobby", "hobbies", "fun", "enjoy", "free time", "interest", "interests", "like to do", "what does he like", "what do you like", "what does david like", "outside of work", "outside of coding", "for fun", "passion", "passions"],
+        response: () => {
+          const items = KB.hobbies.slice(0, 4).map((h) => `• ${h.replace(/\.$/, "")}`).join("\n");
+          return `Outside of coding, David likes to:\n${items}${more("his story on About", `${P.about}#Hobbies`)}`;
+        },
+      },
+      {
+        keywords: ["food", "nyc food", "restaurant", "restaurants", "eat", "eating", "cuisine", "foodie"],
+        response: () =>
+          `David loves exploring NYC for new food spots — hotpot in Flushing, Friendsgiving feasts, and Raising Cane's reunions show up in his journal.${more("the journey on About", `${P.about}#Journey`)}`,
+      },
+      {
+        keywords: ["pool", "billiards"],
+        response: () =>
+          `He plays pool with close friends at night to unwind.${more("his hobbies", `${P.about}#Hobbies`)}`,
+      },
+      {
+        keywords: ["game", "gaming", "games", "play games", "video game", "video games"],
+        response: () =>
+          `David games with friends at night — his way to relax and laugh.${more("his hobbies", `${P.about}#Hobbies`)}`,
+      },
+      {
+        keywords: ["travel", "trip", "trips", "vacation", "nature", "outdoor"],
+        response: () =>
+          `He likes traveling to new places, spending time in nature, and has done resort trips with friends.${more("the journey", `${P.about}#Journey`)}`,
+      },
+
+      // ---- Hiking ----
+      {
+        keywords: ["hike", "hiking", "bear mountain", "bull hill", "mountain", "trail", "hiked", "summit"],
+        response: () =>
+          `David has hiked **Bull Hill** (1,400 ft, Apr 2025) and **Bear Mountain** (1,473 ft, Jul 2025) — the latter took 5 hours with deer sightings along the way.${more("the full stories", `${P.about}#Journey`)}`,
+      },
+
+      // ---- Specific journey events ----
+      {
+        keywords: ["hotpot", "secret santa", "badminton", "christmas hangout", "club hangout", "flushing"],
+        response: () =>
+          `**Dec 23, 2025** — David's club celebrated Christmas with badminton, Secret Santa, and hotpot in Flushing. The guys finished 21 plates of meat.${more("the full story", `${P.about}#Journey`)}`,
+      },
+      {
+        keywords: ["friendsgiving", "thanksgiving"],
+        response: () =>
+          `**Nov 30, 2025** — His first-ever Friendsgiving. He cooked a perfect medium steak and played Mafia with new friends.${more("the full story", `${P.about}#Journey`)}`,
+      },
+      {
+        keywords: ["raising cane", "high school friends", "reunion", "old friends"],
+        response: () =>
+          `**Aug 10, 2025** — He met two high school friends after 4 years at Raising Cane's. They caught up like nothing had changed.${more("the full story", `${P.about}#Journey`)}`,
+      },
+      {
+        keywords: ["kalahari", "resort", "water park"],
+        response: () =>
+          `**Aug 2024** — David and 3 friends took a 2-day trip to Kalahari Resort — water slides, snacks, and a memorable ding-dong-ditch.${more("the full story", `${P.about}#Journey`)}`,
+      },
+
+      // ---- Recent / stories ----
+      {
+        keywords: ["recent", "recently", "lately", "this year", "this month", "what have you been up to", "story", "stories", "journey", "what did you do", "diary", "journal"],
+        response: () => {
+          if (!KB.journey.length) return `No journal entries available yet.${more("About", `${P.about}#Journey`)}`;
+          const top = KB.journey[0];
+          return `Most recently (**${top.date}**): ${truncate(top.text, 200)}${more("more stories on About", `${P.about}#Journey`)}`;
+        },
+      },
+
+      // ---- Resume / CV ----
+      {
+        keywords: ["resume", "cv", "download resume", "download", "pdf"],
+        response: () =>
+          `<a href="${KB.resume}" download style="color:inherit;text-decoration:underline;font-weight:600">Download his resume (PDF) →</a>${more("the full Resume page", P.resume)}`,
+      },
+
+      // ---- Contact ----
+      {
+        keywords: ["phone", "phone number", "call him", "number", "telephone"],
+        response: () => {
+          if (!KB.phone) return `Best way to reach David is by email: **${KB.email}**.${more("Contact", P.contact)}`;
+          return `📞 **${KB.phone}**\n📧 **${KB.email}**${more("Contact", P.contact)}`;
+        },
+      },
+      {
+        keywords: ["email", "e-mail", "gmail", "mail him"],
+        response: () =>
+          `📧 **${KB.email}**${more("the Contact form", P.contact)}`,
+      },
+      {
+        keywords: ["contact", "reach", "hire", "recruiter", "get in touch", "message him", "send a message", "how to contact"],
+        response: () => {
+          const lines = [`📧 ${KB.email}`];
+          if (KB.phone) lines.push(`📞 ${KB.phone}`);
+          lines.push(`💼 linkedin.com/in/davidyili`);
+          lines.push(`🐙 github.com/Davidyili230`);
+          return `Reach David at:\n${lines.join("\n")}${more("the Contact form", P.contact)}`;
+        },
+      },
+      {
+        keywords: ["linkedin"],
+        response: () => {
+          const li = KB.socials.find((s) => s.name === "linkedin");
+          return `💼 ${ext("linkedin.com/in/davidyili", li?.url || "https://www.linkedin.com/in/davidyili/")}${more("Contact", P.contact)}`;
+        },
+      },
+      {
+        keywords: ["github", "git"],
+        response: () => {
+          const gh = KB.socials.find((s) => s.name === "github");
+          return `🐙 ${ext("github.com/Davidyili230", gh?.url || "https://github.com/Davidyili230")}${more("Projects", P.projects)}`;
+        },
+      },
+      {
+        keywords: ["instagram", "ig", "insta"],
+        response: () => {
+          const ig = KB.socials.find((s) => s.name === "instagram");
+          if (!ig) return `David's Instagram isn't listed.${more("Contact", P.contact)}`;
+          return `📷 ${ext(ig.url.replace(/^https?:\/\/(www\.)?/, ""), ig.url)}`;
+        },
+      },
+      {
+        keywords: ["facebook", "fb"],
+        response: () => {
+          const fb = KB.socials.find((s) => s.name === "facebook");
+          if (!fb) return `David's Facebook isn't listed.${more("Contact", P.contact)}`;
+          return `${ext(fb.url.replace(/^https?:\/\/(www\.)?/, ""), fb.url)}`;
+        },
+      },
+      {
+        keywords: ["twitter", "x.com"],
+        response: () => {
+          const t = KB.socials.find((s) => s.name === "twitter");
+          if (!t) return `David's Twitter/X isn't listed.${more("Contact", P.contact)}`;
+          return `${ext(t.url.replace(/^https?:\/\//, ""), t.url)}`;
+        },
+      },
+      {
+        keywords: ["social", "socials", "links", "online", "find you", "find him"],
+        response: () =>
+          `Find David online:\n${KB.socials
+            .map((s) => `• **${s.name[0].toUpperCase() + s.name.slice(1)}**: ${ext(s.url.replace(/^https?:\/\/(www\.)?/, ""), s.url)}`)
+            .join("\n")}${more("Contact", P.contact)}`,
+      },
+
+      // ---- Greeting / Help ----
+      {
+        keywords: ["hello", "hi", "hey", "yo", "hiya", "howdy", "help", "what can you do", "menu", "options", "start", "begin"],
+        response: () =>
+          `Hi! 👋 I'm David's assistant. Ask me about his **projects**, **skills**, **education**, **experience**, **hobbies**, **stories**, or how to **contact** him.`,
+      },
+    ];
+  }
+
+  // ======================== Fuzzy search corpus (fallback) ========================
+  // If no intent matches confidently, scan free-text content across all pages for
+  // the best snippet to return, with a link to the source page.
+  function buildCorpus() {
+    const docs = [];
+
+    KB.journey.forEach((j) => {
+      docs.push({
+        text: j.text,
+        prefix: `**${j.date}**`,
+        page: `${P.about}#Journey`,
+        label: "About — Journey",
+      });
+    });
+
+    KB.projects.forEach((p) => {
+      docs.push({
+        text: `${p.name} ${p.tech} ${p.desc}`,
+        prefix: `**${p.name}** (${p.tech})`,
+        page: P.projects,
+        label: "Projects",
+        link: p.link,
+      });
+    });
+
+    KB.experience.forEach((e) => {
+      docs.push({
+        text: `${e.role} ${e.company} ${(e.bullets || []).join(" ")}`,
+        prefix: `**${e.role}** at ${e.company}`,
+        page: P.resume,
+        label: "Resume",
+      });
+    });
+
+    KB.leadership.forEach((e) => {
+      docs.push({
+        text: `${e.role} ${e.company} ${(e.bullets || []).join(" ")}`,
+        prefix: `**${e.role}** at ${e.company}`,
+        page: P.resume,
+        label: "Resume",
+      });
+    });
+
+    KB.hobbies.forEach((h) => {
+      docs.push({ text: h, prefix: `Hobby`, page: `${P.about}#Hobbies`, label: "About — Hobbies" });
+    });
+
+    if (KB.intro) docs.push({ text: KB.intro, prefix: `About David`, page: `${P.about}#Intro`, label: "About" });
+    if (KB.whyDavid) docs.push({ text: KB.whyDavid, prefix: `Why "David"?`, page: `${P.about}#Question`, label: "About" });
+    if (KB.about) docs.push({ text: KB.about, prefix: `About David`, page: P.about, label: "About" });
+
+    KB.coursework.forEach((c) => {
+      docs.push({ text: c, prefix: `Coursework`, page: P.resume, label: "Resume" });
+    });
+
+    KB.technicalSkills.forEach((t) => {
+      docs.push({ text: `${t.label} ${t.value}`, prefix: `**${t.label}**`, page: P.resume, label: "Resume" });
+    });
+
+    return docs;
+  }
+
+  const STOPWORDS = new Set(
+    "a an and any are as at be been being but by can could did do does doing for from get got had has have he her him his how i if in into is it its just like me my of on or our s she should so some such t than that the their them then there these they this those to too us was we were what when where which who why will with would you your yours yourself".split(
+      " "
+    )
+  );
+
+  function tokenize(s) {
+    return (s.toLowerCase().match(/[a-z0-9'+#]+/g) || [])
+      .map((t) => t.replace(/^'+|'+$/g, ""))
+      .filter((t) => t && !STOPWORDS.has(t) && t.length > 1);
+  }
+
+  function fuzzySearch(query) {
+    const qTokens = tokenize(query);
+    if (!qTokens.length) return null;
+    const corpus = buildCorpus();
+    let best = null;
+    let bestScore = 0;
+    for (const doc of corpus) {
+      const docText = doc.text.toLowerCase();
+      const docTokens = new Set(tokenize(doc.text));
+      let score = 0;
+      for (const q of qTokens) {
+        if (docTokens.has(q)) {
+          score += 2; // exact token match
+        } else if (docText.includes(q)) {
+          score += 1; // substring match (handles plural/stems loosely)
+        }
+      }
+      if (score > bestScore) {
+        bestScore = score;
+        best = doc;
+      }
+    }
+    if (bestScore < 2) return null; // need at least one solid token hit
+    return best;
+  }
+
+  // ======================== Matching / response ========================
   function escapeRegex(s) {
     return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   }
@@ -371,20 +600,34 @@
 
   function getResponse(input) {
     const msg = input.toLowerCase().trim();
+
+    // 1) Intent matching — best-scoring fact wins.
+    const intents = buildIntents();
     let best = null;
     let bestScore = 0;
     for (const intent of intents) {
       let score = 0;
-      for (const p of intent.patterns) {
-        if (patternMatches(p, msg)) score += p.length;
+      for (const k of intent.keywords) {
+        if (patternMatches(k, msg)) score += k.length;
       }
       if (score > bestScore) {
         bestScore = score;
         best = intent;
       }
     }
-    if (best) return best.response();
-    return `I'm not sure about that! Try one of the buttons below, or ask about David's **projects**, **skills**, **hobbies**, **education**, **experience**, or **contact info**. 😊`;
+    if (best && bestScore >= 3) return best.response();
+
+    // 2) Fuzzy fallback — free-text search across all KB content.
+    const hit = fuzzySearch(input);
+    if (hit) {
+      const linkRow = hit.link
+        ? `\n\n${ext("Open link", hit.link)} · ${linkTo(`More on ${hit.label}`, hit.page)}`
+        : `\n\n${linkTo(`More on ${hit.label}`, hit.page)}`;
+      return `${hit.prefix}: ${truncate(hit.text, 200)}${linkRow}`;
+    }
+
+    // 3) Default.
+    return `I'm not sure about that one! Try asking about David's **projects**, **skills**, **hobbies**, **education**, **experience**, **stories**, or **contact info**. 😊`;
   }
 
   function formatBotText(text) {
@@ -393,6 +636,7 @@
       .replace(/\n/g, "<br>");
   }
 
+  // ======================== Widget UI ========================
   const MAX_INPUT_LEN = 300;
   const HISTORY_KEY = "davidChatHistory";
   const HISTORY_MAX = 40;
@@ -493,7 +737,7 @@
 
     if (history.length === 0) {
       const greeting =
-        "Hi! 👋 I'm David's assistant. Ask me about his projects, skills, hobbies, education, or how to reach him!";
+        "Hi! 👋 I'm David's assistant. Ask me anything — projects, skills, education, experience, hobbies, stories, or how to reach him!";
       history.push({ text: greeting, type: "bot" });
       saveHistory(history);
     }

@@ -243,6 +243,7 @@ img {
   background: var(--accent-gradient);
   margin-bottom: 16px;
   width: 75%;
+  aspect-ratio: 1 / 1;
   box-shadow: 0 6px 28px rgba(99, 102, 241, 0.3);
   transition: box-shadow var(--transition-md), transform var(--transition-md);
 }
@@ -255,6 +256,8 @@ img {
 .profile-img-ring img {
   display: block;
   width: 100%;
+  height: 100%;
+  object-fit: cover;
   border-radius: 50%;
   border: 3px solid var(--surface);
   background: var(--surface);
@@ -1488,10 +1491,9 @@ html.dark-mode body {
     text-align: center;
   }
 
-  .sidebar img {
+  .sidebar .profile-img-ring {
     width: 50%;
     max-width: 160px;
-    height: auto;
     margin-bottom: 12px;
   }
 

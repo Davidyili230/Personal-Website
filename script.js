@@ -54,6 +54,42 @@ function scrollToSection(sectionId) {
 
 
 /* ===============================================================================================================================================================================
+                      LIVING BACKGROUND — CURSOR REVEAL
+================================================================================================================================================================================ */
+
+(function initBgReveal() {
+  const bgScene = document.querySelector('.bg-scene');
+  if (!bgScene) return;
+
+  const root = document.documentElement;
+
+  function setPointer(x, y) {
+    root.style.setProperty('--mx', `${x}px`);
+    root.style.setProperty('--my', `${y}px`);
+  }
+
+  function activate(x, y) {
+    setPointer(x, y);
+    document.body.classList.add('bg-hover');
+  }
+
+  function deactivate() {
+    document.body.classList.remove('bg-hover');
+  }
+
+  window.addEventListener('pointermove', (e) => activate(e.clientX, e.clientY), { passive: true });
+  window.addEventListener('pointerdown', (e) => activate(e.clientX, e.clientY), { passive: true });
+  document.addEventListener('pointerleave', deactivate);
+  window.addEventListener('blur', deactivate);
+
+  window.addEventListener('pointerup', (e) => {
+    if (e.pointerType === 'touch') deactivate();
+  });
+  window.addEventListener('pointercancel', deactivate);
+})();
+
+
+/* ===============================================================================================================================================================================
                       BACK TO TOP
 ================================================================================================================================================================================ */
 

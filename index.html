@@ -44,7 +44,13 @@
 
 <!--Body of webpage, what user see-->
 
-<body>
+<body class="page-home">
+    <!-- Fixed living background: bg-1 fills the page; hovering fades bg-2 in around the cursor -->
+    <div class="bg-scene" aria-hidden="true">
+        <div class="bg-layer bg-layer--base"></div>
+        <div class="bg-layer bg-layer--reveal"></div>
+    </div>
+
     <!--Nav bar for linking pages-->
     <header class="main-header">
         <nav class="nav-links">

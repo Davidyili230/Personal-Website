@@ -346,27 +346,21 @@ async function loadResumeData() {
         grid.appendChild(left);
         grid.appendChild(right);
 
-        const detail = document.createElement("h3");
-        detail.textContent = cert.detail ?? "";
-
         certContainer.appendChild(grid);
-        certContainer.appendChild(detail);
+
+        if (cert.detail) {
+          const detail = document.createElement("h3");
+          detail.textContent = cert.detail;
+          certContainer.appendChild(detail);
+        }
       });
     }
 
     // -------------------------
-    // Coursework
+    // Professional Summary
     // -------------------------
-    const courseList = document.getElementById("courseworkList");
-    if (courseList) {
-      courseList.innerHTML = "";
-      (data.coursework ?? []).forEach((course) => {
-        const li = document.createElement("li");
-        li.className = "course-listing-li";
-        li.textContent = course;
-        courseList.appendChild(li);
-      });
-    }
+    const summary = document.getElementById("resumeSummary");
+    if (summary) summary.textContent = data.summary ?? "";
 
     // -------------------------
     // Experience

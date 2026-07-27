@@ -496,19 +496,12 @@ img {
 }
 
 /* ===============================================
-   RELEVANT COURSE LISTING
+   PROFESSIONAL SUMMARY
 =============================================== */
-.course-listing-ul {
-  display: flex;
-  text-align: center;
-  flex-wrap: wrap;
-}
-
-.course-listing-li {
-  list-style-type: none;
-  flex: 1 0 25%;
+.summary-text {
   padding-top: 10px;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
   color: var(--text-secondary);
 }
 
@@ -1525,10 +1518,6 @@ html.dark-mode body {
 
   .form-row {
     flex-direction: column;
-  }
-
-  .course-listing-li {
-    flex: 1 0 50%;
   }
 
   .main #backToTopBtn {

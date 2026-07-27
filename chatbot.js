@@ -14,34 +14,29 @@
       "David's real name is Yi Li. Back in elementary school, teachers and students constantly mispronounced it as 'Yee' instead of 'Ee'. His mom's American friend suggested 'David' as an easy alternative. The name stuck through high school — so much so that many close friends didn't find out his real name was Yi until graduation!",
     intro: null,
     education: {
-      school: "Hunter College",
+      school: "Hunter College (CUNY)",
       grad: "Expected Graduation: June 2026",
-      degree: "Bachelor of Art in Computer Science",
-      city: "Manhattan, NY",
+      degree: "Bachelor of Science in Computer Science",
+      city: "New York, NY",
     },
-    coursework: [
-      "Data Structures",
-      "Algorithms Analysis",
-      "Operating Systems",
-      "Web Development",
-      "iOS Development",
-      "Database Management",
-    ],
     certifications: [],
     technicalSkills: [
-      { label: "Programming", value: "Python, C++, JavaScript, Swift" },
-      { label: "Frameworks", value: "HTML/CSS, React.js, Node.js, SwiftUI" },
-      { label: "Tools", value: "Git/GitHub, Firebase, Cloudinary" },
+      { label: "Languages", value: "Python, C++, JavaScript, Swift" },
+      { label: "Frontend", value: "HTML5, CSS3, React.js, SwiftUI, TypeScript, Responsive Design" },
+      { label: "Backend & APIs", value: "Node.js, RESTful APIs, JSON, MVVM Architecture, Authentication" },
+      { label: "Databases & Cloud", value: "Firebase, MySQL, MongoDB, Cloudinary" },
+      { label: "Tools", value: "Git, GitHub, GitHub Actions (CI/CD pipelines), VS Code, Xcode, Netlify" },
+      { label: "AI & Prompt Engineering", value: "Anthropic Claude API, Prompt Engineering, AI Integration, LLM, RAG (Retrieval-Augmented Generation)" },
     ],
     projects: [
-      { name: "Personal Website", tech: "HTML, CSS, JavaScript", desc: "A portfolio recording his journey as a first-gen college student — showcasing projects, resume, and skills." },
+      { name: "Personal Portfolio Website", tech: "HTML, CSS, JavaScript", desc: "A portfolio recording his journey as a first-gen college student — showcasing projects, resume, and skills." },
       { name: "MealFinder (iOS)", tech: "Swift, SwiftUI, Spoonacular API", desc: "iOS app that searches meals by ingredient and shows recipe details using MVVM architecture." },
       { name: "Project Clean", tech: "React, Tailwind, Firebase", desc: "Web app for reporting school maintenance issues with multi-user authorization and live-time updates." },
       { name: "Cravers Pizza", tech: "React, Node.js", desc: "Pizza restaurant site with a slideshow, add-to-cart, and checkout calculation — built for a web dev class." },
+      { name: "CompanionCare", tech: "React.js, Node.js, TypeScript", desc: "Full-stack pet care platform with an LLM-driven assistant for personalized pet care guidance." },
     ],
     experience: [
-      { role: "Medical Receptionist / IT Support", company: "Zhang and Cheng Medical P.C.", dates: "Jan 2022 – Present" },
-      { role: "Summer Camp Counselor", company: "Kings Bay JCC Brooklyn", dates: "July – Sept 2021" },
+      { role: "Medical Receptionist & IT Support Specialist", company: "Zhang & Cheng Medical P.C.", dates: "Jan 2022 – Present" },
     ],
     leadership: [
       { role: "Vice President", company: "Hunter Chinese Student & Scholar Association (CSSA)", dates: "Feb 2024 – Present" },
@@ -119,7 +114,7 @@
     }
 
     if (r?.education) kb.education = r.education;
-    if (Array.isArray(r?.coursework)) kb.coursework = r.coursework;
+    if (r?.summary) kb.summary = r.summary;
     if (Array.isArray(r?.certifications)) kb.certifications = r.certifications;
     if (Array.isArray(r?.technicalSkills)) kb.technicalSkills = r.technicalSkills;
     if (Array.isArray(r?.experience)) {
@@ -187,6 +182,13 @@
           `David (Yi Li) is a CS student at ${KB.education.school}, ${KB.education.grad.replace("Expected Graduation: ", "graduating ")}. Based in ${KB.location}.${more("his story", P.about)}`,
       },
       {
+        keywords: ["summary", "professional summary", "overview", "elevator pitch", "profile"],
+        response: () =>
+          KB.summary
+            ? `${KB.summary}${more("Resume", P.resume)}`
+            : `David is a CS student and full-stack developer based in ${KB.location}.${more("Resume", P.resume)}`,
+      },
+      {
         keywords: ["why david", "nickname", "real name", "yi li", "name origin", "name come from", "called david", "why david name", "name story"],
         response: () =>
           `His real name is Yi — pronounced "Ee." Mispronunciation in elementary school led his mom's friend to suggest "David."${more("the full story", `${P.about}#Question`)}`,
@@ -215,11 +217,6 @@
         },
       },
       {
-        keywords: ["coursework", "classes", "courses", "class taken", "courses taken", "course", "subjects", "what classes"],
-        response: () =>
-          `Relevant coursework: ${KB.coursework.slice(0, 4).join(", ")} and more.${more("the full list on Resume", P.resume)}`,
-      },
-      {
         keywords: ["certification", "certifications", "certificate", "codepath", "cert"],
         response: () => {
           if (!KB.certifications.length) return `No certifications on file yet.${more("Resume", P.resume)}`;
@@ -232,9 +229,9 @@
       {
         keywords: ["skill", "skills", "language", "languages", "tech", "stack", "tech stack", "framework", "frameworks", "tool", "tools", "programming", "what can you code", "what do you code", "what languages"],
         response: () => {
-          const lang = KB.technicalSkills.find((t) => /programming/i.test(t.label))?.value?.trim();
-          const fw = KB.technicalSkills.find((t) => /framework/i.test(t.label))?.value?.trim();
-          return `**Languages**: ${lang}\n**Frameworks**: ${fw}${more("Resume", P.resume)}`;
+          const lang = KB.technicalSkills.find((t) => /language/i.test(t.label))?.value?.trim();
+          const fw = KB.technicalSkills.find((t) => /frontend/i.test(t.label))?.value?.trim();
+          return `**Languages**: ${lang}\n**Frontend**: ${fw}${more("Resume", P.resume)}`;
         },
       },
       {
@@ -284,7 +281,7 @@
       {
         keywords: ["personal website", "this site", "this website", "portfolio site", "this portfolio"],
         response: () => {
-          const m = KB.projects.find((x) => /personal website/i.test(x.name));
+          const m = KB.projects.find((x) => /personal (website|portfolio)/i.test(x.name));
           if (!m) return `This site is David's portfolio.${more("Projects", P.projects)}`;
           return `**${m.name}** (${m.tech}). ${truncate(m.desc, 140)}${more("all projects", P.projects)}`;
         },
@@ -538,10 +535,6 @@
     if (KB.intro) docs.push({ text: KB.intro, prefix: `About David`, page: `${P.about}#Intro`, label: "About" });
     if (KB.whyDavid) docs.push({ text: KB.whyDavid, prefix: `Why "David"?`, page: `${P.about}#Question`, label: "About" });
     if (KB.about) docs.push({ text: KB.about, prefix: `About David`, page: P.about, label: "About" });
-
-    KB.coursework.forEach((c) => {
-      docs.push({ text: c, prefix: `Coursework`, page: P.resume, label: "Resume" });
-    });
 
     KB.technicalSkills.forEach((t) => {
       docs.push({ text: `${t.label} ${t.value}`, prefix: `**${t.label}**`, page: P.resume, label: "Resume" });

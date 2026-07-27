@@ -63,13 +63,31 @@ function scrollToSection(sectionId) {
 
   const root = document.documentElement;
 
-  function setPointer(x, y) {
-    root.style.setProperty('--mx', `${x}px`);
-    root.style.setProperty('--my', `${y}px`);
+  // Raw cursor position drives the background reveal mask (--mx/--my) with
+  // zero lag. The light glow instead eases toward it every frame (--lx/--ly),
+  // so it visibly trails a beat behind before catching up to the cursor.
+  let rawX = window.innerWidth / 2;
+  let rawY = window.innerHeight / 2;
+  let lightX = rawX;
+  let lightY = rawY;
+  const LIGHT_EASE = 0.12;
+
+  function tick() {
+    root.style.setProperty('--mx', `${rawX}px`);
+    root.style.setProperty('--my', `${rawY}px`);
+
+    lightX += (rawX - lightX) * LIGHT_EASE;
+    lightY += (rawY - lightY) * LIGHT_EASE;
+    root.style.setProperty('--lx', `${lightX}px`);
+    root.style.setProperty('--ly', `${lightY}px`);
+
+    requestAnimationFrame(tick);
   }
+  requestAnimationFrame(tick);
 
   function activate(x, y) {
-    setPointer(x, y);
+    rawX = x;
+    rawY = y;
     document.body.classList.add('bg-hover');
   }
 

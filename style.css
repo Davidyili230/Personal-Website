@@ -1825,3 +1825,31 @@ body.page-home.bg-hover .bg-layer--reveal {
     mask-image: radial-gradient(circle 100px at var(--mx, 50%) var(--my, 50%), rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.45) 55%, rgba(0, 0, 0, 0) 100%);
   }
 }
+
+/* Point light at the cursor: scales up from nothing so the reveal
+   underneath reads as if it grew outward from this light source. */
+.bg-cursor-light {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(224, 184, 118, 0.95) 0%, rgba(224, 184, 118, 0.4) 45%, rgba(224, 184, 118, 0) 75%);
+  mix-blend-mode: screen;
+  filter: blur(2px);
+  opacity: 0;
+  /* --lx/--ly are eased toward the cursor in JS (see initBgReveal), giving
+     the light a trailing "catch up" delay instead of snapping instantly. */
+  translate: calc(var(--lx, 50vw) - 50px) calc(var(--ly, 50vh) - 50px);
+  scale: 0;
+  transform-origin: center;
+  transition: opacity 0.4s ease, scale 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+  will-change: translate;
+}
+
+body.page-home.bg-hover .bg-cursor-light {
+  opacity: 1;
+  scale: 1;
+}

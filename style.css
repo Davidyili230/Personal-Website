@@ -200,17 +200,11 @@ img {
   margin-bottom: 4px;
 }
 
-.sidebar h2,
-.sidebar h3,
-.sidebar h4 {
+.sidebar h2 {
   font-family: var(--font-sans);
   font-size: 0.85rem;
   font-weight: 500;
   color: var(--text-secondary);
-}
-
-.sidebar h3 {
-  font-weight: 600;
 }
 
 .sidebar p {
@@ -220,19 +214,95 @@ img {
 }
 
 /* ===============================================
+   SIDEBAR CARD (about section, etc.)
+=============================================== */
+.sidebar-card {
+  text-align: left;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  margin: 22px 0;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-md), box-shadow var(--transition-md), border-color var(--transition-md);
+}
+
+.sidebar-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(184, 130, 63, 0.25);
+}
+
+.sidebar-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.sidebar-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+  background-color: rgba(184, 130, 63, 0.1);
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.sidebar-card-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+}
+
+.sidebar-card p {
+  margin: 0;
+}
+
+.sidebar-footer {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
+  padding-top: 20px;
+  margin-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+/* ===============================================
    SOCIAL ICONS
 =============================================== */
 .sidebar-social-icons {
   display: flex;
   justify-content: center;
-  gap: 16px;
-  padding-top: 24px;
-  opacity: 0.65;
-  transition: opacity var(--transition);
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
-.sidebar-social-icons:hover {
-  opacity: 1;
+.social-icon-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: rgba(184, 130, 63, 0.1);
+  color: var(--accent);
+  transition: transform var(--transition), background var(--transition), color var(--transition), box-shadow var(--transition);
+}
+
+.social-icon-link:hover,
+.social-icon-link:focus-visible {
+  background: var(--accent-gradient);
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(184, 130, 63, 0.35);
 }
 
 /* ===============================================
@@ -1363,10 +1433,6 @@ body.dark-mode .main hr {
   background-color: var(--border);
 }
 
-body.dark-mode .sidebar-social-icons {
-  filter: invert(0.75);
-}
-
 body.dark-mode .contact-method-card {
   background-color: var(--surface);
   border-color: var(--border);
@@ -2100,24 +2166,28 @@ body.dark-mode .story-media--cool {
   gap: 56px;
 }
 
-.story-timeline-item {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-}
-
-.story-timeline-item:nth-child(even) {
-  flex-direction: row-reverse;
-}
-
-.story-timeline-item .story-media--timeline {
-  flex: 0 0 240px;
-  aspect-ratio: 4 / 3;
+.story-timeline-item::after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 .story-timeline-body {
-  flex: 1 1 0;
   min-width: 0;
+}
+
+.story-timeline-body .story-media--timeline {
+  float: left;
+  width: 260px;
+  aspect-ratio: 4 / 3;
+  margin: 4px 32px 20px 0;
+  shape-outside: inset(0 round var(--radius-lg));
+}
+
+.story-timeline-item:nth-child(even) .story-media--timeline {
+  float: right;
+  margin: 4px 0 20px 32px;
+  shape-outside: inset(0 round var(--radius-lg));
 }
 
 .story-timeline-date {
@@ -2187,16 +2257,11 @@ body.dark-mode .story-media--cool {
     padding: 56px 24px;
   }
 
-  .story-timeline-item,
-  .story-timeline-item:nth-child(even) {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 20px;
-  }
-
-  .story-timeline-item .story-media--timeline {
-    flex: none;
+  .story-timeline-body .story-media--timeline,
+  .story-timeline-item:nth-child(even) .story-media--timeline {
+    float: none;
     width: 100%;
     aspect-ratio: 16 / 10;
+    margin: 0 0 20px;
   }
 }

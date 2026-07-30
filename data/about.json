@@ -1,10 +1,4 @@
 {
-    "profile": {
-      "name": "YI 'DAVID' LI",
-      "email": "Davidyili230@gmail.com",
-      "image": "img/potrait.jpg"
-    },
-    "sidebarAbout": "Hi, I’m David, a computer science student focused on building practical software. I primarily work with C++ and HTML/CSS/JavaScript and am developing a strong foundation in data structures, algorithms, and object-oriented programming through coursework and projects. I’m continuously improving my skills by writing, testing, and refining real code.",
     "sections": {
       "intro": {
         "title": "Introduction",

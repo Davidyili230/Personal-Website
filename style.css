@@ -1809,21 +1809,12 @@ body.page-home .main-header {
 
 .bg-layer--reveal {
   background-image: url('img/bg/bg-2.png');
-  opacity: 0;
-  transition: opacity 0.5s ease;
-  -webkit-mask-image: radial-gradient(circle 160px at var(--mx, 50%) var(--my, 50%), rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.45) 55%, rgba(0, 0, 0, 0) 100%);
-  mask-image: radial-gradient(circle 160px at var(--mx, 50%) var(--my, 50%), rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.45) 55%, rgba(0, 0, 0, 0) 100%);
-}
-
-body.page-home.bg-hover .bg-layer--reveal {
-  opacity: 1;
-}
-
-@media (max-width: 900px) {
-  .bg-layer--reveal {
-    -webkit-mask-image: radial-gradient(circle 100px at var(--mx, 50%) var(--my, 50%), rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.45) 55%, rgba(0, 0, 0, 0) 100%);
-    mask-image: radial-gradient(circle 100px at var(--mx, 50%) var(--my, 50%), rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.45) 55%, rgba(0, 0, 0, 0) 100%);
-  }
+  /* --mr is a spring-animated radius (see initBgReveal in script.js): it
+     grows outward with a little overshoot on hover and eases back to 0 on
+     leave, so the growth underneath reads as sprouting/retracting rather
+     than a flat fade. */
+  -webkit-mask-image: radial-gradient(circle var(--mr, 0px) at var(--mx, 50%) var(--my, 50%), rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.45) 55%, rgba(0, 0, 0, 0) 100%);
+  mask-image: radial-gradient(circle var(--mr, 0px) at var(--mx, 50%) var(--my, 50%), rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.45) 55%, rgba(0, 0, 0, 0) 100%);
 }
 
 /* Point light at the cursor: scales up from nothing so the reveal
@@ -1852,4 +1843,360 @@ body.page-home.bg-hover .bg-layer--reveal {
 body.page-home.bg-hover .bg-cursor-light {
   opacity: 1;
   scale: 1;
+}
+
+/* ===============================================
+   ABOUT PAGE — SCROLL STORY
+   No sidebar/middle-bar on this page: .main is a
+   full-width, normal-document-flow narrative.
+=============================================== */
+body.page-about .main {
+  flex: none;
+  width: 100%;
+  max-width: none;
+  padding: 0;
+  overflow-y: visible;
+}
+
+body.page-about .main #backToTopBtn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+}
+
+/* Real <img class="story-photo"> elements should never get the generic
+   dark-mode icon-invert filter, and shouldn't inherit the site-wide
+   `img { border-radius: 50% }` reset meant for avatar/icon art. */
+body.dark-mode .main img.story-photo {
+  filter: none;
+}
+
+.story-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+/* Scroll progress rail, fixed just under the header */
+.story-progress {
+  position: fixed;
+  top: 56px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  z-index: 998;
+  pointer-events: none;
+}
+
+.story-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: var(--accent-gradient-wide);
+}
+
+/* ---------- Cover ---------- */
+.story-cover {
+  position: relative;
+  min-height: calc(100vh - 56px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  padding: 40px 24px;
+}
+
+.story-cover-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 28% 24%, rgba(184, 130, 63, 0.16), transparent 55%),
+    radial-gradient(circle at 76% 78%, rgba(127, 174, 92, 0.14), transparent 55%);
+}
+
+.story-cover-content {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+}
+
+.story-eyebrow {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 24px;
+}
+
+.story-cover-title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 700;
+  font-size: clamp(3rem, 9vw, 6.5rem);
+  line-height: 1.05;
+  background: var(--accent-gradient-wide);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmerSlide 5s linear infinite;
+  margin-bottom: 26px;
+}
+
+.story-cover-subtitle {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  max-width: 480px;
+  margin: 0 auto 56px;
+  line-height: 1.7;
+}
+
+.story-scroll-cue {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.story-scroll-cue span {
+  position: relative;
+  width: 1px;
+  height: 36px;
+  overflow: hidden;
+  background: var(--border);
+}
+
+.story-scroll-cue span::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--accent);
+  animation: scrollCue 1.8s ease-in-out infinite;
+}
+
+@keyframes scrollCue {
+  0% { top: -100%; }
+  60%, 100% { top: 100%; }
+}
+
+/* ---------- Chapters (alternating image + text) ---------- */
+.story-chapter {
+  display: flex;
+  align-items: center;
+  gap: 64px;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 110px 52px;
+}
+
+.story-chapter--reverse {
+  flex-direction: row-reverse;
+}
+
+.story-chapter-media,
+.story-chapter-text {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.story-kicker {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+
+.story-heading {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 700;
+  font-size: clamp(1.9rem, 3.4vw, 2.6rem);
+  line-height: 1.2;
+  color: var(--text);
+  margin-bottom: 22px;
+}
+
+.story-chapter-text p,
+.story-timeline-body p,
+.story-tile p {
+  font-size: 1.02rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+.story-chapter-text p + p {
+  margin-top: 18px;
+}
+
+/* Photo panel — degrades to a designed gradient wash + dot texture when no
+   real <img class="story-photo"> has been dropped in yet. */
+.story-media {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  background-image:
+    radial-gradient(rgba(255, 255, 255, 0.35) 1px, transparent 1px),
+    linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 55%, var(--accent-green) 100%);
+  background-size: 18px 18px, cover;
+}
+
+.story-media--cool {
+  background-image:
+    radial-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 1px),
+    linear-gradient(135deg, var(--accent-green) 0%, var(--accent-light) 55%, var(--accent) 100%);
+  background-size: 18px 18px, cover;
+}
+
+body.dark-mode .story-media {
+  background-image:
+    radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(135deg, var(--accent-dark) 0%, var(--accent) 55%, var(--accent-green) 100%);
+  background-size: 18px 18px, cover;
+}
+
+body.dark-mode .story-media--cool {
+  background-image:
+    radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(135deg, var(--accent-green) 0%, var(--accent) 55%, var(--accent-dark) 100%);
+  background-size: 18px 18px, cover;
+}
+
+/* ---------- Journey / Hobbies section head ---------- */
+.story-chapter-full {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 90px 52px;
+}
+
+.story-section-head {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 64px;
+}
+
+/* ---------- Journey timeline ---------- */
+.story-timeline {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+
+.story-timeline-item {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.story-timeline-item:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.story-timeline-item .story-media--timeline {
+  flex: 0 0 240px;
+  aspect-ratio: 4 / 3;
+}
+
+.story-timeline-body {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.story-timeline-date {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+/* ---------- Hobbies tiles ---------- */
+/* Higher specificity than `.main ul { list-style-type: disc; padding-left: 20px }`
+   (style.css ~line 403), which otherwise wins the cascade over a single class. */
+.main .story-tiles {
+  list-style: none;
+  padding-left: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 28px;
+}
+
+.story-tile {
+  text-align: center;
+}
+
+.story-tile .story-media--tile {
+  aspect-ratio: 1 / 1;
+  margin-bottom: 18px;
+  border-radius: var(--radius);
+}
+
+.story-cta-row {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 64px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  body.page-about .main {
+    padding: 0;
+  }
+
+  .story-chapter {
+    flex-direction: column;
+    padding: 64px 24px;
+    gap: 32px;
+  }
+
+  .story-chapter--reverse {
+    flex-direction: column;
+  }
+
+  .story-chapter-media {
+    width: 100%;
+  }
+
+  .story-media {
+    aspect-ratio: 16 / 10;
+  }
+
+  .story-chapter-full {
+    padding: 56px 24px;
+  }
+
+  .story-timeline-item,
+  .story-timeline-item:nth-child(even) {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+  }
+
+  .story-timeline-item .story-media--timeline {
+    flex: none;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+  }
 }

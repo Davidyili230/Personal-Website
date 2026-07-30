@@ -33,10 +33,12 @@ function scrollToSection(sectionId) {
                       INTERSECTION OBSERVER REVEAL
 ================================================================================================================================================================================ */
 
-(function initReveal() {
-  const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-scale');
-  if (!revealEls.length) return;
-
+// Shared across the whole site: observe any .reveal/.reveal-left/.reveal-scale
+// element and fade it in once. Exposed as window.bindReveals so pages that
+// inject content after load (e.g. about.html's JSON-driven story chapters)
+// can register their new elements too — a plain querySelectorAll at script
+// load time only ever sees static markup.
+const bindReveals = (function initReveal() {
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -49,8 +51,16 @@ function scrollToSection(sectionId) {
     { threshold: 0.06, rootMargin: '0px 0px -30px 0px' }
   );
 
-  revealEls.forEach((el) => observer.observe(el));
+  return function bindReveals(root = document) {
+    root.querySelectorAll('.reveal:not([data-reveal-bound]), .reveal-left:not([data-reveal-bound]), .reveal-scale:not([data-reveal-bound])')
+      .forEach((el) => {
+        el.setAttribute('data-reveal-bound', '');
+        observer.observe(el);
+      });
+  };
 })();
+
+bindReveals();
 
 
 /* ===============================================================================================================================================================================
@@ -72,6 +82,21 @@ function scrollToSection(sectionId) {
   let lightY = rawY;
   const LIGHT_EASE = 0.12;
 
+  // The reveal patch's radius is spring-driven (not a plain fade) so the
+  // moss/mushrooms/dragonflies underneath visibly sprout outward with a
+  // touch of overshoot on hover, then retract back to nothing on leave.
+  const mobileQuery = window.matchMedia('(max-width: 900px)');
+  let targetRadius = mobileQuery.matches ? 100 : 160;
+  mobileQuery.addEventListener('change', (e) => {
+    targetRadius = e.matches ? 100 : 160;
+  });
+
+  let hovering = false;
+  let radius = 0;
+  let radiusVelocity = 0;
+  const SPRING_STIFFNESS = 0.1;
+  const SPRING_DAMPING = 0.78;
+
   function tick() {
     root.style.setProperty('--mx', `${rawX}px`);
     root.style.setProperty('--my', `${rawY}px`);
@@ -81,6 +106,12 @@ function scrollToSection(sectionId) {
     root.style.setProperty('--lx', `${lightX}px`);
     root.style.setProperty('--ly', `${lightY}px`);
 
+    const target = hovering ? targetRadius : 0;
+    radiusVelocity += (target - radius) * SPRING_STIFFNESS;
+    radiusVelocity *= SPRING_DAMPING;
+    radius = Math.max(0, radius + radiusVelocity);
+    root.style.setProperty('--mr', `${radius}px`);
+
     requestAnimationFrame(tick);
   }
   requestAnimationFrame(tick);
@@ -88,10 +119,12 @@ function scrollToSection(sectionId) {
   function activate(x, y) {
     rawX = x;
     rawY = y;
+    hovering = true;
     document.body.classList.add('bg-hover');
   }
 
   function deactivate() {
+    hovering = false;
     document.body.classList.remove('bg-hover');
   }
 
@@ -116,13 +149,48 @@ function scrollToSection(sectionId) {
   const backToTopBtn = document.getElementById('backToTopBtn');
   if (!mainSection || !backToTopBtn) return;
 
-  mainSection.addEventListener('scroll', () => {
-    backToTopBtn.style.display = mainSection.scrollTop > 300 ? 'block' : 'none';
+  // The story page (about.html) has no sidebar/middle-bar row, so .main is
+  // normal document flow rather than its own scroll container — track and
+  // scroll the window there instead.
+  const usesWindowScroll = document.body.classList.contains('page-about');
+  const scrollTarget = usesWindowScroll ? window : mainSection;
+  const getScrollTop = () => (usesWindowScroll ? window.scrollY : mainSection.scrollTop);
+
+  scrollTarget.addEventListener('scroll', () => {
+    backToTopBtn.style.display = getScrollTop() > 300 ? 'block' : 'none';
   });
 
   backToTopBtn.addEventListener('click', () => {
-    mainSection.scrollTo({ top: 0, behavior: 'smooth' });
+    scrollTarget.scrollTo({ top: 0, behavior: 'smooth' });
   });
+})();
+
+
+/* ===============================================================================================================================================================================
+                      STORY SCROLL PROGRESS
+================================================================================================================================================================================ */
+
+(function initStoryProgress() {
+  const bar = document.getElementById('storyProgressBar');
+  if (!bar) return;
+
+  let ticking = false;
+
+  function update() {
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+    bar.style.width = `${Math.min(100, Math.max(0, pct))}%`;
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(update);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  update();
 })();
 
 
@@ -194,80 +262,95 @@ async function loadAboutData() {
     if (!res.ok) throw new Error("Failed to load data/about.json");
     const data = await res.json();
 
-    // Sidebar profile
-    const imgEl = document.getElementById("profileImage");
-    const nameEl = document.getElementById("profileName");
-    const emailEl = document.getElementById("profileEmail");
-    const sidebarAboutEl = document.getElementById("sidebarAboutText");
-
-    if (imgEl && data.profile?.image) imgEl.src = data.profile.image;
-    if (nameEl && data.profile?.name) nameEl.textContent = data.profile.name;
-    if (emailEl && data.profile?.email) emailEl.textContent = data.profile.email;
-    if (sidebarAboutEl && data.sidebarAbout) sidebarAboutEl.textContent = data.sidebarAbout;
-
     // Intro
     const introTitle = document.getElementById("IntroTitle");
     const introP1 = document.getElementById("IntroP1");
     const introP2 = document.getElementById("IntroP2");
+    const introP3 = document.getElementById("IntroP3");
 
     if (introTitle) introTitle.textContent = data.sections?.intro?.title ?? "Intro";
     if (introP1) introP1.textContent = data.sections?.intro?.p1 ?? "";
     if (introP2) introP2.textContent = data.sections?.intro?.p2 ?? "";
+    if (introP3) introP3.textContent = data.sections?.intro?.p3 ?? "";
 
-    // Why David (multiple paragraphs)
+    // Why David (multiple paragraphs, each its own reveal beat)
+    const whyDavidTitle = document.getElementById("WhyDavidTitle");
     const whyContainer = document.getElementById("WhyDavidContainer");
+    if (whyDavidTitle) whyDavidTitle.textContent = data.sections?.whyDavid?.title ?? whyDavidTitle.textContent;
     if (whyContainer) {
       whyContainer.innerHTML = "";
       const paragraphs = data.sections?.whyDavid?.p ?? [];
       paragraphs.forEach((t, idx) => {
         const p = document.createElement("p");
+        p.className = idx === 0 ? "reveal" : "reveal delay-1";
         p.textContent = t;
         whyContainer.appendChild(p);
-        if (idx !== paragraphs.length - 1) {
-          const hr = document.createElement("hr");
-          hr.className = "extra-line";
-          whyContainer.appendChild(hr);
-        }
       });
     }
 
-    // Journey list
+    // Journey timeline — oldest first, so it reads as a narrative building to now
+    const journeyTitle = document.getElementById("JourneyTitle");
     const journeyList = document.getElementById("JourneyList");
+    if (journeyTitle) journeyTitle.textContent = data.sections?.journey?.title ?? journeyTitle.textContent;
     if (journeyList) {
       journeyList.innerHTML = "";
-      const items = data.sections?.journey?.items ?? [];
-      items.forEach((it) => {
+      const items = [...(data.sections?.journey?.items ?? [])].reverse();
+      items.forEach((it, idx) => {
         const li = document.createElement("li");
+        li.className = `story-timeline-item ${idx % 2 === 0 ? "reveal-left" : "reveal"}`;
+
+        const media = document.createElement("div");
+        media.className = `story-media story-media--${idx % 2 === 0 ? "warm" : "cool"} story-media--timeline`;
+        li.appendChild(media);
+
+        const body = document.createElement("div");
+        body.className = "story-timeline-body";
+
+        const date = document.createElement("p");
+        date.className = "story-timeline-date";
+        date.textContent = it.date ?? "";
+        body.appendChild(date);
+
         const p = document.createElement("p");
-
-        const strong = document.createElement("strong");
-        strong.textContent = it.date ? `${it.date} — ` : "";
-        p.appendChild(strong);
-
         const textParts = (it.text || "").split("\n");
         textParts.forEach((part, i) => {
           p.appendChild(document.createTextNode(part));
           if (i !== textParts.length - 1) p.appendChild(document.createElement("br"));
         });
+        body.appendChild(p);
 
-        li.appendChild(p);
+        li.appendChild(body);
         journeyList.appendChild(li);
       });
     }
 
-    // Hobbies list
+    // Hobbies tiles
+    const hobbiesTitle = document.getElementById("HobbiesTitle");
     const hobbiesList = document.getElementById("HobbiesList");
+    if (hobbiesTitle) hobbiesTitle.textContent = data.sections?.hobbies?.title ?? hobbiesTitle.textContent;
     if (hobbiesList) {
       hobbiesList.innerHTML = "";
       const hobbies = data.sections?.hobbies?.items ?? [];
-      hobbies.forEach((txt) => {
+      const delays = ["", "delay-1", "delay-2", "delay-3", "delay-4", "delay-5"];
+      hobbies.forEach((txt, idx) => {
         const li = document.createElement("li");
+        li.className = `story-tile reveal-scale ${delays[idx % delays.length]}`.trim();
+
+        const media = document.createElement("div");
+        media.className = `story-media story-media--${idx % 2 === 0 ? "warm" : "cool"} story-media--tile`;
+        li.appendChild(media);
+
         const p = document.createElement("p");
         p.textContent = txt;
         li.appendChild(p);
+
         hobbiesList.appendChild(li);
       });
     }
+
+    // Static markup is already bound at script-load; this picks up everything
+    // just injected above (WhyDavid paragraphs, Journey items, Hobby tiles).
+    bindReveals();
 
   } catch (err) {
     console.error(err);

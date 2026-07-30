@@ -308,10 +308,22 @@ async function loadAboutData() {
         media.className = `story-media story-media--${idx % 2 === 0 ? "warm" : "cool"} story-media--timeline`;
         body.appendChild(media);
 
+        const meta = document.createElement("div");
+        meta.className = "story-timeline-meta";
+
         const date = document.createElement("p");
         date.className = "story-timeline-date";
         date.textContent = it.date ?? "";
-        body.appendChild(date);
+        meta.appendChild(date);
+
+        if (it.title) {
+          const title = document.createElement("h3");
+          title.className = "story-timeline-title";
+          title.textContent = it.title;
+          meta.appendChild(title);
+        }
+
+        body.appendChild(meta);
 
         const p = document.createElement("p");
         const textParts = (it.text || "").split("\n");

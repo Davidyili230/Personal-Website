@@ -2078,13 +2078,30 @@ body.dark-mode .main img.story-photo {
   min-width: 0;
 }
 
-.story-kicker {
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 14px;
+/* ---------- Section divider (replaces the old "Chapter N" labels) ---------- */
+.story-divider {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0 52px;
+}
+
+.story-divider::before,
+.story-divider::after {
+  content: "";
+  flex: 1 1 auto;
+  height: 1px;
+  background: var(--border);
+}
+
+.story-divider-dot {
+  flex: 0 0 auto;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent-gradient-wide);
 }
 
 .story-heading {
@@ -2190,6 +2207,14 @@ body.dark-mode .story-media--cool {
   shape-outside: inset(0 round var(--radius-lg));
 }
 
+.story-timeline-meta {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  margin-bottom: 10px;
+}
+
 .story-timeline-date {
   font-family: var(--font-sans);
   font-size: 0.78rem;
@@ -2197,7 +2222,14 @@ body.dark-mode .story-media--cool {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 10px;
+}
+
+.story-timeline-title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--text);
 }
 
 /* ---------- Hobbies tiles ---------- */

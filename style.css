@@ -2403,13 +2403,7 @@ body.dark-mode .story-media--cool {
   padding-left: 0;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 28px;
-}
-
-@media (min-width: 640px) {
-  .main .story-tiles {
-    grid-template-columns: repeat(4, 1fr);
-  }
+  gap: 32px;
 }
 
 .story-tile {
@@ -2418,8 +2412,34 @@ body.dark-mode .story-media--cool {
 
 .story-tile .story-media--tile {
   aspect-ratio: 1 / 1;
-  margin-bottom: 18px;
   border-radius: var(--radius);
+}
+
+/* Caption overlay: hidden until hover, then fades in and darkens the photo
+   underneath — same element does both jobs (the dark background *is* the
+   darkening, its opacity fading in *is* the text reveal). */
+.story-tile .story-tile-caption {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  margin: 0;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.55);
+  opacity: 0;
+  transition: opacity var(--transition-md);
+  pointer-events: none;
+}
+
+.story-tile:hover .story-tile-caption,
+.story-tile:focus-within .story-tile-caption {
+  opacity: 1;
 }
 
 .story-cta-row {

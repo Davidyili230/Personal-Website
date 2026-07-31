@@ -509,12 +509,15 @@ async function loadAboutData() {
         const media = document.createElement("div");
         media.className = `story-media story-media--${idx % 2 === 0 ? "warm" : "cool"} story-media--tile story-media-reveal-pop`;
         media.appendChild(createStoryPhoto());
+
+        // Caption lives inside the image itself — hidden until hover, see
+        // .story-tile-caption in style.css.
+        const caption = document.createElement("p");
+        caption.className = "story-tile-caption";
+        caption.textContent = txt;
+        media.appendChild(caption);
+
         li.appendChild(media);
-
-        const p = document.createElement("p");
-        p.textContent = txt;
-        li.appendChild(p);
-
         hobbiesList.appendChild(li);
       });
     }

@@ -52,7 +52,7 @@ const bindReveals = (function initReveal() {
   );
 
   return function bindReveals(root = document) {
-    root.querySelectorAll('.reveal:not([data-reveal-bound]), .reveal-left:not([data-reveal-bound]), .reveal-scale:not([data-reveal-bound])')
+    root.querySelectorAll('.reveal:not([data-reveal-bound]), .reveal-left:not([data-reveal-bound]), .reveal-scale:not([data-reveal-bound]), .story-media-reveal-ltr:not([data-reveal-bound]), .story-media-reveal-rtl:not([data-reveal-bound]), .story-media-reveal-pop:not([data-reveal-bound]), .story-media-reveal-btt:not([data-reveal-bound])')
       .forEach((el) => {
         el.setAttribute('data-reveal-bound', '');
         observer.observe(el);
@@ -141,6 +141,72 @@ bindReveals();
 
 
 /* ===============================================================================================================================================================================
+                      HERO 3D PARALLAX
+================================================================================================================================================================================ */
+
+(function initHeroParallax() {
+  const hero = document.querySelector('.hero-section');
+  if (!hero) return;
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isCoarsePointer = window.matchMedia('(hover: none), (pointer: coarse)').matches;
+  if (reduceMotion || isCoarsePointer) return;
+
+  const orbLayers = hero.querySelectorAll('.hero-orb-layer');
+  const content = hero.querySelector('.hero-content');
+
+  // Each layer drifts by a different amount so the orbs read as nearer/
+  // farther than the text — the actual parallax depth cue.
+  const ORB_DEPTH = [
+    { x: 34, y: 22 },
+    { x: -26, y: -16 },
+  ];
+
+  let rawX = 0, rawY = 0;
+  let easedX = 0, easedY = 0;
+  const EASE = 0.08;
+  let hovering = false;
+  let rafId = null;
+
+  function tick() {
+    easedX += (rawX - easedX) * EASE;
+    easedY += (rawY - easedY) * EASE;
+
+    orbLayers.forEach((layer, i) => {
+      const depth = ORB_DEPTH[i] || ORB_DEPTH[0];
+      layer.style.transform = `translate3d(${easedX * depth.x}px, ${easedY * depth.y}px, 0)`;
+    });
+
+    if (content) {
+      content.style.transform = `rotateX(${-easedY * 4}deg) rotateY(${easedX * 4}deg)`;
+    }
+
+    const settled = Math.abs(rawX - easedX) < 0.001 && Math.abs(rawY - easedY) < 0.001;
+    rafId = (hovering || !settled) ? requestAnimationFrame(tick) : null;
+  }
+
+  function startLoop() {
+    if (!rafId) rafId = requestAnimationFrame(tick);
+  }
+
+  hero.addEventListener('mousemove', (e) => {
+    const rect = hero.getBoundingClientRect();
+    rawX = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+    rawY = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+    hovering = true;
+    startLoop();
+  });
+
+  hero.addEventListener('mouseleave', () => {
+    hovering = false;
+    rawX = 0;
+    rawY = 0;
+    startLoop();
+  });
+})();
+
+
+/* ===============================================================================================================================================================================
                       BACK TO TOP
 ================================================================================================================================================================================ */
 
@@ -192,6 +258,75 @@ bindReveals();
 
   update();
 })();
+
+
+/* ===============================================================================================================================================================================
+                      SCROLL-LINKED TEXT HIGHLIGHT
+================================================================================================================================================================================ */
+
+// Splits a paragraph's text into per-word <span>s (once) so individual
+// words can be lit up as the reader scrolls past them.
+function wrapWordsForHighlight(el) {
+  if (!el || el.dataset.wordsWrapped) return;
+  const text = el.textContent;
+  el.innerHTML = "";
+  text.split(/(\s+)/).forEach((chunk) => {
+    if (chunk.trim() === "") {
+      el.appendChild(document.createTextNode(chunk));
+      return;
+    }
+    const span = document.createElement("span");
+    span.className = "story-word";
+    span.textContent = chunk;
+    el.appendChild(span);
+  });
+  el.dataset.wordsWrapped = "true";
+}
+
+// Every .story-highlight-text paragraph lights up across exactly its own
+// rendered height, anchored to one fixed reading line: progress 0 when the
+// paragraph's top edge reaches the line, progress 1 when its bottom edge
+// does. Stacked paragraphs then light up one after another as you scroll,
+// instead of all sharing one oversized band and igniting together.
+function initScrollTextHighlight() {
+  const paragraphs = Array.from(document.querySelectorAll(".story-highlight-text"));
+  if (!paragraphs.length) return;
+
+  paragraphs.forEach(wrapWordsForHighlight);
+
+  const READING_LINE = 0.6; // fraction of viewport height treated as the reading line
+  let ticking = false;
+
+  function update() {
+    const anchor = window.innerHeight * READING_LINE;
+
+    paragraphs.forEach((p) => {
+      const words = p.__storyWords || (p.__storyWords = Array.from(p.querySelectorAll(".story-word")));
+      if (!words.length) return;
+
+      const rect = p.getBoundingClientRect();
+      const progress = rect.height > 0 ? Math.min(1, Math.max(0, (anchor - rect.top) / rect.height)) : 0;
+      const litCount = Math.round(progress * words.length);
+
+      if (p.__storyLitCount === litCount) return;
+      p.__storyLitCount = litCount;
+      words.forEach((w, i) => w.classList.toggle("lit", i < litCount));
+    });
+
+    ticking = false;
+  }
+
+  function onScroll() {
+    if (!ticking) {
+      requestAnimationFrame(update);
+      ticking = true;
+    }
+  }
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
+  update();
+}
 
 
 /* ===============================================================================================================================================================================
@@ -251,6 +386,20 @@ document.addEventListener('DOMContentLoaded', () => {
                         about.html
 ================================================================================================================================================================================ */
 
+// Transparent 1x1 placeholder — real <img class="story-photo"> elements
+// wired up ahead of having actual photos. .story-media's own gradient wash
+// still shows through, and swapping in a real photo later is just a `src`
+// change on this element, no markup restructuring.
+const EMPTY_STORY_PHOTO_SRC = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
+
+function createStoryPhoto() {
+  const img = document.createElement("img");
+  img.className = "story-photo";
+  img.src = EMPTY_STORY_PHOTO_SRC;
+  img.alt = "";
+  return img;
+}
+
 async function loadAboutData() {
   const isAboutPage =
     window.location.pathname.endsWith("about.html") ||
@@ -283,7 +432,7 @@ async function loadAboutData() {
       const paragraphs = data.sections?.whyDavid?.p ?? [];
       paragraphs.forEach((t, idx) => {
         const p = document.createElement("p");
-        p.className = idx === 0 ? "reveal" : "reveal delay-1";
+        p.className = `${idx === 0 ? "reveal" : "reveal delay-1"} story-highlight-text`;
         p.textContent = t;
         whyContainer.appendChild(p);
       });
@@ -304,9 +453,15 @@ async function loadAboutData() {
         body.className = "story-timeline-body";
 
         // Image floats inside the text body so paragraphs wrap around it,
-        // instead of sitting in its own flex column.
+        // instead of sitting in its own flex column. Float side alternates
+        // (see .story-timeline-item:nth-child(even) in style.css), so the
+        // reveal direction follows which side the text ends up on: image
+        // left/text right gets the plain left-to-right wipe, image
+        // right/text left gets the zoom + bottom-to-top wipe.
         const media = document.createElement("div");
-        media.className = `story-media story-media--${idx % 2 === 0 ? "warm" : "cool"} story-media--timeline`;
+        const revealPattern = idx % 2 === 0 ? "story-media-reveal-ltr" : "story-media-reveal-btt";
+        media.className = `story-media story-media--${idx % 2 === 0 ? "warm" : "cool"} story-media--timeline ${revealPattern}`;
+        media.appendChild(createStoryPhoto());
         body.appendChild(media);
 
         const meta = document.createElement("div");
@@ -352,7 +507,8 @@ async function loadAboutData() {
         li.className = `story-tile reveal-scale ${delays[idx % delays.length]}`.trim();
 
         const media = document.createElement("div");
-        media.className = `story-media story-media--${idx % 2 === 0 ? "warm" : "cool"} story-media--tile`;
+        media.className = `story-media story-media--${idx % 2 === 0 ? "warm" : "cool"} story-media--tile story-media-reveal-pop`;
+        media.appendChild(createStoryPhoto());
         li.appendChild(media);
 
         const p = document.createElement("p");
@@ -366,6 +522,7 @@ async function loadAboutData() {
     // Static markup is already bound at script-load; this picks up everything
     // just injected above (WhyDavid paragraphs, Journey items, Hobby tiles).
     bindReveals();
+    initScrollTextHighlight();
 
   } catch (err) {
     console.error(err);
@@ -720,8 +877,12 @@ fetch("data/projects.json")
       const link = p?.link || "#";
 
       const a = document.createElement("a");
-      a.className = idx === 0 ? "project-card project-card--featured" : "project-card";
-      a.style.animationDelay = `${idx * 0.1}s`;
+      a.className = idx === 0
+        ? "project-card project-card--featured reveal-scale"
+        : "project-card reveal-scale";
+      // Stagger resets every 6 cards so a long list doesn't force a long
+      // wait once the next batch scrolls into view.
+      a.style.transitionDelay = `${(idx % 6) * 0.08}s`;
       a.href = link;
 
       // Open external links in a new tab for safety + UX
@@ -788,6 +949,7 @@ fetch("data/projects.json")
       lastUpdatedEl.textContent = `Last updated: ${data.lastUpdated}`;
     }
 
+    bindReveals();
     initCardTilt();
   })
   .catch((err) => {
@@ -873,19 +1035,32 @@ document.addEventListener("DOMContentLoaded", loadSidebar);
 ================================================================================================================================================================================ */
 
 function initCardTilt() {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   document.querySelectorAll('.project-card').forEach((card) => {
     card.addEventListener('mouseenter', () => {
+      if (reduceMotion) return;
       card.style.transition =
         'transform 0.08s ease, box-shadow var(--transition-md), border-color var(--transition-md)';
     });
     card.addEventListener('mousemove', (e) => {
       const rect = card.getBoundingClientRect();
-      const x = ((e.clientX - rect.left) / rect.width  - 0.5) * 2;
-      const y = ((e.clientY - rect.top)  / rect.height - 0.5) * 2;
+      const px = (e.clientX - rect.left) / rect.width;
+      const py = (e.clientY - rect.top) / rect.height;
+
+      // Drives the ::after cursor-glow regardless of reduced-motion.
+      card.style.setProperty('--mx', `${px * 100}%`);
+      card.style.setProperty('--my', `${py * 100}%`);
+
+      if (reduceMotion) return;
+
+      const x = (px - 0.5) * 2;
+      const y = (py - 0.5) * 2;
       card.style.transform =
         `perspective(900px) rotateX(${-y * 5}deg) rotateY(${x * 5}deg) translateY(-5px)`;
     });
     card.addEventListener('mouseleave', () => {
+      if (reduceMotion) return;
       card.style.transition =
         'transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow var(--transition-md), border-color var(--transition-md)';
       card.style.transform = '';

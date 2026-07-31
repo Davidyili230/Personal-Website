@@ -942,6 +942,68 @@ img {
   transform: none;
 }
 
+/* Image reveal patterns — each applies directly to a .story-media panel
+   (which already clips via overflow:hidden) rather than its wrapper, so the
+   clip-path wipe reads as a window opening onto the photo itself.
+   clip-path insets are computed against the element's own pre-transform
+   border box, so combining clip-path + scale on one element is safe. */
+.story-media-reveal-ltr,
+.story-media-reveal-rtl,
+.story-media-reveal-pop,
+.story-media-reveal-btt {
+  will-change: opacity, transform, clip-path;
+}
+
+/* Pattern 1 — image left of text: pops in, then a sliding window opens
+   left-to-right to reveal it. No zoom. */
+.story-media-reveal-ltr {
+  opacity: 0;
+  transform: scale(0.94);
+  clip-path: inset(0 100% 0 0);
+  transition: opacity 0.4s ease,
+              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              clip-path 0.9s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* Pattern 2 — image right of text: pops in zoomed in, then zooms back out
+   to normal scale while a sliding window opens right-to-left. */
+.story-media-reveal-rtl {
+  opacity: 0;
+  transform: scale(1.25);
+  clip-path: inset(0 0 0 100%);
+  transition: opacity 0.4s ease,
+              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              clip-path 0.9s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* Pattern 3 — standalone image (no paired text side): pops in slightly
+   zoomed in and settles back down to normal scale. No wipe. */
+.story-media-reveal-pop {
+  opacity: 0;
+  transform: scale(1.18);
+  transition: opacity 0.5s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Pattern 4 — same zoom-out pop as Pattern 2, but the sliding window opens
+   bottom-to-top instead of right-to-left. */
+.story-media-reveal-btt {
+  opacity: 0;
+  transform: scale(1.25);
+  clip-path: inset(100% 0 0 0);
+  transition: opacity 0.4s ease,
+              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              clip-path 0.9s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.story-media-reveal-ltr.active,
+.story-media-reveal-rtl.active,
+.story-media-reveal-pop.active,
+.story-media-reveal-btt.active {
+  opacity: 1;
+  transform: scale(1);
+  clip-path: inset(0 0 0 0);
+}
+
 /* Stagger delay utilities */
 .delay   { transition-delay: 0.12s; }
 .delay-1 { transition-delay: 0.08s; }
@@ -1213,10 +1275,14 @@ img {
   border-radius: var(--radius-lg);
   padding: 28px 28px 24px 32px;
   box-shadow: var(--shadow-card);
-  transition: transform var(--transition-md), box-shadow var(--transition-md), border-color var(--transition-md);
   position: relative;
   overflow: hidden;
-  animation: scaleIn 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+  opacity: 0;
+  transform: translateY(28px) scale(0.96);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow var(--transition-md), border-color var(--transition-md);
+  will-change: opacity, transform;
 }
 
 .project-card::before {
@@ -1232,6 +1298,19 @@ img {
   border-radius: var(--radius-lg) 0 0 var(--radius-lg);
 }
 
+/* Cursor-glow: --mx/--my are set from JS pointer position (see initCardTilt),
+   same trick as the homepage's cursor-follow light. */
+.project-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(520px circle at var(--mx, 50%) var(--my, 50%), rgba(184, 130, 63, 0.12), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
 .project-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-hover);
@@ -1239,6 +1318,10 @@ img {
 }
 
 .project-card:hover::before {
+  opacity: 1;
+}
+
+.project-card:hover::after {
   opacity: 1;
 }
 
@@ -1282,6 +1365,12 @@ img {
   height: 6px;
   border-radius: 50%;
   flex-shrink: 0;
+  animation: statusDotPulse 2.2s ease-in-out infinite;
+}
+
+@keyframes statusDotPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%       { transform: scale(1.35); opacity: 0.55; }
 }
 
 .project-status--live {
@@ -1340,7 +1429,20 @@ img {
   font-weight: 500;
   color: var(--accent);
   letter-spacing: -0.01em;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background var(--transition), border-color var(--transition);
 }
+
+.project-card:hover .tech-chip {
+  transform: translateY(-2px);
+}
+
+.project-card:hover .tech-chip:nth-child(1) { transition-delay: 0s; }
+.project-card:hover .tech-chip:nth-child(2) { transition-delay: 0.03s; }
+.project-card:hover .tech-chip:nth-child(3) { transition-delay: 0.06s; }
+.project-card:hover .tech-chip:nth-child(4) { transition-delay: 0.09s; }
+.project-card:hover .tech-chip:nth-child(5) { transition-delay: 0.12s; }
+.project-card:hover .tech-chip:nth-child(6) { transition-delay: 0.15s; }
+.project-card:hover .tech-chip:nth-child(n+7) { transition-delay: 0.18s; }
 
 .project-meta-row {
   display: flex;
@@ -1636,6 +1738,7 @@ html.dark-mode body {
   text-align: center;
   padding: 56px 0 40px;
   overflow: visible;
+  perspective: 1000px;
 }
 
 .hero-orb-wrap {
@@ -1644,6 +1747,15 @@ html.dark-mode body {
   pointer-events: none;
   z-index: 0;
   overflow: hidden;
+}
+
+/* JS-driven parallax depth layer — keeps the mouse-tracked translate3d
+   separate from the orb's own CSS float/floatAlt keyframe animation, since
+   an inline transform on the same element would fight the animated one. */
+.hero-orb-layer {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
 }
 
 .hero-orb {
@@ -1673,6 +1785,8 @@ html.dark-mode body {
 .hero-content {
   position: relative;
   z-index: 1;
+  will-change: transform;
+  transform-style: preserve-3d;
 }
 
 .hero-eyebrow {
@@ -1913,8 +2027,8 @@ html.dark-mode .bg-scene-scrim {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(224, 184, 118, 0.95) 0%, rgba(224, 184, 118, 0.4) 45%, rgba(224, 184, 118, 0) 75%);
   mix-blend-mode: multiply;
@@ -1922,7 +2036,7 @@ html.dark-mode .bg-scene-scrim {
   opacity: 0;
   /* --lx/--ly are eased toward the cursor in JS (see initBgReveal), giving
      the light a trailing "catch up" delay instead of snapping instantly. */
-  translate: calc(var(--lx, 50vw) - 50px) calc(var(--ly, 50vh) - 50px);
+  translate: calc(var(--lx, 50vw) - 25px) calc(var(--ly, 50vh) - 25px);
   scale: 0;
   transform-origin: center;
   transition: opacity 0.4s ease, scale 0.45s cubic-bezier(0.22, 1, 0.36, 1);
@@ -2154,6 +2268,20 @@ body.dark-mode .main img.story-photo {
   margin-top: 18px;
 }
 
+/* Scroll-linked text highlight: words start dim and light up in sequence
+   as their paragraph scrolls through the "reading line" — see
+   initScrollTextHighlight() in script.js. */
+.story-word {
+  color: var(--text-secondary);
+  opacity: 0.4;
+  transition: color 0.4s ease, opacity 0.4s ease;
+}
+
+.story-word.lit {
+  color: var(--text);
+  opacity: 1;
+}
+
 /* Photo panel — degrades to a designed gradient wash + dot texture when no
    real <img class="story-photo"> has been dropped in yet. */
 .story-media {
@@ -2187,6 +2315,13 @@ body.dark-mode .story-media--cool {
     radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
     linear-gradient(135deg, var(--accent-green) 0%, var(--accent) 55%, var(--accent-dark) 100%);
   background-size: 18px 18px, cover;
+}
+
+/* Flat gold placeholder — stands in for a real photo without the
+   gradient/dot texture. Same solid fill in both themes. */
+.story-media.story-media--placeholder-solid {
+  background-image: none;
+  background-color: var(--accent);
 }
 
 /* ---------- Journey / Hobbies section head ---------- */
@@ -2267,8 +2402,14 @@ body.dark-mode .story-media--cool {
   list-style: none;
   padding-left: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 28px;
+}
+
+@media (min-width: 640px) {
+  .main .story-tiles {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .story-tile {

@@ -5,40 +5,82 @@
     "email": "Davidyili230@gmail.com",
     "about": "Hi, I’m David, a computer science student focused on building practical software. I primarily work with C++ and JavaScript and am developing a strong foundation in data structures, algorithms, and object-oriented programming through coursework and projects. I’m continuously improving my skills by writing, testing, and refining real code.",
     "social": [
-      { "href": "https://www.facebook.com/davidyili230/", "icon": "img/facebook.png", "alt": "facebook" },
-      { "href": "https://github.com/Davidyili230", "icon": "img/github.png", "alt": "github" },
-      { "href": "https://www.instagram.com/come.onnnnn/", "icon": "img/instagram.png", "alt": "instagram" },
-      { "href": "https://www.linkedin.com/in/davidyili/", "icon": "img/linkedin.png", "alt": "linkedin" },
-      { "href": "https://x.com/come_onnnnn_", "icon": "img/twitter.png", "alt": "twitter" }
+      {
+        "href": "https://www.facebook.com/davidyili230/",
+        "icon": "img/facebook.png",
+        "alt": "facebook"
+      },
+      {
+        "href": "https://github.com/Davidyili230",
+        "icon": "img/github.png",
+        "alt": "github"
+      },
+      {
+        "href": "https://www.instagram.com/come.onnnnn/",
+        "icon": "img/instagram.png",
+        "alt": "instagram"
+      },
+      {
+        "href": "https://www.linkedin.com/in/davidyili/",
+        "icon": "img/linkedin.png",
+        "alt": "linkedin"
+      },
+      {
+        "href": "https://x.com/come_onnnnn_",
+        "icon": "img/twitter.png",
+        "alt": "twitter"
+      }
     ],
     "copyright": "©2026 DAVIDYILI"
   },
-
   "header": {
     "nameLine": "YI LI (DAVID)",
     "location": "Brooklyn, NY 11219",
     "contacts": [
-      { "icon": "img/phone.png", "alt": "phone", "href": "tel:+19173657182", "text": "917-365-7182" },
-      { "icon": "img/email.png", "alt": "email", "href": "mailto:Davidyili230@gmail.com", "text": "Davidyili230@gmail.com" },
-      { "icon": "img/linkedin.png", "alt": "linkedin", "href": "https://www.linkedin.com/in/davidyili/", "text": "linked.com/in/davidyili" },
-      { "icon": "img/github.png", "alt": "github", "href": "https://github.com/Davidyili230", "text": "github.com/Davidyili230" },
-      { "icon": "img/resume.png", "alt": "resume", "href": "downloads/Yi_Li__David__Resume.pdf", "text": "Download Resume", "download": true }
+      {
+        "icon": "img/phone.png",
+        "alt": "phone",
+        "href": "tel:+19173657182",
+        "text": "917-365-7182"
+      },
+      {
+        "icon": "img/email.png",
+        "alt": "email",
+        "href": "mailto:Davidyili230@gmail.com",
+        "text": "Davidyili230@gmail.com"
+      },
+      {
+        "icon": "img/linkedin.png",
+        "alt": "linkedin",
+        "href": "https://linkedin.com/in/davidyili",
+        "text": "linkedin.com/in/davidyili"
+      },
+      {
+        "icon": "img/github.png",
+        "alt": "github",
+        "href": "https://github.com/Davidyili230",
+        "text": "github.com/Davidyili230"
+      },
+      {
+        "icon": "img/resume.png",
+        "alt": "resume",
+        "href": "downloads/Yi_Li__David__Resume.pdf",
+        "text": "Download Resume",
+        "download": true
+      }
     ],
     "download": {
       "href": "downloads/Yi_Li__David__Resume.pdf",
       "text": "Download Resume (PDF)"
     }
   },
-
   "summary": "Full-stack developer skilled at seeing projects from conception to final product — collaborating across teams, communicating clearly with stakeholders, and collaborating others to deliver responsive, cross-platform web applications across 3 production applications.",
-
   "education": {
     "school": "Hunter College (CUNY)",
     "grad": "Expected Graduation: June 2026",
     "degree": "Bachelor of Science in Computer Science",
     "city": "New York, NY"
   },
-
   "certifications": [
     {
       "title": "CodePath – Applications of AI Engineering",
@@ -51,32 +93,44 @@
       "detail": ""
     }
   ],
-
   "technicalSkills": [
-    { "label": "Languages", "value": "Python, C++, JavaScript, Swift" },
-    { "label": "Frontend", "value": "HTML5, CSS3, React.js, SwiftUI, TypeScript, Responsive Design" },
-    { "label": "Backend & APIs", "value": "Node.js, RESTful APIs, JSON, MVVM Architecture, Authentication" },
-    { "label": "Databases & Cloud", "value": "Firebase, MySQL, MongoDB, Cloudinary" },
-    { "label": "Tools", "value": "Git, GitHub, GitHub Actions (CI/CD pipelines), VS Code, Xcode, Netlify" },
-    { "label": "AI & Prompt Engineering", "value": "Anthropic Claude API, Prompt Engineering, AI Integration, LLM, RAG (Retrieval-Augmented Generation)" }
+    {
+      "label": "Languages",
+      "value": "Python, C++, JavaScript, Swift"
+    },
+    {
+      "label": "Frontend",
+      "value": "HTML5, CSS3, React.js, SwiftUI, TypeScript, Responsive Design"
+    },
+    {
+      "label": "Backend & APIs",
+      "value": "Node.js, RESTful APIs, JSON, MVVM Architecture, Authentication"
+    },
+    {
+      "label": "Databases & Cloud",
+      "value": "Firebase, MySQL, MongoDB, Cloudinary"
+    },
+    {
+      "label": "Tools",
+      "value": "Git, GitHub, GitHub Actions (CI/CD pipelines), VS Code, Xcode, Netlify"
+    },
+    {
+      "label": "AI & Prompt Engineering",
+      "value": "Anthropic Claude API, Prompt Engineering, AI Integration, LLM, RAG (Retrieval-Augmented Generation)"
+    }
   ],
-
-
   "projects": [
     {
       "name": "Personal Portfolio Website",
-      "tech": "HTML, CSS, JavaScript",
-      "dates": "March 2025 - Present",
+      "dates": "Mar 2025 – Present",
       "bullets": [
         "Integrated a custom-prompted LLM chat-bot enabling visitors to interact with my background and projects in real time.",
         "Developed and deployed a portfolio site with dark/light mode, mobile-first responsive design, and multi-page navigation using HTML, CSS and JavaScript."
       ]
     },
-
     {
       "name": "CompanionCare – Pet Health & Community Web App",
-      "tech": "React.js, Node.js, TypeScript",
-      "dates": "January 2026 - June 2026",
+      "dates": "Jan 2026 – Jun 2026",
       "bullets": [
         "Shipped a full-stack pet care platform built with React.js, Node.js, and TypeScript, taking it from zero to production in 6 months and supporting 5 concurrent team members across a live user base.",
         "Integrated AI-powered features, including an LLM-driven assistant that gives users personalized pet care guidance and recommendations.",
@@ -85,11 +139,9 @@
         "Modeled Firebase Firestore data structures to support complex pet and user relationships across database design and API integration."
       ]
     },
-
     {
       "name": "ProjectClean – Full-Stack Issue Reporting Platform",
-      "tech": "React.js, Node.js, MongoDB, Cloudinary",
-      "dates": "May 2025 - July 2025",
+      "dates": "May 2025 – Jul 2025",
       "bullets": [
         "Architected a full-stack reporting app using React.js and Node.js, with RESTful APIs, MongoDB persistence, and Cloudinary image uploads.",
         "Launched an admin dashboard with real-time report tracking, improving workflow visibility and reducing manual follow-up.",
@@ -97,11 +149,10 @@
       ]
     }
   ],
-
   "experience": [
     {
       "company": "Zhang & Cheng Medical P.C.",
-      "dates": "January 2022 - Present",
+      "dates": "Jan 2022 – Present",
       "role": "Medical Receptionist & IT Support Specialist",
       "location": "Brooklyn, NY",
       "bullets": [
@@ -111,11 +162,10 @@
       ]
     }
   ],
-
   "leadershipExtracurricular": [
     {
-      "company": "Hunter Chinese Student & Scholar Association (CSSA) ",
-      "dates": "February 2024 – Present",
+      "company": "Hunter Chinese Student & Scholar Association",
+      "dates": "Feb 2024 – Present",
       "role": "Vice President",
       "location": "New York, NY",
       "bullets": [

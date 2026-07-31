@@ -1,0 +1,7 @@
+{
+  "name": "personal-website",
+  "private": true,
+  "scripts": {
+    "sync-resume": "node scripts/sync-resume.js"
+  }
+}

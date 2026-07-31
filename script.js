@@ -567,7 +567,7 @@ async function loadResumeData() {
         grid.className = "grid-container";
         grid.innerHTML = `
           <div class="left-text">
-            <h2><strong>${p.name ?? ""}</strong> <span class="code-language"> | ${p.tech ?? ""}</span></h2>
+            <h2><strong>${p.name ?? ""}</strong></h2>
           </div>
           <div class="right-text"><h2>${p.dates ?? ""}</h2></div>
         `;

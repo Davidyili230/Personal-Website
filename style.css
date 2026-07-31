@@ -1829,7 +1829,17 @@ a.cta-btn--secondary:hover {
    bg-1 fills the page; hovering fades a soft
    radius around the cursor into bg-2 underneath.
 =============================================== */
-body.page-home,
+body.page-home {
+  --bg: transparent;
+  --surface: rgba(255, 255, 255, 0.55);
+  --surface-2: rgba(236, 230, 216, 0.55);
+  --text: #1c1a14;
+  --text-secondary: #6c6656;
+  --border: rgba(28, 26, 20, 0.14);
+  --header-bg: rgba(246, 243, 236, 0.75);
+  background: transparent;
+}
+
 html.dark-mode body.page-home {
   --bg: #0a0a07;
   --surface: rgba(22, 20, 14, 0.55);
@@ -1838,7 +1848,6 @@ html.dark-mode body.page-home {
   --text-secondary: #b9b39c;
   --border: rgba(241, 237, 225, 0.16);
   --header-bg: rgba(10, 10, 7, 0.55);
-  background: transparent;
 }
 
 body.page-home .page-container,
@@ -1883,6 +1892,21 @@ body.page-home .main-header {
   mask-image: radial-gradient(circle var(--mr, 0px) at var(--mx, 50%) var(--my, 50%), rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.45) 55%, rgba(0, 0, 0, 0) 100%);
 }
 
+/* Light-mode scrim: bg-1/bg-2 are dark artwork with no light-theme variant,
+   so this washes them out toward the site's light palette instead. Fades
+   out in dark mode, where the artwork is shown at full strength. */
+.bg-scene-scrim {
+  position: absolute;
+  inset: 0;
+  background: rgba(246, 243, 236, 0.82);
+  opacity: 1;
+  transition: opacity var(--transition-slow);
+}
+
+html.dark-mode .bg-scene-scrim {
+  opacity: 0;
+}
+
 /* Point light at the cursor: scales up from nothing so the reveal
    underneath reads as if it grew outward from this light source. */
 .bg-cursor-light {
@@ -1893,7 +1917,7 @@ body.page-home .main-header {
   height: 100px;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(224, 184, 118, 0.95) 0%, rgba(224, 184, 118, 0.4) 45%, rgba(224, 184, 118, 0) 75%);
-  mix-blend-mode: screen;
+  mix-blend-mode: multiply;
   filter: blur(2px);
   opacity: 0;
   /* --lx/--ly are eased toward the cursor in JS (see initBgReveal), giving
@@ -1909,6 +1933,10 @@ body.page-home .main-header {
 body.page-home.bg-hover .bg-cursor-light {
   opacity: 1;
   scale: 1;
+}
+
+html.dark-mode .bg-cursor-light {
+  mix-blend-mode: screen;
 }
 
 /* ===============================================

@@ -4,8 +4,9 @@
 <head>
     <script>
         // Prevent flash of light theme
+        // Dark is the default theme, so only an explicit 'light' choice opts out.
         try {
-            if (localStorage.getItem('theme') === 'dark') {
+            if (localStorage.getItem('theme') !== 'light') {
                 document.documentElement.classList.add('dark-mode');
                 document.body.classList.add('dark-mode');
             }

@@ -225,9 +225,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!toggleInput) return;
 
+  // Dark is the default theme, so only an explicit 'light' choice opts out.
   let savedTheme = null;
   try { savedTheme = localStorage.getItem('theme'); } catch (e) { /* storage disabled */ }
-  if (savedTheme === 'dark') {
+  if (savedTheme !== 'light') {
     body.classList.add('dark-mode');
     document.documentElement.classList.add('dark-mode');
     toggleInput.checked = true;

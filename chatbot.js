@@ -665,7 +665,7 @@
     bubble.setAttribute("aria-label", "Open chat assistant");
     bubble.setAttribute("aria-expanded", "false");
     bubble.setAttribute("aria-controls", "chat-window");
-    bubble.innerHTML = "💬";
+    bubble.innerHTML = '<img src="img/chatbot-avatar.png" alt="">';
 
     const chatWin = document.createElement("div");
     chatWin.className = "chat-window";
@@ -677,7 +677,7 @@
     header.className = "chat-header";
     header.innerHTML = `
       <div class="chat-header-info">
-        <img src="img/potrait.jpg" class="chat-avatar" alt="David Li">
+        <img src="img/chatbot-avatar.png" class="chat-avatar" alt="David Li">
         <div>
           <div style="font-size:14px;font-weight:bold">David's Assistant</div>
           <div style="font-size:11px;opacity:0.75;font-weight:normal">Ask me anything about David</div>
@@ -738,7 +738,9 @@
 
     function setOpen(open) {
       chatWin.classList.toggle("open", open);
-      bubble.innerHTML = open ? "✕" : "💬";
+      bubble.innerHTML = open
+        ? "✕"
+        : '<img src="img/chatbot-avatar.png" alt="">';
       bubble.setAttribute("aria-label", open ? "Close chat assistant" : "Open chat assistant");
       bubble.setAttribute("aria-expanded", open ? "true" : "false");
       if (open) setTimeout(() => input.focus(), 200);

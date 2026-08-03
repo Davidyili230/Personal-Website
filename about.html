@@ -15,8 +15,9 @@
     <meta charset="utf-8">
     <script>
         // Prevent flash of light theme — body doesn't exist yet here, so only set on <html>.
+        // Dark is the default theme, so only an explicit 'light' choice opts out.
         try {
-            if (localStorage.getItem('theme') === 'dark') {
+            if (localStorage.getItem('theme') !== 'light') {
                 document.documentElement.classList.add('dark-mode');
             }
         } catch (e) { }
@@ -26,7 +27,7 @@
     <title>About - Yi Li (David Li) | Fun Facts, Hobbies, Journal Updates</title>
 
     <!--Tab icon-->
-    <link rel="icon" href="img/potrait.PNG">
+    <link rel="icon" href="img/profile/profile.jpg">
 
     <meta name="description" content="Get to know Yi Li (David Li): fun facts, hobbies, and personal notes on my computer science journey—what I’m learning, what I’m building, and what motivates my work." />
     <link rel="canonical" href="https://davidyili230.github.io/Personal-Website/about.html" />
@@ -41,7 +42,7 @@
 
 <!--Body of webpage, what user see-->
 
-<body>
+<body class="page-about">
     <!--Nav bar for linking pages-->
     <header class="main-header">
         <nav class="nav-links">
@@ -49,7 +50,7 @@
             <a href="about.html" aria-current="page">About</a>
             <a href="resume.html">Resume</a>
             <a href="projects.html">Projects</a>
-            <a href="contact.html">Contact</a>            
+            <a href="contact.html">Contact</a>
             <div class="toggle-switch">
                 <input type="checkbox" id="darkModeToggle">
                 <div class="slider">
@@ -61,82 +62,86 @@
         </nav>
     </header>
 
-    <!-- Main page content -->
-    <div class="page-container">
-        <!-- Left Sidebar -->
-        <aside class="sidebar" id="sidebar"></aside>
+    <!-- Slim scroll-progress indicator for the story -->
+    <div class="story-progress" aria-hidden="true">
+        <div class="story-progress-bar" id="storyProgressBar"></div>
+    </div>
 
-        <!-- Middle Bar -->
-        <section class="middle-bar">
-            <div class="icon-container">
-                <button onclick="scrollToSection('Intro')">
-                    <img src="img/intro.png" alt="Introduction">
-                    <span class="icon-label">Introduction</span>
-                </button>
-            </div>
+    <!-- Main page content: a full-bleed scroll narrative, no sidebar/icon-rail on this page -->
+    <main class="main story">
 
-            <div class="icon-container">
-                <button onclick="scrollToSection('Question')">
-                    <img src="img/question.png" alt="Question">
-                    <span class="icon-label">Fun_Fact</span>
-                </button>
-            </div>
-
-            <div class="icon-container">
-                <button onclick="scrollToSection('Journey')">
-                    <img src="img/Journey.png" alt="Journey">
-                    <span class="icon-label">Journey</span>
-                </button>
-            </div>
-
-            <div class="icon-container">
-                <button onclick="scrollToSection('Hobbies')">
-                    <img src="img/hobbies.png" alt="Hobbies">
-                    <span class="icon-label">Hobbies</span>
-                </button>
+        <!-- Cover: the big opening moment -->
+        <section class="story-cover">
+            <div class="story-cover-bg" aria-hidden="true"></div>
+            <div class="story-cover-content">
+                <p class="story-eyebrow reveal delay-1">Hunter College &middot; NYC &middot; CS Student</p>
+                <h1 class="story-cover-title reveal delay-2">Yi 'David' Li</h1>
+                <p class="story-cover-subtitle reveal delay-3">A story about a name that stuck, a couple of mountains, and a lot of hotpot.</p>
+                <div class="story-scroll-cue reveal delay-4" aria-hidden="true">
+                    <span></span>
+                    Scroll
+                </div>
             </div>
         </section>
 
+        <!-- Intro -->
+        <section class="story-chapter" id="Intro">
+            <div class="story-chapter-media">
+                <div class="story-media story-media--warm story-media-reveal-ltr story-media--placeholder-solid">
+                    <img class="story-photo" id="IntroPhoto" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="">
+                </div>
+            </div>
+            <div class="story-chapter-text">
+                <h2 class="story-heading reveal" id="IntroTitle">Intro</h2>
+                <p class="reveal story-highlight-text" id="IntroP1"></p>
+                <p class="reveal delay-1 story-highlight-text" id="IntroP2"></p>
+                <p class="reveal delay-2 story-highlight-text" id="IntroP3"></p>
+            </div>
+        </section>
 
-        <main class="main">
-            <h1 class="reveal delay" id="Intro">About Me</h1>
-            <!-- Introduction -->
-            <div class="reveal delay">
-                <h2 id="IntroTitle">Intro</h2>
-                <p id="IntroP1"></p>
-                <hr class="extra-line">
-                <p id="IntroP2"></p>
-              </div>
-              
+        <div class="story-divider" aria-hidden="true"><span class="story-divider-dot"></span></div>
 
-
-            <!-- Why named David -->
-            <div class="reveal delay">
-                <hr class="extra-line">
-                <h2 id="Question">Why I'm I known as David?</h2>
+        <!-- Why David -->
+        <section class="story-chapter story-chapter--reverse" id="Question">
+            <div class="story-chapter-media">
+                <div class="story-media story-media--cool story-media-reveal-rtl story-media--placeholder-solid">
+                    <img class="story-photo" id="WhyDavidPhoto" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="">
+                </div>
+            </div>
+            <div class="story-chapter-text">
+                <h2 class="story-heading reveal" id="WhyDavidTitle">Why am I known as David?</h2>
                 <div id="WhyDavidContainer"></div>
-              </div>
-              
+            </div>
+        </section>
 
-            <!-- What I enjoy doing -->
-            <div class="reveal delay">
-                <hr class="extra-line">
-                <h2 id="Journey">Journey</h2>
-                <ul id="JourneyList"></ul>
-              </div>
-              
+        <div class="story-divider" aria-hidden="true"><span class="story-divider-dot"></span></div>
 
-            <!-- I like to -->
-            <div class="reveal delay">
-                <hr class="extra-line">
-                <h2 id="Hobbies">I like to...</h2>
-                <ul id="HobbiesList"></ul>
-              </div>
-              
-            <!-- Add this at the bottom of your .main content -->
-            <button id="backToTopBtn">⬆<span class="tooltip">Scroll to Top</span></button>
-        </main>
-    </div>
+        <!-- Journey -->
+        <section class="story-chapter-full" id="Journey">
+            <div class="story-section-head">
+                <h2 class="story-heading reveal" id="JourneyTitle">Journey</h2>
+            </div>
+            <img id="JourneyFallbackPhoto" class="story-photo story-fallback-photo" src="img/about/journey/Bull-Hill.png" alt="Hiking Bull Hill" style="display:none;">
+            <ol class="story-timeline" id="JourneyList"></ol>
+        </section>
+
+        <div class="story-divider" aria-hidden="true"><span class="story-divider-dot"></span></div>
+
+        <!-- Hobbies -->
+        <section class="story-chapter-full" id="Hobbies">
+            <div class="story-section-head">
+                <h2 class="story-heading reveal" id="HobbiesTitle">I like to...</h2>
+            </div>
+            <ul class="story-tiles" id="HobbiesList"></ul>
+
+            <div class="story-cta-row reveal">
+                <a href="projects.html" class="cta-btn cta-btn--primary">View Projects</a>
+                <a href="contact.html" class="cta-btn cta-btn--secondary">Get in Touch</a>
+            </div>
+        </section>
+
+        <button id="backToTopBtn">⬆<span class="tooltip">Scroll to Top</span></button>
+    </main>
     <script src="script.js"></script>
     <script src="chatbot.js"></script>
 </body>

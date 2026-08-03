@@ -12,8 +12,9 @@
     <meta charset="utf-8">
     <script>
         // Prevent flash of light theme — body doesn't exist yet here, so only set on <html>.
+        // Dark is the default theme, so only an explicit 'light' choice opts out.
         try {
-            if (localStorage.getItem('theme') === 'dark') {
+            if (localStorage.getItem('theme') !== 'light') {
                 document.documentElement.classList.add('dark-mode');
             }
         } catch (e) { }
@@ -21,7 +22,7 @@
 
     <title>Contact - Yi Li (David) | Message Form + Email</title>
 
-    <link rel="icon" href="img/potrait.PNG">
+    <link rel="icon" href="img/profile/profile.jpg">
 
     <meta name="description" content="Send Yi Li (David Li) a message using the contact form or email. Best for internship questions, project feedback, collaboration ideas, or networking opportunities." />
     <link rel="canonical" href="https://davidyili230.github.io/Personal-Website/contact.html" />

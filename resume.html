@@ -4,8 +4,9 @@
 <head>
     <script>
         // Prevent flash of light theme
+        // Dark is the default theme, so only an explicit 'light' choice opts out.
         try {
-            if (localStorage.getItem('theme') === 'dark') {
+            if (localStorage.getItem('theme') !== 'light') {
                 document.documentElement.classList.add('dark-mode');
                 document.body.classList.add('dark-mode');
             }
@@ -13,7 +14,7 @@
     </script>
 
     <title>Resume — Yi Li (David Li) | C++, Data Structures, Web Dev</title>
-    <link rel="icon" href="img/potrait.PNG" alt="Yi Li's Profile Picture">
+    <link rel="icon" href="img/profile/profile.jpg" alt="Yi Li's Profile Picture">
 
     <!-- Support special char, makes webpage scale on diff device -->
     <meta charset="utf-8">
@@ -58,42 +59,42 @@
         <div class="middle-bar">
             <div class="icon-container">
                 <button onclick="scrollToSection('Summary')">
-                    <img src="img/user.png" alt="Professional Summary">
+                    <img src="img/icons/user.png" alt="Professional Summary">
                     <span class="icon-label">Summary</span>
                 </button>
             </div>
 
             <div class="icon-container">
                 <button onclick="scrollToSection('Education')">
-                    <img src="img/education.png" alt="Education">
+                    <img src="img/icons/education.png" alt="Education">
                     <span class="icon-label">Education</span>
                 </button>
             </div>
 
             <div class="icon-container">
                 <button onclick="scrollToSection('Certifications')">
-                    <img src="img/certifications.png" alt="Certifications">
+                    <img src="img/icons/certifications.png" alt="Certifications">
                     <span class="icon-label">Certifications</span>
                 </button>
             </div>
 
             <div class="icon-container">
                 <button onclick="scrollToSection('Technical-Skills')">
-                    <img src="img/technical-skills.png" alt="Technical Skills">
+                    <img src="img/icons/technical-skills.png" alt="Technical Skills">
                     <span class="icon-label">Technical Skills</span>
                 </button>
             </div>
 
             <div class="icon-container">
                 <button onclick="scrollToSection('Projects')">
-                    <img src="img/project.png" alt="Projects">
+                    <img src="img/icons/project.png" alt="Projects">
                     <span class="icon-label">Projects</span>
                 </button>
             </div>
             
             <div class="icon-container">
                 <button onclick="scrollToSection('Experience')">
-                    <img src="img/experience.png" alt="Experience">
+                    <img src="img/icons/experience.png" alt="Experience">
                     <span class="icon-label">Experience</span>
                 </button>
             </div>

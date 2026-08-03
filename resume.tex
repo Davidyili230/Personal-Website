@@ -1,0 +1,169 @@
+%-------------------------
+% Yi Li (David) — Resume
+% Matches docx: 10pt, 0.3" L/R margins, bullet dots, two-line project headings
+%-------------------------
+
+\documentclass[letterpaper,10pt]{article}
+
+\usepackage{latexsym}
+\usepackage{titlesec}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{enumitem}
+\usepackage[hidelinks,colorlinks=true,urlcolor=blue,linkcolor=blue]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{xcolor}
+\usepackage[
+  top=0.28in,
+  bottom=0.28in,
+  left=0.28in,
+  right=0.28in
+]{geometry}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Colors
+\definecolor{accentblue}{HTML}{2563EB}
+\definecolor{darknavy}{HTML}{1A1A2E}
+\definecolor{darkgray}{HTML}{4A4A4A}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+\setlength{\parindent}{0pt}
+
+% Section header: blue bold + blue rule — tighter gap between rule and body
+\titleformat{\section}{
+  \vspace{-5pt}\raggedright\small\bfseries\color{black}
+}{}{0em}{}[\color{black}\titlerule\vspace{-6pt}]
+
+%-------------------------
+\newlist{resumebullets}{itemize}{1}
+\setlist[resumebullets]{
+  label=\textbullet,
+  leftmargin=0.18in,
+  itemsep=0.5pt,
+  parsep=0pt,
+  topsep=1pt,
+  partopsep=0pt
+}
+
+\newcommand{\rItem}[1]{\item\small\color{darknavy} #1}
+
+\newcommand{\entryHead}[4]{%
+  \vspace{2pt}%
+  \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{\color{darknavy}#1} & \textbf{\small\color{darkgray}#2}\\
+    \textit{\small\color{darkgray}#3} & \textit{\small\color{darkgray}#4}\\
+  \end{tabular*}\vspace{2pt}%
+}
+
+\newcommand{\entryHeadNoSub}[2]{%
+  \vspace{2pt}%
+  \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{\color{darknavy}#1} & \textbf{\small\color{darkgray}#2}\\
+  \end{tabular*}\vspace{2pt}%
+}
+
+\newcommand{\certRow}[2]{%
+  \vspace{1pt}%
+  \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+    \small\color{darknavy}#1 & \textit{\small\color{darkgray}#2}\\
+  \end{tabular*}\vspace{0pt}%
+}
+
+\newcommand{\skillRow}[2]{%
+  \vspace{2pt}\small\textbf{\color{darknavy}#1:} \color{darknavy}#2\par%
+}
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+  {\huge\bfseries\color{darknavy} Yi Li (David)}\\[4pt]
+  \small\color{darkgray}
+  917-365-7182 \;$|$\;
+  \href{mailto:Davidyili230@gmail.com}{Davidyili230@gmail.com} \;$|$\;
+  \href{https://linkedin.com/in/davidyili}{linkedin.com/in/davidyili} \;$|$\;
+  \href{https://github.com/Davidyili230}{github.com/Davidyili230} \;$|$\;
+  \href{https://davidyili230.github.io/Personal-Website/}{davidyili230.github.io/Personal-Website/}
+\end{center}
+\vspace{-10pt}
+
+%-----------PROFESSIONAL SUMMARY-----------
+\section{PROFESSIONAL SUMMARY}
+Full-stack developer skilled at seeing projects from conception to final product — collaborating across teams, communicating clearly with stakeholders, and collaborating others to deliver responsive, cross-platform web applications across 3 production applications.
+\vspace{0pt}
+
+%-----------TECHNICAL SKILLS-----------
+\section{TECHNICAL SKILLS}
+\skillRow{Languages}{Python, C++, JavaScript, Swift}
+\skillRow{Frontend}{HTML5, CSS3, React.js, SwiftUI, TypeScript, Responsive Design}
+\skillRow{Backend \& APIs}{Node.js, RESTful APIs, JSON, MVVM Architecture, Authentication}
+\skillRow{Databases \& Cloud}{Firebase, MySQL, MongoDB, Cloudinary}
+\skillRow{Tools}{Git, GitHub, GitHub Actions (CI/CD pipelines), VS Code, Xcode, Netlify}
+\skillRow{AI \& Prompt Engineering}{Anthropic Claude API, Prompt Engineering, AI Integration, LLM, RAG (Retrieval-Augmented Generation)}
+\vspace{0pt}
+
+%-----------ENGINEERING PROJECTS-----------
+\section{ENGINEERING PROJECTS}
+
+\entryHeadNoSub{Personal Portfolio Website}{Mar 2025 -- Present}
+\begin{resumebullets}
+  \rItem{Integrated a custom-prompted LLM chat-bot enabling visitors to interact with my background and projects in real time.}
+  \rItem{Developed and deployed a portfolio site with dark/light mode, mobile-first responsive design, and multi-page navigation using HTML, CSS and JavaScript.}
+\end{resumebullets}
+
+\entryHeadNoSub{CompanionCare -- Pet Health \& Community Web App}{Jan 2026 -- Jun 2026}
+\begin{resumebullets}
+  \rItem{Shipped a full-stack pet care platform built with React.js, Node.js, and TypeScript, taking it from zero to production in 6 months and supporting 5 concurrent team members across a live user base.}
+  \rItem{Integrated AI-powered features, including an LLM-driven assistant that gives users personalized pet care guidance and recommendations.}
+  \rItem{Optimized REST API performance to maintain sub-200ms response times under live traffic.}
+  \rItem{Implemented JWT-based authentication and role-protected routes, securing 100\% of user data endpoints.}
+  \rItem{Modeled Firebase Firestore data structures to support complex pet and user relationships across database design and API integration.}
+\end{resumebullets}
+
+\entryHeadNoSub{ProjectClean -- Full-Stack Issue Reporting Platform}{May 2025 -- Jul 2025}
+\begin{resumebullets}
+  \rItem{Architected a full-stack reporting app using React.js and Node.js, with RESTful APIs, MongoDB persistence, and Cloudinary image uploads.}
+  \rItem{Launched an admin dashboard with real-time report tracking, improving workflow visibility and reducing manual follow-up.}
+  \rItem{Designed the full data flow end-to-end, giving student users real-time visibility into their submitted reports and staff administrators live status updates without needing a page refresh.}
+\end{resumebullets}
+\vspace{0pt}
+
+%-----------PROFESSIONAL EXPERIENCE-----------
+\section{PROFESSIONAL EXPERIENCE}
+
+\entryHead{Zhang \& Cheng Medical P.C.}{Jan 2022 -- Present}{Medical Receptionist \& IT Support Specialist}{Brooklyn, NY}
+\begin{resumebullets}
+  \rItem{Proactively diagnose and resolved hardware, network, and EHR software issues (e.g., workstation failures, connectivity outages, software glitches) before they impacted patient operations, maintaining consistent daily uptime over 3+ years.}
+  \rItem{Administers and update electronic health records (EHR) in iClinic for 100+ active patient records, ensuring data accuracy and HIPAA compliance.}
+  \rItem{Train and onboarded staff on clinical software and equipment, coordinating patient intake and scheduling to support seamless daily operations.}
+\end{resumebullets}
+\vspace{0pt}
+
+%-----------EDUCATION-----------
+\section{EDUCATION}
+\entryHead{Hunter College (CUNY)}{June 2026}{Bachelor of Science in Computer Science}{New York, NY}
+\vspace{-5pt}
+
+%-----------CERTIFICATIONS-----------
+\section{CERTIFICATIONS}
+\certRow{CodePath -- Applications of AI Engineering}{In Progress}
+\certRow{CodePath -- Foundations of AI Engineering}{Completed: May 2026}
+\vspace{-10pt}
+
+%-----------LEADERSHIP & ACTIVITIES-----------
+\section{LEADERSHIP \& ACTIVITIES}
+\entryHead{Hunter Chinese Student \& Scholar Association}{Feb 2024 -- Present}{Vice President}{}
+\begin{resumebullets}
+  \rItem{Directed a 20+ member executive board to plan and execute campus-wide cultural events, growing average attendance from 40+ to 70+ students in a semester — a 75\% increase.}
+  \rItem{Guided and onboarded 10 new members through structured resource-sharing and mentorship, accelerating their integration and strengthening board execution across all events.}
+\end{resumebullets} 
+
+\end{document}

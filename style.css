@@ -1,27 +1,28 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@400;500;600;700;800&display=swap');
 
 /* ===============================================
    DESIGN TOKENS
 =============================================== */
 :root {
-  --accent: #6366f1;
-  --accent-dark: #4f46e5;
-  --accent-light: #a5b4fc;
-  --accent-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 60%, #a78bfa 100%);
-  --accent-gradient-wide: linear-gradient(135deg, #4f46e5 0%, #6366f1 30%, #8b5cf6 65%, #a855f7 100%);
-  --accent-glow: 0 0 0 3px rgba(99, 102, 241, 0.22);
+  --accent: #b8823f;
+  --accent-dark: #8f6428;
+  --accent-light: #e0b876;
+  --accent-green: #7fae5c;
+  --accent-gradient: linear-gradient(135deg, #b8823f 0%, #d9a860 55%, #7fae5c 100%);
+  --accent-gradient-wide: linear-gradient(135deg, #8f6428 0%, #b8823f 30%, #d9a860 65%, #7fae5c 100%);
+  --accent-glow: 0 0 0 3px rgba(184, 130, 63, 0.24);
 
-  --bg: #f7f7fb;
+  --bg: #f6f3ec;
   --surface: #ffffff;
-  --surface-2: #edeef5;
-  --text: #0f1117;
-  --text-secondary: #64748b;
-  --border: rgba(15, 17, 23, 0.08);
-  --header-bg: rgba(247, 247, 251, 0.82);
+  --surface-2: #ece6d8;
+  --text: #1c1a14;
+  --text-secondary: #6c6656;
+  --border: rgba(28, 26, 20, 0.09);
+  --header-bg: rgba(246, 243, 236, 0.82);
 
   --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.07);
   --shadow: 0 2px 16px rgba(0, 0, 0, 0.09);
-  --shadow-hover: 0 12px 36px rgba(99, 102, 241, 0.22), 0 3px 10px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 12px 36px rgba(184, 130, 63, 0.22), 0 3px 10px rgba(0, 0, 0, 0.08);
   --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.05), 0 6px 20px rgba(0, 0, 0, 0.07);
 
   --radius-sm: 8px;
@@ -33,22 +34,22 @@
   --transition-md: 300ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 600ms cubic-bezier(0.16, 1, 0.3, 1);
 
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-display: 'Sora', 'Inter', system-ui, sans-serif;
+  --font-sans: 'Manrope', system-ui, -apple-system, sans-serif;
+  --font-display: 'Cormorant Garamond', 'Manrope', system-ui, serif;
 }
 
 html.dark-mode,
 body.dark-mode {
-  --bg: #08080f;
-  --surface: #13131a;
-  --surface-2: #1c1c26;
-  --text: #eef0f8;
-  --text-secondary: #8890a8;
-  --border: rgba(255, 255, 255, 0.07);
-  --header-bg: rgba(8, 8, 15, 0.90);
+  --bg: #0a0a07;
+  --surface: #16150f;
+  --surface-2: #1f1e15;
+  --text: #f1ede1;
+  --text-secondary: #a8a28c;
+  --border: rgba(255, 255, 255, 0.08);
+  --header-bg: rgba(10, 10, 7, 0.90);
   --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.5);
   --shadow: 0 2px 16px rgba(0, 0, 0, 0.4);
-  --shadow-hover: 0 12px 36px rgba(99, 102, 241, 0.28), 0 3px 10px rgba(0, 0, 0, 0.35);
+  --shadow-hover: 0 12px 36px rgba(184, 130, 63, 0.3), 0 3px 10px rgba(0, 0, 0, 0.35);
   --shadow-card: 0 1px 4px rgba(0, 0, 0, 0.35), 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
@@ -123,11 +124,12 @@ img {
 .nav-links a:first-child {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 1.15rem;
+  font-style: italic;
   color: var(--text);
   padding-left: 0;
   margin-right: 8px;
-  letter-spacing: -0.03em;
+  letter-spacing: 0;
 }
 
 .nav-links a:not(:first-child) {
@@ -190,25 +192,19 @@ img {
 
 .sidebar h1 {
   font-family: var(--font-display);
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   font-weight: 700;
-  letter-spacing: -0.03em;
+  letter-spacing: 0;
   line-height: 1.3;
   color: var(--text);
   margin-bottom: 4px;
 }
 
-.sidebar h2,
-.sidebar h3,
-.sidebar h4 {
+.sidebar h2 {
   font-family: var(--font-sans);
   font-size: 0.85rem;
   font-weight: 500;
   color: var(--text-secondary);
-}
-
-.sidebar h3 {
-  font-weight: 600;
 }
 
 .sidebar p {
@@ -218,19 +214,95 @@ img {
 }
 
 /* ===============================================
+   SIDEBAR CARD (about section, etc.)
+=============================================== */
+.sidebar-card {
+  text-align: left;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  margin: 22px 0;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-md), box-shadow var(--transition-md), border-color var(--transition-md);
+}
+
+.sidebar-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(184, 130, 63, 0.25);
+}
+
+.sidebar-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.sidebar-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+  background-color: rgba(184, 130, 63, 0.1);
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.sidebar-card-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+}
+
+.sidebar-card p {
+  margin: 0;
+}
+
+.sidebar-footer {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
+  padding-top: 20px;
+  margin-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+/* ===============================================
    SOCIAL ICONS
 =============================================== */
 .sidebar-social-icons {
   display: flex;
   justify-content: center;
-  gap: 16px;
-  padding-top: 24px;
-  opacity: 0.65;
-  transition: opacity var(--transition);
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
-.sidebar-social-icons:hover {
-  opacity: 1;
+.social-icon-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: rgba(184, 130, 63, 0.1);
+  color: var(--accent);
+  transition: transform var(--transition), background var(--transition), color var(--transition), box-shadow var(--transition);
+}
+
+.social-icon-link:hover,
+.social-icon-link:focus-visible {
+  background: var(--accent-gradient);
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(184, 130, 63, 0.35);
 }
 
 /* ===============================================
@@ -244,12 +316,12 @@ img {
   margin-bottom: 16px;
   width: 75%;
   aspect-ratio: 1 / 1;
-  box-shadow: 0 6px 28px rgba(99, 102, 241, 0.3);
+  box-shadow: 0 6px 28px rgba(184, 130, 63, 0.3);
   transition: box-shadow var(--transition-md), transform var(--transition-md);
 }
 
 .profile-img-ring:hover {
-  box-shadow: 0 8px 36px rgba(99, 102, 241, 0.45);
+  box-shadow: 0 8px 36px rgba(184, 130, 63, 0.45);
   transform: scale(1.02);
 }
 
@@ -298,7 +370,7 @@ img {
 }
 
 .icon-container button:hover {
-  background-color: rgba(99, 102, 241, 0.1);
+  background-color: rgba(184, 130, 63, 0.1);
 }
 
 .icon-container img {
@@ -350,9 +422,9 @@ img {
 
 .main h1 {
   font-family: var(--font-display);
-  font-size: 2.25rem;
+  font-size: 2.5rem;
   font-weight: 700;
-  letter-spacing: -0.04em;
+  letter-spacing: 0;
   line-height: 1.2;
   text-align: center;
   color: var(--text);
@@ -543,9 +615,9 @@ img {
 
 .contact-heading {
   font-family: var(--font-display);
-  font-size: 2.25rem;
+  font-size: 2.5rem;
   font-weight: 700;
-  letter-spacing: -0.04em;
+  letter-spacing: 0;
   line-height: 1.2;
   color: var(--text);
   margin-bottom: 12px;
@@ -581,7 +653,7 @@ img {
 .contact-method-card:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-hover);
-  border-color: rgba(99, 102, 241, 0.25);
+  border-color: rgba(184, 130, 63, 0.25);
   text-decoration: none !important;
 }
 
@@ -592,7 +664,7 @@ img {
   width: 36px;
   height: 36px;
   border-radius: var(--radius-sm);
-  background-color: rgba(99, 102, 241, 0.1);
+  background-color: rgba(184, 130, 63, 0.1);
   color: var(--accent);
   flex-shrink: 0;
 }
@@ -663,9 +735,9 @@ img {
 
 .form-section-heading {
   font-family: var(--font-display);
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
   color: var(--text);
   margin-bottom: 2px;
 }
@@ -810,7 +882,7 @@ img {
   transition: opacity var(--transition), transform var(--transition), box-shadow var(--transition);
   letter-spacing: -0.01em;
   margin-top: 4px;
-  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
+  box-shadow: 0 4px 14px rgba(184, 130, 63, 0.35);
   position: relative;
   overflow: hidden;
 }
@@ -818,12 +890,12 @@ img {
 .submit-btn:hover {
   opacity: 0.92;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.45);
+  box-shadow: 0 6px 20px rgba(184, 130, 63, 0.45);
 }
 
 .submit-btn:active {
   transform: translateY(0);
-  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
+  box-shadow: 0 2px 8px rgba(184, 130, 63, 0.3);
 }
 
 @keyframes slideIn {
@@ -870,6 +942,68 @@ img {
   transform: none;
 }
 
+/* Image reveal patterns — each applies directly to a .story-media panel
+   (which already clips via overflow:hidden) rather than its wrapper, so the
+   clip-path wipe reads as a window opening onto the photo itself.
+   clip-path insets are computed against the element's own pre-transform
+   border box, so combining clip-path + scale on one element is safe. */
+.story-media-reveal-ltr,
+.story-media-reveal-rtl,
+.story-media-reveal-pop,
+.story-media-reveal-btt {
+  will-change: opacity, transform, clip-path;
+}
+
+/* Pattern 1 — image left of text: pops in, then a sliding window opens
+   left-to-right to reveal it. No zoom. */
+.story-media-reveal-ltr {
+  opacity: 0;
+  transform: scale(0.94);
+  clip-path: inset(0 100% 0 0);
+  transition: opacity 0.4s ease,
+              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              clip-path 0.9s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* Pattern 2 — image right of text: pops in zoomed in, then zooms back out
+   to normal scale while a sliding window opens right-to-left. */
+.story-media-reveal-rtl {
+  opacity: 0;
+  transform: scale(1.25);
+  clip-path: inset(0 0 0 100%);
+  transition: opacity 0.4s ease,
+              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              clip-path 0.9s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* Pattern 3 — standalone image (no paired text side): pops in slightly
+   zoomed in and settles back down to normal scale. No wipe. */
+.story-media-reveal-pop {
+  opacity: 0;
+  transform: scale(1.18);
+  transition: opacity 0.5s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Pattern 4 — same zoom-out pop as Pattern 2, but the sliding window opens
+   bottom-to-top instead of right-to-left. */
+.story-media-reveal-btt {
+  opacity: 0;
+  transform: scale(1.25);
+  clip-path: inset(100% 0 0 0);
+  transition: opacity 0.4s ease,
+              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              clip-path 0.9s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.story-media-reveal-ltr.active,
+.story-media-reveal-rtl.active,
+.story-media-reveal-pop.active,
+.story-media-reveal-btt.active {
+  opacity: 1;
+  transform: scale(1);
+  clip-path: inset(0 0 0 0);
+}
+
 /* Stagger delay utilities */
 .delay   { transition-delay: 0.12s; }
 .delay-1 { transition-delay: 0.08s; }
@@ -894,7 +1028,7 @@ img {
   cursor: pointer;
   display: none;
   z-index: 10;
-  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4);
+  box-shadow: 0 4px 14px rgba(184, 130, 63, 0.4);
   transition: opacity var(--transition), transform var(--transition);
 }
 
@@ -1012,7 +1146,7 @@ img {
 }
 
 .toggle-switch input:checked + .slider {
-  background-color: #1e1e2e;
+  background-color: #1f1e15;
   border-color: rgba(255,255,255,0.1);
 }
 
@@ -1096,9 +1230,9 @@ img {
 =============================================== */
 .page-title {
   font-family: var(--font-display);
-  font-size: 2.25rem;
+  font-size: 2.5rem;
   font-weight: 700;
-  letter-spacing: -0.04em;
+  letter-spacing: 0;
   line-height: 1.2;
   margin: 0 0 8px 0;
 }
@@ -1141,10 +1275,14 @@ img {
   border-radius: var(--radius-lg);
   padding: 28px 28px 24px 32px;
   box-shadow: var(--shadow-card);
-  transition: transform var(--transition-md), box-shadow var(--transition-md), border-color var(--transition-md);
   position: relative;
   overflow: hidden;
-  animation: scaleIn 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+  opacity: 0;
+  transform: translateY(28px) scale(0.96);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow var(--transition-md), border-color var(--transition-md);
+  will-change: opacity, transform;
 }
 
 .project-card::before {
@@ -1160,13 +1298,30 @@ img {
   border-radius: var(--radius-lg) 0 0 var(--radius-lg);
 }
 
+/* Cursor-glow: --mx/--my are set from JS pointer position (see initCardTilt),
+   same trick as the homepage's cursor-follow light. */
+.project-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(520px circle at var(--mx, 50%) var(--my, 50%), rgba(184, 130, 63, 0.12), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
 .project-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-hover);
-  border-color: rgba(99, 102, 241, 0.3);
+  border-color: rgba(184, 130, 63, 0.3);
 }
 
 .project-card:hover::before {
+  opacity: 1;
+}
+
+.project-card:hover::after {
   opacity: 1;
 }
 
@@ -1210,6 +1365,12 @@ img {
   height: 6px;
   border-radius: 50%;
   flex-shrink: 0;
+  animation: statusDotPulse 2.2s ease-in-out infinite;
+}
+
+@keyframes statusDotPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%       { transform: scale(1.35); opacity: 0.55; }
 }
 
 .project-status--live {
@@ -1227,18 +1388,18 @@ img {
 .project-status--video-demo::before { background: #f59e0b; }
 
 .project-status--open-source {
-  background-color: rgba(99, 102, 241, 0.08);
+  background-color: rgba(184, 130, 63, 0.08);
   color: var(--accent);
-  border: 1px solid rgba(99, 102, 241, 0.18);
+  border: 1px solid rgba(184, 130, 63, 0.18);
 }
 .project-status--open-source::before { background: var(--accent); }
 
 .project-title {
   margin: 0 0 10px 0;
   font-family: var(--font-display);
-  font-size: 1.2rem;
+  font-size: 1.35rem;
   font-weight: 700;
-  letter-spacing: -0.03em;
+  letter-spacing: 0;
   line-height: 1.25;
   color: var(--text);
 }
@@ -1262,13 +1423,26 @@ img {
   display: inline-flex;
   padding: 4px 10px;
   border-radius: 999px;
-  background-color: rgba(99, 102, 241, 0.07);
-  border: 1px solid rgba(99, 102, 241, 0.15);
+  background-color: rgba(184, 130, 63, 0.07);
+  border: 1px solid rgba(184, 130, 63, 0.15);
   font-size: 0.78rem;
   font-weight: 500;
   color: var(--accent);
   letter-spacing: -0.01em;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background var(--transition), border-color var(--transition);
 }
+
+.project-card:hover .tech-chip {
+  transform: translateY(-2px);
+}
+
+.project-card:hover .tech-chip:nth-child(1) { transition-delay: 0s; }
+.project-card:hover .tech-chip:nth-child(2) { transition-delay: 0.03s; }
+.project-card:hover .tech-chip:nth-child(3) { transition-delay: 0.06s; }
+.project-card:hover .tech-chip:nth-child(4) { transition-delay: 0.09s; }
+.project-card:hover .tech-chip:nth-child(5) { transition-delay: 0.12s; }
+.project-card:hover .tech-chip:nth-child(6) { transition-delay: 0.15s; }
+.project-card:hover .tech-chip:nth-child(n+7) { transition-delay: 0.18s; }
 
 .project-meta-row {
   display: flex;
@@ -1294,8 +1468,8 @@ img {
   font-size: 0.82rem;
   font-weight: 600;
   color: var(--accent);
-  background: rgba(99, 102, 241, 0.08);
-  border: 1px solid rgba(99, 102, 241, 0.18);
+  background: rgba(184, 130, 63, 0.08);
+  border: 1px solid rgba(184, 130, 63, 0.18);
   border-radius: 999px;
   padding: 5px 14px;
   transition: background var(--transition), border-color var(--transition);
@@ -1307,8 +1481,8 @@ img {
 }
 
 .project-card:hover .project-link-label {
-  background: rgba(99, 102, 241, 0.14);
-  border-color: rgba(99, 102, 241, 0.3);
+  background: rgba(184, 130, 63, 0.14);
+  border-color: rgba(184, 130, 63, 0.3);
 }
 
 .project-card:hover .project-link-label::after {
@@ -1361,10 +1535,6 @@ body.dark-mode .main hr {
   background-color: var(--border);
 }
 
-body.dark-mode .sidebar-social-icons {
-  filter: invert(0.75);
-}
-
 body.dark-mode .contact-method-card {
   background-color: var(--surface);
   border-color: var(--border);
@@ -1393,8 +1563,8 @@ body.dark-mode .project-card {
 }
 
 body.dark-mode .tech-chip {
-  background-color: rgba(99, 102, 241, 0.12);
-  border-color: rgba(99, 102, 241, 0.22);
+  background-color: rgba(184, 130, 63, 0.12);
+  border-color: rgba(184, 130, 63, 0.22);
 }
 
 body.dark-mode .project-status--live {
@@ -1413,8 +1583,8 @@ body.dark-mode .project-status--video-demo {
    PREVENT FLASH ON PAGE LOAD
 =============================================== */
 html.dark-mode body {
-  background-color: #08080f;
-  color: #eef0f8;
+  background-color: #0a0a07;
+  color: #f1ede1;
 }
 
 /* ===============================================
@@ -1459,7 +1629,7 @@ html.dark-mode body {
   .main {
     width: 100%;
     padding: 24px 20px;
-    overflow-y: visible;
+    padding: 22px 16px;
     order: 1;
   }
 
@@ -1568,6 +1738,7 @@ html.dark-mode body {
   text-align: center;
   padding: 56px 0 40px;
   overflow: visible;
+  perspective: 1000px;
 }
 
 .hero-orb-wrap {
@@ -1576,6 +1747,15 @@ html.dark-mode body {
   pointer-events: none;
   z-index: 0;
   overflow: hidden;
+}
+
+/* JS-driven parallax depth layer — keeps the mouse-tracked translate3d
+   separate from the orb's own CSS float/floatAlt keyframe animation, since
+   an inline transform on the same element would fight the animated one. */
+.hero-orb-layer {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
 }
 
 .hero-orb {
@@ -1587,7 +1767,7 @@ html.dark-mode body {
 .hero-orb--1 {
   width: 480px;
   height: 480px;
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.28) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(224, 184, 118, 0.16) 0%, transparent 70%);
   top: -80px;
   right: -100px;
   animation: float 10s ease-in-out infinite;
@@ -1596,7 +1776,7 @@ html.dark-mode body {
 .hero-orb--2 {
   width: 360px;
   height: 360px;
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.22) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(127, 174, 92, 0.12) 0%, transparent 70%);
   bottom: -60px;
   left: -80px;
   animation: floatAlt 13s ease-in-out infinite;
@@ -1605,6 +1785,8 @@ html.dark-mode body {
 .hero-content {
   position: relative;
   z-index: 1;
+  will-change: transform;
+  transform-style: preserve-3d;
 }
 
 .hero-eyebrow {
@@ -1615,8 +1797,9 @@ html.dark-mode body {
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-light);
   margin-bottom: 22px;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
 }
 
 .hero-eyebrow::before,
@@ -1632,9 +1815,9 @@ html.dark-mode body {
 .hero-title {
   font-family: var(--font-display);
   font-size: clamp(2.4rem, 5vw, 3.8rem);
-  font-weight: 800;
-  letter-spacing: -0.05em;
-  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.2;
   background: var(--accent-gradient-wide);
   background-size: 200% auto;
   -webkit-background-clip: text;
@@ -1642,6 +1825,14 @@ html.dark-mode body {
   background-clip: text;
   margin-bottom: 18px;
   animation: shimmerSlide 5s linear infinite;
+  filter: drop-shadow(0 3px 14px rgba(0, 0, 0, 0.5));
+}
+
+/* Bigger treatment when used as the home page's main hero headline */
+.hero-section .hero-title {
+  font-size: clamp(2.8rem, 6vw, 4.6rem);
+  font-style: italic;
+  line-height: 1.15;
 }
 
 .hero-subtitle {
@@ -1653,6 +1844,7 @@ html.dark-mode body {
   margin: 0 auto 8px;
   line-height: 1.65;
   text-align: center;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
 }
 
 .hero-description {
@@ -1671,6 +1863,8 @@ html.dark-mode body {
   background: var(--surface);
   border: 1px solid var(--border);
   box-shadow: var(--shadow-card);
+  backdrop-filter: blur(16px) saturate(150%);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
 }
 
 .hero-cta-row {
@@ -1701,13 +1895,13 @@ a.cta-btn--primary {
   background: var(--accent-gradient-wide);
   background-size: 200% auto;
   color: #fff !important;
-  box-shadow: 0 4px 18px rgba(99, 102, 241, 0.4);
+  box-shadow: 0 4px 18px rgba(184, 130, 63, 0.4);
 }
 
 .main a.cta-btn--primary:hover,
 a.cta-btn--primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 28px rgba(99, 102, 241, 0.5);
+  box-shadow: 0 8px 28px rgba(184, 130, 63, 0.5);
   color: #fff !important;
   text-decoration: none !important;
   background-position: right center;
@@ -1719,6 +1913,8 @@ a.cta-btn--secondary {
   color: var(--text) !important;
   border: 1px solid var(--border);
   box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
 }
 
 .main a.cta-btn--secondary:hover,
@@ -1740,4 +1936,553 @@ a.cta-btn--secondary:hover {
   transform: scale(0);
   animation: rippleAnim 0.55s ease-out forwards;
   pointer-events: none;
+}
+
+/* ===============================================
+   HOME PAGE — LIVING BACKGROUND SCENE
+   bg-1 fills the page; hovering fades a soft
+   radius around the cursor into bg-2 underneath.
+=============================================== */
+body.page-home {
+  --bg: transparent;
+  --surface: rgba(255, 255, 255, 0.55);
+  --surface-2: rgba(236, 230, 216, 0.55);
+  --text: #1c1a14;
+  --text-secondary: #6c6656;
+  --border: rgba(28, 26, 20, 0.14);
+  --header-bg: rgba(246, 243, 236, 0.75);
+  background: transparent;
+}
+
+html.dark-mode body.page-home {
+  --bg: #0a0a07;
+  --surface: rgba(22, 20, 14, 0.55);
+  --surface-2: rgba(32, 30, 21, 0.55);
+  --text: #f1ede1;
+  --text-secondary: #b9b39c;
+  --border: rgba(241, 237, 225, 0.16);
+  --header-bg: rgba(10, 10, 7, 0.55);
+}
+
+body.page-home .page-container,
+body.page-home .main,
+body.page-home .sidebar {
+  background-color: transparent;
+}
+
+body.page-home .main-header {
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+}
+
+.bg-scene {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background-color: #050503;
+  pointer-events: none;
+}
+
+.bg-layer {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.bg-layer--base {
+  background-image: url('img/bg/bg-1.png');
+}
+
+.bg-layer--reveal {
+  background-image: url('img/bg/bg-2.png');
+  /* --mr is a spring-animated radius (see initBgReveal in script.js): it
+     grows outward with a little overshoot on hover and eases back to 0 on
+     leave, so the growth underneath reads as sprouting/retracting rather
+     than a flat fade. */
+  -webkit-mask-image: radial-gradient(circle var(--mr, 0px) at var(--mx, 50%) var(--my, 50%), rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.45) 55%, rgba(0, 0, 0, 0) 100%);
+  mask-image: radial-gradient(circle var(--mr, 0px) at var(--mx, 50%) var(--my, 50%), rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.45) 55%, rgba(0, 0, 0, 0) 100%);
+}
+
+/* Light-mode scrim: bg-1/bg-2 are dark artwork with no light-theme variant,
+   so this washes them out toward the site's light palette instead. Fades
+   out in dark mode, where the artwork is shown at full strength. */
+.bg-scene-scrim {
+  position: absolute;
+  inset: 0;
+  background: rgba(246, 243, 236, 0.82);
+  opacity: 1;
+  transition: opacity var(--transition-slow);
+}
+
+html.dark-mode .bg-scene-scrim {
+  opacity: 0;
+}
+
+/* Point light at the cursor: scales up from nothing so the reveal
+   underneath reads as if it grew outward from this light source. */
+.bg-cursor-light {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(224, 184, 118, 0.95) 0%, rgba(224, 184, 118, 0.4) 45%, rgba(224, 184, 118, 0) 75%);
+  mix-blend-mode: multiply;
+  filter: blur(2px);
+  opacity: 0;
+  /* --lx/--ly are eased toward the cursor in JS (see initBgReveal), giving
+     the light a trailing "catch up" delay instead of snapping instantly. */
+  translate: calc(var(--lx, 50vw) - 25px) calc(var(--ly, 50vh) - 25px);
+  scale: 0;
+  transform-origin: center;
+  transition: opacity 0.4s ease, scale 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+  will-change: translate;
+}
+
+body.page-home.bg-hover .bg-cursor-light {
+  opacity: 1;
+  scale: 1;
+}
+
+html.dark-mode .bg-cursor-light {
+  mix-blend-mode: screen;
+}
+
+/* ===============================================
+   ABOUT PAGE — SCROLL STORY
+   No sidebar/middle-bar on this page: .main is a
+   full-width, normal-document-flow narrative.
+=============================================== */
+body.page-about .main {
+  flex: none;
+  width: 100%;
+  max-width: none;
+  padding: 0;
+  overflow-y: visible;
+}
+
+body.page-about .main #backToTopBtn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+}
+
+/* Real <img class="story-photo"> elements should never get the generic
+   dark-mode icon-invert filter, and shouldn't inherit the site-wide
+   `img { border-radius: 50% }` reset meant for avatar/icon art. */
+body.dark-mode .main img.story-photo {
+  filter: none;
+}
+
+.story-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+/* Scroll progress rail, fixed just under the header */
+.story-progress {
+  position: fixed;
+  top: 56px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  z-index: 998;
+  pointer-events: none;
+}
+
+.story-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: var(--accent-gradient-wide);
+}
+
+/* ---------- Cover ---------- */
+.story-cover {
+  position: relative;
+  min-height: calc(100vh - 56px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  padding: 40px 24px;
+}
+
+.story-cover-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 28% 24%, rgba(184, 130, 63, 0.16), transparent 55%),
+    radial-gradient(circle at 76% 78%, rgba(127, 174, 92, 0.14), transparent 55%);
+}
+
+.story-cover-content {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+}
+
+.story-eyebrow {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 24px;
+}
+
+.story-cover-title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 700;
+  font-size: clamp(3rem, 9vw, 6.5rem);
+  line-height: 1.05;
+  background: var(--accent-gradient-wide);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmerSlide 5s linear infinite;
+  margin-bottom: 26px;
+}
+
+.story-cover-subtitle {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  max-width: 480px;
+  margin: 0 auto 56px;
+  line-height: 1.7;
+}
+
+.story-scroll-cue {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.story-scroll-cue span {
+  position: relative;
+  width: 1px;
+  height: 36px;
+  overflow: hidden;
+  background: var(--border);
+}
+
+.story-scroll-cue span::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--accent);
+  animation: scrollCue 1.8s ease-in-out infinite;
+}
+
+@keyframes scrollCue {
+  0% { top: -100%; }
+  60%, 100% { top: 100%; }
+}
+
+/* ---------- Chapters (alternating image + text) ---------- */
+.story-chapter {
+  display: flex;
+  align-items: center;
+  gap: 64px;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 110px 52px;
+}
+
+.story-chapter--reverse {
+  flex-direction: row-reverse;
+}
+
+.story-chapter-media,
+.story-chapter-text {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+/* ---------- Section divider (replaces the old "Chapter N" labels) ---------- */
+.story-divider {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0 52px;
+}
+
+.story-divider::before,
+.story-divider::after {
+  content: "";
+  flex: 1 1 auto;
+  height: 1px;
+  background: var(--border);
+}
+
+.story-divider-dot {
+  flex: 0 0 auto;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent-gradient-wide);
+}
+
+.story-heading {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 700;
+  font-size: clamp(1.9rem, 3.4vw, 2.6rem);
+  line-height: 1.2;
+  color: var(--text);
+  margin-bottom: 22px;
+}
+
+.story-chapter-text p,
+.story-timeline-body p,
+.story-tile p {
+  font-size: 1.02rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+.story-chapter-text p + p {
+  margin-top: 18px;
+}
+
+/* Scroll-linked text highlight: words start dim and light up in sequence
+   as their paragraph scrolls through the "reading line" — see
+   initScrollTextHighlight() in script.js. */
+.story-word {
+  color: var(--text-secondary);
+  opacity: 0.4;
+  transition: color 0.4s ease, opacity 0.4s ease;
+}
+
+.story-word.lit {
+  color: var(--text);
+  opacity: 1;
+}
+
+/* Photo panel — degrades to a designed gradient wash + dot texture when no
+   real <img class="story-photo"> has been dropped in yet. */
+.story-media {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  background-image:
+    radial-gradient(rgba(255, 255, 255, 0.35) 1px, transparent 1px),
+    linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 55%, var(--accent-green) 100%);
+  background-size: 18px 18px, cover;
+}
+
+.story-media--cool {
+  background-image:
+    radial-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 1px),
+    linear-gradient(135deg, var(--accent-green) 0%, var(--accent-light) 55%, var(--accent) 100%);
+  background-size: 18px 18px, cover;
+}
+
+body.dark-mode .story-media {
+  background-image:
+    radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(135deg, var(--accent-dark) 0%, var(--accent) 55%, var(--accent-green) 100%);
+  background-size: 18px 18px, cover;
+}
+
+body.dark-mode .story-media--cool {
+  background-image:
+    radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(135deg, var(--accent-green) 0%, var(--accent) 55%, var(--accent-dark) 100%);
+  background-size: 18px 18px, cover;
+}
+
+/* Flat gold placeholder — stands in for a real photo without the
+   gradient/dot texture. Same solid fill in both themes. */
+.story-media.story-media--placeholder-solid {
+  background-image: none;
+  background-color: var(--accent);
+}
+
+/* ---------- Journey / Hobbies section head ---------- */
+.story-chapter-full {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 90px 52px;
+}
+
+.story-section-head {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 64px;
+}
+
+/* ---------- Journey timeline ---------- */
+.story-timeline {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+
+.story-timeline-item::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.story-timeline-body {
+  min-width: 0;
+}
+
+.story-timeline-body .story-media--timeline {
+  float: left;
+  width: 260px;
+  aspect-ratio: 4 / 3;
+  margin: 4px 32px 20px 0;
+  shape-outside: inset(0 round var(--radius-lg));
+}
+
+.story-timeline-item:nth-child(even) .story-media--timeline {
+  float: right;
+  margin: 4px 0 20px 32px;
+  shape-outside: inset(0 round var(--radius-lg));
+}
+
+.story-timeline-meta {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  margin-bottom: 10px;
+}
+
+.story-timeline-date {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.story-timeline-title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--text);
+}
+
+/* ---------- Hobbies tiles ---------- */
+/* Higher specificity than `.main ul { list-style-type: disc; padding-left: 20px }`
+   (style.css ~line 403), which otherwise wins the cascade over a single class. */
+.main .story-tiles {
+  list-style: none;
+  padding-left: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+.story-tile {
+  text-align: center;
+}
+
+.story-tile .story-media--tile {
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius);
+}
+
+/* Caption overlay: hidden until hover, then fades in and darkens the photo
+   underneath — same element does both jobs (the dark background *is* the
+   darkening, its opacity fading in *is* the text reveal). */
+.story-tile .story-tile-caption {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  margin: 0;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.55);
+  opacity: 0;
+  transition: opacity var(--transition-md);
+  pointer-events: none;
+}
+
+.story-tile:hover .story-tile-caption,
+.story-tile:focus-within .story-tile-caption {
+  opacity: 1;
+}
+
+.story-cta-row {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 64px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  body.page-about .main {
+    padding: 0;
+  }
+
+  .story-chapter {
+    flex-direction: column;
+    padding: 64px 24px;
+    gap: 32px;
+  }
+
+  .story-chapter--reverse {
+    flex-direction: column;
+  }
+
+  .story-chapter-media {
+    width: 100%;
+  }
+
+  .story-media {
+    aspect-ratio: 16 / 10;
+  }
+
+  .story-chapter-full {
+    padding: 56px 24px;
+  }
+
+  .story-timeline-body .story-media--timeline,
+  .story-timeline-item:nth-child(even) .story-media--timeline {
+    float: none;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    margin: 0 0 20px;
+  }
 }

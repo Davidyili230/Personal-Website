@@ -1,63 +1,100 @@
 {
-    "sections": {
-      "intro": {
-        "title": "Introduction",
-        "p1": "Hi, I’m David, a computer science student with a strong interest in building practical, real-world software solutions. I enjoy working across different areas of computer science, including software development, problem-solving, and system design.",
-        "p2": "Through my academic projects and personal work, I focus on writing clean, efficient code and understanding how systems work under the hood. I’m especially motivated by projects that combine technical challenges with real user impact.",
-        "p3": "Outside of coding, I value teamwork and leadership, which I’ve developed through student organizations and collaborative projects. I’m always eager to learn new technologies, refine my skills, and take on opportunities that push me to grow as a developer."
-      },
-      "whyDavid": {
-        "title": "Why am I known as David?",
-        "p": [
-          "The name \"David\" came from an unexpected place—my mom’s American friend. Curious how? Back in elementary school, both students and teachers constantly mispronounced my real name, \"Yi.\" Instead of saying \"Ee,\" everyone said \"Yee.\" Frustrated, I told my mom about it. A few days later, she was chatting with her American friend when she mentioned how simple his name, David, was to pronounce. And just like that, David became my nickname.",
-          "What’s funny is how far the name stuck. In high school, whenever a new class or teacher came along, I’d introduce myself as David right away. It became second nature—soon, everyone knew me as David. Then came graduation. As people flipped through the yearbook looking for my profile, they suddenly realized something shocking. My legal name is Yi Li. People were genuinely freaking out. Some had known me for years and never knew David wasn’t my real name.",
-          "The best part? One of my closest friends—someone I’d known since I was 10—didn’t find out my real name until we were 17."
-        ]
-      },
-      "journey": {
-        "title": "What I enjoy doing",
-        "items": [
-          {
-            "date": "December 23, 2025",
-            "title": "Club Christmas Hangout & Hotpot",
-            "text": "At first, my club and I planned to rent a badminton court to play together. It took months to finalize the decision because finals were approaching, and everyone was busy. By the time we revisited the idea, it was already around Christmas. We held another meeting and decided to turn it into a small celebration by renting a badminton court and doing a Secret Santa exchange. We met at a badminton court in Flushing, where we played against each other and also teamed up for matches. Finals had ended just the day before, and that day turned out to be one of the best I had experienced in the past six months. For Secret Santa, I got our president, Haasil, while our graphic designer, Luna, got me. We exchanged gifts before leaving the court and heading out for hotpot together. The hotpot restaurant offered both a buffet and à la carte options. The manager suggested that the boys get the buffet while the others ordered individual dishes, so we followed that recommendation. Three other members and I practically turned our table into a battlefield, finishing 21 plates of meat, while the others enjoyed their food and conversations. After paying the bill, we played a few rounds of Mafia before heading home. The entire night was so fun that I ended up editing the video for this club hangout."
-          },
-          {
-            "date": "November 30, 2025",
-            "title": "My First Friendsgiving",
-            "text": "This was my first-ever Friendsgiving. I was invited just two days before the event by a friend while we were studying together at a café. I only knew a few people there, so I was hesitant about going at first—until I found out the house we were going to had cats. Originally, I planned to bring a Chinese dessert called bing fen (ice rice), but the place that sells it opens late. Instead, I decided to buy steak and cook it at my friend’s house. Once I arrived, I immediately tried to find the cats, but they were all hiding from me. Around 3 p.m., I started cooking the steak and managed to make a perfect medium steak. Just when I thought my dish would be the last one served, another dish was still on the way. I ended up waiting an extra hour, and by then my steak had gone cold and dry. After eating, we spent the rest of the time talking and playing Mafia and other board games. Overall, I had a lot of fun at my first Friendsgiving party."
-          },
-          {
-            "date": "August 10, 2025",
-            "title": "Reuniting with High School Friends",
-            "text": "I met up with two of my best friends from high school. It had been four years since we last saw each other. Both of them looked different from how I remembered them. We went to Raising Cane’s together, catching up on everything from education to work to relationships. We talked like we were back in high school. After going to the library and Petco, we got desserts and then went our separate ways. We hope to see each other soon."
-          },
-          {
-            "date": "July 24, 2025",
-            "title": "Hiking Bear Mountain",
-            "text": "This time, I joined two friends on a challenging hike of the entire 1,473-foot Bear Mountain. We opted for the same route as the Cold Spring train but got off a few stops early. The mountain was a two-hour drive from the station, and we were confident that we could complete a 2.5-hour walk to the mountain, a 5-hour trail, and then another 2.5-hour walk back. However, our plans took an unexpected turn. About 30 minutes into our hike, we noticed that the only route to the summit was closed due to construction. Undeterred, we decided to take a Lyft to the starting point. From there, we had lunch and set off on our adventure. Everything went smoothly until we reached the 30-minute mark. It became increasingly difficult for me to keep up with my two friends. The trail was much steeper than Bull Hill, and after two hours, we had reached the peak, having completed one-third of the loop. Exhausted, we knew we had to continue. My leg began to ache, just like it had on my first hike, and my two friends were also experiencing discomfort. We stumbled upon two straight sticks lying on a tree, as if someone had placed them there knowing we were in trouble. At this point, we were at the two-thirds mark of our journey.As we descended, we lost our way, navigating a trail where the tracks became increasingly difficult to see. Suddenly, we spotted deer, and at that moment, we realized that it had all been worth it. We had 15 minutes left to reach our destination. We kept walking until we noticed a bright light coming in the distance. We had made it! We left the sticks on a sign, hoping that someone in need would find them. It was a truly memorable hike, and we were all proud of completing the most challenging route."
-          },
-          {
-            "date": "April 17, 2025",
-            "title": "Hiking Bull Hill",
-            "text": "I hiked the full loop of Bull Hill, a 1,400 ft mountain (though I still don’t understand why it’s called a hill). My friend and I started early, and it took us about 2 hours and 30 minutes to reach Cold Spring. The uphill portion alone took nearly 2 hours and covered about a third of the entire trail. It was only my second time hiking a mountain, but this one was way more exhausting than my first. Reaching the peak was unforgettable — I had never seen a mountain skyline before, and the view was absolutely breathtaking. The descent took another 2 hours. My legs were aching so badly by the end that I could barely walk. We finally took an 8-minute break just before finishing the trail, completely worn out but proud."
-          },
-          {
-            "date": "August 1, 2024",
-            "title": "Kalahari Resort Trip",
-            "text": "four of us — three friends and me — took a 2-day, 1-night trip to Kalahari Resort. We drove 3 hours, and it was our first trip together. We made the most of every moment. We stopped at Walmart for late-night snacks (and, of course, barely ate half of what we bought). Everyone was hyped for the rides, and we kicked things off with the 7ft drop ride. One of our friends almost drowned, which was scary at first but turned into a joke we still laugh about. We hit the Jacuzzi, lazy river, wave pool, and a bunch of other rides. At night, we got into some trouble with a little ding-dong ditching, got caught, and were banned from leaving our room. Safe to say, we won’t be doing that again! Later, my friends wanted to watch The Nun (horror movie based on a true story), but I knocked out halfway through. It wasn’t super scary, though. Overall, it was an awesome experience, and we’re thinking about doing something similar next summer."
-          }
-        ]
-      },
-      "hobbies": {
-        "title": "I like to...",
-        "items": [
-          "Explore NYC and hunting for new food spots to try.",
-          "Travel to new places, soaking in different atmospheres, and spending time in nature.",
-          "Play games with my gaming friends at night — it’s our way to relax, laugh, and have fun together.",
-          "Play pool at night with close friends—it’s one of my favorite ways to unwind."
-        ]
-      }
+  "sections": {
+    "intro": {
+      "title": "Introduction",
+      "photo": "img/about/introduction.png",
+      "p1": "Hi, I’m David, a computer science student with a strong interest in building practical, real-world software solutions. I enjoy working across different areas of computer science, including software development, problem-solving, and system design.",
+      "p2": "Through my academic projects and personal work, I focus on writing clean, efficient code and understanding how systems work under the hood. I’m especially motivated by projects that combine technical challenges with real user impact.",
+      "p3": "Outside of coding, I value teamwork and leadership, which I’ve developed through student organizations and collaborative projects. I’m always eager to learn new technologies, refine my skills, and take on opportunities that push me to grow as a developer."
+    },
+    "whyDavid": {
+      "title": "Why am I known as David?",
+      "photo": "img/about/Why-David.png",
+      "p": [
+        "The name \"David\" came from an unexpected place—my mom’s American friend. Curious how? Back in elementary school, both students and teachers constantly mispronounced my real name, \"Yi.\" Instead of saying \"Ee,\" everyone said \"Yee.\" Frustrated, I told my mom about it. A few days later, she was chatting with her American friend when she mentioned how simple his name, David, was to pronounce. And just like that, David became my nickname.",
+        "What’s funny is how far the name stuck. In high school, whenever a new class or teacher came along, I’d introduce myself as David right away. It became second nature—soon, everyone knew me as David. Then came graduation. As people flipped through the yearbook looking for my profile, they suddenly realized something shocking. My legal name is Yi Li. People were genuinely freaking out. Some had known me for years and never knew David wasn’t my real name.",
+        "The best part? One of my closest friends—someone I’d known since I was 10—didn’t find out my real name until we were 17."
+      ]
+    },
+    "journey": {
+      "title": "What I enjoy doing",
+      "items": [
+        {
+          "date": "",
+          "title": "",
+          "photo": "",
+          "text": ""
+        },
+        {
+          "date": "",
+          "title": "",
+          "photo": "",
+          "text": ""
+        },
+        {
+          "date": "February 1, 2026",
+          "title": "Snowboarding w/ Friends",
+          "photo": "img/about/journey/snowboarding.png",
+          "text": "The plan was made from a friend randomly mentioning to go snowbaording and we gathered a group of 9. Couple of us thought this plan will only stay in the groupchat but we made it happened. I kept reminding the whole group to arrive on time while a friend and I was 5 min late...hahah. We took the bus to American Dream, got some cool transition reels done. Most of us started on beginnger slope and 1 person decided to go on medium slope. After trying the beginner, a lot of us wanted to try the medium slope. I fell when geting off the lift, as well as my other friends. I was scared at first but I got to slide down the slope by falling a couple time... pretty successful until I went for second time and fell very hard. I dislocated my shoulder and located it back after 5 min. It hurts...a lot, its the first time dislocated. Went to the ski patrol and they said I'm good to go but doesnt recommend me to go back to medium slope. Later on, I just roam around until our session ended. WE took bus to Manhattan to get dinner. We got Chubby BBQ, wherer we get to cook BBQ ourselves."
+        },
+        {
+          "date": "December 23, 2025",
+          "title": "Club Christmas Hangout & Hotpot",
+          "photo": "img/about/journey/badminton.png",
+          "text": "At first, my club and I planned to rent a badminton court to play together. It took months to finalize the decision because finals were approaching, and everyone was busy. By the time we revisited the idea, it was already around Christmas. We held another meeting and decided to turn it into a small celebration by renting a badminton court and doing a Secret Santa exchange. We met at a badminton court in Flushing, where we played against each other and also teamed up for matches. Finals had ended just the day before, and that day turned out to be one of the best I had experienced in the past six months. For Secret Santa, I got our president, Haasil, while our graphic designer, Luna, got me. We exchanged gifts before leaving the court and heading out for hotpot together. The hotpot restaurant offered both a buffet and à la carte options. The manager suggested that the boys get the buffet while the others ordered individual dishes, so we followed that recommendation. Three other members and I practically turned our table into a battlefield, finishing 21 plates of meat, while the others enjoyed their food and conversations. After paying the bill, we played a few rounds of Mafia before heading home. The entire night was so fun that I ended up editing the video for this club hangout."
+        },
+        {
+          "date": "November 30, 2025",
+          "title": "My First Friendsgiving",
+          "photo": "img/about/journey/thanksgiving.png",
+          "text": "This was my first-ever Friendsgiving. I was invited just two days before the event by a friend while we were studying together at a café. I only knew a few people there, so I was hesitant about going at first—until I found out the house we were going to had cats. Originally, I planned to bring a Chinese dessert called bing fen (ice rice), but the place that sells it opens late. Instead, I decided to buy steak and cook it at my friend’s house. Once I arrived, I immediately tried to find the cats, but they were all hiding from me. Around 3 p.m., I started cooking the steak and managed to make a perfect medium steak. Just when I thought my dish would be the last one served, another dish was still on the way. I ended up waiting an extra hour, and by then my steak had gone cold and dry. After eating, we spent the rest of the time talking and playing Mafia and other board games. Overall, I had a lot of fun at my first Friendsgiving party."
+        },
+        {
+          "date": "August 10, 2025",
+          "title": "Reuniting with High School Friends",
+          "photo": "img/about/journey/reuniting.png",
+          "text": "I met up with two of my best friends from high school. It had been four years since we last saw each other. Both of them looked different from how I remembered them. We went to Raising Cane’s together, catching up on everything from education to work to relationships. We talked like we were back in high school. After going to the library and Petco, we got desserts and then went our separate ways. We hope to see each other soon."
+        },
+        {
+          "date": "July 24, 2025",
+          "title": "Hiking Bear Mountain",
+          "photo": "img/about/journey/bear-mountain.png",
+          "text": "This time, I joined two friends on a challenging hike of the entire 1,473-foot Bear Mountain. We opted for the same route as the Cold Spring train but got off a few stops early. The mountain was a two-hour drive from the station, and we were confident that we could complete a 2.5-hour walk to the mountain, a 5-hour trail, and then another 2.5-hour walk back. However, our plans took an unexpected turn. About 30 minutes into our hike, we noticed that the only route to the summit was closed due to construction. Undeterred, we decided to take a Lyft to the starting point. From there, we had lunch and set off on our adventure. Everything went smoothly until we reached the 30-minute mark. It became increasingly difficult for me to keep up with my two friends. The trail was much steeper than Bull Hill, and after two hours, we had reached the peak, having completed one-third of the loop. Exhausted, we knew we had to continue. My leg began to ache, just like it had on my first hike, and my two friends were also experiencing discomfort. We stumbled upon two straight sticks lying on a tree, as if someone had placed them there knowing we were in trouble. At this point, we were at the two-thirds mark of our journey.As we descended, we lost our way, navigating a trail where the tracks became increasingly difficult to see. Suddenly, we spotted deer, and at that moment, we realized that it had all been worth it. We had 15 minutes left to reach our destination. We kept walking until we noticed a bright light coming in the distance. We had made it! We left the sticks on a sign, hoping that someone in need would find them. It was a truly memorable hike, and we were all proud of completing the most challenging route."
+        },
+        {
+          "date": "April 17, 2025",
+          "title": "Hiking Bull Hill",
+          "photo": "img/about/journey/Bull-Hill.png",
+          "text": "I hiked the full loop of Bull Hill, a 1,400 ft mountain (though I still don’t understand why it’s called a hill). My friend and I started early, and it took us about 2 hours and 30 minutes to reach Cold Spring. The uphill portion alone took nearly 2 hours and covered about a third of the entire trail. It was only my second time hiking a mountain, but this one was way more exhausting than my first. Reaching the peak was unforgettable — I had never seen a mountain skyline before, and the view was absolutely breathtaking. The descent took another 2 hours. My legs were aching so badly by the end that I could barely walk. We finally took an 8-minute break just before finishing the trail, completely worn out but proud."
+        },
+        {
+          "date": "August 1, 2024",
+          "title": "Kalahari Resort Trip",
+          "photo": "",
+          "text": "four of us — three friends and me — took a 2-day, 1-night trip to Kalahari Resort. We drove 3 hours, and it was our first trip together. We made the most of every moment. We stopped at Walmart for late-night snacks (and, of course, barely ate half of what we bought). Everyone was hyped for the rides, and we kicked things off with the 7ft drop ride. One of our friends almost drowned, which was scary at first but turned into a joke we still laugh about. We hit the Jacuzzi, lazy river, wave pool, and a bunch of other rides. At night, we got into some trouble with a little ding-dong ditching, got caught, and were banned from leaving our room. Safe to say, we won’t be doing that again! Later, my friends wanted to watch The Nun (horror movie based on a true story), but I knocked out halfway through. It wasn’t super scary, though. Overall, it was an awesome experience, and we’re thinking about doing something similar next summer."
+        }
+      ]
+    },
+    "hobbies": {
+      "title": "I like to...",
+      "items": [
+        {
+          "text": "Explore NYC and hunting for new food spots to try.",
+          "photo": "img/about/hobbies/food.png"
+        },
+        {
+          "text": "Travel to new places, soaking in different atmospheres, and spending time in nature.",
+          "photo": "img/about/hobbies/sky.png"
+        },
+        {
+          "text": "Play games with my gaming friends at night — it’s our way to relax, laugh, and have fun together.",
+          "photo": "img/about/hobbies/among-us.png"
+        },
+        {
+          "text": "Play pool at night with close friends—it’s one of my favorite ways to unwind.",
+          "photo": "img/about/hobbies/pool.png"
+        }
+      ]
     }
   }
-  
+}

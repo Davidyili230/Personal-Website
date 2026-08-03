@@ -39,11 +39,17 @@ function scrollToSection(sectionId) {
 // can register their new elements too — a plain querySelectorAll at script
 // load time only ever sees static markup.
 const bindReveals = (function initReveal() {
+  // Observed element -> reveal target(s) to activate. Usually the same
+  // element, except for the clip-path patterns below (see revealTargets).
+  const revealTargets = new Map();
+
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('active');
+          const targets = revealTargets.get(entry.target) || [entry.target];
+          targets.forEach((t) => t.classList.add('active'));
+          revealTargets.delete(entry.target);
           observer.unobserve(entry.target);
         }
       });
@@ -52,10 +58,24 @@ const bindReveals = (function initReveal() {
   );
 
   return function bindReveals(root = document) {
-    root.querySelectorAll('.reveal:not([data-reveal-bound]), .reveal-left:not([data-reveal-bound]), .reveal-scale:not([data-reveal-bound]), .story-media-reveal-ltr:not([data-reveal-bound]), .story-media-reveal-rtl:not([data-reveal-bound]), .story-media-reveal-pop:not([data-reveal-bound]), .story-media-reveal-btt:not([data-reveal-bound])')
+    root.querySelectorAll('.reveal:not([data-reveal-bound]), .reveal-left:not([data-reveal-bound]), .reveal-scale:not([data-reveal-bound]), .story-media-reveal-pop:not([data-reveal-bound])')
       .forEach((el) => {
         el.setAttribute('data-reveal-bound', '');
         observer.observe(el);
+      });
+
+    // .story-media-reveal-ltr/-rtl/-btt start fully closed via clip-path
+    // (zero visible area), which makes the browser permanently report
+    // isIntersecting: false for the element itself — it can never detect
+    // its own visibility to trigger the reveal that would open the clip.
+    // Observe the (unclipped) parent instead and activate the clipped
+    // element once that parent scrolls into view.
+    root.querySelectorAll('.story-media-reveal-ltr:not([data-reveal-bound]), .story-media-reveal-rtl:not([data-reveal-bound]), .story-media-reveal-btt:not([data-reveal-bound])')
+      .forEach((el) => {
+        el.setAttribute('data-reveal-bound', '');
+        const anchor = el.parentElement || el;
+        revealTargets.set(anchor, [...(revealTargets.get(anchor) || []), el]);
+        observer.observe(anchor);
       });
   };
 })();
@@ -389,15 +409,21 @@ document.addEventListener('DOMContentLoaded', () => {
 // Transparent 1x1 placeholder — real <img class="story-photo"> elements
 // wired up ahead of having actual photos. .story-media's own gradient wash
 // still shows through, and swapping in a real photo later is just a `src`
-// change on this element, no markup restructuring.
+// change on this element, no markup restructuring. Real photos go in img/about/.
 const EMPTY_STORY_PHOTO_SRC = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
 
-function createStoryPhoto() {
+function createStoryPhoto(src) {
   const img = document.createElement("img");
   img.className = "story-photo";
-  img.src = EMPTY_STORY_PHOTO_SRC;
+  img.src = src || EMPTY_STORY_PHOTO_SRC;
   img.alt = "";
   return img;
+}
+
+function showJourneyFallbackPhoto() {
+  const photo = document.getElementById("JourneyFallbackPhoto");
+  if (!photo) return;
+  photo.style.display = "block";
 }
 
 async function loadAboutData() {
@@ -414,19 +440,23 @@ async function loadAboutData() {
 
     // Intro
     const introTitle = document.getElementById("IntroTitle");
+    const introPhoto = document.getElementById("IntroPhoto");
     const introP1 = document.getElementById("IntroP1");
     const introP2 = document.getElementById("IntroP2");
     const introP3 = document.getElementById("IntroP3");
 
     if (introTitle) introTitle.textContent = data.sections?.intro?.title ?? "Intro";
+    if (introPhoto) introPhoto.src = data.sections?.intro?.photo || EMPTY_STORY_PHOTO_SRC;
     if (introP1) introP1.textContent = data.sections?.intro?.p1 ?? "";
     if (introP2) introP2.textContent = data.sections?.intro?.p2 ?? "";
     if (introP3) introP3.textContent = data.sections?.intro?.p3 ?? "";
 
     // Why David (multiple paragraphs, each its own reveal beat)
     const whyDavidTitle = document.getElementById("WhyDavidTitle");
+    const whyDavidPhoto = document.getElementById("WhyDavidPhoto");
     const whyContainer = document.getElementById("WhyDavidContainer");
     if (whyDavidTitle) whyDavidTitle.textContent = data.sections?.whyDavid?.title ?? whyDavidTitle.textContent;
+    if (whyDavidPhoto) whyDavidPhoto.src = data.sections?.whyDavid?.photo || EMPTY_STORY_PHOTO_SRC;
     if (whyContainer) {
       whyContainer.innerHTML = "";
       const paragraphs = data.sections?.whyDavid?.p ?? [];
@@ -461,7 +491,7 @@ async function loadAboutData() {
         const media = document.createElement("div");
         const revealPattern = idx % 2 === 0 ? "story-media-reveal-ltr" : "story-media-reveal-btt";
         media.className = `story-media story-media--${idx % 2 === 0 ? "warm" : "cool"} story-media--timeline ${revealPattern}`;
-        media.appendChild(createStoryPhoto());
+        media.appendChild(createStoryPhoto(it.photo));
         body.appendChild(media);
 
         const meta = document.createElement("div");
@@ -502,19 +532,19 @@ async function loadAboutData() {
       hobbiesList.innerHTML = "";
       const hobbies = data.sections?.hobbies?.items ?? [];
       const delays = ["", "delay-1", "delay-2", "delay-3", "delay-4", "delay-5"];
-      hobbies.forEach((txt, idx) => {
+      hobbies.forEach((hobby, idx) => {
         const li = document.createElement("li");
         li.className = `story-tile reveal-scale ${delays[idx % delays.length]}`.trim();
 
         const media = document.createElement("div");
         media.className = `story-media story-media--${idx % 2 === 0 ? "warm" : "cool"} story-media--tile story-media-reveal-pop`;
-        media.appendChild(createStoryPhoto());
+        media.appendChild(createStoryPhoto(hobby.photo));
 
         // Caption lives inside the image itself — hidden until hover, see
         // .story-tile-caption in style.css.
         const caption = document.createElement("p");
         caption.className = "story-tile-caption";
-        caption.textContent = txt;
+        caption.textContent = hobby.text;
         media.appendChild(caption);
 
         li.appendChild(media);
@@ -529,6 +559,7 @@ async function loadAboutData() {
 
   } catch (err) {
     console.error(err);
+    showJourneyFallbackPhoto();
   }
 }
 

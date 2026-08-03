@@ -1,33 +1,33 @@
 {
   "sidebar": {
-    "profileImage": "img/potrait.jpg",
+    "profileImage": "img/profile/potrait.jpg",
     "name": "YI 'DAVID' LI",
     "email": "Davidyili230@gmail.com",
     "about": "Hi, I’m David, a computer science student focused on building practical software. I primarily work with C++ and JavaScript and am developing a strong foundation in data structures, algorithms, and object-oriented programming through coursework and projects. I’m continuously improving my skills by writing, testing, and refining real code.",
     "social": [
       {
         "href": "https://www.facebook.com/davidyili230/",
-        "icon": "img/facebook.png",
+        "icon": "img/social/facebook.png",
         "alt": "facebook"
       },
       {
         "href": "https://github.com/Davidyili230",
-        "icon": "img/github.png",
+        "icon": "img/social/github.png",
         "alt": "github"
       },
       {
         "href": "https://www.instagram.com/come.onnnnn/",
-        "icon": "img/instagram.png",
+        "icon": "img/social/instagram.png",
         "alt": "instagram"
       },
       {
         "href": "https://www.linkedin.com/in/davidyili/",
-        "icon": "img/linkedin.png",
+        "icon": "img/social/linkedin.png",
         "alt": "linkedin"
       },
       {
         "href": "https://x.com/come_onnnnn_",
-        "icon": "img/twitter.png",
+        "icon": "img/social/twitter.png",
         "alt": "twitter"
       }
     ],
@@ -38,25 +38,25 @@
     "location": "Brooklyn, NY 11219",
     "contacts": [
       {
-        "icon": "img/phone.png",
+        "icon": "img/icons/phone.png",
         "alt": "phone",
         "href": "tel:+19173657182",
         "text": "917-365-7182"
       },
       {
-        "icon": "img/email.png",
+        "icon": "img/icons/email.png",
         "alt": "email",
         "href": "mailto:Davidyili230@gmail.com",
         "text": "Davidyili230@gmail.com"
       },
       {
-        "icon": "img/linkedin.png",
+        "icon": "img/social/linkedin.png",
         "alt": "linkedin",
         "href": "https://linkedin.com/in/davidyili",
         "text": "linkedin.com/in/davidyili"
       },
       {
-        "icon": "img/github.png",
+        "icon": "img/social/github.png",
         "alt": "github",
         "href": "https://github.com/Davidyili230",
         "text": "github.com/Davidyili230"

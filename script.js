@@ -438,13 +438,13 @@ async function loadAboutData() {
       });
     }
 
-    // Journey timeline — oldest first, so it reads as a narrative building to now
+    // Journey timeline — newest first, matching the order in about.json
     const journeyTitle = document.getElementById("JourneyTitle");
     const journeyList = document.getElementById("JourneyList");
     if (journeyTitle) journeyTitle.textContent = data.sections?.journey?.title ?? journeyTitle.textContent;
     if (journeyList) {
       journeyList.innerHTML = "";
-      const items = [...(data.sections?.journey?.items ?? [])].reverse();
+      const items = [...(data.sections?.journey?.items ?? [])];
       items.forEach((it, idx) => {
         const li = document.createElement("li");
         li.className = `story-timeline-item ${idx % 2 === 0 ? "reveal-left" : "reveal"}`;

@@ -651,6 +651,10 @@
     }
   }
 
+  const GREETING_DISMISSED_KEY = "davidChatGreetingDismissed";
+  const BUBBLE_INTERACTED_KEY = "davidChatBubbleInteracted";
+  const GREETING_DELAY_MS = 3500;
+
   function createWidget() {
     // Kick off data load in the background; KB updates as soon as it resolves.
     loadData().then((data) => {
@@ -660,12 +664,32 @@
     const widget = document.createElement("div");
     widget.id = "chat-widget";
 
+    const bubbleWrap = document.createElement("div");
+    bubbleWrap.className = "chat-bubble-wrap";
+    if (sessionStorage.getItem(BUBBLE_INTERACTED_KEY)) {
+      bubbleWrap.classList.add("no-pulse");
+    }
+
+    const pulseRing = document.createElement("span");
+    pulseRing.className = "chat-pulse-ring";
+    pulseRing.setAttribute("aria-hidden", "true");
+
     const bubble = document.createElement("button");
     bubble.className = "chat-bubble-btn";
     bubble.setAttribute("aria-label", "Open chat assistant");
     bubble.setAttribute("aria-expanded", "false");
     bubble.setAttribute("aria-controls", "chat-window");
     bubble.innerHTML = '<img src="img/chatbot-avatar.png" alt="">';
+
+    bubbleWrap.appendChild(pulseRing);
+    bubbleWrap.appendChild(bubble);
+
+    const greeting = document.createElement("div");
+    greeting.className = "chat-greeting-bubble";
+    greeting.innerHTML = `
+      Hi! 👋 Got a question about David? Click to chat.
+      <button class="chat-greeting-close" aria-label="Dismiss">✕</button>
+    `;
 
     const chatWin = document.createElement("div");
     chatWin.className = "chat-window";
@@ -721,7 +745,8 @@
     chatWin.appendChild(quickReplies);
     chatWin.appendChild(inputArea);
     widget.appendChild(chatWin);
-    widget.appendChild(bubble);
+    widget.appendChild(bubbleWrap);
+    widget.appendChild(greeting);
     document.body.appendChild(widget);
 
     let history = loadHistory();
@@ -729,21 +754,52 @@
     let typingEl = null;
 
     if (history.length === 0) {
-      const greeting =
+      const greetingMsg =
         "Hi! 👋 I'm David's assistant. Ask me anything — projects, skills, education, experience, hobbies, stories, or how to reach him!";
-      history.push({ text: greeting, type: "bot" });
+      history.push({ text: greetingMsg, type: "bot" });
       saveHistory(history);
     }
     history.forEach((m) => renderMessage(m.text, m.type));
 
+    function hideGreeting() {
+      greeting.classList.remove("show");
+    }
+
+    function dismissGreetingForever() {
+      hideGreeting();
+      sessionStorage.setItem(GREETING_DISMISSED_KEY, "1");
+    }
+
+    if (history.length <= 1 && !sessionStorage.getItem(GREETING_DISMISSED_KEY)) {
+      setTimeout(() => {
+        if (!chatWin.classList.contains("open")) greeting.classList.add("show");
+      }, GREETING_DELAY_MS);
+    }
+
+    greeting.addEventListener("click", () => {
+      dismissGreetingForever();
+      setOpen(true);
+    });
+
+    greeting.querySelector(".chat-greeting-close").addEventListener("click", (e) => {
+      e.stopPropagation();
+      dismissGreetingForever();
+    });
+
     function setOpen(open) {
       chatWin.classList.toggle("open", open);
+      bubbleWrap.classList.toggle("chat-open", open);
       bubble.innerHTML = open
         ? "✕"
         : '<img src="img/chatbot-avatar.png" alt="">';
       bubble.setAttribute("aria-label", open ? "Close chat assistant" : "Open chat assistant");
       bubble.setAttribute("aria-expanded", open ? "true" : "false");
-      if (open) setTimeout(() => input.focus(), 200);
+      if (open) {
+        hideGreeting();
+        bubbleWrap.classList.add("no-pulse");
+        sessionStorage.setItem(BUBBLE_INTERACTED_KEY, "1");
+        setTimeout(() => input.focus(), 200);
+      }
     }
 
     bubble.addEventListener("click", () => {

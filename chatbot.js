@@ -652,7 +652,6 @@
   }
 
   const GREETING_DISMISSED_KEY = "davidChatGreetingDismissed";
-  const BUBBLE_INTERACTED_KEY = "davidChatBubbleInteracted";
   const GREETING_DELAY_MS = 3500;
 
   function createWidget() {
@@ -666,9 +665,6 @@
 
     const bubbleWrap = document.createElement("div");
     bubbleWrap.className = "chat-bubble-wrap";
-    if (sessionStorage.getItem(BUBBLE_INTERACTED_KEY)) {
-      bubbleWrap.classList.add("no-pulse");
-    }
 
     const pulseRing = document.createElement("span");
     pulseRing.className = "chat-pulse-ring";
@@ -796,8 +792,6 @@
       bubble.setAttribute("aria-expanded", open ? "true" : "false");
       if (open) {
         hideGreeting();
-        bubbleWrap.classList.add("no-pulse");
-        sessionStorage.setItem(BUBBLE_INTERACTED_KEY, "1");
         setTimeout(() => input.focus(), 200);
       }
     }
